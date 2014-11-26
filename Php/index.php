@@ -7,8 +7,9 @@ $EX = isset($_REQUEST['EX']) ? $_REQUEST['EX'] : 'home';
 
 switch($EX)
 {
-	case 'home'     : home();     break;
-	case 'login'     : login();     break;
+	case 'home'      : home();       break;
+	case 'login'     : login();      break;
+    case 'reportList': reportList(); break;
 	default : error();
 }
 
@@ -36,11 +37,20 @@ function error()
 
 function login()
 {
-	global $page;
-	$page['title'] = 'Erreur 404 !';
-	$page['class'] = 'VHtml';
-	$page['method'] = 'showHtml';
-	$page['arg'] = '../Html/unknown.php';
+    global $page;
+    $page['title'] = 'Erreur 404 !';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = '../Html/unknown.php';
+}
+
+function reportList()
+{
+    global $page;
+    $page['title'] = 'Liste des rapports';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = '../Html/reportlist.php';
 }
 ?>
 
