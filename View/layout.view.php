@@ -31,7 +31,7 @@ $vHtml = new VHtml() ;
         <?php $vpage->$page['method']($page['arg']); ?>
     </div>
     <div class="footer">
-    	<a href="../Php/index.php?EX=legal">Site r&eacute;alis&eacute; par la LP SIL DA2I 20014- IUT d'Aix-en-Provence, pour le compte de la FNE13</a>
+    	<a href="index.php?EX=legal">Site r&eacute;alis&eacute; par la LP SIL DA2I 20014- IUT d'Aix-en-Provence, pour le compte de la FNE13</a>
     </div>
     <script src="Lib/jquery.min.js"></script>
     <script src="Lib/bootstrap.min.js"></script>
