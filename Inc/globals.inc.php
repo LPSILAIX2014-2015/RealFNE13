@@ -12,6 +12,7 @@ $page = array();//Titre, class "active";
  * [class] : la classe utilisée pour la construction de la page
  * [method] : la méthode de cette classe appelée pour le traitement de la page
  * [args] : les arguments à passer à la méthode
+ * [css] : chemin vers une feuille de style additionelle (optionnel)
  */
 /*
  *  $db
