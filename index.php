@@ -13,8 +13,6 @@ switch($EX)
 	default : error();
 }
 
-var_dump("LOL");
-
 require('View/layout.view.php');
 
 

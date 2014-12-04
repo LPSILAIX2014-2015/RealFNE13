@@ -1,5 +1,5 @@
 <div class="infosperso">
-	<img src="../Img/photo.jpg" class="photo">
+	<img src="Img/photo.jpg" class="photo">
 	<div class="nom">Prénom Nom</div>
 	<div class="asso">Association</div>
 	<div class="messages">2 messages</div>
