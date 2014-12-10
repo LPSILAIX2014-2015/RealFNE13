@@ -7,20 +7,24 @@
 
 
     function connexion($login =NULL, $password=NULL) {
+        global $db;
+
         $login = (testVar($_REQUEST['login'])) ? $_REQUEST['login'] : $login;
         $password  = (testVar($_REQUEST['password']))  ? $_REQUEST['password']  : $password;
-        $conn = new DBase();
         try
         {
-            $state = $conn->prepare("SELECT * FROM USER WHERE LOGIN=$login AND PASSWORD=$password");
+            $state = $db->prepare("SELECT * FROM USER WHERE LOGIN=$login AND PASSWORD=$password");
             $state->execute();
 
             $result = $state->fetch(PDO::FETCH_ASSOC);
 
             if (testVar($result) && testVar($_SESSION))
             {
-                $_SESSION['ROLE'] = $result['ROLE'];
-                $_SESSION['ID_USER'] = $result['ID'];
+                $_SESSION['user'] = new CUser($result['ID']);
+                debugAlert($_SESSION['user']);
+            }
+            else {
+                debugAlert('Erreur d\'authentification') ;
             }
         }
         catch (Exception $ex)
@@ -28,14 +32,8 @@
             $error_log = "[Error]"."[connexion.php]"."connection() : ".$ex->getMessage();
             echo $error_log;
             return false;
+            debugAlert($error_log);
         }
 
-    }
-
-    //FONCTION SIMPLE DE VERIFICATION DE L'EXISTENCE D'UNE VARIABLE ET DE SON CONTENU (not null)
-
-    function testVar (&$val)
-    {
-        return (!empty($val) && isset($val));
     }
 ?>
