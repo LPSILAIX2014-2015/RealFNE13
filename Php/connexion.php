@@ -7,21 +7,25 @@
 
 
     function connexion($login =NULL, $password=NULL) {
-        global $db;
+        global $db, $user;
 
-        $login = (testVar($_REQUEST['login'])) ? $_REQUEST['login'] : $login;
-        $password  = (testVar($_REQUEST['password']))  ? $_REQUEST['password']  : $password;
+        $login = (testVar($_POST['login'])) ? $_POST['login'] : $login;
+        $password  = (testVar($_POST['password']))  ? $_POST['password']  : $password;
+        debugAlert('Dans connexion : $login = '.$login);
         try
         {
+            $db = new DBase();
             $state = $db->prepare("SELECT * FROM USER WHERE LOGIN=$login AND PASSWORD=$password");
             $state->execute();
 
             $result = $state->fetch(PDO::FETCH_ASSOC);
 
-            if (testVar($result) && testVar($_SESSION))
+            debugAlert($db) ;
+            if (testVar($result) )
             {
-                $_SESSION['user'] = new CUser($result['ID']);
-                debugAlert($_SESSION['user']);
+                $_SESSION['ID_USER'] = $result['ID'];
+                $user = new CUser($result['ID']) ;
+                debugAlert($_SESSION['ID_USER']);
             }
             else {
                 debugAlert('Erreur d\'authentification') ;
