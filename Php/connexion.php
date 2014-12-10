@@ -25,7 +25,7 @@
 
             $result = $state->fetch(PDO::FETCH_ASSOC);
 
-            if (testVar($connec))
+            if (testVar($result) && testVar($_SESSION))
             {
                 $_SESSION['ROLE'] = $result['ROLE'];
                 $_SESSION['ID_USER'] = $result['ID'];
