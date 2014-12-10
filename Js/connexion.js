@@ -1,6 +1,5 @@
 // ToDo inclure le fichier connexion.js dans un fichier appelant tout les JS (comme xhtml.css pour le css)
 
-
 // JQuery
 $(document).ready(function() {
 
