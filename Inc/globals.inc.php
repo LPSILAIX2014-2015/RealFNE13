@@ -21,10 +21,24 @@ $page = array();//Titre, class "active";
 global $db ;
 //$db = new DBase() ;
 
+
 global $user;
 /*
  * Object Utilisateur (à completer)
  */
+/*
+if(isset( $_SESSION['ID_USER']))
+{
+    $user = new CUser($_SESSION['ID_USER']);
+}*/
 
+$user = new CUser(1);
+
+echo "<pre>";
+print_r($user);
+echo "</pre>";
+
+debugAlert($user->getName());
 
 ?>
+
