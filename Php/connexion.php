@@ -6,6 +6,8 @@
     qui utilise l'ajax pour vérifier et recharger le contenu dynamiquement et non la page entière.
     Si la connexion est un succès, la page courante est rechargée. */
 
+    
+
     function connexion($login =NULL, $password=NULL) {
         $login = (testVar($_REQUEST['login'])) ? $_REQUEST['login'] : $login;
         $password  = (testVar($_REQUEST['password']))  ? $_REQUEST['password']  : $password;

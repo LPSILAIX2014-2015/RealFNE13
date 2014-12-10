@@ -1,6 +1,7 @@
 <?php
 require('Inc/require.inc.php');
 require('Inc/globals.inc.php');
+require('Php/DBase.php');
 
 $EX = isset($_REQUEST['EX']) ? $_REQUEST['EX'] : 'home';
 
@@ -9,6 +10,7 @@ switch($EX)
 {
 	case 'home'      : home();       break;
 	case 'login'     : login();      break;
+	case 'consultMessages' : consultMessages(); break;
         case 'reportList': reportList(); break;
 	default : error();
 }
@@ -42,5 +44,16 @@ function reportList()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/reportlist.php';
 }
+
+function consultMessages()
+{
+    global $page;
+    $page['title'] = 'Liste des messages';
+    $page['class'] = 'VConsultMessages';
+    $page['method'] = 'showConsultMessages';
+    $page['arg'] = 'Html/consultMessages.php';
+}
+
+
 ?>
 

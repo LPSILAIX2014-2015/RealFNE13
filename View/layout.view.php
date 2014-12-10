@@ -2,7 +2,7 @@
 $vnav = new VNav();
 $vpage = new $page['class']();
 global $connec;
-//$connec = new db();
+$connec = new DBase();
 $vHtml = new VHtml() ;
 ?>
 
