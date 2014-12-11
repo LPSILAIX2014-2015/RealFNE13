@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="731257d5-eb2a-499a-a76d-f9fb587c5e26" name="Default" comment="Merge branch 'G3_S1_a'&#10;&#10;Conflicts:&#10;&#9;View/layout.view.php&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/CAssoc.mod.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/CUser.mod.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Js/connexion.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Php/DBase.php" afterPath="$PROJECT_DIR$/Model/DBase.mod.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Js/appli.js" afterPath="$PROJECT_DIR$/Js/appli.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Php/connexion.php" afterPath="$PROJECT_DIR$/Php/connexion.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Inc/globals.inc.php" afterPath="$PROJECT_DIR$/Inc/globals.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/layout.view.php" afterPath="$PROJECT_DIR$/View/layout.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/menu.php" afterPath="$PROJECT_DIR$/Html/menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Inc/require.inc.php" afterPath="$PROJECT_DIR$/Inc/require.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/userInfo.php" afterPath="$PROJECT_DIR$/Html/userInfo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FNE13.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,11 +34,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="appli.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="appli.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Js/appli.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="31" selection-start="236" selection-end="236" vertical-scroll-proportion="0.2262931" vertical-offset="0" max-vertical-offset="464">
+            <state line="7" column="0" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CUser.mod.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Model/CUser.mod.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="5.625" vertical-offset="135" max-vertical-offset="4860">
+              <folding>
+                <marker date="1418294902000" expanded="true" signature="665:698" placeholder="SELECT * FRO..USER..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -62,6 +61,24 @@
               <folding>
                 <marker date="1418294902000" expanded="true" signature="426:486" placeholder="SELECT * FRO..USER..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="require.inc.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Inc/require.inc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="615">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="globals.inc.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Inc/globals.inc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="107" selection-start="1430" selection-end="1430" vertical-scroll-proportion="0.68384075" vertical-offset="218" max-vertical-offset="705">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,7 +108,6 @@
         <option value="$PROJECT_DIR$/Html/reportlist.php" />
         <option value="$PROJECT_DIR$/Php/DBase.php" />
         <option value="$PROJECT_DIR$/Php/index.php" />
-        <option value="$PROJECT_DIR$/Inc/globals.inc.php" />
         <option value="$PROJECT_DIR$/View/layout.view.php" />
         <option value="$PROJECT_DIR$/Css/main.css" />
         <option value="$PROJECT_DIR$/Css/appli.css" />
@@ -99,6 +115,7 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/Php/connexion.php" />
         <option value="$PROJECT_DIR$/Js/appli.js" />
+        <option value="$PROJECT_DIR$/Inc/globals.inc.php" />
       </list>
     </option>
   </component>
@@ -179,7 +196,49 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealFNE13" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealFNE13" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Inc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealFNE13" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -191,6 +250,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="SearchEverywhereHistory" value="" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.." />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -241,7 +305,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1440" height="850" extended-state="1" />
+    <frame x="0" y="25" width="1440" height="850" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -434,11 +498,6 @@
         <state line="0" column="0" selection-start="0" selection-end="236" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Inc/require.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DBFNE.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="12" selection-start="1254" selection-end="1254" vertical-scroll-proportion="0.11494253" vertical-offset="640" max-vertical-offset="1680" />
@@ -484,11 +543,6 @@
         <state line="15" column="2" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="315" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Inc/globals.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="2" selection-start="731" selection-end="731" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="540" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/View/layout.view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="2" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="660" />
@@ -527,7 +581,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Js/appli.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="31" selection-start="236" selection-end="236" vertical-scroll-proportion="0.2262931" vertical-offset="0" max-vertical-offset="464">
+        <state line="7" column="0" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/CUser.mod.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="5.625" vertical-offset="135" max-vertical-offset="4860">
+          <folding>
+            <marker date="1418294902000" expanded="true" signature="665:698" placeholder="SELECT * FRO..USER..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Inc/require.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Inc/globals.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="107" selection-start="1430" selection-end="1430" vertical-scroll-proportion="0.68384075" vertical-offset="218" max-vertical-offset="705">
           <folding />
         </state>
       </provider>
