@@ -12,8 +12,5 @@ class DBase extends PDO {
         parent::__construct( $dns, $this->user, $this->pass );
 
     }
-
-    
-
 }
 ?>
