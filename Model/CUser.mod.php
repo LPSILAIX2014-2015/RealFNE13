@@ -7,7 +7,7 @@
         private $id;
         private $login;
         private $reset; //ToDo A passer dans une table externe temporaire
-        private $theme_association_id;
+        private $association_id;
         private $theme_interest_id;
         private $theme_details;
         private $role;
@@ -20,6 +20,7 @@
         private $profession2;
         private $presentation;
         private $photopath;
+        private $association ;
 
         function __construct ($id) {
             $sql = new DBase();
@@ -301,6 +302,15 @@
             return $this->theme_interest_id;
         }
 
+        public  function getAssoName() {
+            if (isset($this->association)) {
+                return $this->association->getName();
+            }
+            else {
+                $this->association = new CAssoc($this->association_id) ;
+                return $this->association->getName();
+            }
+        }
 
 
 

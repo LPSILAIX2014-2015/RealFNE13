@@ -10,12 +10,14 @@ switch($EX)
 	case 'home'      : home();       break;
 	case 'login'     : login();      break;
     case 'reportList': reportList(); break;
-    case 'deconnexion' : deconnexion() ; break;
+    case 'deconnexion' :
+        if (isset($_POST['login']) && isset($_POST['password'])) { home(); }
+        else { deconnexion() ; }
+        break;
 	default : error();
 }
 
 require('View/layout.view.php');
-debugAlert($_SESSION['ID_USER']);
 
 function home()
 {
