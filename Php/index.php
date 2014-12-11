@@ -13,7 +13,6 @@ switch($EX)
 	default : error();
 }
 
-
 require('../View/layout.view.php');
 
 
@@ -47,10 +46,11 @@ function login()
 function reportList()
 {
     global $page;
-    $page['title'] = 'Liste des rapports';
-    $page['class'] = 'VHtml';
+    $page['title']  = 'Liste des rapports';
+    $page['class']  = 'VHtml';
     $page['method'] = 'showHtml';
-    $page['arg'] = '../Html/reportlist.php';
+    $page['arg']    = '../Html/reportlist.php';
 }
+
 ?>
 

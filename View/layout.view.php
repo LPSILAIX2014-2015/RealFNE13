@@ -2,6 +2,7 @@
 $vnav = new VNav();
 $vUserInfo = new VUserInfo();
 $vpage = new $page['class']();
+
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +10,9 @@ $vpage = new $page['class']();
 <head>
     <meta charset="utf-8" />
     <title><?= $page['title']; ?></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link href="../Css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="../Css/main.css" />
     <link rel="stylesheet" type="text/css" href="../Css/bootstrap.min.css" />
 
@@ -23,7 +26,7 @@ $vpage = new $page['class']();
         <?php $vpage->$page['method']($page['arg']) ?>
     </div>
     <!-- jQuery <3 ! -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../Js/bootstrap.min.js"></script>
 </body>
