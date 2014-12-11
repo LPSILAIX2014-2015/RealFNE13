@@ -14,6 +14,8 @@ $vHtml = new VHtml() ;
     <link rel="stylesheet" type="text/css" href="Css/main.css" />
     <link rel="stylesheet" type="text/css" href="Lib/bootstrap.min.css" />
     <link rel="icon" type="image/png" href="Img/favicon.png" />
+    <script src="Lib/jquery.min.js"></script>
+    <script src="Lib/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -24,6 +26,4 @@ $vHtml = new VHtml() ;
     <div class="page">
         <?php $vpage->$page['method']($page['arg']); ?>
     </div>
-    <script src="Lib/jquery.min.js"></script>
-    <script src="Lib/bootstrap.min.js"></script>
 </body>
