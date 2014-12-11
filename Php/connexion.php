@@ -1,5 +1,4 @@
 <?php
-    // ToDo faire attribut login dans la table USER (hors-tâche)
     // ToDo inclure connexion.php dans le projet courant pour abiliter l'accès $connec à la base
 
     /* Fonction de connexion qui récupère login et mot de passe depuis le formulaire, appelé par le fichier connexion.js
@@ -9,7 +8,7 @@
     function connexion($login =NULL, $password=NULL) {
         $login = (testVar($_REQUEST['login'])) ? $_REQUEST['login'] : $login;
         $password  = (testVar($_REQUEST['password']))  ? $_REQUEST['password']  : $password;
-
+        $conn = new DBase();
         try
         {
             if (testVar($login))
@@ -21,11 +20,15 @@
                 echo '';
             }
 
-            // ToDo à changer selon l'utilisation de PDO
-            $connec->selectable("SELECT * FROM USER WHERE LOGIN=$login AND PASSWORD=$password");
-            if (testVar($connec))
+            $state = $conn->prepare("SELECT * FROM USER WHERE LOGIN=$login AND PASSWORD=$password");
+            $state->execute();
+
+            $result = $state->fetch(PDO::FETCH_ASSOC);
+
+            if (testVar($result) && testVar($_SESSION))
             {
-                $_SESSION['CONNECT'] = 1;
+                $_SESSION['ROLE'] = $result['ROLE'];
+                $_SESSION['ID_USER'] = $result['ID'];
             }
         }
         catch (Exception $ex)

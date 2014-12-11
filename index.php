@@ -9,7 +9,7 @@ switch($EX)
 {
 	case 'home'      : home();       break;
 	case 'login'     : login();      break;
-        case 'reportList': reportList(); break;
+    case 'reportList': reportList(); break;
 	default : error();
 }
 
