@@ -8,8 +8,6 @@ var srcL = new Array(); //Tableau appel fichier dans /Lib/
 
 var i = 0;
 
-//src[i++] = 'connexion.js';
-
 srcL[i++] = 'bootstrap.min.js';
 srcL[i++] = 'jquery.min.js';
 

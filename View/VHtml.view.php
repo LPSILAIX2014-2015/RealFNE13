@@ -7,6 +7,7 @@ class VHtml
   
   public function showHtml($_html)
   {
+      global $user ;
     (file_exists($_html)) ? include($_html) : include('Html/unknown.php');
     
   } // showHtml($_html)

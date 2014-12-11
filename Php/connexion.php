@@ -1,7 +1,4 @@
 <?php
-    /* Fonction de connexion qui récupère login et mot de passe depuis le formulaire, appelé par le fichier connexion.js
-    qui utilise l'ajax pour vérifier et recharger le contenu dynamiquement et non la page entière.
-    Si la connexion est un succès, la page courante est rechargée. */
 
     function connexion($login =NULL, $password=NULL) {
         global $user;

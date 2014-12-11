@@ -29,8 +29,8 @@
 
             $this->id = $id;
             $this->login = $user['LOGIN'];
-            //$this->reset = $user['RESET']; //TEMP
-            //$this->theme_association_id = $user['THEME_ASSOCIATION_ID'];
+            //$this->reset = $user['RESET']; // ToDo a modif
+            $this->association_id = $user['ASSOCIATION_ID'];
             $this->theme_interest_id = $user['THEME_INTEREST_ID'];
             $this->theme_details = $user['THEME_DETAILS'];
             $this->role = $user['ROLE'];
@@ -256,17 +256,17 @@
         /**
          * @param mixed $theme_association_id
          */
-        public function setThemeAssociationId($theme_association_id)
+        public function setAssociationId($association_id)
         {
-            $this->theme_association_id = $theme_association_id;
+            $this->association_id = $association_id;
         }
 
         /**
          * @return mixed
          */
-        public function getThemeAssociationId()
+        public function getAssociationId()
         {
-            return $this->theme_association_id;
+            return $this->association_id;
         }
 
         /**

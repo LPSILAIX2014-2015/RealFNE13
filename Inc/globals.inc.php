@@ -7,7 +7,7 @@ session_start();
 
 define('modeDebug',true);
 
-global $page;
+global $page, $db, $user;
 $page = array();//Titre, class "active";
 /*
  * $page
@@ -18,18 +18,6 @@ $page = array();//Titre, class "active";
  * [args] : les arguments à passer à la méthode
  * [css] : chemin vers une feuille de style additionelle (optionnel)
  */
-/*
- *  $db
- * objet PDO contenant la connexion à la base de données
- * */
-global $db;
-/*
- * Object Utilisateur (à completer)
- */
-//$_SESSION['ID_USER'] = 1 ;
-
-global $user;
-
 
 if ((testVar($_POST['login'])) && (testVar($_POST['password'])))  {
     connexion($_POST['login'],$_POST['password']);
