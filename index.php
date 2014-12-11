@@ -7,9 +7,10 @@ $EX = isset($_REQUEST['EX']) ? $_REQUEST['EX'] : 'home';
 
 switch($EX)
 {
-	case 'home'      : home();       break;
-	case 'login'     : login();      break;
-        case 'reportList': reportList(); break;
+	case 'home'      :      home();       break;
+	case 'login'     :      login();      break;
+    case 'reportList':      reportList(); break;
+    case 'createArticle':   createArticle(); break;
 	default : error();
 }
 
@@ -42,5 +43,15 @@ function reportList()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/reportlist.php';
 }
+
+function createArticle()
+{
+    global $page;
+    $page['title'] = 'écrire un article';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/createArticle.php';
+}
+
 ?>
 

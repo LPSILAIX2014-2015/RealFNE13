@@ -10,7 +10,7 @@
     <li><a>Articles</a>
         <div class="submenu">
             <a>Consulter</a>
-            <a href="index.php?EX=ecrireArticle">Ecrire</a>
+            <a href="index.php?EX=createArticle">Ecrire</a>
         </div>
     </li>
     <li><a>Messagerie</a>

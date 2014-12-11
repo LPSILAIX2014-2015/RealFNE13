@@ -206,3 +206,22 @@ nav li a:hover {
     border:1px solid #0a2d5f;
     background-color:#a3cfea;
 }
+#offsetButtonArticle {
+    height:150px;
+}
+
+.editTextTPetit {
+    font-size: smaller;
+}
+
+.editTextPetit {
+    font-size: small;
+}
+
+.editTextGros {
+    font-size: large;
+}
+
+.editTextTGros {
+    font-size: larger;
+}
