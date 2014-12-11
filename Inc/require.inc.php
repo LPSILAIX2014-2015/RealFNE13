@@ -11,7 +11,7 @@
       elseif (file_exists('Model/'.$class.'.mod.php'))
       {
         require_once('Model/'.$class.'.mod.php');
-      };
+      }
 
       return;
 
@@ -31,6 +31,6 @@
         return (!empty($val) && isset($val));
     }
 
-require_once('Php/connexion.php');
+    require_once('Php/connexion.php');
 
 ?>

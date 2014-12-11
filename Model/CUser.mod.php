@@ -29,8 +29,8 @@
 
             $this->id = $id;
             $this->login = $user['LOGIN'];
-            $this->reset = $user['RESET']; //TEMP
-            $this->theme_association_id = $user['THEME_ASSOCIATION_ID'];
+            //$this->reset = $user['RESET']; //TEMP
+            //$this->theme_association_id = $user['THEME_ASSOCIATION_ID'];
             $this->theme_interest_id = $user['THEME_INTEREST_ID'];
             $this->theme_details = $user['THEME_DETAILS'];
             $this->role = $user['ROLE'];
