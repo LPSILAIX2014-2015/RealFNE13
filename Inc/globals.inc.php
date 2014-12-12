@@ -8,7 +8,6 @@ session_start();
 define('modeDebug',true);
 
 global $page, $db, $user;
-$page = array();//Titre, class "active";
 /*
  * $page
  * tableau contenant :
@@ -18,11 +17,23 @@ $page = array();//Titre, class "active";
  * [args] : les arguments à passer à la méthode
  * [css] : chemin vers une feuille de style additionelle (optionnel)
  */
+$page = array();//Titre, class "active";
 
+/* $user
+* objet CUser (Model/CUser.mod.php) - Classe représentant un utilisateur
+ * $user contient un CUser représentant l'utilisateur courant
+ * la classe CUser s'instancie en prennant 1 paramètre correspondant à au ID_USER de l'utilisateur dans la base.
+*/
 if ((testVar($_POST['login'])) && (testVar($_POST['password'])))  {
+    /*
+     * Si on reçoit un login et un mot de passe, on appelle la fonction connexion (Php/connexion.php) qui, en cas de validation, crée un user et l'inscrit en session
+     */
     connexion($_POST['login'],$_POST['password']);
 }
 elseif (testVar($_SESSION['ID_USER'])) {
+    /*
+     * Si l'ID_USER est enregistré en session on instancie dans $user avec la valeur enregistrée en session
+     */
     $user = new CUser($_SESSION['ID_USER']);
 }
 

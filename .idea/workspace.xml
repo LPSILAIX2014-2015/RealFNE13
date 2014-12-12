@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9470d15-1a5b-45fb-a999-1187a85fe28d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/CAssoc.mod.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/CUser.mod.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Img/curseur1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Js/connexion.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Php/DBase.php" afterPath="$PROJECT_DIR$/Model/DBase.mod.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Js/appli.js" afterPath="$PROJECT_DIR$/Js/appli.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Php/connexion.php" afterPath="$PROJECT_DIR$/Php/connexion.php" />
+    <list default="true" id="811ed311-5324-4be4-8046-62b36cb643b0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/CAssoc.mod.php" afterPath="$PROJECT_DIR$/Model/CAssoc.mod.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/CUser.mod.php" afterPath="$PROJECT_DIR$/Model/CUser.mod.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Inc/globals.inc.php" afterPath="$PROJECT_DIR$/Inc/globals.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/layout.view.php" afterPath="$PROJECT_DIR$/View/layout.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/menu.php" afterPath="$PROJECT_DIR$/Html/menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Inc/require.inc.php" afterPath="$PROJECT_DIR$/Inc/require.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/userInfo.php" afterPath="$PROJECT_DIR$/Html/userInfo.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD.iws" />
@@ -38,22 +28,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="DBase.mod.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Model/DBase.mod.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="315">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="globals.inc.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Inc/globals.inc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="33" selection-start="890" selection-end="890" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="705">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="CUser.mod.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Model/CUser.mod.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="4860">
+            <state line="25" column="30" selection-start="627" selection-end="627" vertical-scroll-proportion="-6.25" vertical-offset="225" max-vertical-offset="4875">
               <folding>
-                <marker date="1418385879000" expanded="true" signature="665:698" placeholder="SELECT * FRO..USER..." />
+                <marker date="1418398426000" expanded="true" signature="696:729" placeholder="SELECT * FRO..USER..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="globals.inc.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Inc/globals.inc.php">
+      <file leaf-file-name="CAssoc.mod.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Model/CAssoc.mod.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="703">
-              <folding />
+            <state line="23" column="21" selection-start="556" selection-end="556" vertical-scroll-proportion="-0.15220484" vertical-offset="452" max-vertical-offset="1380">
+              <folding>
+                <marker date="1418398460000" expanded="true" signature="259:299" placeholder="SELECT * FRO..ASSOCIATION..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -67,6 +77,15 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Inc/globals.inc.php" />
+        <option value="$PROJECT_DIR$/Model/CUser.mod.php" />
+        <option value="$PROJECT_DIR$/Model/CAssoc.mod.php" />
+      </list>
+    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
@@ -100,6 +119,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -148,7 +168,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -160,15 +179,15 @@
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a9470d15-1a5b-45fb-a999-1187a85fe28d" name="Default" comment="" />
-      <created>1418385940182</created>
-      <updated>1418385940182</updated>
+      <changelist id="811ed311-5324-4be4-8046-62b36cb643b0" name="Default" comment="" />
+      <created>1418398095259</created>
+      <updated>1418398095259</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1440" height="850" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -207,26 +226,35 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Model/CUser.mod.php">
+    <entry file="file://$PROJECT_DIR$/Model/DBase.mod.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4860">
-          <folding>
-            <marker date="1418385879000" expanded="true" signature="665:698" placeholder="SELECT * FRO..USER..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Inc/require.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="727">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="315">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Inc/globals.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="727">
+        <state line="24" column="33" selection-start="890" selection-end="890" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="705">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/CUser.mod.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="30" selection-start="627" selection-end="627" vertical-scroll-proportion="-6.25" vertical-offset="225" max-vertical-offset="4875">
+          <folding>
+            <marker date="1418398426000" expanded="true" signature="696:729" placeholder="SELECT * FRO..USER..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/CAssoc.mod.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="21" selection-start="556" selection-end="556" vertical-scroll-proportion="-0.15220484" vertical-offset="452" max-vertical-offset="1380">
+          <folding>
+            <marker date="1418398460000" expanded="true" signature="259:299" placeholder="SELECT * FRO..ASSOCIATION..." />
+          </folding>
         </state>
       </provider>
     </entry>
