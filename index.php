@@ -10,11 +10,14 @@ switch($EX)
 	case 'home'      : home();       break;
 	case 'login'     : login();      break;
     case 'reportList': reportList(); break;
+    case 'deconnexion' :
+        if (isset($_POST['login']) && isset($_POST['password'])) { home(); }
+        else { deconnexion() ; }
+        break;
 	default : error();
 }
 
 require('View/layout.view.php');
-
 
 function home()
 {
@@ -27,7 +30,7 @@ function home()
 
 function error()
 {
-	global $page;
+    global $page;
 	$page['title'] = 'Erreur 404 !';
 	$page['class'] = 'VHtml';
 	$page['method'] = 'showHtml';
@@ -42,5 +45,19 @@ function reportList()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/reportlist.php';
 }
+
+function deconnexion()
+{
+    global $page;
+    unset($_SESSION['ID_USER']);
+    unset($GLOBALS['user']);
+    session_destroy();
+    $page['title'] = 'Retour après déco';
+    $page['class'] = 'VHome';
+    $page['method'] = 'showHome';
+    $page['arg'] = 'Html/accueil.php';
+
+}
+
 ?>
 

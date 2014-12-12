@@ -3,7 +3,11 @@
  * Ce fichier contient les variables globales qui seront utilisées sur toutes les pages du site ainsi que leur documentation.
  * Pour chaque variable ajoutée veuillez indiquer son type, son utilisation, et dans le cas d'un objet ses attributs et méthodes
  */
-global $page;
+session_start();
+
+define('modeDebug',true);
+
+global $page, $db, $user;
 $page = array();//Titre, class "active";
 /*
  * $page
@@ -14,17 +18,13 @@ $page = array();//Titre, class "active";
  * [args] : les arguments à passer à la méthode
  * [css] : chemin vers une feuille de style additionelle (optionnel)
  */
-/*
- *  $db
- * objet PDO contenant la connexion à la base de données
- * */
-global $db ;
-//$db = new DBase() ;
 
-global $user;
-/*
- * Object Utilisateur (à completer)
- */
-
+if ((testVar($_POST['login'])) && (testVar($_POST['password'])))  {
+    connexion($_POST['login'],$_POST['password']);
+}
+elseif (testVar($_SESSION['ID_USER'])) {
+    $user = new CUser($_SESSION['ID_USER']);
+}
 
 ?>
+
