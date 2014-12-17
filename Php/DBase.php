@@ -39,9 +39,11 @@ class DBase extends PDO {
         {
             $pdo = self::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $query = "SELECT * FROM user where MAIL = ? OR SURNAME = ?";
+            $query = "SELECT * FROM user where MAIL = :email OR SURNAME = :surname";
             $qq = $pdo->prepare($query);
-            $qq->execute(array($email, $surname));
+            $qq->bindParam(':email', $email, PDO::PARAM_STR, 64);
+            $qq->bindParam(':surname', $surname, PDO::PARAM_STR, 64);
+            $qq->execute();
             $data = $qq->fetch(PDO::FETCH_ASSOC);
             return $data;
         }
@@ -50,9 +52,10 @@ class DBase extends PDO {
         {
             $pdo = self::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $query = "SELECT * FROM user where ID = ?";
+            $query = "SELECT * FROM user where ID = :id";
             $qq = $pdo->prepare($query);
-            $qq->execute(array($id));
+            $qq->bindParam(':id', $id, PDO::PARAM_INT);
+            $qq->execute();
             $data = $qq->fetch(PDO::FETCH_ASSOC);
             return $data;
         }
@@ -61,12 +64,13 @@ class DBase extends PDO {
         public static function getUserByEmail($email) {
             $pdo = self::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "SELECT * FROM user WHERE MAIL LIKE '". $email . "'";
-            $data = null;
-            foreach ($pdo->query($sql) as $row) {
-                $data = $row;
-            }
-            return $data;
+            $sql = "SELECT * FROM user WHERE MAIL = :email";
+            $qq = $pdo->prepare($sql);
+            $qq->bindParam(':email', $email, PDO::PARAM_STR, 64);
+            $qq->execute();
+            $rows = $qq->fetch(PDO::FETCH_ASSOC);
+            
+            return $rows;
         }
 
         public static function getAllUsers()
@@ -81,23 +85,25 @@ class DBase extends PDO {
         public static function getTheme($id) {
             $pdo = self::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "SELECT * FROM theme WHERE ID = '". $id . "'";
-            $data = null;
-            foreach ($pdo->query($sql) as $row) {
-                $data = $row['NAME'];
-            }
-            return $data;
+            $sql = "SELECT * FROM theme WHERE ID = :id ";
+            $qq = $pdo->prepare($sql);
+            $qq->bindParam(':id', $id, PDO::PARAM_INT);
+            $qq->execute();
+            $rows = $qq->fetch(PDO::FETCH_ASSOC);
+            
+            return $rows['NAME'];
         }
         
         public static function getAssociation($id) {
             $pdo = self::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "SELECT * FROM association WHERE ID = '". $id . "'";
-            $data = null;
-            foreach ($pdo->query($sql) as $row) {
-                $data = $row['NAME'];
-            }
-            return $data;
+            $sql = "SELECT * FROM association WHERE ID = :id ";
+            $qq = $pdo->prepare($sql);
+            $qq->bindParam(':id', $id, PDO::PARAM_INT);
+            $qq->execute();
+            $rows = $qq->fetch(PDO::FETCH_ASSOC);
+            
+            return $rows['NAME'];
         }
         
         public static function getAllThemes() {

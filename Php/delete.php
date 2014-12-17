@@ -8,9 +8,10 @@
 		// delete data
 		$pdo = DBase::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "DELETE FROM user  WHERE USER_ID = ?";
+		$sql = "DELETE FROM user  WHERE ID = :id";
 		$q = $pdo->prepare($sql);
-		$q->execute(array($id));
+                $q->bindParam(":id", $id, PDO::PARAM_INT);
+		$q->execute();
 		DBase::disconnect();
 		header("Location: ../Html/datatable.php");
 		
