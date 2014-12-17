@@ -1,5 +1,5 @@
 <?php 
-        include '../Php/DBase.php';
+    include './Php/DBase.php';
 	$id = null;
 	if ( !empty($_GET['id'])) {
 		$id = $_REQUEST['id'];
@@ -17,7 +17,7 @@
 		$q = $pdo->prepare($sql);
 		$q->execute(array($name, $surname, $cp, $email, $profession, $user_id));
 		DBase::disconnect();
-		header("Location: ../Html/datatable.php");
+		header("Location: ./index.php?EX=manageMembers");
                 
         }
 		// insert data
@@ -37,20 +37,16 @@
 	
 	
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
     <?php
-     include './header.php';
      $erreur = null;
      if(isset($_GET['error'])) {
          $erreur = $_GET['error'];
      }
    
     ?>
-</head>
 
-<body>
+
+
     <div class="container">
     
     			<div class="span10 offset1">
@@ -61,7 +57,7 @@
                                         <?php } ?>
 		    		</div>
     		
-	    			<form class="form-horizontal" action="update.php?id=<?php echo $id?>" method="post">
+	    			<form class="form-horizontal" action="index.php?EX=updateMember&id=<?php echo $id?>" method="post">
 					  <div class="control-group">
 					    <label class="control-label">Name</label>
 					    <div class="controls">
@@ -113,11 +109,9 @@
 					  </div>
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-success">Edit</button>
-                                                  <a class="btn" href="./datatable.php">Retour</a>
+                          <a class="btn" href="./index.php?EX=manageMembers">Retour</a>
 						</div>
 					</form>
 				</div>
 				
     </div> <!-- /container -->
-  </body>
-</html>

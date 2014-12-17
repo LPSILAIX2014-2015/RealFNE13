@@ -3,7 +3,7 @@
 function __autoload($class)
 {
   // Inclusion des class de type Vue
-  require_once('../View/'.$class.'.view.php');
+  require_once('./View/'.$class.'.view.php');
   
   return;
 

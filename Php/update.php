@@ -20,6 +20,6 @@
 			$q = $pdo->prepare($sql);
 			$q->execute(array($name, $surname, $cp, $email, $profession, $id));
 			DBase::disconnect();
-			header("Location: ../Html/datatable.php");
+			header("Location: .index.php?EX=manageMembers");
 		}
 	
