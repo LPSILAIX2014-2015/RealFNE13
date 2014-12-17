@@ -1,11 +1,5 @@
 <ul>
-    <li><a>Recherche</a>
-        <div class="submenu">
-            <a>Articles</a>
-            <a>Personnes</a>
-            <a>Associations</a>
-        </div>
-    </li>
+    <li><a>Recherche</a></li>
     <li><a>Agenda</a></li>
     <li><a>Articles</a>
         <div class="submenu">

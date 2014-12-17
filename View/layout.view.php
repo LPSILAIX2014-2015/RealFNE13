@@ -1,9 +1,7 @@
 <?php
 $vnav = new VNav();
+$vUserInfo = new VUserInfo();
 $vpage = new $page['class']();
-global $connec;
-//$connec = new db();
-$vHtml = new VHtml() ;
 ?>
 
 <!DOCTYPE html>
@@ -11,19 +9,21 @@ $vHtml = new VHtml() ;
 <head>
     <meta charset="utf-8" />
     <title><?= $page['title']; ?></title>
-    <link rel="stylesheet" type="text/css" href="Css/main.css" />
-    <link rel="stylesheet" type="text/css" href="Lib/bootstrap.min.css" />
-    <link rel="icon" type="image/png" href="Img/favicon.png" />
+    <link href="../Css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../Css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../Css/bootstrap.min.css" />
 
 </head>
 <body>
-    <?php $vHtml->showHtml('Html/loginForm.php'); ?>
+    <?php $vUserInfo->showUserInfo() ?>
     <nav>
-        <?php $vnav->showNav(); ?>
+        <?php $vnav->showNav() ?>
     </nav>
     <div class="page">
-        <?php $vpage->$page['method']($page['arg']); ?>
+        <?php $vpage->$page['method']($page['arg']) ?>
     </div>
-    <script src="Lib/jquery.min.js"></script>
-    <script src="Lib/bootstrap.min.js"></script>
+    <!-- jQuery <3 ! -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../Js/bootstrap.min.js"></script>
 </body>
