@@ -2,7 +2,7 @@
 $vnav = new VNav();
 $vpage = new $page['class']();
 global $connec;
-//$connec = new db();
+$connec = new DBase();
 $vHtml = new VHtml() ;
 ?>
 
@@ -20,6 +20,8 @@ $vHtml = new VHtml() ;
 	}
     ?>
     <link rel="icon" type="image/png" href="Img/favicon.png" />
+    <script src="Lib/jquery.min.js"></script>
+    <script src="Lib/bootstrap.min.js"></script>
 
 </head>
 <body>

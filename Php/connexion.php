@@ -1,5 +1,7 @@
 <?php
 
+    
+
     function connexion($login =NULL, $password=NULL) {
         global $user;
 
