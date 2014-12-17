@@ -8,7 +8,11 @@ class VNav
   public function showNav()
   {
     $vhtml = new VHtml();
+<<<<<<< HEAD
     $vhtml->showHtml('../Html/menu.php');
+=======
+    $vhtml->showHtml('Html/menu.php');
+>>>>>>> 0f1378ed7eb5467c6bbe53f03bf4798291703aa5
     
   } // showNav($_html)
   
