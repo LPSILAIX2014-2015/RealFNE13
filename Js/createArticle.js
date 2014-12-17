@@ -28,6 +28,11 @@ $(document).ready(function() {
 
 
 var insertTag = function(startTag, endTag, textareaId, tagType){
+    if(startTag == "\<taille valeur=\"normal\">"){
+        startTag = "";
+        endTag = "";
+    }
+
     var field  = document.getElementById('textareaId');
     var scroll = field.scrollTop;
     field.focus();
@@ -37,7 +42,7 @@ var insertTag = function(startTag, endTag, textareaId, tagType){
     var currentSelection = field.value.substring(field.selectionStart, field.selectionEnd);
     var endSelection     = field.value.substring(field.selectionEnd);
 
-    if (tagType) {              //On laisse en switch case au cas où on ajouterait des operations
+    if (tagType) {              //On laisse en switch/case au cas où on ajouterait des operations
         switch (tagType) {
             case "lien":
                 endTag = "</lien>";
@@ -88,7 +93,7 @@ var preview = function() {
     field = field.replace(/<lien url/g, '<a target="_blank" href');
     field = field.replace(/<\/lien>/g, '</a>');
 
-
+    field = field.replace(/<taille valeur="normal">/g, "");
     field = field.replace(/<taille valeur/g, '<span class');
     field = field.replace(/<\/taille>/g, '</span>');
 

@@ -210,18 +210,18 @@ nav li a:hover {
     height:150px;
 }
 
-.editTextTPetit {
-    font-size: smaller;
+.tpetit {
+    font-size: 50%;
 }
 
-.editTextPetit {
-    font-size: small;
+.petit {
+    font-size: 75%;
 }
 
-.editTextGros {
-    font-size: large;
+.gros {
+    font-size: 150%;
 }
 
-.editTextTGros {
-    font-size: larger;
+.tgros {
+    font-size: 200%;
 }

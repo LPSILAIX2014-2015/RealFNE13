@@ -41,12 +41,13 @@
                 <input type="button" value="I" onclick="insertTag('<i>', '</i>', 'textarea');"/>
                 <input type="button" value="Lien" onclick="insertTag('<>', '</>', 'textarea', 'lien');"/>
                 <input type="button" value="Citation" onclick="insertTag('<cite>', '</cite>', 'textarea');"/>
+                <label style="margin-left:10px" for="setTextHeigth">Taille</label>
                 <select id="setTextHeigth" onchange="insertTag('<taille valeur=&quot;' + this.options[this.selectedIndex].value + '&quot;>', '</taille>', 'textarea');">
-                    <option value="none" class="selected" selected="selected">Taille</option>
-                    <option value="editTextTPetit">Trés Petit</option>
-                    <option value="editTextPetit">Petit</option>
-                    <option value="editTextGros">Gros</option>
-                    <option value="editTextTGros">Trés Gros</option>
+                    <option value="tpetit">Trés Petit</option>
+                    <option value="petit">Petit</option>
+                    <option class="selected" value="normal" selected="selected">Normal</option>
+                    <option value="gros">Gros</option>
+                    <option value="tgros">Trés Gros</option>
                 </select>
             </p>
         </div>
