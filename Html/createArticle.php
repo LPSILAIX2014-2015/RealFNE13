@@ -37,21 +37,47 @@
 
         <div id="FieldArticleEdition">
             <p>
-                <input type="button" value="G" onclick="insertTag('<g>', '</g>', 'textarea');" />
-                <input type="button" value="I" onclick="insertTag('<i>', '</i>', 'textarea');"/>
-                <input type="button" value="Lien" onclick="insertTag('<>', '</>', 'textarea', 'lien');"/>
-                <input type="button" value="Citation" onclick="insertTag('<cite>', '</cite>', 'textarea');"/>
+                <span class="btn-group">
+                    <button class ="btn btn-default" type="button" value="G" onclick="insertTag('<g>', '</g>');">
+                        <span class="glyphicon glyphicon-bold" aria-hidden="true"></span>
+                    </button>
+                    <button class ="btn btn-default" type="button" value="I" onclick="insertTag('<i>', '</i>');">
+                        <span class="glyphicon glyphicon-italic" aria-hidden="true"></span>
+                    </button>
+                    <button class ="btn btn-default" type="button" value="S" onclick="insertTag('<u>', '</u>');">
+                        <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
+                    </button>
+                </span>
+                <span class="btn-group">
+                    <button class ="btn btn-default" type="button" value="Lien" onclick="insertTag('<>', '</>', 'lien');">
+                        <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                    </button>
+                    <button class ="btn btn-default" type="button" value="Citation" onclick="insertTag('<cite>', '</cite>');">
+                        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                    </button>
+                </span>
                 <label style="margin-left:10px" for="setTextHeigth">Taille</label>
-                <select id="setTextHeigth" onchange="insertTag('<taille valeur=&quot;' + this.options[this.selectedIndex].value + '&quot;>', '</taille>', 'textarea');">
+                <select id="setTextHeigth" style="height:32px; padding-top:2px;" onchange="insertTag('<taille valeur=&quot;' + this.options[this.selectedIndex].value + '&quot;>', '</taille>');">
                     <option value="tpetit">Trés Petit</option>
                     <option value="petit">Petit</option>
                     <option class="selected" value="normal" selected="selected">Normal</option>
                     <option value="gros">Gros</option>
                     <option value="tgros">Trés Gros</option>
                 </select>
+                <span class="btn-group" style="margin-left:10px">
+                    <button class ="btn btn-default" type="button" onclick="insertTag('<aligne valeur=&quot;gauche&quot;>', '</aligne>');">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                    </button>
+                    <button class ="btn btn-default" type="button" onclick="insertTag('<aligne valeur=&quot;centrer&quot;>', '</aligne>');">
+                        <span class="glyphicon glyphicon-align-center" aria-hidden="true"></span>
+                    </button>
+                    <button class ="btn btn-default" type="button" onclick="insertTag('<aligne valeur=&quot;droite&quot;>', '</aligne>');">
+                        <span class="glyphicon glyphicon-align-right" aria-hidden="true"></span>
+                    </button>
+                </span>
             </p>
         </div>
-        <textarea onkeyup="preview();" onselect="preview();" id="textareaId" cols="150" rows="10"></textarea>
+        <textarea onkeyup="preview();" onselect="preview();" id="textareaId" cols="122" rows="10"></textarea>
 
         <div id="previewDiv"></div>
 

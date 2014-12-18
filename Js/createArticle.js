@@ -27,7 +27,7 @@ $(document).ready(function() {
 /////////////////////////////////////////
 
 
-var insertTag = function(startTag, endTag, textareaId, tagType){
+var insertTag = function(startTag, endTag, tagType){
     if(startTag == "\<taille valeur=\"normal\">"){
         startTag = "";
         endTag = "";
@@ -93,9 +93,13 @@ var preview = function() {
     field = field.replace(/<lien url/g, '<a target="_blank" href');
     field = field.replace(/<\/lien>/g, '</a>');
 
-    field = field.replace(/<taille valeur="normal">/g, "");
     field = field.replace(/<taille valeur/g, '<span class');
     field = field.replace(/<\/taille>/g, '</span>');
+
+    field = field.replace(/<aligne valeur="gauche/g, '<p align="left');
+    field = field.replace(/<aligne valeur="droite/g, '<p align="right');
+    field = field.replace(/<aligne valeur="centrer/g, '<p align="center');
+    field = field.replace(/(<\/aligne>\n|<\/aligne>)/g, '</p>');
 
     field = field.replace(/&lt;citation nom=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation">Citation : $1</span><div class="citation2">$2</div>');
     field = field.replace(/&lt;citation lien=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation"><a href="$1">Citation</a></span><div class="citation2">$2</div>');
