@@ -34,10 +34,10 @@
                 $subject = 'compléter votre profil';
                  mail ($mail,$subject,$message,$headers);
 		
-			header("Location: ../Html/datatable.php");
+			header("Location: ../index.php?EX=manageMembers");
 		}else {
                     
-                    header("Location: ../Html/create.php?error=true");
+                    header("Location: ../index.php?EX=createMember&error=true");
                 }
 	}
 ?>

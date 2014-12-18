@@ -26,6 +26,6 @@
                         $q->bindParam(":user_id", $id, PDO::PARAM_INT);
 			$q->execute();
 			DBase::disconnect();
-			header("Location: ../Html/datatable.php");
+			header("Location: .index.php?EX=manageMembers");
 		}
 	

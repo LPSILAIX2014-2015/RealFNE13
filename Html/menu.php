@@ -1,5 +1,5 @@
 <ul>
-    <li><a>Recherche</a></li>
+    <li><a href="index.php?EX=searchMember">Recherche</a></li>
     <li><a>Agenda</a></li>
     <li><a>Articles</a>
         <div class="submenu">
@@ -16,6 +16,7 @@
     <li><a>Administration</a>
         <div class="submenu">
             <a>Gestion assos</a>
+            <a href="index.php?EX=manageMembers">Gestion des membres</a>
             <a>Validations</a>
             <a>Journal</a>
         </div>
