@@ -13,6 +13,7 @@ $vHtml = new VHtml() ;
     <title><?= $page['title']; ?></title>
     <link rel="stylesheet" type="text/css" href="Css/main.css" />
     <link rel="stylesheet" type="text/css" href="Lib/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="Lib/bootstrap.icon-large.min.css" />
     <link rel="icon" type="image/png" href="Img/favicon.png" />
 
 </head>
@@ -27,4 +28,5 @@ $vHtml = new VHtml() ;
     <script src="Lib/jquery.min.js"></script>
     <script src="Lib/bootstrap.min.js"></script>
     <script src="JS/createArticle.js"></script>
+
 </body>

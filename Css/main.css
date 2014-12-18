@@ -225,3 +225,19 @@ nav li a:hover {
 .tgros {
     font-size: 200%;
 }
+
+.gauche {
+    text-align: left;
+}
+
+.droite {
+    text-align: right;
+}
+
+.centrer {
+    text-align: center;
+}
+
+.justifier {
+    text-align: justify;
+}
