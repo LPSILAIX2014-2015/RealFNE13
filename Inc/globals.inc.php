@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 /*
  * Ce fichier contient les variables globales qui seront utilisées sur toutes les pages du site ainsi que leur documentation.
@@ -36,3 +37,14 @@ elseif (testVar($_SESSION['ID_USER'])) {
 
 ?>
 
+=======
+<?php
+
+global $page;
+$page = array();//Titre, class "active";
+global $user;//Object Utilisateur (à completer)
+
+
+
+?>
+>>>>>>> G3_S10_c

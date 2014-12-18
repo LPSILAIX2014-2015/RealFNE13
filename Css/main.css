@@ -1,23 +1,37 @@
+<<<<<<< HEAD
 html{
     cursor:url('../Img/cursor1.png'), auto ;
 }
+=======
+>>>>>>> G3_S10_c
 body {
     background-image:url('../Img/body_fond.jpg');
     background-repeat:repeat;
     font-family:Arial,Verdana,sans-serif;
     display:block;
+<<<<<<< HEAD
     top:80px;
+=======
+    top:70px;
+>>>>>>> G3_S10_c
     left:10%;
     right:10%;
     bottom:25px;
     overflow:auto;
+<<<<<<< HEAD
     cursor:url('../Img/cursor1.png'), auto ;
+=======
+>>>>>>> G3_S10_c
 }
 
 nav {
     display:block;
     position:fixed;
+<<<<<<< HEAD
     top:60px;
+=======
+    top:40px;
+>>>>>>> G3_S10_c
     left:0;
     width:100%;
     height:30px;
@@ -26,22 +40,33 @@ nav {
     z-index:1;
 }
 .infosperso {
+<<<<<<< HEAD
     background-color: #4bc9e2;
 	background-image:url('../Img/headerbg.png');
 	background-repeat:no-repeat;
 	background-position:top right;
+=======
+    background-color: #a3cfea;
+>>>>>>> G3_S10_c
     color:#000;
     display:block;
     position:fixed;
     width:100%;
+<<<<<<< HEAD
     height:60px;
+=======
+    height:40px;
+>>>>>>> G3_S10_c
     top:0;
     left:0;
     border:1px solid #FFF;
     font-size:10pt;
     z-index:2;
     overflow:hidden;
+<<<<<<< HEAD
     padding-left:85px;
+=======
+>>>>>>> G3_S10_c
 }
 .infosperso .photo {
     display:block;
@@ -90,6 +115,7 @@ nav {
     bottom:0;
     border:1px solid #FFF;
 }
+<<<<<<< HEAD
 .infosperso form {
     display:block;
     width:100%;
@@ -107,6 +133,8 @@ nav {
     text-decoration:none;
     color:#FFF;
 }
+=======
+>>>>>>> G3_S10_c
 nav ul {
     list-style-type: none;
     list-style-position: inside;
@@ -125,7 +153,11 @@ nav li a {
     display:inline-block;
     width:150px;
     background-color:#FFFFFF;
+<<<<<<< HEAD
     color:#0a2d5f;
+=======
+    color:#0c5091;
+>>>>>>> G3_S10_c
     font-weight:bold;
     text-decoration: none;
     margin:5px;
@@ -143,24 +175,37 @@ nav li:hover .submenu {
 }
 .submenu a {
     display:block;
+<<<<<<< HEAD
     box-shadow:2px 2px 2px;
+=======
+>>>>>>> G3_S10_c
 }
 nav li a:hover {
     color: #000000;
     background-color: #a3cfea;
+<<<<<<< HEAD
     text-decoration:none;
+=======
+>>>>>>> G3_S10_c
 }
 
 .page {
     display:block;
     position:absolute;
+<<<<<<< HEAD
     top:100px;
     bottom:20px;
+=======
+    top:70px;
+>>>>>>> G3_S10_c
     left:50%;
     padding:10px;
     width:800px;
     margin-left:-400px;
+<<<<<<< HEAD
     cursor:url('../Img/cursor1.png'), auto ;
+=======
+>>>>>>> G3_S10_c
 }
 .page h1 {
     font-size:15pt;
@@ -195,6 +240,7 @@ nav li a:hover {
     background-color: #0c5091;
     color:#FFF;
     border:1px solid #a3cfea;
+<<<<<<< HEAD
 }
 input {
     cursor:url('../Img/cursor9.png'), auto ;
@@ -271,3 +317,6 @@ a:hover {
 {
     font-weight: bold;
 }
+=======
+}
+>>>>>>> G3_S10_c
