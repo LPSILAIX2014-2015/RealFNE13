@@ -1,7 +1,7 @@
 <?php
 require('Inc/require.inc.php');
 require('Inc/globals.inc.php');
-
+require('Php/DBase.php'); // Recuperation de la connexion à la BD
 $EX = isset($_REQUEST['EX']) ? $_REQUEST['EX'] : 'home';
 
 
@@ -15,11 +15,29 @@ switch($EX)
     case 'createMember': createMember(); break;
     case 'updateMember': updateMember(); break;
     case 'deleteMember': deleteMember(); break;
-	default : error();
+    case 'insert'    : insert();     exit; // Mèthode insert() pour enregistrer le changement de mot de passe
+    case 'mailconf'  : mailconf();   exit; // Mèthode pour envoyer l'email de confirmation
+    case 'recup'     : recuperation(); break; // Presentation de la vue
+	default : check($EX);
 }
 
 require('./View/layout.view.php');
 
+function check($EX)
+{
+    require('Class/CRecMP.class.php'); // Appele à les mèthodes de la classe pour verifier les données dans la BD
+    global $eml; // Variable global pour afficher le mail dans le deuxième formilaire (où l'user changera son mot de passe)
+
+    $dbverf = new CRecMP(); // Instantiation de la Classe CRecMP
+    $value = $dbverf->selectMD5($EX); // Verification de la chaine de l'URL
+    if(count($value)==0){ // Si le resultat du request est 0 montre la page d'erreur
+            error();
+    }else{ // Sinon s'affichera le mail dans le formulaire de changement 
+        $var = $dbverf->searchMail($EX);
+        $eml = $var[0]["MAIL"];
+        rec(); // Formilaire de changement 
+    }
+}
 
 function home()
 {
@@ -91,6 +109,54 @@ function deleteMember()
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/delete.php';
+}
+
+function recuperation() // Presentation du formilaire principal pour envoyer le mail
+{
+    global $page;
+    $page['title'] = 'Recuperation du Mot de passe';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/recMail.php';
+}
+function rec() // Deuxième fourmulaire pour changer le mot de passe
+{
+    global $page;
+    $page['title'] = 'Recuperation du Mot de passe';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/recuperation.php';
+}
+function insert() // Mèthode pour enregistrer les données
+{
+    session_start(); // 
+    if($_POST['iCaptcha']!=$_SESSION['captcha']){ // Verification si l'input est égal la variable de session
+        echo "<script languaje='javascript'>insertE();</script>"; // Affichage d'un message d'erreur
+    }else{
+        $dbverf = new CRecMP($_POST['mail']); // Verification pour tester l'email
+        $value = $dbverf->selectMail();
+        
+        if(count($value)==0){// si l'email n'existe pas dans la BD s'affichera un message d'erreur
+            echo "<script languaje='javascript'>mailMod();</script>";
+        }else{ // Cas contraire 
+            $update = $dbverf->updateMotPasse($_POST); // Mise en jour Mot de passe
+            $dbverf->updateRSB(); // Effacer le contenu de l'attribute dnas la BD
+            $dbverf->sendMail(); // l'envoi de mail de confirmation
+            echo $update;
+        }
+    }
+}
+function mailconf()
+{
+    $dbverf = new CRecMP($_POST['mail']);
+    $value = $dbverf->selectMail(); // Verification de mail dans le formulaire 'recMail'
+    
+    if(count($value)==0){ // Affichage d'un message d'erreur si le mail n'existe pas
+        echo "<script languaje='javascript'>mailErr();</script>";
+    }else{ // Si le mail existe, s'envoyera un mail avec le lien pour changer son mot de passe
+        $update = $dbverf->sendMailConf();
+        echo $update;
+    }
 }
 ?>
 

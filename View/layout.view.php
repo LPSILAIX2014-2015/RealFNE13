@@ -12,7 +12,7 @@ $vpage = new $page['class']();
     <link href="./Css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./Css/main.css" />
     <link rel="stylesheet" type="text/css" href="./Css/bootstrap.min.css" />
-
+    <script src="./Js/form.js"></script>
 </head>
 <body>
     <?php $vUserInfo->showUserInfo() ?>
@@ -26,4 +26,7 @@ $vpage = new $page['class']();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="./Js/bootstrap.min.js"></script>
+    <script src="./Js/jquery.form.js"></script>
+    <script src="./Js/jquery.validate.js"></script>
+    <script src="./Js/recMP.js"></script>
 </body>
