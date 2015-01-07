@@ -1,20 +1,14 @@
 <?php
 class DBase extends PDO {
 
-<<<<<<< HEAD:Php/DBase.php
+
     private static $engine = 'mysql';
     private static $dbName = 'FNESITE' ; 
     private static $dbHost = 'localhost' ;
     private static $dbUsername = 'root';
     private static $dbUserPassword = '';
     private static $cont  = null;
-=======
-    private $engine = 'mysql';
-    private $host = 'localhost';
-    private $database = 'FNESITE';
-    private $user = 'test';
-    private $pass = 'test';
->>>>>>> 201f313004222dc82bd89c4d779aff593fc34130:Model/DBase.mod.php
+
 
     public function __construct(){
         $dns = self::$engine.':dbname='.self::$dbName.";host=".self::$dbHost;
