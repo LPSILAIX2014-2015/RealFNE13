@@ -115,8 +115,8 @@ class DBase extends PDO {
     private $engine = 'mysql';
     private $host = 'localhost';
     private $database = 'FNESITE';
-    private $user = 'root';
-    private $pass = 'mysql';
+    private $user = 'test';
+    private $pass = 'test';
 
     public function __construct(){
         $dns = $this->engine.':dbname='.$this->database.";host=".$this->host;

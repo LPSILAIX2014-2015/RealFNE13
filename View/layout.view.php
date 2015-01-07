@@ -6,7 +6,7 @@ $vpage = new $page['class']();
 =======
 $vpage = new $page['class']();
 global $connec;
-//$connec = new db();
+$connec = new DBase();
 $vHtml = new VHtml() ;
 >>>>>>> 0f1378ed7eb5467c6bbe53f03bf4798291703aa5
 ?>
@@ -45,6 +45,8 @@ $vHtml = new VHtml() ;
 	}
     ?>
     <link rel="icon" type="image/png" href="Img/favicon.png" />
+    <script src="Lib/jquery.min.js"></script>
+    <script src="Lib/bootstrap.min.js"></script>
 
 </head>
 <body>
