@@ -15,7 +15,7 @@
     </li>
     <li><a>Messagerie</a>
         <div class="submenu">
-            <a href="index.php?EX=consultMessages">Consulter</a>
+            <a>Consulter</a>
             <a>Ecrire</a>
         </div>
     </li>
