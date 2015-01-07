@@ -1,7 +1,6 @@
 <?php
 require('Inc/require.inc.php');
 require('Inc/globals.inc.php');
-require('Php/DBase.php');
 
 $EX = isset($_REQUEST['EX']) ? $_REQUEST['EX'] : 'home';
 
