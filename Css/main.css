@@ -154,8 +154,8 @@ nav li a:hover {
 .page {
     display:block;
     position:absolute;
-    top:80px;
-    bottom:15px;
+    top:100px;
+    bottom:20px;
     left:50%;
     padding:10px;
     width:800px;
@@ -252,4 +252,22 @@ a:hover {
 .footer a:hover {
 	color:#4bc9e2;
 	text-decoration:none;
+}
+
+.BUTTON_MESSAGE
+{
+    width: 50px;
+}
+.SENDER_MESSAGE
+{
+    width: 150px;
+}
+.contentMessage
+{
+    display: none;
+    width: 500px;
+}
+.notReaded
+{
+    font-weight: bold;
 }

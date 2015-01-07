@@ -1,20 +1,13 @@
 <?php
-<<<<<<< HEAD
-
-global $page;
-$page = array();//Titre, class "active";
-global $user;//Object Utilisateur (à completer)
-
-
-
-?>
-=======
 /*
  * Ce fichier contient les variables globales qui seront utilisées sur toutes les pages du site ainsi que leur documentation.
  * Pour chaque variable ajoutée veuillez indiquer son type, son utilisation, et dans le cas d'un objet ses attributs et méthodes
  */
-global $page;
-$page = array();//Titre, class "active";
+session_start();
+
+define('modeDebug',true);
+
+global $page, $db, $user;
 /*
  * $page
  * tableau contenant :
@@ -24,18 +17,22 @@ $page = array();//Titre, class "active";
  * [args] : les arguments à passer à la méthode
  * [css] : chemin vers une feuille de style additionelle (optionnel)
  */
-/*
- *  $db
- * objet PDO contenant la connexion à la base de données
- * */
-global $db ;
-//$db = new DBase() ;
+$page = array();//Titre, class "active";
 
-global $user;
-/*
- * Object Utilisateur (à completer)
- */
-
+/* $user
+* objet CUser (Model/Cuser.mod.php) - Classe représentant un utilisateur
+ * $user contient un CUser représentant l'utilisateur courant
+ * la classe CUser s'instancie en prennant 1 paramètre correspondant à au ID_USER de l'utilisateur dans la base.
+*/
+if ((testVar($_POST['login'])) && (testVar($_POST['password'])))  {
+    //Si on reçoit un login et un mot de passe, on appelle la fonction connexion (Php/connexion.php) qui,
+    //en cas de validation, crée un user et l'inscrit en session
+    connexion($_POST['login'],$_POST['password']);
+}
+elseif (testVar($_SESSION['ID_USER'])) {
+    //Si l'ID_USER est enregistré en session on instancie dans $user avec la valeur enregistrée en session
+    $user = new CUser($_SESSION['ID_USER']);
+}
 
 ?>
->>>>>>> 0f1378ed7eb5467c6bbe53f03bf4798291703aa5
+
