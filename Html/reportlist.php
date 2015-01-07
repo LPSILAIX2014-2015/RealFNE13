@@ -1,14 +1,40 @@
-<h1>Liste des rapports</h1>
+<?php
+// Variables, accès base & données nécessaires
+$db = new DBase();
+$statement = $db->query("SELECT * FROM REPORT");
+$allReports = $statement->fetchAll(PDO::FETCH_ASSOC);
+?>
+<! -- Zone des filtres pour l'affichage des rapports. Par défaut : Tout -->
 <div class="report_filters">
-    <form class="well well-sm text-center">
-        <label for="report_filter_profile">Profils</label><input name="radioreport" id="report_filter_profile" type="radio" value="report_profile"/>
-        <label for="report_filter_article">Article</label><input name="radioreport" id="report_filter_article" type="radio" value="report_article"/>
-        <label for="report_filter_message">Message</label><input name="radioreport" id="report_filter_message" type="radio" value="report_message"/>
+    <form id="form_radio" class="well well-sm text-center">
+        <fieldset><legend>Filtrer les rapports</legend>
+            <label for="p_filter">Profils</label><input id="p_filter" name="radioreport" type="radio" value="PROFIL"/>
+            <label for="a_filter">Article</label><input id="a_filter" name="radioreport" type="radio" value="ARTICLE"/>
+            <label for="m_filter">Message</label><input id="m_filter" name="radioreport" type="radio" value="MESSAGE"/>
+            <br/>
+            <label for="t_filter">Tout</label><input checked id="t_filter" name="radioreport" type="radio" value="ALL"/>
+        </fieldset>
     </form>
 </div>
+<! -- Zone d'affichage (dynamique) des rapports -->
+<h1>Liste des rapports</h1>
 <div class="result_reports well well-lg">
-    <h2 class="titre article">Deuxième article</h2>
-    <div class="auteur">par Auteur (Association)</div>
-    <p> Nam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias, ne necesse sit unum sollicitum esse pro pluribus; satis superque esse sibi suarum cuique rerum, alienis nimis implicari molestum esse; commodissimum esse quam laxissimas habenas habere amicitiae, quas vel adducas, cum velis, vel remittas; caput enim esse ad beate vivendum securitatem, qua frui non possit animus, si tamquam parturiat unus pro pluribus. [...]</p>
-    <a class="lienarticle">Voir l'article</a>
+    <table>
+        <?php
+        foreach ($allReports as $tuple) {
+            echo "<div class=\"ALL ".$tuple['TYPE']."\">" . $tuple['ID'] . " - " . $tuple['RDATE'] . " - " . $tuple['CONTENT'] . "</div>";
+            // Exemple : <div class="ALL MESSAGE">133 - 21/12/2014 - Huguette2 a contacté Francis1</div>
+        }
+        ?>
+    </table>
 </div>
+<! -- JavaScript pour le changement d'affichage en fonction des filtres -->
+<script type="text/javascript">
+    // Se déclenche lorsque le filtre est changé
+    $('#form_radio input[type=radio]').change(function(){
+        vall = $(this).val();	// Récupération de la variable du filtre
+        $(".ALL").hide();		// On cache tous les rapports
+        $("."+vall).show(250);	// On affiche en fondu les rapports concernés par le filtre
+
+    })
+</script>
