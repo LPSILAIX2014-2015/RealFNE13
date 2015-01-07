@@ -48,7 +48,15 @@ $vHtml = new VHtml() ;
 
 </head>
 <body>
-    <?php $vHtml->showHtml('Html/loginForm.php'); ?>
+    <?php
+    if(!isset($user)) {
+        $vHtml->showHtml('Html/loginForm.php');
+    }
+    else
+    {
+        $vHtml->showHtml('Html/userInfo.php');
+    }
+    ?>
     <nav>
         <?php $vnav->showNav(); ?>
     </nav>

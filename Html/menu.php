@@ -23,6 +23,8 @@
             <a>Ecrire</a>
         </div>
     </li>
+    <?PHP
+    if (isset($GLOBALS['user'])) { ?>
     <li><a>Administration</a>
         <div class="submenu">
             <a>Gestion assos</a>
@@ -30,4 +32,5 @@
             <a>Journal</a>
         </div>
     </li>
+    <? } ?>
 </ul>
