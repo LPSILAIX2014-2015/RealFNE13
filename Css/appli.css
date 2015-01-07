@@ -1,0 +1,12 @@
+/*
+* Appel des fichiers css utile au traitement du projet
+*
+*/
+
+@charset "UTF-8";
+
+@import "../Lib/bootstrap-theme.min.css" screen;
+
+@import "../Lib/bootstrap.min.css" screen;
+
+@import "main.css";

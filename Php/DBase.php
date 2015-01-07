@@ -121,6 +121,7 @@ class DBase extends PDO {
     public function __construct(){
         $dns = $this->engine.':dbname='.$this->database.";host=".$this->host;
         parent::__construct( $dns, $this->user, $this->pass );
+
     }
 >>>>>>> 0f1378ed7eb5467c6bbe53f03bf4798291703aa5
 }
