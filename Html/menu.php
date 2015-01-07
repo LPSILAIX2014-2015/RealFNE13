@@ -16,17 +16,17 @@
     <li><a>Messagerie</a>
         <div class="submenu">
             <a href="index.php?EX=consultMessages">Consulter</a>
-            <a>Ecrire</a>
+            <a href="index.php?EX=writeMessages">Ecrire</a>
         </div>
     </li>
     <?PHP
-    if (isset($GLOBALS['user'])) { ?>
-    <li><a>Administration</a>
-        <div class="submenu">
+    if (isset($GLOBALS['user'])) { 
+	echo "<li><a>Administration</a>
+        <div class='submenu'>
             <a>Gestion assos</a>
             <a>Validations</a>
             <a>Journal</a>
         </div>
-    </li>
-    <? } ?>
+    </li>"; }
+	?>
 </ul>
