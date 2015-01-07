@@ -1,26 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="811ed311-5324-4be4-8046-62b36cb643b0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/FNESITE.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/RealFNE13.iml" afterPath="" />
+    <list default="true" id="533111b3-a17a-42a4-9bcc-9cf9afbc5f90" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/Chrysanthemum.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/Desert.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/Hydrangeas.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/Jellyfish.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/Koala.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/Lighthouse.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/Penguins.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/Tulips.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bg1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bg2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bg3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bg4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bg5.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bg6.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bg7.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bg8.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/contact-icon-active.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/contact-icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/fancybox_overlay.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/fancybox_sprite.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/header-bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/header-shadow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/personal-info-sep.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/photo-inner.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/plus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/portfolio-icon-active.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/portfolio-icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/profile-icon-active.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/profile-icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/rats.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/resume-icon-active.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/resume-icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/social_facebook.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/social_googleplus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/social_in.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/social_twitter.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/tab-hover.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Php/autocomplete.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/create.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Php/create.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/data.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/datatable.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/delete.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Php/delete.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/email.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Php/email.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/header.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Js/jquery-1.10.2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/jquery-ui.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Js/jquery-ui.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/jquery.fancybox.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Js/jquery.fancybox.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Js/jquery.fancybox.pack.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/jquery.multiselect.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Js/jquery.multiselect.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nbproject/private/private.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nbproject/project.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nbproject/project.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/reset.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/update-mail.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Php/update-mail.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/update.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Php/update.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Img/body_fond.jpg" afterPath="$PROJECT_DIR$/Img/body_fond.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Fonts/glyphicons-halflings-regular.eot" afterPath="$PROJECT_DIR$/Fonts/glyphicons-halflings-regular.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Fonts/glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/Fonts/glyphicons-halflings-regular.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Fonts/glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/Fonts/glyphicons-halflings-regular.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Img/photo.jpg" afterPath="$PROJECT_DIR$/Img/photo.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DBFNE.sql" afterPath="$PROJECT_DIR$/DBFNE.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/DBase.mod.php" afterPath="$PROJECT_DIR$/Model/DBase.mod.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Php/DBase.php" afterPath="$PROJECT_DIR$/Php/DBase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/FNE13.iml" afterPath="$PROJECT_DIR$/.idea/FNE13.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/VHome.view.php" afterPath="$PROJECT_DIR$/View/VHome.view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/VHtml.view.php" afterPath="$PROJECT_DIR$/View/VHtml.view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/VNav.view.php" afterPath="$PROJECT_DIR$/View/VNav.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/VUserInfo.view.php" afterPath="$PROJECT_DIR$/View/VUserInfo.view.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/accueil.php" afterPath="$PROJECT_DIR$/Html/accueil.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Php/connexion.php" afterPath="$PROJECT_DIR$/Php/connexion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Css/bootstrap.min.css" afterPath="$PROJECT_DIR$/Css/bootstrap.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Inc/globals.inc.php" afterPath="$PROJECT_DIR$/Inc/globals.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/Fonts/glyphicons-halflings-regular.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Php/index.php" afterPath="$PROJECT_DIR$/Php/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/layout.view.php" afterPath="$PROJECT_DIR$/View/layout.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Css/main.css" afterPath="$PROJECT_DIR$/Css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/menu.php" afterPath="$PROJECT_DIR$/Html/menu.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Js/npm.js" afterPath="$PROJECT_DIR$/Js/npm.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/page.php" afterPath="$PROJECT_DIR$/Html/page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/reportlist.php" afterPath="$PROJECT_DIR$/Html/reportlist.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Inc/require.inc.php" afterPath="$PROJECT_DIR$/Inc/require.inc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/unknown.php" afterPath="$PROJECT_DIR$/Html/unknown.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/userInfo.php" afterPath="$PROJECT_DIR$/Html/userInfo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD.iws" />
@@ -44,42 +124,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DBase.mod.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Model/DBase.mod.php">
+      <file leaf-file-name="require.inc.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Inc/require.inc.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="703">
+            <state line="16" column="27" selection-start="366" selection-end="366" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="600">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="globals.inc.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Inc/globals.inc.php">
+      <file leaf-file-name="layout.view.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/View/layout.view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="2" selection-start="1489" selection-end="1489" vertical-scroll-proportion="-23.75" vertical-offset="15" max-vertical-offset="705">
+            <state line="43" column="7" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.8506401" vertical-offset="47" max-vertical-offset="750">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CUser.mod.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Model/CUser.mod.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="30" selection-start="627" selection-end="627" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="4875">
-              <folding>
-                <marker date="1420616096000" expanded="true" signature="696:729" placeholder="SELECT * FRO..USER..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CAssoc.mod.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Model/CAssoc.mod.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="21" selection-start="556" selection-end="556" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="1380">
-              <folding>
-                <marker date="1420616096000" expanded="true" signature="259:299" placeholder="SELECT * FRO..ASSOCIATION..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -97,10 +155,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Model/CUser.mod.php" />
-        <option value="$PROJECT_DIR$/Model/CAssoc.mod.php" />
         <option value="$PROJECT_DIR$/Inc/globals.inc.php" />
-        <option value="$PROJECT_DIR$/Model/DBase.mod.php" />
+        <option value="$PROJECT_DIR$/Inc/require.inc.php" />
+        <option value="$PROJECT_DIR$/View/layout.view.php" />
       </list>
     </option>
   </component>
@@ -136,17 +193,18 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="FNE13" />
+              <option name="myItemId" value="&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="FNE13" />
+              <option name="myItemId" value="&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -154,9 +212,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealFNE13" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealFNE13" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Inc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -168,9 +253,9 @@
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="811ed311-5324-4be4-8046-62b36cb643b0" name="Default" comment="" />
-      <created>1418398095259</created>
-      <updated>1418398095259</updated>
+      <changelist id="533111b3-a17a-42a4-9bcc-9cf9afbc5f90" name="Default" comment="" />
+      <created>1420619802679</created>
+      <updated>1420619802679</updated>
     </task>
     <servers />
   </component>
@@ -178,17 +263,17 @@
     <frame x="0" y="25" width="1440" height="850" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1920391" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -215,103 +300,23 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Model/DBase.mod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Inc/globals.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="2" selection-start="1463" selection-end="1463" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="645">
+        <state line="37" column="2" selection-start="1465" selection-end="1465" vertical-scroll-proportion="0.7894737" vertical-offset="0" max-vertical-offset="703">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/CUser.mod.php">
+    <entry file="file://$PROJECT_DIR$/Inc/require.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="30" selection-start="627" selection-end="627" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="4875">
-          <folding>
-            <marker date="1420616096000" expanded="true" signature="696:729" placeholder="SELECT * FRO..USER..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/CAssoc.mod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="21" selection-start="556" selection-end="556" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="1380">
-          <folding>
-            <marker date="1420616096000" expanded="true" signature="259:299" placeholder="SELECT * FRO..ASSOCIATION..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/DBase.mod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
+        <state line="16" column="27" selection-start="366" selection-end="366" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="600">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Inc/globals.inc.php">
+    <entry file="file://$PROJECT_DIR$/View/layout.view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="33" selection-start="890" selection-end="890" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="705">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/CUser.mod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="30" selection-start="627" selection-end="627" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="4875">
-          <folding>
-            <marker date="1420616096000" expanded="true" signature="696:729" placeholder="SELECT * FRO..USER..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/CAssoc.mod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="21" selection-start="556" selection-end="556" vertical-scroll-proportion="0.0" vertical-offset="452" max-vertical-offset="1380">
-          <folding>
-            <marker date="1420616096000" expanded="true" signature="259:299" placeholder="SELECT * FRO..ASSOCIATION..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/CUser.mod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="30" selection-start="627" selection-end="627" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="4875">
-          <folding>
-            <marker date="1420616096000" expanded="true" signature="696:729" placeholder="SELECT * FRO..USER..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBFNE.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1680" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/CAssoc.mod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="21" selection-start="556" selection-end="556" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="1380">
-          <folding>
-            <marker date="1420616096000" expanded="true" signature="259:299" placeholder="SELECT * FRO..ASSOCIATION..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Inc/globals.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="2" selection-start="1489" selection-end="1489" vertical-scroll-proportion="-23.75" vertical-offset="15" max-vertical-offset="705">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/DBase.mod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="315">
+        <state line="43" column="7" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.8506401" vertical-offset="47" max-vertical-offset="750">
           <folding />
         </state>
       </provider>
