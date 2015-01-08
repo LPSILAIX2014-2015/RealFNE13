@@ -1,16 +1,26 @@
 <?php
 
+    //Controller MVC
     function __autoload($class)
     {
 
-      // Inclusion des class de type Vue
-      if(file_exists('View/'.$class.'.view.php'))
+      // Inclusion Model (PDO)
+
+      if (file_exists('Model/'.$class.'.mod.php'))
+      {
+          require_once('Model/'.$class.'.mod.php');
+      }
+
+      // Inclusion Vue (affichages)
+      elseif(file_exists('View/'.$class.'.view.php'))
       {
         require_once('View/'.$class.'.view.php');
       }
-      elseif (file_exists('Model/'.$class.'.mod.php'))
+
+      // Inclusion Class (fonctions)
+      elseif (file_exists('Class/'.$class.'.class.php'))
       {
-        require_once('Model/'.$class.'.mod.php');
+          require_once('Class/'.$class.'.class.php');
       }
 
       return;
@@ -30,7 +40,4 @@
     {
         return (!empty($val) && isset($val));
     }
-
-    require_once('Php/connexion.php');
-
 ?>
