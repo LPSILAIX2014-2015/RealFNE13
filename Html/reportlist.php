@@ -1,6 +1,4 @@
 <?php
-require_once("../Php/DBase.php");
-
     $db = new DBase();
     $stat = new PDOStatement();
     $stat = $db->prepare("SELECT * FROM REPORT");
