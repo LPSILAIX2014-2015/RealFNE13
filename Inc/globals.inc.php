@@ -25,7 +25,7 @@ $page = array();//Titre, class "active";
  * la classe CUser s'instancie en prennant 1 paramètre correspondant à au ID_USER de l'utilisateur dans la base.
 */
 if ((testVar($_POST['login'])) && (testVar($_POST['password'])))  {
-    //Si on reçoit un login et un mot de passe, on appelle la fonction connexion (Php/connexion.php) qui,
+    //Si on reçoit un login et un mot de passe, on appelle la fonction connexion (Class/connexion.class.php) qui,
     //en cas de validation, crée un user et l'inscrit en session
     connexion($_POST['login'],$_POST['password']);
 }
