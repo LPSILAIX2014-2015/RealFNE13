@@ -20,7 +20,6 @@ switch($EX)
         }
         break;
 	case 'consultMessages' : consultMessages(); break;
-	case 'writeMessages' : writeMessages(); break;
 	default : error();
 }
 
@@ -60,15 +59,6 @@ function consultMessages()
     $page['class'] = 'VConsultMessages';
     $page['method'] = 'showConsultMessages';
     $page['arg'] = 'Html/consultMessages.php';
-}
-
-function writeMessages()
-{
-	global $page;
-	$page['title'] = "Ecriture d'un message";
-	$page['class'] = 'VHtml';
-	$page['method'] = 'showHtml';
-	$page['arg'] = 'Html/formulaireMessage.html';
 }
 
 
