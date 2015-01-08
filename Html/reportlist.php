@@ -3,6 +3,8 @@
 $db = new DBase();
 $statement = $db->query("SELECT * FROM REPORT");
 $allReports = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+if ($_SESSION["ROLE"] == "SADMIN") {
 ?>
 <! -- Zone des filtres pour l'affichage des rapports. Par défaut : Tout -->
 <div class="report_filters">
@@ -31,10 +33,20 @@ $allReports = $statement->fetchAll(PDO::FETCH_ASSOC);
 <! -- JavaScript pour le changement d'affichage en fonction des filtres -->
 <script type="text/javascript">
     // Se déclenche lorsque le filtre est changé
-    $('#form_radio input[type=radio]').change(function(){
+    $('#form_radio input[type=radio]').change(function() {
         vall = $(this).val();	// Récupération de la variable du filtre
         $(".ALL").hide();		// On cache tous les rapports
         $("."+vall).show(250);	// On affiche en fondu les rapports concernés par le filtre
+    })
+</script>
+<?php } else {} ?>
 
+<! -- JavaScript pour le changement d'affichage en fonction des filtres -->
+<script type="text/javascript">
+    // Se déclenche lorsque le filtre est changé
+    $('#form_radio input[type=radio]').change(function() {
+        vall = $(this).val();	// Récupération de la variable du filtre
+        $(".ALL").hide();		// On cache tous les rapports
+        $("."+vall).show(250);	// On affiche en fondu les rapports concernés par le filtre
     })
 </script>
