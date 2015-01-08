@@ -20,7 +20,7 @@
         private $profession2;
         private $presentation;
         private $photopath;
-        private $association ;
+        private $association;
 
         function __construct ($id) {
             $sql = new DBase();
