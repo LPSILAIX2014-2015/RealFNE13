@@ -1,0 +1,26 @@
+<form method="POST" name="MAIL" onsubmit="return envoi();" action="Php/message.php">
+    <fieldset>
+        <p>
+            <label for="destinataire">Destinataire :</label>
+            <input type="text" id="destinataire" name="DESTINATAIRE" value="" size="30" maxlength="50"/>
+        </p>
+
+        <p>
+            <label for="sujet">Sujet :</label>
+            <input type="text" id="sujet" name="SUJET" value="(Aucun sujet)" size="30" maxlength="50"/>
+        </p>
+
+        Message :
+        <p>
+            <textarea style="resize: none;" name="MESSAGE" rows="10" cols="45"></textarea>
+        </p>
+
+        <p>
+            <input type="submit" value="Ok"/>
+        </p>
+    </fieldset>
+    <div id="accuse_reception"></div>
+    <!-- id="accusé de réception" -->
+</form>
+
+<script src="Js/projet.js"></script>
