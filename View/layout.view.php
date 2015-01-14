@@ -45,4 +45,5 @@ $vHtml = new VHtml() ;
     </div>
     <script src="Lib/jquery.min.js"></script>
     <script src="Lib/bootstrap.min.js"></script>
+    <script src="JS/createArticle.js"></script>
 </body>

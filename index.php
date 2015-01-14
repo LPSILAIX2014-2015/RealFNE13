@@ -21,6 +21,7 @@ switch($EX)
         }
         break;
 	case 'consultMessages' : consultMessages(); break;
+    case 'createArticle':   createArticle(); break;
 	default : error();
 }
 
@@ -62,7 +63,14 @@ function consultMessages()
     $page['arg'] = 'Html/consultMessages.php';
 }
 
-
+function createArticle()
+{
+    global $page;
+    $page['title'] = 'écrire un article';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/createArticle.php';
+}
 
 function deconnexion()
 {
