@@ -1,5 +1,5 @@
 <div class="infosperso">
-	<div class="logo">Accueil</div>
+    <a href="index.php?EX=home"><div class="logo">Accueil</div></a>
     <form method="post" id="formconnec">
         Connexion :
         <label>Login : </label>

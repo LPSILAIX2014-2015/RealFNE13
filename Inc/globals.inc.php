@@ -17,7 +17,7 @@ global $page, $db, $user;
 */
 $page = array();//Titre, class "active";
 /* $user
-* objet CUser (Model/Cuser.mod.php) - Classe représentant un utilisateur
+* objet CUser (Model/MUser.mod.php) - Classe représentant un utilisateur
 * $user contient un CUser représentant l'utilisateur courant
 * la classe CUser s'instancie en prennant 1 paramètre correspondant à au ID_USER de l'utilisateur dans la base.
 */
