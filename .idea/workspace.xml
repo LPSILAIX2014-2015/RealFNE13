@@ -26,7 +26,7 @@
       <file leaf-file-name="MUser.mod.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Model/MUser.mod.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="28" selection-start="657" selection-end="657" vertical-scroll-proportion="0.39379475" vertical-offset="225" max-vertical-offset="5025">
+            <state line="8" column="73" selection-start="102" selection-end="167" vertical-scroll-proportion="0.28639618" vertical-offset="0" max-vertical-offset="5025">
               <folding>
                 <marker date="1421243216000" expanded="true" signature="714:747" placeholder="SELECT * FRO..USER..." />
                 <marker date="1421243216000" expanded="true" signature="899:936" placeholder="SELECT * FRO..USER..." />
@@ -378,10 +378,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1440" height="850" extended-state="1" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3287858" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3287858" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287858" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287858" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -831,7 +831,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/MUser.mod.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="28" selection-start="657" selection-end="657" vertical-scroll-proportion="0.39379475" vertical-offset="225" max-vertical-offset="5025">
+        <state line="8" column="73" selection-start="102" selection-end="167" vertical-scroll-proportion="0.28639618" vertical-offset="0" max-vertical-offset="5025">
           <folding>
             <marker date="1421243216000" expanded="true" signature="714:747" placeholder="SELECT * FRO..USER..." />
             <marker date="1421243216000" expanded="true" signature="899:936" placeholder="SELECT * FRO..USER..." />
