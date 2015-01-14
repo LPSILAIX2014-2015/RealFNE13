@@ -1,5 +1,5 @@
 <?php 
-	require './DBase.php';
+	require '../Model/DBase.mod.php';
 	$id = 0;
 	if ( !empty($_POST)) {
 		// keep track post values

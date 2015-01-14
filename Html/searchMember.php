@@ -59,9 +59,6 @@
 
 
 </script>
-</head>
-
-<body>
 
 <div class="container">
     <div class="row">
@@ -139,7 +136,7 @@
             <?php
             //include './Php/DBase.php';
             $pdo = DBase::connect();
-            if ( !empty($_POST)) {
+            if ( isset($_POST['NAME'])) {
                 $nom = $_POST['NAME'];
                 $conditions = array();
                 $params = array();
@@ -278,5 +275,3 @@
         </table>
     </div>
 </div> <!-- /container -->
-</body>
-</html>

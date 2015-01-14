@@ -1,3 +1,4 @@
+
 $(document).ready(function(){ // Fonction pour valider la première formulaire 
     $("#frmRMail").validate({
         rules:{

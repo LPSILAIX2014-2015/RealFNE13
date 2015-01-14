@@ -1,5 +1,4 @@
 <?php
-include '../Php/DBase.php';
 header('Content-type: application/json');
 //if ( !empty($_POST)) {
 $pdo = DBase::connect();

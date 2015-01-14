@@ -1,9 +1,7 @@
 <?php
 require('Inc/require.inc.php');
 require('Inc/globals.inc.php');
-require('Php/DBase.php'); // Recuperation de la connexion à la BD
 $EX = isset($_REQUEST['EX']) ? $_REQUEST['EX'] : 'home';
-
 
 switch($EX)
 {
@@ -18,7 +16,18 @@ switch($EX)
     case 'insert'    : insert();     exit; // Mèthode insert() pour enregistrer le changement de mot de passe
     case 'mailconf'  : mailconf();   exit; // Mèthode pour envoyer l'email de confirmation
     case 'recup'     : recuperation(); break; // Presentation de la vue
-	default : check($EX);
+    case 'deconnexion' :
+        if (isset($_POST['login']) && isset($_POST['password']))
+        {
+            home();
+        }
+        else
+        {
+            deconnexion();
+        }
+        break;
+	case 'consultMessages' : consultMessages(); break;
+    default : check($EX);
 }
 
 require('./View/layout.view.php');
@@ -27,7 +36,6 @@ function check($EX)
 {
     require('Class/CRecMP.class.php'); // Appele à les mèthodes de la classe pour verifier les données dans la BD
     global $eml; // Variable global pour afficher le mail dans le deuxième formilaire (où l'user changera son mot de passe)
-
     $dbverf = new CRecMP(); // Instantiation de la Classe CRecMP
     $value = $dbverf->selectMD5($EX); // Verification de la chaine de l'URL
     if(count($value)==0){ // Si le resultat du request est 0 montre la page d'erreur
@@ -50,7 +58,7 @@ function home()
 
 function error()
 {
-	global $page;
+    global $page;
 	$page['title'] = 'Erreur 404 !';
 	$page['class'] = 'VHtml';
 	$page['method'] = 'showHtml';
@@ -158,5 +166,26 @@ function mailconf()
         echo $update;
     }
 }
-?>
 
+function consultMessages()
+{
+    global $page;
+    $page['title'] = 'Liste des messages';
+    $page['class'] = 'VConsultMessages';
+    $page['method'] = 'showConsultMessages';
+    $page['arg'] = 'Html/consultMessages.php';
+}
+
+
+
+function deconnexion()
+{
+    global $page;
+    unset($_SESSION['ID_USER']);
+    unset($GLOBALS['user']);
+    session_destroy();
+    $page['title'] = 'Retour après déco';
+    $page['class'] = 'VHome';
+    $page['method'] = 'showHome';
+    $page['arg'] = 'Html/accueil.php';
+}

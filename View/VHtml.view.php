@@ -12,4 +12,3 @@ class VHtml
   } // showHtml($_html)
   
 } // VHtml
-?>

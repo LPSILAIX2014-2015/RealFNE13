@@ -4,7 +4,7 @@
 	if ( !empty($_GET['id'])) {
 		$id = $_REQUEST['id'];
 	}
-        if ( !empty($_POST)) {
+        if ( isset($_POST['NAME'])) {
 		$name = $_POST['NAME'];
                 $surname = $_POST['SURNAME'];
 		$email = $_POST['MAIL'];
@@ -22,18 +22,20 @@
         }
 		// insert data
         
-		$pdo = DBase::connect();
+		/*$pdo = DBase::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$sql = "SELECT * FROM user where ID = ?";
 		$q = $pdo->prepare($sql);
 		$q->execute(array($id));
-		$data = $q->fetch(PDO::FETCH_ASSOC);
-		$name = $data['NAME'];
-                $surname = $data['SURNAME'];
-		$email = $data['MAIL'];
-		$cp = $data['CP'];
-                $profession = $data['PROFESSION'];
-		DBase::disconnect();
+		$data = $q->fetch(PDO::FETCH_ASSOC);*/
+		$user= new CUser($id);
+		$name = $user->getName();
+                $surname = $user->getSurname();
+		$email = $user->getMail();
+		$cp = $user->getCp();
+                $profession = $user->getProfession();
+                $specialite= $user->getThemeDetails();
+                $assoc=$user->getAssoName();
 	
 	
 ?>
