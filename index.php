@@ -22,8 +22,12 @@ switch($EX)
         break;
 	case 'consultMessages' : consultMessages(); break;
     case 'createArticle':   createArticle(); break;
+
     case 'showArticle'		: showArticle(); 	 break;
     case 'showInfoArticle'	: showInfoArticle(); break;
+
+    case 'formCreateArticle' : formCreateArticle(); break;
+
 	default : error();
 }
 
@@ -56,6 +60,21 @@ function reportList()
     $page['arg'] = 'Html/reportlist.php';
 }
 
+function createArticle()
+{
+    global $page;
+    $page['title'] = 'écrire un article';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/createArticle.php';
+}
+
+function formCreateArticle()
+{
+    $formCreateArticle = new MFormCreateArticle();
+    $formCreateArticle->insertDB($_POST);
+}
+
 function consultMessages()
 {
     global $page;
@@ -65,14 +84,6 @@ function consultMessages()
     $page['arg'] = 'Html/consultMessages.php';
 }
 
-function createArticle()
-{
-    global $page;
-    $page['title'] = 'écrire un article';
-    $page['class'] = 'VHtml';
-    $page['method'] = 'showHtml';
-    $page['arg'] = 'Html/createArticle.php';
-}
 
 function showArticle()
 {
