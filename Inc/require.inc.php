@@ -1,11 +1,6 @@
 <?php
-
-    //Controller MVC
     function __autoload($class)
     {
-
-      // Inclusion Model (PDO)
-
       if ($class[0] == 'M')
       {
           require_once('Model/'.$class.'.mod.php');
@@ -22,9 +17,7 @@
       {
           require_once('Class/'.$class.'.class.php');
       }
-
       return;
-
     } // __autoload($class)
 
     function debugAlert ($var) {
