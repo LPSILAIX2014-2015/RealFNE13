@@ -1,6 +1,6 @@
 <?php
 
-    if ($_SESSION["ROLE"] == "SADMIN") {
+if ($_SESSION["ROLE"] == "SADMIN") {
     $db = new DBase();
     $stat = new PDOStatement();
     $stat = $db->prepare("SELECT * FROM REPORT");
