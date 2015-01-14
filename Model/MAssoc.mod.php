@@ -10,13 +10,14 @@
 
         function __construct ($id) {
             $sql = new MDBase();
-            $state = $sql->prepare("SELECT * FROM ASSOCIATION WHERE ID = $id;");
+            $state = $sql->prepare("SELECT * FROM ASSOCIATION WHERE ID = :id");
+            $state->bindValue('id', $id, PDO::PARAM_INT);
             $state->execute();
             $assoc = $state->fetch(PDO::FETCH_ASSOC);
 
             $this->id = $id;
             $this->name = $assoc['NAME'];
-            $this->territory= $assoc['TERRITORY'];
+            $this->territory= $assoc['TERRITORY_ID'];
         }
 
         /**
