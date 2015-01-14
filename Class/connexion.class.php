@@ -18,6 +18,7 @@
             if (testVar($result))
             {
                 $_SESSION['ID_USER'] = $result['ID'];
+                $_SESSION['ROLE'] = $result['ROLE'];
                 $user = new CUser($result['ID']) ;
             }
             else {
