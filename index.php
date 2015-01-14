@@ -11,6 +11,7 @@ switch($EX)
 	case 'login'     :      login();      break;
     case 'reportList':      reportList(); break;
     case 'createArticle':   createArticle(); break;
+    case 'formCreateArticle' : formCreateArticle(); break;
 	default : error();
 }
 
@@ -52,6 +53,13 @@ function createArticle()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/createArticle.php';
 }
+
+function formCreateArticle()
+{
+    $formCreateArticle = new MFormCreateArticle();
+    $formCreateArticle->insertDB($_POST);
+}
+
 
 ?>
 

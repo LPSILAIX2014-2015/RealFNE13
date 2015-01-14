@@ -15,7 +15,7 @@ $(document).ready(function() {
         $("#buttonCreateArticleInCalendar").on('click',function(){
             $("#buttonCreationArticle").prop('hidden', true);
             $("#contentCreateArticle").prop('hidden', false);
-            $("#inputOnlyCalendar").prop('hidden', false);
+            $(".inputOnlyCalendar").prop('hidden', false);
         });
     });
 
@@ -82,6 +82,7 @@ var insertTag = function(startTag, endTag, tagType){
 
 var preview = function() {
     $("#previewDiv").empty();
+    $("#textareaDecrypt").empty();
     var field = $("#textareaId").val();
 
     field = field.replace(/\n/g,"<br>");            //... On remplace le sauts de ligne par de balises </br>
@@ -109,6 +110,7 @@ var preview = function() {
     field = field.replace(/&lt;taille valeur=\"(.*?)\"&gt;([\s\S]*?)&lt;\/taille&gt;/g, '<span class="$1">$2</span>');
 
     $("#previewDiv").append("<p>"+ field +"</p>");
+    $("#textareaDecrypt").prop('value', "<p>"+ field +"</p>");
 
 };
 

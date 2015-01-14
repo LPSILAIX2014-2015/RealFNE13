@@ -7,6 +7,10 @@ class VArticle
 
     public function showArticle()
     {
+
+        global $connec;
+
+
         $vhtml = new VHtml();
         $vhtml->showHtml('../Html/createArticle.php');
 

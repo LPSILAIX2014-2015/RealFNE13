@@ -2,8 +2,18 @@
 
 function __autoload($class)
 {
-  // Inclusion des class de type Vue
-  require_once('View/'.$class.'.view.php');
+
+    if($class[0] == "M")
+    {
+        require_once('Model/'.$class.'.mod.php');
+    }
+    elseif($class[0] == "V")
+    {
+        require_once('View/'.$class.'.view.php');
+    }
+    else {
+        require_once('Control/' . $class . '.cont.php');
+    }
   
   return;
 
