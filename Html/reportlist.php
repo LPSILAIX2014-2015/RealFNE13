@@ -27,13 +27,7 @@
         ?>
     </table>
 </div>
-<script type="text/javascript">
-    $('#form_radio input[type=radio]').change(function(){
-        vall = $(this).val();
-        $(".ALL").hide();
-        $("."+vall).show(250);
-    })
-</script>
-<?php } else { echo var_dump($_SESSION); ?>
+<script type="text/javascript" src="Js/reportList.js"></script>
+<?php } else {  ?>
 <div>Vous n'avez pas les droits nécesaires pour accéder à cette page !</div>
 <?php }?>
