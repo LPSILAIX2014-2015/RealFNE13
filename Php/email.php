@@ -1,5 +1,4 @@
 <?php
-
         $pdo = new MDBase();
 		$to = $_POST['emailto'];
                 $id = 1;
@@ -38,8 +37,4 @@
                     }
                     mail ($mail,$subject,$message,$header);
                 }
-
-                header("Location: ../Html/data.php");
-		
-	
 ?>

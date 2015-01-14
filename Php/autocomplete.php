@@ -11,6 +11,4 @@ if ( !empty($_POST)) {
     print_r(json_encode($users));
 }
 
-
-
 ?>

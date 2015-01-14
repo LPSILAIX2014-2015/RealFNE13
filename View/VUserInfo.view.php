@@ -9,8 +9,8 @@ class VUserInfo
   {
     $vhtml = new VHtml();
     $vhtml->showHtml('Html/userInfo.php');
-    
+
   } // showUserInfo()
-  
+
 } // VUserInfo
 ?>

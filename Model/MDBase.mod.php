@@ -6,6 +6,7 @@ class MDBase extends PDO {
     private $database = 'FNESITE';
     private $user = 'root';
     private $pass = 'mysql';
+    private $cont = '';
 
     public function __construct() {
         $dns = $this->engine.':dbname='.$this->database.";host=".$this->host;
@@ -16,16 +17,16 @@ class MDBase extends PDO {
 	{
 	   // One connection through whole application
        if ( null == self::$cont )
-       {      
-        try 
+       {
+        try
         {
-          self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword);  
+          self::$cont =  new PDO( "mysql:host=".self::$host.";"."dbname=".self::$database, self::$user, self::$pass);
         }
-        catch(PDOException $e) 
+        catch(PDOException $e)
         {
-          die($e->getMessage());  
+          die($e->getMessage());
         }
-       } 
+       }
        return self::$cont;
 	}
 

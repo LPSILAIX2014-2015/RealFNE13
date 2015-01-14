@@ -7,9 +7,8 @@ class VHtml
   
   public function showHtml($_html)
   {
-    (file_exists($_html)) ? include($_html) : include('Html/unknown.php');
+    (file_exists($_html)) ? include($_html) : include('./Html/unknown.php');
     
   } // showHtml($_html)
   
 } // VHtml
-?>
