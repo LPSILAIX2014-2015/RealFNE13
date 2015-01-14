@@ -23,7 +23,6 @@
         private $association;
 
         function __construct ($id) {
-            $id = intval($id);
             $sql = new DBase();
             $state = $sql->prepare("SELECT * FROM USER WHERE ID = $id;");
             $state->execute();

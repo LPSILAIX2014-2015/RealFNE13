@@ -2,12 +2,13 @@
 
     class CAssoc {
 
+        private $sql;
+
         private $id;
         private $name;
         private $territory;
 
         function __construct ($id) {
-            $id = intval($id);
             $sql = new DBase();
             $state = $sql->prepare("SELECT * FROM ASSOCIATION WHERE ID = $id;");
             $state->execute();

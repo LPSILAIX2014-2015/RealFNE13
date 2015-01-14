@@ -10,12 +10,12 @@
     <li><a>Articles</a>
         <div class="submenu">
             <a>Consulter</a>
-            <a href="index.php?EX=ecrireArticle">Ecrire</a>
+            <a href="index.php?EX=writeArticle">Ecrire</a>
         </div>
     </li>
     <li><a>Messagerie</a>
         <div class="submenu">
-            <a>Consulter</a>
+            <a href="index.php?EX=consultMessages">Consulter</a>
             <a>Ecrire</a>
         </div>
     </li>
@@ -25,7 +25,7 @@
         <div class="submenu">
             <a>Gestion assos</a>
             <a>Validations</a>
-            <a href="index.php?EX=reportList">Journal</a>
+            <a>Journal</a>
         </div>
     </li>
     <? } ?>

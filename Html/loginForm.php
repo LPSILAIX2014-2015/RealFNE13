@@ -7,6 +7,6 @@
         <label>Mot de passe:</label>
         <input type="password" name="password" id="password">
         <input type="submit" value="OK" id="loginbutton"><br/>
-        <a href="index.php?EX=lostpass" class="lostpass">Mot de passe perdu ?</a>
+        <a href="Php/index.php?EX=lostpass" class="lostpass">Mot de passe perdu ?</a>
     </form>
 </div>

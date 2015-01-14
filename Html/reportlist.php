@@ -1,7 +1,7 @@
 <?php
 
-if ($_SESSION["ROLE"] == "SADMIN") {
-    $db = new DBase();
+    if ($_SESSION["ROLE"] == "SADMIN") {
+    $db = new MDBase();
     $stat = new PDOStatement();
     $stat = $db->prepare("SELECT * FROM REPORT");
     $stat->execute();

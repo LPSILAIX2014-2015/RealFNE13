@@ -17,21 +17,18 @@ global $page, $db, $user;
 */
 $page = array();//Titre, class "active";
 /* $user
-* objet CUser (Model/CUser.mod.php) - Classe représentant un utilisateur
- * $user contient un CUser représentant l'utilisateur courant
- * la classe CUser s'instancie en prennant 1 paramètre correspondant à au ID_USER de l'utilisateur dans la base.
+* objet CUser (Model/Cuser.mod.php) - Classe représentant un utilisateur
+* $user contient un CUser représentant l'utilisateur courant
+* la classe CUser s'instancie en prennant 1 paramètre correspondant à au ID_USER de l'utilisateur dans la base.
 */
 if ((testVar($_POST['login'])) && (testVar($_POST['password'])))  {
-    /*
-     * Si on reçoit un login et un mot de passe, on appelle la fonction connexion (Php/connexion.php) qui, en cas de validation, crée un user et l'inscrit en session
-     */
-    connexion($_POST['login'],$_POST['password']);
+    //Si on reçoit un login et un mot de passe, on appelle la fonction connexion (Class/CConnexion.class.php) qui,
+    //en cas de validation, crée un user et l'inscrit en session
+    $connec = new CConnexion();
+    $connec->connexion($_POST['login'],$_POST['password']);
 }
 elseif (testVar($_SESSION['ID_USER'])) {
-    /*
-     * Si l'ID_USER est enregistré en session on instancie dans $user avec la valeur enregistrée en session
-     */
-    $user = new CUser($_SESSION['ID_USER']);
+    //Si l'ID_USER est enregistré en session on instancie dans $user avec la valeur enregistrée en session
+    $user = new MUser($_SESSION['ID_USER']);
 }
-
 ?>
