@@ -1,6 +1,5 @@
 <?php
-	require('../Php/DBase.php');
-	$database = new DBase();
+	$database = new MDBase();
 
 	$state = $database->prepare("UPDATE MESSAGES SET ISREADED = 1 WHERE ID = :id");
     $state->bindValue('id', htmlspecialchars($_GET['id']), PDO::PARAM_INT);
