@@ -1,5 +1,5 @@
 <?php 
-    include './Php/DBase.php';
+    //include './Php/DBase.php';
 	$id = null;
 	if ( !empty($_GET['id'])) {
 		$id = $_REQUEST['id'];
