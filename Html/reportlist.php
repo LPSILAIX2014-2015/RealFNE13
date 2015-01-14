@@ -1,8 +1,11 @@
 <?php
+
+    if ($_SESSION["ROLE"] == "SADMIN") {
     $db = new DBase();
     $stat = new PDOStatement();
     $stat = $db->prepare("SELECT * FROM REPORT");
     $stat->execute();
+
 ?>
 <div class="report_filters">
     <form id="form_radio" class="well well-sm text-center">
@@ -31,3 +34,6 @@
         $("."+vall).show(250);
     })
 </script>
+<?php } else { echo var_dump($_SESSION); ?>
+<div>Vous n'avez pas les droits nécesaires pour accéder à cette page !</div>
+<?php }?>

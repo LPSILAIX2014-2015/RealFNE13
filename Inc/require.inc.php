@@ -23,5 +23,5 @@ function testVar (&$val)
 {
     return (!empty($val) && isset($val));
 }
-require_once('Php/connexion.php');
+require_once ('Class/connexion.class.php');
 ?>
