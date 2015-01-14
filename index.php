@@ -22,6 +22,8 @@ switch($EX)
         break;
 	case 'consultMessages' : consultMessages(); break;
     case 'createArticle':   createArticle(); break;
+    case 'showArticle'		: showArticle(); 	 break;
+    case 'showInfoArticle'	: showInfoArticle(); break;
 	default : error();
 }
 
@@ -70,6 +72,24 @@ function createArticle()
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/createArticle.php';
+}
+
+function showArticle()
+{
+    global $page;
+    $page['title'] = 'Liste des articles';
+    $page['class'] = 'VShowArticle';
+    $page['method'] = 'showArticle';
+    $page['arg'] = 'Html/showArticle.php';
+}
+
+function showInfoArticle()
+{
+    global $page;
+    $page['title'] = 'Détail';
+    $page['class'] = 'VInfoArticle';
+    $page['method'] = 'showInfoArticle';
+    $page['arg'] = 'Html/infoArticle.php';
 }
 
 function deconnexion()

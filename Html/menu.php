@@ -9,7 +9,7 @@
     <li><a>Agenda</a></li>
     <li><a>Articles</a>
         <div class="submenu">
-            <a>Consulter</a>
+            <a href="index.php?EX=showArticle">Consulter</a>
             <a href="index.php?EX=createArticle">Ecrire</a>
         </div>
     </li>
