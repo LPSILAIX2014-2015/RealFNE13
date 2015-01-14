@@ -2,8 +2,6 @@
 
     class CAssoc {
 
-        private $sql;
-
         private $id;
         private $name;
         private $territory;
@@ -50,22 +48,6 @@
         public function getName()
         {
             return $this->name;
-        }
-
-        /**
-         * @param mixed $sql
-         */
-        public function setSql($sql)
-        {
-            $this->sql = $sql;
-        }
-
-        /**
-         * @return mixed
-         */
-        public function getSql()
-        {
-            return $this->sql;
         }
 
         /**
