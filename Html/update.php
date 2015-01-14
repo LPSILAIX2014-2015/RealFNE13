@@ -6,13 +6,13 @@
 	}
         if ( isset($_POST['NAME'])) {
 		$name = $_POST['NAME'];
-                $surname = $_POST['SURNAME'];
+        $surname = $_POST['SURNAME'];
 		$email = $_POST['MAIL'];
 		$cp = $_POST['CP'];
-                $profession = $_POST['PROFESSION'];
+        $profession = $_POST['PROFESSION'];
 		$user_id = $_GET['id'];
-                $pdo = DBase::connect();
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo = DBase::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$sql = "UPDATE user SET NAME = ?, SURNAME= ?, CP = ?, MAIL = ?, PROFESSION = ? WHERE ID = ?";
 		$q = $pdo->prepare($sql);
 		$q->execute(array($name, $surname, $cp, $email, $profession, $user_id));
@@ -21,21 +21,14 @@
                 
         }
 		// insert data
-        
-		/*$pdo = DBase::connect();
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "SELECT * FROM user where ID = ?";
-		$q = $pdo->prepare($sql);
-		$q->execute(array($id));
-		$data = $q->fetch(PDO::FETCH_ASSOC);*/
 		$user= new CUser($id);
 		$name = $user->getName();
-                $surname = $user->getSurname();
+        $surname = $user->getSurname();
 		$email = $user->getMail();
 		$cp = $user->getCp();
-                $profession = $user->getProfession();
-                $specialite= $user->getThemeDetails();
-                $assoc=$user->getAssoName();
+        $profession = $user->getProfession();
+        $specialite= $user->getThemeDetails();
+        $assoc=$user->getAssoName();
 	
 	
 ?>

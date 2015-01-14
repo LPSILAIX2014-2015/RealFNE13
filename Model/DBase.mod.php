@@ -46,20 +46,7 @@ class DBase extends PDO {
             $qq->execute();
             $data = $qq->fetch(PDO::FETCH_ASSOC);
             return $data;
-        }
-        
-        public static function getByID($id)
-        {
-            $pdo = self::connect();
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $query = "SELECT * FROM user where ID = :id";
-            $qq = $pdo->prepare($query);
-            $qq->bindParam(':id', $id, PDO::PARAM_INT);
-            $qq->execute();
-            $data = $qq->fetch(PDO::FETCH_ASSOC);
-            return $data;
-        }
-        
+        }        
         
         public static function getUserByEmail($email) {
             $pdo = self::connect();
