@@ -59,5 +59,14 @@ function deconnexion()
 
 }
 
+function writeMessages()
+{
+    global $page;
+    $page['title'] = "Ecriture d'un message";
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/formulaireMessage.html';
+}
+
 ?>
 

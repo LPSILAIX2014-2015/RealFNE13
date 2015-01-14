@@ -18,6 +18,7 @@
             if (testVar($result))
             {
                 $_SESSION['ID_USER'] = $result['ID'];
+                $_SESSION['ROLE'] = $result['ROLE'];
                 $user = new CUser($result['ID']) ;
             }
             else {
@@ -26,7 +27,7 @@
         }
         catch (Exception $ex)
         {
-            $error_log = "[Error]"."[connexion.php]"."connection() : ".$ex->getMessage();
+            $error_log = "[Error]"."[connexion.class.php]"."connection() : ".$ex->getMessage();
             echo $error_log;
             return false;
         }

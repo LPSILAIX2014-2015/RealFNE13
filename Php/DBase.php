@@ -1,7 +1,6 @@
 <?php
 class DBase extends PDO {
 
-<<<<<<< HEAD
     private static $engine = 'mysql';
     private static $dbName = 'FNESITE' ; 
     private static $dbHost = 'localhost' ;
@@ -111,18 +110,5 @@ class DBase extends PDO {
             }
             return $data;
         }
-=======
-    private $engine = 'mysql';
-    private $host = 'localhost';
-    private $database = 'FNESITE';
-    private $user = 'root';
-    private $pass = 'mysql';
-
-    public function __construct(){
-        $dns = $this->engine.':dbname='.$this->database.";host=".$this->host;
-        parent::__construct( $dns, $this->user, $this->pass );
-
-    }
->>>>>>> 0f1378ed7eb5467c6bbe53f03bf4798291703aa5
 }
 ?>
