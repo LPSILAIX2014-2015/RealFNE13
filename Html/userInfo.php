@@ -1,5 +1,5 @@
 <div class="infosperso">
-    <div class="logo">Accueil</div>
+    <a href="index.php?EX=home"><div class="logo">Accueil</div></a>
 	<img src="Img/photo.jpg" class="photo">
 	<div class="nom"><?
         echo ($GLOBALS['user']->getSurname().' '.$GLOBALS['user']->getName());

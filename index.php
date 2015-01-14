@@ -61,8 +61,6 @@ function consultMessages()
     $page['arg'] = 'Html/consultMessages.php';
 }
 
-
-
 function deconnexion()
 {
     global $page;

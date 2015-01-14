@@ -25,7 +25,7 @@
         <div class="submenu">
             <a>Gestion assos</a>
             <a>Validations</a>
-            <a>Journal</a>
+            <a href="index.php?EX=reportList">Journal</a>
         </div>
     </li>
     <? } ?>
