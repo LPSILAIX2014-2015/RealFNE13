@@ -2,6 +2,71 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ecc6d843-f667-4155-a50a-5ecbdf2a31a4" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bgcaptcha.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/glyphicons.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/valid.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Class/CRecMP.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/MDBase.mod.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/MFormCreateArticle.mod.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/View/VArticle.view.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Lib/bootstrap.icon-large.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/captcha.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/createArticle.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Js/createArticle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/createArticle.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Js/form.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/manageMembers.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Js/recMP.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/recMail.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/recuperation.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/reportList.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/searchMember.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/FNE13.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Class/CConnexion.class.php" afterPath="$PROJECT_DIR$/Class/CConnexion.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/MAssoc.mod.php" afterPath="$PROJECT_DIR$/Model/MAssoc.mod.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/MMessage.mod.php" afterPath="$PROJECT_DIR$/Model/MMessage.mod.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/MNewsletter.mod.php" afterPath="$PROJECT_DIR$/Model/MNewsletter.mod.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/MPost.mod.php" afterPath="$PROJECT_DIR$/Model/MPost.mod.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/MReport.mod.php" afterPath="$PROJECT_DIR$/Model/MReport.mod.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/MTerritory.mod.php" afterPath="$PROJECT_DIR$/Model/MTerritory.mod.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/MTheme.mod.php" afterPath="$PROJECT_DIR$/Model/MTheme.mod.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/MUser.mod.php" afterPath="$PROJECT_DIR$/Model/MUser.mod.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/VHtml.view.php" afterPath="$PROJECT_DIR$/View/VHtml.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/VNav.view.php" afterPath="$PROJECT_DIR$/View/VNav.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/VUserInfo.view.php" afterPath="$PROJECT_DIR$/View/VUserInfo.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Php/autocomplete.php" afterPath="$PROJECT_DIR$/Php/autocomplete.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/create.php" afterPath="$PROJECT_DIR$/Html/create.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Php/create.php" afterPath="$PROJECT_DIR$/Php/create.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/data.php" afterPath="$PROJECT_DIR$/Html/data.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/datatable.php" afterPath="$PROJECT_DIR$/Html/datatable.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/delete.php" afterPath="$PROJECT_DIR$/Html/delete.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Php/delete.php" afterPath="$PROJECT_DIR$/Php/delete.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Php/email.php" afterPath="$PROJECT_DIR$/Php/email.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Inc/globals.inc.php" afterPath="$PROJECT_DIR$/Inc/globals.inc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/header.php" afterPath="$PROJECT_DIR$/Html/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/layout.view.php" afterPath="$PROJECT_DIR$/View/layout.view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/loginForm.php" afterPath="$PROJECT_DIR$/Html/loginForm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Css/main.css" afterPath="$PROJECT_DIR$/Css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/menu.php" afterPath="$PROJECT_DIR$/Html/menu.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/reportlist.php" afterPath="$PROJECT_DIR$/Html/reportlist.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Inc/require.inc.php" afterPath="$PROJECT_DIR$/Inc/require.inc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Ajax/setMessageReaded.php" afterPath="$PROJECT_DIR$/Ajax/setMessageReaded.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Css/style.css" afterPath="$PROJECT_DIR$/Css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/update-mail.php" afterPath="$PROJECT_DIR$/Html/update-mail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Php/update-mail.php" afterPath="$PROJECT_DIR$/Php/update-mail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/update.php" afterPath="$PROJECT_DIR$/Html/update.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Php/update.php" afterPath="$PROJECT_DIR$/Php/update.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/userInfo.php" afterPath="$PROJECT_DIR$/Html/userInfo.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD.iws" />
@@ -110,6 +175,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealFNE13" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Inc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -118,9 +197,35 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="recentsLimit" value="5" />
   </component>
-  <component name="RunManager">
-    <list size="0" />
+  <component name="RunManager" selected="PHP Script.index.php">
+    <configuration default="false" name="index.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/index.php">
+      <RunnerSettings RunnerId="PhpScriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="PHP Script.index.php" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="PHP Script.index.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
@@ -148,11 +253,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -177,49 +282,42 @@
         <state line="258" column="1" selection-start="4765" selection-end="4765" vertical-scroll-proportion="5.323246" vertical-offset="0" max-vertical-offset="4140" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Html/accueil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="41" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="703" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Html/reportlist.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="9" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.8108108" vertical-offset="0" max-vertical-offset="703">
+        <state line="38" column="9" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.8108108" vertical-offset="0" max-vertical-offset="703" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="702" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Inc/require.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="5" selection-start="419" selection-end="419" vertical-scroll-proportion="0.4054054" vertical-offset="0" max-vertical-offset="703">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Php/DBase.php">
+    <entry file="file://$PROJECT_DIR$/Model/MDBase.mod.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="0" selection-start="3703" selection-end="3703" vertical-scroll-proportion="0.87197727" vertical-offset="1082" max-vertical-offset="1800">
-          <folding />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.0241821" vertical-offset="720" max-vertical-offset="1905">
+          <folding>
+            <marker date="1421313655000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..user..." />
+            <marker date="1421313655000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ASSOC..." />
+            <marker date="1421313655000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..MESSAGE..." />
+            <marker date="1421313655000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..NEWSLETTER..." />
+            <marker date="1421313655000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..POST..." />
+            <marker date="1421313655000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..REPORT..." />
+            <marker date="1421313655000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..TERRITORY..." />
+            <marker date="1421313655000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..THEME..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Inc/globals.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="2" selection-start="1475" selection-end="1475" vertical-scroll-proportion="0.7826087" vertical-offset="0" max-vertical-offset="690">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Php/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Inc/require.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="5" selection-start="483" selection-end="483" vertical-scroll-proportion="0.4054054" vertical-offset="0" max-vertical-offset="703">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="702">
+        <state line="34" column="0" selection-start="1497" selection-end="1497" vertical-scroll-proportion="0.7254623" vertical-offset="0" max-vertical-offset="703">
           <folding />
         </state>
       </provider>

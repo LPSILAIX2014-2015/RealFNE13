@@ -1,0 +1,35 @@
+#offsetButtonArticle {
+    height:150px;
+}
+
+.tpetit {
+    font-size: 50%;
+}
+
+.petit {
+    font-size: 75%;
+}
+
+.gros {
+    font-size: 150%;
+}
+
+.tgros {
+    font-size: 200%;
+}
+
+.gauche {
+    text-align: left;
+}
+
+.droite {
+    text-align: right;
+}
+
+.centrer {
+    text-align: center;
+}
+
+.justifier {
+    text-align: justify;
+}

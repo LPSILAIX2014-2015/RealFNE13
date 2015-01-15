@@ -1,0 +1,17 @@
+.BUTTON_MESSAGE
+{
+    width: 50px;
+}
+.SENDER_MESSAGE
+{
+    width: 150px;
+}
+.contentMessage
+{
+    display: none;
+    width: 500px;
+}
+.notReaded
+{
+    font-weight: bold;
+}
