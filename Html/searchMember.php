@@ -134,8 +134,7 @@
             </thead>
             <tbody>
             <?php
-            //include './Php/DBase.php';
-            $pdo = DBase::connect();
+            $pdo = new MDBase();
             if ( isset($_POST['NAME'])) {
                 $nom = $_POST['NAME'];
                 $conditions = array();
@@ -268,7 +267,6 @@
                 }
 
             }
-            DBase::disconnect();
             ?>
 
             </tbody>
