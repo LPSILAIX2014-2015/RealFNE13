@@ -6,7 +6,7 @@ body {
     background-repeat:repeat;
     font-family:Arial,Verdana,sans-serif;
     display:block;
-    top:80px;
+    top:90px;
     left:10%;
     right:10%;
     bottom:25px;
@@ -16,7 +16,7 @@ body {
 nav {
     display:block;
     position:fixed;
-    top:60px;
+    top:70px;
     left:0;
     width:100%;
     height:30px;
@@ -27,20 +27,22 @@ nav {
 .infosperso {
     background-color: #4bc9e2;
     background-image:url('../Img/headerbg.png');
+    background-size:contain;
     background-repeat:no-repeat;
     background-position:top right;
     color:#000;
     display:block;
     position:fixed;
     width:100%;
-    height:60px;
+    height:70px;
     top:0;
     left:0;
     border:1px solid #FFF;
     font-size:10pt;
     z-index:2;
     overflow:hidden;
-    padding-left:85px;
+    padding-left:95px;
+    padding-top:5px;
 }
 .infosperso .photo {
     display:block;
@@ -223,8 +225,8 @@ a:hover {
     font-size:0;
     display:block;
     position:absolute;
-    top:0;
-    left:0;
+    top:5px;
+    left:5px;
     width:84px;
     height:60px;
     background-image:url('../Img/logo.png');

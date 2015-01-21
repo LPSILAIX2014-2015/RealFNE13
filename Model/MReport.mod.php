@@ -7,8 +7,6 @@
  */
     class MReport {
 
-        private $sql;
-
         private $id;
         private $rdate;
         private $type;
