@@ -239,6 +239,11 @@
         public function setRole($role)
         {
             $this->role = $role;
+            $pdo=new MDBase();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "UPDATE user  set ROLE = ? WHERE ID = ?";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($role, $this->id));
         }
 
         /**
@@ -323,7 +328,10 @@
             }
         }
 
-
+        public function toString()
+        {
+            return $this->surname." ".$this->name;
+        }
 
     }
 

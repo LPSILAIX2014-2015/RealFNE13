@@ -135,7 +135,7 @@
             <tbody>
             <?php
             //include './Php/DBase.php';
-            $pdo = DBase::connect();
+            $pdo = MDBase::connect();
             if ( isset($_POST['NAME'])) {
                 $nom = $_POST['NAME'];
                 $conditions = array();

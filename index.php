@@ -2,6 +2,10 @@
 require('Inc/require.inc.php');
 require('Inc/globals.inc.php');
 $EX = isset($_REQUEST['EX']) ? $_REQUEST['EX'] : 'home';
+if(isset($_REQUEST['idPrev'])){
+    $idPrev= $_REQUEST['idPrev'];
+    $idNext= $_REQUEST['idNext'];
+}
 
 switch($EX)
 {
@@ -30,6 +34,9 @@ switch($EX)
 
     case 'createArticle':   createArticle(); break;
     case 'formCreateArticle' : formCreateArticle(); break;
+    case 'updateAsso' : updateAsso(); break;
+    case 'updateAdminAsso': updateAdminAsso(); break;
+    case 'swapRoles': swapRoles($idPrev,$idNext); break;
     default : check($EX);
 }
 
@@ -217,9 +224,38 @@ function reportList()
         $page['method'] = 'showHtml';
         $page['arg'] = 'Html/formulaireMessage.html';
     }
+    
+    function updateAsso()
+    {
+        global $page;   
+        $page['title'] = "Modif d'une association";
+        $page['class'] = 'VHtml';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Html/updateAsso.php';
+    }
+
+    function updateAdminAsso()
+    {
+        global $page;
+        $page['title'] = "Changement de gérant  ";
+        $page['class'] = 'VHtml';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Html/updateAdminAsso.php';
+    }
+
     function createUser()
     {
         include('Php/create.php');
+    }
+
+    function swapRoles($idPrev, $idNext){
+        global $page;
+        (new Muser($idPrev))->setRole('MEMBRE');
+        (new Muser($idNext))->setRole('ADMIN');
+        $page['title'] = 'Test';
+        $page['class'] = 'VHome';
+        $page['method'] = 'showHome';
+        $page['arg'] = 'Html/accueil.php';
     }
 
 
