@@ -209,7 +209,7 @@ function reportList()
         $page['class'] = 'VHome';
         $page['method'] = 'showHome';
         $page['arg'] = 'Html/accueil.php';
-       }
+    }
 
 
     function writeMessages()
