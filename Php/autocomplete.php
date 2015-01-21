@@ -1,8 +1,8 @@
 <?php
-include '../Php/DBase.php';
+include ('../Model/MDBase.mod.php'); //TODO
 $name = null;
 if ( !empty($_POST)) {
-    $pdo = DBase::connect();
+    $pdo = new MDBase();
     $sql = 'SELECT * FROM user ORDER BY NAME ASC';
     $d = $pdo->query($sql);
     $users = array();
@@ -11,7 +11,5 @@ if ( !empty($_POST)) {
     }
     print_r(json_encode($users));
 }
-
-
 
 ?>

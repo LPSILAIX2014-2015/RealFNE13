@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php
-     include './header.php';
+<?php
      $erreur = null;
      if(isset($_GET['error'])) {
          $erreur = $_GET['error'];
      }
     ?>
-</head>
-
-<body>
     <div class="container">
     
     			<div class="span10 offset1">
@@ -20,8 +13,8 @@
                                         <div class="isa_error">Utilisateur existe!</div>
                                         <?php } ?>
 		    		</div>
-    		
-	    			<form class="form-horizontal" action="../Php/create.php" method="post">
+
+	    			<form class="form-horizontal" action="index.php?EX=createUser" method="post">
 					  <div class="control-group">
 					    <label class="control-label">Name</label>
 					    <div class="controls">
@@ -36,6 +29,15 @@
 					      	
 					    </div>
 					  </div>
+
+					  <div class="control-group">
+					    <label class="control-label">Profession</label>
+					    <div class="controls">
+					      	<input name="PROFESSION" id="profession" type="text"  placeholder="Profession" value="">
+					      	
+					    </div>
+					  </div>
+
                                           <div class="control-group">
 					    <label class="control-label">Email</label>
 					    <div class="controls">
@@ -55,9 +57,8 @@
                                           
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-success">Création</button>
-                                                  <a href="./datatable.php"><button type="button" class="btn">Retour</button></a>
-						  
-						</div>
+                          <a href="./index.php?EX=manageMembers"><button type="button" class="btn">Retour</button></a>
+                      </div>
 					</form>
 				</div>
 				

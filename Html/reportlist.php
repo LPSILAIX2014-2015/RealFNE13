@@ -1,14 +1,39 @@
-<h1>Liste des rapports</h1>
+<?php
+global $user ;
+    if ((isset($user)) && ($user->getRole() == "SADMIN")) {
+    $db = new MDBase();
+    $stat = new PDOStatement();
+    $stat = $db->prepare("SELECT * FROM REPORT");
+    $stat->execute();
+
+?>
 <div class="report_filters">
-    <form class="well well-sm text-center">
-        <label for="report_filter_profile">Profils</label><input name="radioreport" id="report_filter_profile" type="radio" value="report_profile"/>
-        <label for="report_filter_article">Article</label><input name="radioreport" id="report_filter_article" type="radio" value="report_article"/>
-        <label for="report_filter_message">Message</label><input name="radioreport" id="report_filter_message" type="radio" value="report_message"/>
+    <form id="form_radio" class="well well-sm text-center">
+        <fieldset><legend>Filtrer les rapports</legend>
+        <label for="report_filter_profile">Profils</label><input name="radioreport" type="radio" value="PROFIL"/>
+        <label for="report_filter_article">Article</label><input name="radioreport" type="radio" value="ARTICLE"/>
+        <label for="report_filter_message">Message</label><input name="radioreport" type="radio" value="MESSAGE"/>
+        <br/><label for="report_filter_message">Tout</label><input name="radioreport" type="radio" value="ALL"/>
+        </fieldset>
     </form>
 </div>
+<h1>Liste des rapports</h1>
 <div class="result_reports well well-lg">
-    <h2 class="titre article">Deuxième article</h2>
-    <div class="auteur">par Auteur (Association)</div>
-    <p> Nam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias, ne necesse sit unum sollicitum esse pro pluribus; satis superque esse sibi suarum cuique rerum, alienis nimis implicari molestum esse; commodissimum esse quam laxissimas habenas habere amicitiae, quas vel adducas, cum velis, vel remittas; caput enim esse ad beate vivendum securitatem, qua frui non possit animus, si tamquam parturiat unus pro pluribus. [...]</p>
-    <a class="lienarticle">Voir l'article</a>
+    <table>
+        <?php
+            while ($res = $stat->fetch(PDO::FETCH_ASSOC)) {
+                echo "<div class=\"ALL ".$res['TYPE']."\">" . $res['RDATE'] . " - " . $res['CONTENT'] . "</div>";
+            }
+        ?>
+    </table>
 </div>
+<script type="text/javascript">
+    $('#form_radio input[type=radio]').change(function(){
+        vall = $(this).val();
+        $(".ALL").hide();
+        $("."+vall).show(250);
+    })
+</script>
+<?php } else { ?>
+<div>Vous n'avez pas les droits nécesaires pour accéder à cette page !</div>
+<?php }?>

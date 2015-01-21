@@ -133,9 +133,8 @@ $('a.popin').click(function (){
 		                </tr>
 		              </thead>
 		              <tbody>
-		              <?php 
-					   include '../Php/DBase.php';
-					   $pdo = DBase::connect();
+		              <?php
+					   $pdo = new MDBase();
                                            if ( !empty($_POST)) {
                                                $nom = $_POST['NAME'];
                                                $conditions = array();

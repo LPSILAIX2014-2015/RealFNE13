@@ -1,5 +1,5 @@
 <div class="infosperso">
-	<div class="logo">Accueil</div>
+    <a href="index.php?EX=home"><div class="logo">Accueil</div></a>
     <form method="post" id="formconnec">
         Connexion :
         <label>Login : </label>
@@ -7,6 +7,6 @@
         <label>Mot de passe:</label>
         <input type="password" name="password" id="password">
         <input type="submit" value="OK" id="loginbutton"><br/>
-        <a href="index.php?EX=lostpass" class="lostpass">Mot de passe perdu ?</a>
+        <a href="index.php?EX=recup" class="lostpass">Mot de passe perdu ?</a>
     </form>
 </div>
