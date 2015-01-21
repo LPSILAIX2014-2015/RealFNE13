@@ -21,6 +21,7 @@ class CConnexion {
             if (($result['PASSWORD'] === $password) && (($fail->getAttempts() < LOGINFAIL_ATTEMPTS) || ($failremain <= 0)))
             {
                 $_SESSION['ID_USER'] = $result['ID'];
+                $_SESSION['ROLE'] = $result['ROLE'];
                 $user = new MUser($result['ID']) ;
 
                 $query = 'DELETE FROM LOGINFAIL WHERE ID_USER='.$result['ID'].' AND IP=\''.$_SERVER["REMOTE_ADDR"].'\' ;' ;
