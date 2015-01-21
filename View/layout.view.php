@@ -28,6 +28,7 @@ $vHtml = new VHtml() ;
     }
     ?>
     <link rel="stylesheet" type="text/css" href="Lib/bootstrap.icon-large.min.css" />
+    <link rel="stylesheet" type="text/css" href="Lib/simplePagination.css"/>
     <link rel="icon" type="image/png" href="Img/favicon.png" />
     <script src="Lib/jquery.min.js"></script>
     <script src="Lib/bootstrap.min.js"></script>
@@ -37,6 +38,7 @@ $vHtml = new VHtml() ;
     <script src="./Lib/jquery.fancybox.js"></script>
     <script src="./Lib/jquery.form.js"></script>
     <script src="./Lib/jquery.validate.js"></script>
+    <script src="./Lib/simplePagination.js"></script>
     <script src="./Js/recMP.js"></script>
 </head>
 <body>
