@@ -7,8 +7,6 @@
  */
     class MReport {
 
-        private $sql;
-
         private $id;
         private $rdate;
         private $type;
@@ -16,7 +14,7 @@
 
         function __construct ($id) {
             $sql = new MDBase();
-            $state = $sql->prepare("SELECT * FROM MESSAGE WHERE ID = $id;");
+            $state = $sql->prepare("SELECT * FROM REPORT WHERE ID = :id;");
             $state->bindValue('id', $id, PDO::PARAM_INT);
             $state->execute();
             $report = $state->fetch(PDO::FETCH_ASSOC);

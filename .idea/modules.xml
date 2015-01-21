@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/.idea/RealFNE13.iml" filepath="$PROJECT_DIR$/.idea/RealFNE13.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/FNE13.iml" filepath="$PROJECT_DIR$/.idea/FNE13.iml" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/.idea/FNE13.iml" filepath="$PROJECT_DIR$/.idea/FNE13.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/FNESITE.iml" filepath="$PROJECT_DIR$/.idea/FNESITE.iml" />
+>>>>>>> 20bad6e0ac7d7a26a5146c5873ecd824bd6d583b
+>>>>>>> 0f1378ed7eb5467c6bbe53f03bf4798291703aa5
+=======
+>>>>>>> 8a154a34124ccb8de86a74ef2db6a7ae8d735cf5
+>>>>>>> 0442f6c915410a9729669a28373a3f3caf2b2365
+    </modules>
+  </component>
+</project>
+
