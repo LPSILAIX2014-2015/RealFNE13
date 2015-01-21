@@ -1,13 +1,26 @@
 $(document).ready(function() {
 
+	$('.buttonDeleteMessages').on('click', function() {
+		if(confirm("Êtes vous sur de vouloir supprimer le message ?"))
+		{
+			$(this).parent().parent().remove();
+			td = $(this).parent().parent();
+			var id = td.attr('id');
+			id = id.replace('message', '');
+			$.getJSON('Ajax/deleteMessage.php', { id : id });
+		}
+	});
+
+
+
 	$('.buttonShowMessages').on('click', function() {
-		console.log($(this).attr('class'));
 		if($(this).attr('class') != "buttonShowMessages btn-sm btn-warning")
 		{
 			hideMessages($(this));
 		}
 		else
 		{
+			hideAll();
 			showMessages($(this));
 		}		
 	});
@@ -20,12 +33,18 @@ $(document).ready(function() {
 		}
 		else
 		{
+			hideAll();
 			showMessages(button);
 		}		
 	});
 
 });
 
+function hideAll() {
+	$('.contentMessage').hide();
+	$('.buttonShowMessages').attr('class', 'buttonShowMessages btn-sm btn-warning');
+	$('.buttonShowMessages').children('i').attr('class', "glyphicon glyphicon-plus");;
+}
 
 function hideMessages(arg) {
 	arg.parent().parent().children('td').children('pre').hide();

@@ -1,6 +1,16 @@
 .contentMessage {
 	display: none;
+	max-width: 415px;
 }
 .notReaded {
 	font-weight: bold;
+}
+.SENDER_MESSAGE {
+	width: 140px;
+}
+.DATE_MESSAGE {
+	width: 90px;
+}
+.BUTTON_MESSAGE {
+	width: 90px;
 }

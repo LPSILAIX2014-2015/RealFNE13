@@ -54,7 +54,10 @@ class VConsultMessages
 		$content_messages .= '<td class="currentTdMessage">'.$data_messages[$i]['SENDDATE'].'</td>';
     	
 
-		$content_messages .= '<td><a class="buttonShowMessages btn-sm btn-warning"><i class="glyphicon glyphicon-plus"></i></a></td>';    	
+		$content_messages .= '<td>
+            <a title="Afficher" class="buttonShowMessages btn-sm btn-warning"><i class="glyphicon glyphicon-plus"></i></a>
+            <a title="Supprimer" class="buttonDeleteMessages btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+          </td>';    	
 
 
     	$content_messages .= '<tr />';
