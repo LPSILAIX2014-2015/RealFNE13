@@ -37,6 +37,9 @@ switch($EX)
     case 'updateAsso' : updateAsso(); break;
     case 'updateAdminAsso': updateAdminAsso(); break;
     case 'swapRoles': swapRoles($idPrev,$idNext); break;
+    case 'createAsso' : createAsso(); break;
+    case 'createAdmin' : createAdmin(); break;
+    case 'creationAdmin' : creationAdmin(); break;
     default : check($EX);
 }
 
@@ -244,11 +247,33 @@ function reportList()
         $page['arg'] = 'Html/updateAdminAsso.php';
     }
 
+    function createAsso()
+    {
+        global $page;   
+        $page['title'] = "Création d'une association";
+        $page['class'] = 'VHtml';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Html/createAsso.php';
+    }
+
     function createUser()
     {
         include('Php/create.php');
     }
 
+    function createAdmin()
+    {
+        global $page;   
+        $page['title'] = "Création d'un administrateur d'association";
+        $page['class'] = 'VHtml';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Html/createAdmin.php';
+    }
+
+    function creationAdmin()
+    {
+        include('./Php/createAdmin.php');
+    }
     function swapRoles($idPrev, $idNext){
         global $page;
         (new Muser($idPrev))->setRole('MEMBRE');

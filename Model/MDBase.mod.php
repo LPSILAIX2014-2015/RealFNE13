@@ -107,14 +107,14 @@ class MDBase extends PDO {
         return $data;
     }
 
-    public static function getAllThemes()
+    public function getAllThemes()
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $query = "SELECT * FROM THEME";
         $qq = $pdo->prepare($query);
         $qq->execute();
-        $data = $qq->fetch(PDO::FETCH_ASSOC);
+        $data = $qq->fetchall(PDO::FETCH_ASSOC);
         return $data;
     }
 }
