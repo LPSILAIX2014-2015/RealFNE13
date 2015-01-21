@@ -1,8 +1,6 @@
 <?php
-
-    
-
-    function connexion($login =NULL, $password=NULL) {
+class CConnexion {
+    public function connexion($login =NULL, $password=NULL) {
         global $user;
 
         $login = (testVar($_POST['login'])) ? $_POST['login'] : $login;
@@ -10,7 +8,7 @@
 
         try
         {
-            $db = new DBase();
+            $db = new MDBase();
 
             $query = "SELECT * FROM USER WHERE LOGIN='$login' AND PASSWORD='$password'" ;
             $state = $db->prepare($query);
@@ -20,7 +18,8 @@
             if (testVar($result))
             {
                 $_SESSION['ID_USER'] = $result['ID'];
-                $user = new CUser($result['ID']) ;
+                $_SESSION['ROLE'] = $result['ROLE'];
+                $user = new MUser($result['ID']) ;
             }
             else {
                 debugAlert('Erreur d\'authentification') ; // ToDo TEMP A MODIFIER
@@ -28,10 +27,11 @@
         }
         catch (Exception $ex)
         {
-            $error_log = "[Error]"."[connexion.php]"."connection() : ".$ex->getMessage();
+            $error_log = "[Error]"."[CConnexion.class.php]"."connection() : ".$ex->getMessage();
             echo $error_log;
             return false;
         }
 
     }
+}
 ?>

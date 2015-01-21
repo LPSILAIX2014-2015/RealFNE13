@@ -1,6 +1,6 @@
 <?php
 
-    class CUser {
+    class MUser {
 
         private $sql;
 
@@ -20,11 +20,22 @@
         private $profession2;
         private $presentation;
         private $photopath;
-        private $association ;
+        private $association;
 
         function __construct ($id) {
-            $sql = new DBase();
-            $state = $sql->prepare("SELECT * FROM USER WHERE ID = $id;");
+            $sql = new MDBase();
+            if (is_int($id+0))
+            {
+                $state = $sql->prepare("SELECT * FROM USER WHERE ID = :id;");
+                $state->bindValue('id', $id, PDO::PARAM_INT);
+            }
+            else
+            {
+                $state = $sql->prepare("SELECT * FROM USER WHERE MAIL = :mail;");
+                $state->bindValue('mail', $id, PDO::PARAM_STR);
+            }
+
+
             $state->execute();
             $user = $state->fetch(PDO::FETCH_ASSOC);
 
@@ -307,7 +318,7 @@
                 return $this->association->getName();
             }
             else {
-                $this->association = new CAssoc($this->association_id) ;
+                $this->association = new MAssoc($this->association_id) ;
                 return $this->association->getName();
             }
         }

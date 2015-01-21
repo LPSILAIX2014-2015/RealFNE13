@@ -24,12 +24,12 @@
     border:solid 1px #c0c0c0;
     overflow:auto;
 }
- 
+
 .multiselect label {
     display:block;
 }
 
-	
+
 	body {
 		background-image:url(../Img/bg3.png);
 		background-color: #E8E8E8;
@@ -71,7 +71,7 @@
 	h4 {font-size: 15px;}
 	h5 {font-size: 13px;}
 	h6 {font-size: 12px;}
-	
+
 	h3.main-heading {
 		background-image:url('../Img/plus.png');
 		background-repeat: no-repeat;
@@ -185,7 +185,7 @@
 		background-position:center bottom, left top;
 		background-repeat:repeat-x;
 		overflow:hidden;
-		background-color:#fdd42f;		
+		background-color:#fdd42f;
 	}
 	/* About */
 	.about {
@@ -473,7 +473,7 @@
 	}
 	#portfolio-list img {
 		background-color:#FFF;
-		height:120px; 
+		height:120px;
 		width:180px;
 	}
 	#portfolio-list li:hover .title {
@@ -656,7 +656,7 @@
 		-moz-transition-property:-moz-transform, opacity;
 		transition-property:transform, opacity;
 	}
-	
+
 
 /*-------------------------------------------------------*/
 	/* Media Queries */
@@ -725,7 +725,7 @@
 	}
 	/*-------------------------------------------------------*/
 		/* Top Section */
-	/*-------------------------------------------------------*/	
+	/*-------------------------------------------------------*/
 	/* Logo */
 	#logo h2 {
 		font-size:25px;
@@ -806,12 +806,12 @@
 		margin-top:20px;
 		width:420px;
 	}
-	
+
 
 }
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {
-	
+
 	#container {
 		width:300px;
 				margin-top:10px;
@@ -923,7 +923,7 @@
 	/*-------------------------------------------------------*/
 		/* Contact */
 	/*-------------------------------------------------------*/
-	
+
 	.contact-info {
 		width:280px;
 	}
@@ -938,7 +938,7 @@
 
 }
 
- 
+
 .multiselect-on {
     color:#ffffff;
     background-color:#000099;

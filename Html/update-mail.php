@@ -1,32 +1,23 @@
 <?php
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php
-     include './header.php';
-     include '../Php/DBase.php';
+     $pdo = new MDBase();
      $email = $_GET['email'];
-    ?>
-</head>
-
-<body>
+?>
     <div class="container">
     
     			<div class="span10 offset1">
-    				<div class="row">
-		    			<h3>Modifier un utlisateur</h3>
-                                       
-		    		</div>
-    		
-	    			<form class="form-horizontal" enctype="multipart/form-data" action="../Php/update-mail.php?email=<?php echo $email?>" method="post">
-					  
-                                          <div class="control-group">
-                                            <label for="themes1" class="col-sm-2 control-label">Thématique d'expertise (*)</label>
-                                        
-                                    <div class="controls">
-                                        <?php 
-                                            $themes = DBase::getAllThemes();
+                    <div class="row">
+                        <h3>Modifier un utlisateur</h3>
+
+                    </div>
+
+                    <form class="form-horizontal" enctype="multipart/form-data" action="../Php/update-mail.php?email=<?php echo $email?>" method="post">
+
+                                      <div class="control-group">
+                                        <label for="themes1" class="col-sm-2 control-label">Thématique d'expertise (*)</label>
+
+                                <div class="controls">
+                                        <?php
+                                            $themes = $pdo->getAllThemes();
                                             foreach ($themes as $theme) {
                                                 echo '<label><input type="radio" required="required" name="THEME" value='.$theme['ID'].'>'. utf8_encode($theme['NAME']) .'</label>';
                                                 ?>
@@ -48,8 +39,8 @@
                                             <label for="themes1" class="col-sm-2 control-label">Thématique d'implication (*)</label>
                                         
                                     <div class="controls">
-                                        <?php 
-                                            $themes = DBase::getAllThemes();
+                                        <?php
+                                            $themes = $pdo->getAllThemes();
                                             foreach ($themes as $theme) {
                                                 echo '<label><input type="radio" name="THEME_INTEREST" required="required" value='.$theme['ID'].'>'. utf8_encode($theme['NAME']) .'</label>';
                                                 ?>
@@ -94,5 +85,3 @@
 				</div>
 				
     </div> <!-- /container -->
-  </body>
-</html>

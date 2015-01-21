@@ -1,9 +1,5 @@
-<?php 
-	
-	require './DBase.php';
-
-
-            $pdo = DBase::connect();
+<?php
+        $pdo = new MDBase();
 		$to = $_POST['emailto'];
                 $id = 1;
                 if(isset($_POST['id'])) {
@@ -41,9 +37,4 @@
                     }
                     mail ($mail,$subject,$message,$header);
                 }
-                
-                DBase::disconnect();
-                header("Location: ../Html/data.php");
-		
-	
 ?>

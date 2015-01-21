@@ -1,12 +1,6 @@
 <ul>
-    <li><a>Recherche</a>
-        <div class="submenu">
-            <a>Articles</a>
-            <a>Personnes</a>
-            <a>Associations</a>
-        </div>
-    </li>
-    <li><a>Agenda</a></li>
+    <li><a href="index.php?EX=searchMember">Recherche</a></li>
+    <li><a href ="index.php?EX=calendar">Agenda</a></li>
     <li><a>Articles</a>
         <div class="submenu">
             <a href="index.php?EX=showArticle">Consulter</a>
@@ -22,8 +16,9 @@
     <li><a>Administration</a>
         <div class="submenu">
             <a>Gestion assos</a>
+            <a href="index.php?EX=manageMembers">Gestion des membres</a>
             <a>Validations</a>
-            <a>Journal</a>
+            <a href="index.php?EX=reportList">Journal</a>
         </div>
     </li>
 </ul>

@@ -18,8 +18,6 @@ class MFormCreateArticle
         // Fill data form with $otpion (we can get the data of all input by using $dataForm["nameinput"]
         $dataForm = filter_input_array(INPUT_POST, $options);
 
-        
-
     }
 
 }

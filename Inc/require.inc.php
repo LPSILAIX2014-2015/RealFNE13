@@ -1,22 +1,24 @@
 <?php
-
     function __autoload($class)
     {
+      if ($class[0] == 'M')
+      {
+          require_once('Model/'.$class.'.mod.php');
+      }
 
-      // Inclusion des class de type Vue
-      if(file_exists('View/'.$class.'.view.php'))
+      // Inclusion Vue (affichages)
+      elseif($class[0] == 'V')
       {
         require_once('View/'.$class.'.view.php');
       }
-      elseif (file_exists('Model/'.$class.'.mod.php'))
+
+      // Inclusion Class (fonctions)
+      elseif ($class[0] == 'C')
       {
-        require_once('Model/'.$class.'.mod.php');
+          require_once('Class/'.$class.'.class.php');
       }
-
       return;
-
     } // __autoload($class)
-
 
     function debugAlert ($var) {
         if (modeDebug) {
@@ -30,7 +32,4 @@
     {
         return (!empty($val) && isset($val));
     }
-
-    require_once('Php/connexion.php');
-
 ?>
