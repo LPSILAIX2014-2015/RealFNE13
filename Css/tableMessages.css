@@ -1,3 +1,6 @@
 .contentMessage {
 	display: none;
 }
+.notReaded {
+	font-weight: bold;
+}
