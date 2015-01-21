@@ -84,6 +84,17 @@ function reportList()
         $formCreateArticle->insertDB($_POST);
     }
 
+function deconnexion()
+{
+    global $page;
+    unset($_SESSION['ID_USER']);
+    unset($GLOBALS['user']);
+    session_destroy();
+    $page['title'] = 'Retour après déco';
+    $page['class'] = 'VHome';
+    $page['method'] = 'showHome';
+    $page['arg'] = 'Html/accueil.php';
+}
     function searchMember()
     {
         global $page;
