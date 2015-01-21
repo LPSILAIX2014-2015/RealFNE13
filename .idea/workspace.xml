@@ -2,133 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1bb5486-574c-4be2-9bed-f40135dedb26" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/Chrysanthemum.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/Desert.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/Hydrangeas.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/Jellyfish.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/Koala.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/Lighthouse.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/Penguins.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/Tulips.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bg1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bg2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bg3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bg4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bg5.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bg6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bg7.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bg8.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/bgcaptcha.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/contact-icon-active.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/contact-icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/fancybox_overlay.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/fancybox_sprite.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/glyphicons.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/header-bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/header-shadow.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/personal-info-sep.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/photo-inner.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/plus.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/portfolio-icon-active.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/portfolio-icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/profile-icon-active.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/profile-icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/rats.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/resume-icon-active.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/resume-icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/social_facebook.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/social_googleplus.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/social_in.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/social_twitter.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/tab-hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Img/valid.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Class/CRecMP.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Class/CloginFail.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Model/MFormCreateArticle.mod.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/View/VArticle.view.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Php/autocomplete.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Lib/bootstrap.icon-large.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/captcha.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/create.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Php/create.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/createArticle.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Js/createArticle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/createArticle.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/data.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/datatable.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/delete.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Php/delete.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/email.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Php/email.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Js/form.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/header.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Lib/jquery-1.10.2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/jquery-ui.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Lib/jquery-ui.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/jquery.fancybox.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Lib/jquery.fancybox.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Lib/jquery.fancybox.pack.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Lib/jquery.form.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/jquery.multiselect.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Lib/jquery.multiselect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Lib/jquery.validate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/manageMembers.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Js/recMP.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/recMail.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/recupMdp.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/recuperation.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/reportList.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/reset.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/searchMember.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/update-mail.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Php/update-mail.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Html/update.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Php/update.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Charte_de_nommage.odt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Img/curseur1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Js/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Img/body_fond.jpg" afterPath="$PROJECT_DIR$/Img/body_fond.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Img/favicon.png" afterPath="$PROJECT_DIR$/Img/favicon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Fonts/glyphicons-halflings-regular.eot" afterPath="$PROJECT_DIR$/Fonts/glyphicons-halflings-regular.eot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Fonts/glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/Fonts/glyphicons-halflings-regular.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Fonts/glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/Fonts/glyphicons-halflings-regular.woff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Img/photo.jpg" afterPath="$PROJECT_DIR$/Img/photo.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Class/CConnexion.class.php" afterPath="$PROJECT_DIR$/Class/CConnexion.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/MDBase.mod.php" afterPath="$PROJECT_DIR$/Model/MDBase.mod.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/MMessage.mod.php" afterPath="$PROJECT_DIR$/Model/MMessage.mod.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/MNewsletter.mod.php" afterPath="$PROJECT_DIR$/Model/MNewsletter.mod.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/MPost.mod.php" afterPath="$PROJECT_DIR$/Model/MPost.mod.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/MReport.mod.php" afterPath="$PROJECT_DIR$/Model/MReport.mod.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/MTerritory.mod.php" afterPath="$PROJECT_DIR$/Model/MTerritory.mod.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/MTheme.mod.php" afterPath="$PROJECT_DIR$/Model/MTheme.mod.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Model/MUser.mod.php" afterPath="$PROJECT_DIR$/Model/MUser.mod.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/VHome.view.php" afterPath="$PROJECT_DIR$/View/VHome.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/VHtml.view.php" afterPath="$PROJECT_DIR$/View/VHtml.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/VNav.view.php" afterPath="$PROJECT_DIR$/View/VNav.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/VUserInfo.view.php" afterPath="$PROJECT_DIR$/View/VUserInfo.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/accueil.php" afterPath="$PROJECT_DIR$/Html/accueil.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Lib/bootstrap.min.css" afterPath="$PROJECT_DIR$/Lib/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Inc/globals.inc.php" afterPath="$PROJECT_DIR$/Inc/globals.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/Fonts/glyphicons-halflings-regular.svg" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Lib/jquery.min.js" afterPath="$PROJECT_DIR$/Lib/jquery.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/View/layout.view.php" afterPath="$PROJECT_DIR$/View/layout.view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/loginForm.php" afterPath="$PROJECT_DIR$/Html/loginForm.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Css/main.css" afterPath="$PROJECT_DIR$/Css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/menu.php" afterPath="$PROJECT_DIR$/Html/menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Js/npm.js" afterPath="$PROJECT_DIR$/Js/npm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/page.php" afterPath="$PROJECT_DIR$/Html/page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/reportlist.php" afterPath="$PROJECT_DIR$/Html/reportlist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Inc/require.inc.php" afterPath="$PROJECT_DIR$/Inc/require.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/unknown.php" afterPath="$PROJECT_DIR$/Html/unknown.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Html/userInfo.php" afterPath="$PROJECT_DIR$/Html/userInfo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="RealFNE13-dev.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -154,8 +31,57 @@
       <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="0" selection-start="2635" selection-end="2635" vertical-scroll-proportion="0.15952381" vertical-offset="1208" max-vertical-offset="3660">
+            <state line="213" column="0" selection-start="6767" selection-end="6767" vertical-scroll-proportion="0.91803277" vertical-offset="2859" max-vertical-offset="3525">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setMessageReaded.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Ajax/setMessageReaded.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="0" selection-start="214" selection-end="214" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="210">
+              <folding>
+                <marker date="1421233177000" expanded="true" signature="64:111" placeholder="UPDATE MESSA..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MFormCreateArticle.mod.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Model/MFormCreateArticle.mod.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="61" selection-start="777" selection-end="777" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="435">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MDBase.mod.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Model/MDBase.mod.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="107" column="5" selection-start="3110" selection-end="3110" vertical-scroll-proportion="-3.875" vertical-offset="1512" max-vertical-offset="1905">
+              <folding>
+                <marker date="1421832004000" expanded="true" signature="976:994" placeholder="SELECT * FRO..user..." />
+                <marker date="1421832004000" expanded="true" signature="1302:1321" placeholder="SELECT * FRO..ASSOC..." />
+                <marker date="1421832004000" expanded="true" signature="1631:1652" placeholder="SELECT * FRO..MESSAGE..." />
+                <marker date="1421832004000" expanded="true" signature="1959:1983" placeholder="SELECT * FRO..NEWSLETTER..." />
+                <marker date="1421832004000" expanded="true" signature="2290:2308" placeholder="SELECT * FRO..POST..." />
+                <marker date="1421832004000" expanded="true" signature="2617:2637" placeholder="SELECT * FRO..REPORT..." />
+                <marker date="1421832004000" expanded="true" signature="2950:2973" placeholder="SELECT * FRO..TERRITORY..." />
+                <marker date="1421832004000" expanded="true" signature="3281:3300" placeholder="SELECT * FRO..THEME..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MMessage.mod.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Model/MMessage.mod.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="76" column="10" selection-start="1726" selection-end="1726" vertical-scroll-proportion="-44.375" vertical-offset="0" max-vertical-offset="1665">
+              <folding>
+                <marker date="1421832004000" expanded="true" signature="348:384" placeholder="SELECT * FRO..MESSAGE..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -180,33 +106,6 @@
         <entry file="file://$PROJECT_DIR$/Img/Lighthouse.jpg">
           <provider selected="true" editor-type-id="images">
             <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Css/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="210" column="1" selection-start="3965" selection-end="3965" vertical-scroll-proportion="0.0" vertical-offset="2678" max-vertical-offset="3915">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Css/bootstrap.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="95070">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="appli.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Css/appli.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="19" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="255">
-              <folding />
-            </state>
           </provider>
         </entry>
       </file>
@@ -474,9 +373,9 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287858" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36425647" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36425647" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287858" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32742155" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32742155" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27482015" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -510,16 +409,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Ajax/setMessageReaded.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="2" selection-start="242" selection-end="242" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="210" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/MMessage.mod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="70" selection-start="382" selection-end="382" vertical-scroll-proportion="-6.875" vertical-offset="30" max-vertical-offset="1665" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/MNewsletter.mod.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="73" selection-start="375" selection-end="375" vertical-scroll-proportion="-7.5" vertical-offset="90" max-vertical-offset="1485" />
@@ -610,11 +499,6 @@
         <state line="17" column="28" selection-start="445" selection-end="445" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1140" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/MDBase.mod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="2" selection-start="3442" selection-end="3442" vertical-scroll-proportion="0.0" vertical-offset="1440" max-vertical-offset="1905" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Class/CConnexion.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="630" />
@@ -682,9 +566,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Ajax/setMessageReaded.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="214" selection-end="214" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="210">
+          <folding>
+            <marker date="1421233177000" expanded="true" signature="64:111" placeholder="UPDATE MESSA..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/MFormCreateArticle.mod.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="61" selection-start="777" selection-end="777" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/MDBase.mod.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="5" selection-start="3110" selection-end="3110" vertical-scroll-proportion="-3.875" vertical-offset="1512" max-vertical-offset="1905">
+          <folding>
+            <marker date="1421832004000" expanded="true" signature="976:994" placeholder="SELECT * FRO..user..." />
+            <marker date="1421832004000" expanded="true" signature="1302:1321" placeholder="SELECT * FRO..ASSOC..." />
+            <marker date="1421832004000" expanded="true" signature="1631:1652" placeholder="SELECT * FRO..MESSAGE..." />
+            <marker date="1421832004000" expanded="true" signature="1959:1983" placeholder="SELECT * FRO..NEWSLETTER..." />
+            <marker date="1421832004000" expanded="true" signature="2290:2308" placeholder="SELECT * FRO..POST..." />
+            <marker date="1421832004000" expanded="true" signature="2617:2637" placeholder="SELECT * FRO..REPORT..." />
+            <marker date="1421832004000" expanded="true" signature="2950:2973" placeholder="SELECT * FRO..TERRITORY..." />
+            <marker date="1421832004000" expanded="true" signature="3281:3300" placeholder="SELECT * FRO..THEME..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/MMessage.mod.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="10" selection-start="1726" selection-end="1726" vertical-scroll-proportion="-44.375" vertical-offset="0" max-vertical-offset="1665">
+          <folding>
+            <marker date="1421832004000" expanded="true" signature="348:384" placeholder="SELECT * FRO..MESSAGE..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="0" selection-start="2635" selection-end="2635" vertical-scroll-proportion="0.15952381" vertical-offset="1208" max-vertical-offset="3660">
+        <state line="213" column="0" selection-start="6767" selection-end="6767" vertical-scroll-proportion="0.91803277" vertical-offset="2859" max-vertical-offset="3525">
           <folding />
         </state>
       </provider>
