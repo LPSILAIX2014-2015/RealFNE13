@@ -153,6 +153,7 @@ function reportList()
         $page['method'] = 'showHtml';
         $page['arg'] = 'Html/recuperation.php';
     }
+
     function insert() // Mèthode pour enregistrer les données
     {
         session_start(); //
