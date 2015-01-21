@@ -53,10 +53,11 @@ nav {
 }
 .infosperso .nom {
     font-weight:bold;
-    font-size:11pt;
+    font-size:12pt;
 }
 .infosperso .asso {
     font-style: italic;
+    font-size:11pt;
 }
 .infosperso .notification {
     display:block;
@@ -67,6 +68,8 @@ nav {
     border:1px solid #FFF;
     padding:2px 0 2px 0;
     text-align:center;
+    background-color: #0189C7;
+    font-weight:bold;
 }
 .infosperso .messages {
     display:block;
@@ -77,19 +80,27 @@ nav {
     border:1px solid #FFF;
     padding:2px 0 2px 0;
     text-align:center;
+    background-color: #a3cfea;
+    font-weight:bold;
+    border-radius: 10px 0 0 0;
 }
 .infosperso .deconnexion {
     display:block;
     width:100px;
     padding:2px 0 2px 0;
     text-align:center;
-    background-color: #000;
+    background-color:#0a2d5f;
     color:#a3cfea;
     font-weight:bold;
     position:absolute;
     right:0;
     bottom:0;
     border:1px solid #FFF;
+}
+.infosperso .deconnexion:hover {
+    background-color:#FFF;
+    color:#0a2d5f;
+    border:1px solid #0a2d5f;
 }
 .infosperso form {
     display:block;
@@ -198,6 +209,17 @@ nav li a:hover {
 }
 input {
     cursor:url('../Img/cursor9.png'), auto ;
+    border-radius:4px;
+    background-color:#a3cfea;
+    font-size:11pt;
+    padding:1px 3px 1px 4px;
+    border:1px solid #0c5091;
+}
+input:hover {
+    border:1px solid #ffffff;
+}
+input:focus {
+    background-color: #FFF;
 }
 #loginbutton {
     color:#ffffff;
