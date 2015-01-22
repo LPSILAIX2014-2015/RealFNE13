@@ -32,7 +32,7 @@ switch($EX)
 
     case 'createArticle':   createArticle(); break;
     case 'formCreateArticle' : formCreateArticle(); break;
-    case 'profil'    : profil(); break;
+    case 'profil'    : profil(); break; // Affichage du profil
     default : check($EX);
 }
 
@@ -187,16 +187,16 @@ function reportList()
     function maillog()
     {   
         global $user;
-        if (!isset($user)) {
+        if (!isset($user)) { // Validation pour l'envoi du mail 
             echo "<script>location.href='index.php';</script>";
         } else {
             $dbverf = new CRecMP($GLOBALS['user']->getMail());
-            $value = $dbverf->selectMail(); // Verification de mail dans le formulaire 'recMail'
+            $value = $dbverf->selectMail(); // Verification de mail dans le formulaire
 
             if(count($value)==0){ // Affichage d'un message d'erreur si le mail n'existe pas
                 echo "<script languaje='javascript'>mailErr();</script>";
             }else{ // Si le mail existe, s'envoyera un mail avec le lien pour changer son mot de passe
-                echo "<script>alert('On a envoyé un courrier de confirmation faveur de réviser son email');</script>";
+                echo "<script>mailErr();</script>";
                 $update = $dbverf->sendMailConf();
 		        header('Location: index.php');
             }
@@ -246,10 +246,10 @@ function reportList()
     {
         include('Php/create.php');
     }
-    function profil(){
+    function profil(){ // Presentation du profil 
         global $user;
 
-        if (!isset($user)) {
+        if (!isset($user)) { // S'il n'y a pas une session ouverte n'affichera rien 
             echo "<script>location.href='index.php';</script>";
         } else {
             global $page;
