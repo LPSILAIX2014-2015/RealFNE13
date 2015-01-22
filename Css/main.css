@@ -101,6 +101,9 @@ nav {
     font-weight:bold;
     cursor:inherit;
 }
+.btn {
+    cursor:inherit;
+}
 .infosperso .lostpass {
     font-size:9pt;
     text-decoration:none;

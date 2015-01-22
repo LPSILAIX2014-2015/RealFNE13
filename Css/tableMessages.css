@@ -12,5 +12,8 @@
 	width: 90px;
 }
 .BUTTON_MESSAGE {
-	width: 90px;
+	width: 50px;
+}
+.btnOptions {
+	display: none;
 }

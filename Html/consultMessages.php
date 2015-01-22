@@ -7,7 +7,7 @@
 			<thead>
 				<tr>
 					<th class="SENDER_MESSAGE">Envoyé par</th>
-					<th class="TITLE_MESSAGE">Titre</th>
+					<th class="TITLE_MESSAGE">Objet</th>
 					<th class="DATE_MESSAGE">Date</th>
 					<th class="BUTTON_MESSAGE"></th>
 				</tr>
@@ -19,9 +19,6 @@
 	</div>
   </div>
   <script type="text/javascript" src="Js/showMessage.js"></script>
-
-	
-
 </div>
 
 
