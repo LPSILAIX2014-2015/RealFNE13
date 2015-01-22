@@ -5,7 +5,7 @@ class MDBase extends PDO {
     private $host = 'localhost';
     private $database = 'FNESITE';
     private $user = 'root';
-    private $pass = 'mysql';
+    private $pass = '';
     private $cont = '';
 
     public function __construct() {
