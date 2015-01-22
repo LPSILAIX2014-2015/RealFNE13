@@ -1,5 +1,7 @@
 <?php
-
+/*
+ * @author <Julien Bénard>
+ */
 class CloginFail {
 
     private $user ;
@@ -62,7 +64,7 @@ class CloginFail {
             $this->attempts ++ ;
 
             $db = new MDBase();
-            $query = 'UPDATE LOGINFAIL SET ATTEMPTS='.($this->attempts).', EXPIRE=FROM_UNIXTIME('.(time() + LOGINFAIL_EXPIRE).') WHERE ID_USER='.($this>user).' ;' ;
+            $query = 'UPDATE LOGINFAIL SET ATTEMPTS='.($this->attempts).', EXPIRE=FROM_UNIXTIME('.(time() + LOGINFAIL_EXPIRE).') WHERE ID_USER='.($this->user).' ;' ;
             $state = $db->prepare($query);
             $state->execute();
 
