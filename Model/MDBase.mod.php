@@ -41,14 +41,14 @@ class MDBase extends PDO {
         return $data;
     }
 
-    public static function getAllAssocs()
+    public function getAllAssocs()
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = "SELECT * FROM ASSOC";
+        $query = "SELECT * FROM ASSOCIATION";
         $qq = $pdo->prepare($query);
         $qq->execute();
-        $data = $qq->fetch(PDO::FETCH_ASSOC);
+        $data = $qq->fetchall();
         return $data;
     }
 
@@ -115,6 +115,17 @@ class MDBase extends PDO {
         $qq = $pdo->prepare($query);
         $qq->execute();
         $data = $qq->fetchall(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public function getUserByEmail($mail)
+    {
+        $pdo = self::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $query = "SELECT * FROM User WHERE Mail = ?";
+        $qq = $pdo->prepare($query);
+        $qq->execute(array($mail));
+        $data = $qq->fetchall();
         return $data;
     }
 }

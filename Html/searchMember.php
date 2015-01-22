@@ -56,9 +56,18 @@
         });
     });
 
-
-
 </script>
+
+<?php
+    $i=0;
+    $pdo = new MDBase();
+    $assocsList = $pdo -> getAllAssocs();
+    foreach($assocsList as $line){
+        $assocs[$i]['ID']=$line['ID'];
+        $assocs[$i]['NAME']=$line['NAME'];
+        $i++;
+    }
+?>
 
 <div class="container">
     <div class="row">
@@ -98,10 +107,14 @@
         </div>
         <div class="control-group">
             <label class="control-label">Association</label>
-            <div class="controls">
-                <input name="ASSOCIATION" id="association" type="text"  placeholder="Association" value="">
-
-            </div>
+            </br>
+            <select class="controls" name="ASSOCIATION" type="text">
+                    <?php 
+                        foreach ($assocs as $key => $asso) {
+                            echo('<option value ='.$asso['ID'].'>'.$asso['NAME'].'</option>');
+                        }
+                    ?>
+            </select>
         </div>
         <div class="control-group">
             <label class="control-label">Spécialité</label>
@@ -134,8 +147,6 @@
             </thead>
             <tbody>
             <?php
-            //$pdo = MDBase::connect();
-            $pdo = new MDBase();
             if ( isset($_POST['NAME'])) {
                 $nom = $_POST['NAME'];
                 $conditions = array();
@@ -157,7 +168,7 @@
                     $params[] = $_POST['PROFESSION'];
                 }
                 if($_POST['ASSOCIATION']) {
-                    $conditions[] = "ASSOCIATION = '". $_POST['ASSOCIATION']. "'";
+                    $conditions[] = "ASSOCIATION_ID = '". $_POST['ASSOCIATION']. "'";
                     $params[] = $_POST['ASSOCIATION'];
                 }
                 $where = " WHERE ".implode($conditions,' AND ');
@@ -196,9 +207,9 @@
                         <li><label>Adresse</label><span>'.$row['ADRESS'].'</span></li>
                         <li><label>CP</label><span>'.$row['CP'].'</span></li>
                         <li><label>Email</label><span>'.$row['MAIL'].'</span></li>
-                        <li><label>Association</label><span>'.DBase::getAssociation($row['ASSOCIATION_ID']).'</span></li>
-                        <li><label>Thème</label><span>'.DBase::getTheme($row['THEME_ID']).'</span></li>
-                        <li><label>Thème Interest</label><span>'.DBase::getTheme($row['THEME_INTEREST_ID']).'</span></li>
+                            <li><label>Association</label><span>'.(new MAssoc($row['ASSOCIATION_ID']))->getName().'</span></li>
+                        <li><label>Thème</label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
+                        <li><label>Thème Interest</label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
                         <li><label>Profession</label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
                         
                     </ul>
@@ -246,9 +257,9 @@
                         <li><label>Adresse</label><span>'.$row['ADRESS'].'</span></li>
                         <li><label>CP</label><span>'.$row['CP'].'</span></li>
                         <li><label>Email</label><span>'.$row['MAIL'].'</span></li>
-                        <li><label>Association</label><span>'.DBase::getAssociation($row['ASSOCIATION_ID']).'</span></li>
-                        <li><label>Thème</label><span>'.DBase::getTheme($row['THEME_ID']).'</span></li>
-                        <li><label>Thème Interest</label><span>'.DBase::getTheme($row['THEME_INTEREST_ID']).'</span></li>
+                            <li><label>Association</label><span>'.(new MAssoc($row['ASSOCIATION_ID']))->getName().'</span></li>
+                        <li><label>Thème</label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
+                        <li><label>Thème Interest</label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
                         <li><label>Profession</label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
                         
                     </ul>

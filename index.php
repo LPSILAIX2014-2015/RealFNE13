@@ -15,6 +15,7 @@ switch($EX)
     case 'searchMember'     : searchMember();      break;
     case 'manageMembers': manageMembers(); break;
     case 'createMember': createMember(); break;
+    case 'createUser': createUser(); break;
     case 'updateMember': updateMember(); break;
     case 'deleteMember': deleteMember(); break;
     case 'insert'    : insert();     exit; // Mèthode insert() pour enregistrer le changement de mot de passe

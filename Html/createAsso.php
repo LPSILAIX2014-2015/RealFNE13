@@ -1,6 +1,4 @@
 <?php
-
-
     $i=0;
     $pdo = new MDBase();
     $territoryList = $pdo -> getAllTerritories();
@@ -11,7 +9,6 @@
     }
 
     $i=0;
-    $pdo = new MDBase();
     $themeList = $pdo -> getAllThemes();
     foreach($themeList as $line){
     	$themes[$i]['ID']=$line['ID'];
