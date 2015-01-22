@@ -1,5 +1,5 @@
 <?php
-
+// ToDo : Tester les setters (si les modifs impactent bien la base)
     class MAssoc {
 
         private $sql;
@@ -9,14 +9,15 @@
         private $territory;
 
         function __construct ($id) {
-            $sql = new MDBase();
-            $state = $sql->prepare("SELECT * FROM ASSOCIATION WHERE ID = $id;");
+            $this->sql = new MDBase();
+            $state = $this->sql->prepare("SELECT * FROM ASSOCIATION WHERE ID = :id");
+            $state->bindValue('id', $id, PDO::PARAM_INT);
             $state->execute();
             $assoc = $state->fetch(PDO::FETCH_ASSOC);
 
             $this->id = $id;
             $this->name = $assoc['NAME'];
-            $this->territory= $assoc['TERRITORY'];
+            $this->territory= $assoc['TERRITORY_ID'];
         }
 
         /**
@@ -41,6 +42,8 @@
         public function setName($name)
         {
             $this->name = $name;
+            $this->sql->exec('UPDATE ASSO SET NAME = \''.$name.'\' WHERE ID = '.$this->id.' ;');
+
         }
 
         /**
@@ -57,6 +60,7 @@
         public function setTerritory($territory)
         {
             $this->territory = $territory;
+            $this->sql->exec('UPDATE ASSO SET TERRITORY = \''.$territory.'\' WHERE ID = '.$this->id.' ;');
         }
 
         /**

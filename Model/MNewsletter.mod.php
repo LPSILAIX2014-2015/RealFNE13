@@ -16,7 +16,8 @@
 
         function __construct ($id) {
             $sql = new MDBase();
-            $state = $sql->prepare("SELECT * FROM MESSAGE WHERE ID = $id;");
+            $state = $sql->prepare("SELECT * FROM NEWSLETTER WHERE ID = :id;");
+            $state->bindValue('id', $id, PDO::PARAM_INT);
             $state->execute();
             $newsl = $state->fetch(PDO::FETCH_ASSOC);
 

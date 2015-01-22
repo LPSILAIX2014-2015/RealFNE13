@@ -24,7 +24,18 @@
 
         function __construct ($id) {
             $sql = new MDBase();
-            $state = $sql->prepare("SELECT * FROM USER WHERE ID = $id;");
+            if (is_int($id+0))
+            {
+                $state = $sql->prepare("SELECT * FROM USER WHERE ID = :id;");
+                $state->bindValue('id', $id, PDO::PARAM_INT);
+            }
+            else
+            {
+                $state = $sql->prepare("SELECT * FROM USER WHERE MAIL = :mail;");
+                $state->bindValue('mail', $id, PDO::PARAM_STR);
+            }
+
+
             $state->execute();
             $user = $state->fetch(PDO::FETCH_ASSOC);
 

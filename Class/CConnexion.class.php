@@ -17,9 +17,9 @@ class CConnexion {
 
             if (testVar($result))
             {
-                $_SESSION['ID'] = $result['ID'];
-                $_SESSION['ROLE'] = $result['ROLE'];
 
+                $_SESSION['ID_USER'] = $result['ID'];
+                $_SESSION['ROLE'] = $result['ROLE'];
                 $user = new MUser($result['ID']) ;
             }
             else {
