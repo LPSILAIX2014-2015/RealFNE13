@@ -7,10 +7,8 @@ class VConsultMessages
   
   public function showConsultMessages($path)
   {
-  	//Simulation de marchage
-  	//$idUser = $_SESSION['idUser'];
-  	$idUser = 2;
-
+  	$idUser = $_SESSION['ID_USER'];
+    
   	global $connec;
     
 
