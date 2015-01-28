@@ -2,6 +2,7 @@
 class MDBase extends PDO {
 
 
+
     private static $engine = 'mysql';
     private static $dbName = 'FNESITE' ;
     private static $dbHost = 'localhost' ;
@@ -21,7 +22,7 @@ class MDBase extends PDO {
        {
         try
         {
-          self::$cont =  new PDO( "mysql:host=".self::$host.";"."dbname=".self::$database, self::$user, self::$pass);
+          self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword);
         }
         catch(PDOException $e)
         {
@@ -46,10 +47,10 @@ class MDBase extends PDO {
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = "SELECT * FROM ASSOC";
+        $query = "SELECT * FROM ASSOCIATION";
         $qq = $pdo->prepare($query);
         $qq->execute();
-        $data = $qq->fetch(PDO::FETCH_ASSOC);
+        $data = $qq->fetchall();
         return $data;
     }
 
@@ -104,7 +105,7 @@ class MDBase extends PDO {
         $query = "SELECT * FROM TERRITORY";
         $qq = $pdo->prepare($query);
         $qq->execute();
-        $data = $qq->fetch(PDO::FETCH_ASSOC);
+        $data = $qq->fetchall();
         return $data;
     }
 
@@ -115,7 +116,18 @@ class MDBase extends PDO {
         $query = "SELECT * FROM THEME";
         $qq = $pdo->prepare($query);
         $qq->execute();
-        $data = $qq->fetch(PDO::FETCH_ASSOC);
+        $data = $qq->fetchall(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public static function getUserByEmail($mail)
+    {
+        $pdo = self::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $query = "SELECT * FROM User WHERE Mail = ?";
+        $qq = $pdo->prepare($query);
+        $qq->execute(array($mail));
+        $data = $qq->fetchall();
         return $data;
     }
 }

@@ -69,4 +69,6 @@ if (isset($customAlert)) {
 /**/
 ?>
     <script src="Js/createArticle.js"></script>
+    <div id="result"></div><!-- id="error"-->
+    <div id="res"></div><!-- id="error" -->
 </body>

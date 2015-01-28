@@ -51,4 +51,13 @@
             $this->sql->exec('UPDATE ASSOCIATION SET THEME_ID = \''.$theme.'\' WHERE ID = '.$this->id.' ;');
         }
 
+        public function getMembers(){
+            $sql = new MDBase();
+            $state = $sql->prepare("SELECT ID, NAME, SURNAME FROM USER WHERE ASSOCIATION_ID = :id ORDER By ROLE ASC");
+            $state->bindValue('id', $this->id, PDO::PARAM_INT);
+            $state->execute();
+            $assoc = $state->fetchall();
+            return $assoc;
+        }
+
     }

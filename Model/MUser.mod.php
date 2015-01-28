@@ -49,7 +49,7 @@ class MUser {
         $this->name = $user['NAME'];
         $this->surname = $user['SURNAME'];
         $this->mail = $user['MAIL'];
-        $this->adress = $user['ADRESS'];
+        $this->address = $user['ADRESS'];
         $this->cp = $user['CP'];
         $this->profession = $user['PROFESSION'];
         $this->profession2 = $user['PROFESSION2'];
@@ -98,6 +98,19 @@ class MUser {
         $this->cp = $cp;
         $this->sql->exec('UPDATE USER SET CP = \''.$cp.'\' WHERE ID = '.$this->id.' ;');
     }
+
+        /**
+         * @param mixed $role
+         */
+        /*public function setRole($role)
+        {
+            $this->role = $role;
+            $pdo=new MDBase();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "UPDATE user  set ROLE = ? WHERE ID = ?";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($role, $this->id));
+        }*/
 
     public function setLogin($login)
     {
@@ -165,6 +178,12 @@ class MUser {
         $this->sql->exec('UPDATE USER SET ASSOCIATION_ID = \''.$association_id.'\' WHERE ID = '.$this->id.' ;');
     }
 
+
+        public function toString()
+        {
+            return $this->surname." ".$this->name;
+        }
+
     public function setThemeDetails($theme_details)
     {
         $this->theme_details = $theme_details;
@@ -176,6 +195,7 @@ class MUser {
         $this->theme = $theme;
         $this->sql->exec('UPDATE USER SET THEME = \''.$theme.'\' WHERE ID = '.$this->id.' ;');
     }
+
 
     public function setThemeInterestId($theme_interest_id)
     {

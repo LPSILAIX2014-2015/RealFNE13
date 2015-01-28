@@ -1,11 +1,13 @@
 <?php
-
 /*
 * Ce fichier contient les variables globales qui seront utilisées sur toutes les pages du site ainsi que leur documentation.
 * Pour chaque variable ajoutée veuillez indiquer son type, son utilisation, et dans le cas d'un objet ses attributs et méthodes
 */
 session_start();
 define('modeDebug',true);
+define('LOGINFAIL_EXPIRE',600);
+define('LOGINFAIL_ATTEMPTS',5);
+define('LOGINFAIL_WARNING',3);
 if (modeDebug) {
     error_reporting(E_ALL);
 }
@@ -18,10 +20,9 @@ else {
  * LOGINFAIL_ATTEMPTS : nombre d'echecs à l'authentification au bout duquel le compte est bloqué
  * LOGINFAIL_WARNING : nombre d'echecs au bout duquel une notification d'alerte est envoyée à l'administrateur. Definir une valeur supérieure à LOGINFAIL_ATTEMPTS si vous ne souhaitez pas déclencher cette notification
  */
-define('LOGINFAIL_EXPIRE',600);
-define('LOGINFAIL_ATTEMPTS',5);
-define('LOGINFAIL_WARNING',3);
+
 /**/
+
 global $page, $db, $user, $customAlert;
 /*
 * $page
