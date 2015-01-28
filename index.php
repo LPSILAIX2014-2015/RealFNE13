@@ -29,8 +29,18 @@ switch($EX)
 	case 'consultMessages' : consultMessages(); break;
 
     case 'createArticle':   createArticle(); break;
+
+    case 'calendar'     :   calendar();break;
+
+    case 'showArticle'		: showArticle(); 	 break;
+    case 'showInfoArticle'	: showInfoArticle(); break;
+
     case 'formCreateArticle' : formCreateArticle(); break;
+
+	default : error();
+
     default : check($EX);
+
 }
 
 require('./View/layout.view.php');
@@ -103,14 +113,32 @@ function manageMembers()
     $page['arg'] = 'Html/manageMembers.php';
 }
 
-function createMember()
+function showArticle()
 {
     global $page;
-    $page['title'] = 'Creation d\'un membre';
-    $page['class'] = 'VHtml';
-    $page['method'] = 'showHtml';
-    $page['arg'] = 'Html/create.php';
+    $page['title'] = 'Liste des articles';
+    $page['class'] = 'VShowArticle';
+    $page['method'] = 'showArticle';
+    $page['arg'] = 'Html/showArticle.php';
 }
+
+function showInfoArticle()
+{
+    global $page;
+    $page['title'] = 'Détail';
+    $page['class'] = 'VInfoArticle';
+    $page['method'] = 'showInfoArticle';
+    $page['arg'] = 'Html/infoArticle.php';
+}
+
+    function createMember()
+    {
+        global $page;
+        $page['title'] = 'Creation d\'un membre';
+        $page['class'] = 'VHtml';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Html/create.php';
+    }
 
 function updateMember()
 {
@@ -224,5 +252,14 @@ function createUser()
     include('Php/create.php');
 }
 
+    function calendar()
+    {
+        global $page;
+        $page['title'] = 'Agenda';
+        $page['class'] = 'VCalendar';
+        $page['method'] = 'showCalendar';
+        $page['arg'] = 'Html/calendar.php';
+
+    }
 
 ?>

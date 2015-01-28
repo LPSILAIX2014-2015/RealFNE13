@@ -101,6 +101,9 @@ nav {
     font-weight:bold;
     cursor:inherit;
 }
+.btn {
+    cursor:inherit;
+}
 .infosperso .lostpass {
     font-size:9pt;
     text-decoration:none;
@@ -172,6 +175,24 @@ nav li a:hover {
     padding:5px 10px 20px 10px;
     margin:3px;
 }
+#imgplace {
+    float: left;
+    margin:auto;
+    width: 150px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+}
+.pvarticle img {
+    max-width: 145px;
+    max-height: 80px;
+    display: table-cell;
+    vertical-align: middle;
+}
+#infoarticle {
+    display: table-cell;
+    vertical-align: middle;
+}
 .pvarticle h2 {
     margin:0;
     font-size:10pt;
@@ -179,15 +200,19 @@ nav li a:hover {
 .pvarticle .auteur {
     font-style:italic;
 }
+.pvarticle .description {
+    font-size: 12px;
+}
 .lienarticle {
     display:block;
     float:right;
-    width:100px;
-    text-align:center;
+    /*width:100px;      mise en commentaire pour la consultation des articles
+    text-align:center;*/
     border-radius:5px;
     background-color: #a3cfea;
     color:#FFF;
     border:1px solid #0c5091;
+    margin-top: 10px;
 }
 .lienarticle:hover {
     background-color: #0c5091;
@@ -250,4 +275,14 @@ a:hover {
 .footer a:hover {
     color:#4bc9e2;
     text-decoration:none;
+}
+
+/* fin css calendrier*/
+#calendar {
+    max-width: 900px;
+    margin: 0 auto;
+    color: #0c5091;
+    seize: 32px;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
