@@ -32,7 +32,7 @@ global $user ;
     <li><a>Administration</a>
         <div class="submenu">
             <a>Gestion assos</a>
-            <a href="index.php?EX=manageMembers">Gestion des membres</a>
+            <a href="index.php?EX=manageMembers">Gestion membres</a>
             <a>Validations</a>
             <a href="index.php?EX=reportList">Journal</a>
         </div>
