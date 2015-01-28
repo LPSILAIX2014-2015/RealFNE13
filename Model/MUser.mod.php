@@ -76,6 +76,15 @@ class MUser {
     public function getProfession2() { return $this->profession2; }
     public function getPresentation() { return $this->presentation; }
     public function getPhotopath() { return $this->photopath; }
+    public function getAssoName() {
+        if (isset($this->association)) {
+            return $this->association->getName();
+        }
+        else {
+            $this->association = new MAssoc($this->association_id) ;
+            return $this->association->getName();
+        }
+    }
 
     // Setters
     public function setAdress($adress)

@@ -1,8 +1,5 @@
 <?php
-<<<<<<< HEAD
 
-=======
->>>>>>> dev_autre
     function __autoload($class)
     {
       if ($class[0] == 'M')
@@ -36,10 +33,5 @@
     {
         return (!empty($val) && isset($val));
     }
-<<<<<<< HEAD
 
-    require_once('Php/connexion.php');
-
-=======
->>>>>>> dev_autre
 ?>
