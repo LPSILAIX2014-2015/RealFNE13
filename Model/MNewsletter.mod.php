@@ -27,20 +27,18 @@
             $this->content = $newsl['CONTENT'];
         }
 
-        /**
-         * @param mixed $content
-         */
+
+        // Getters
+        public function getId() { return $this->id; }
+        public function getRdate() { return $this->rdate; }
+        public function getType() { return $this->type; }
+        public function getContent() { return $this->content; }
+
+        // Setters
         public function setContent($content)
         {
             $this->content = $content;
-        }
-
-        /**
-         * @return mixed
-         */
-        public function getContent()
-        {
-            return $this->content;
+            $this->sql->exec('UPDATE NEWS SET CONTENT = \''.$content.'\' WHERE ID = '.$this->id.' ;');
         }
 
         /**
