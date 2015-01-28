@@ -15,6 +15,7 @@ switch($EX)
     case 'updateMember': updateMember(); break;
     case 'deleteMember': deleteMember(); break;
     case 'insert'    : insert();     exit; // Mèthode insert() pour enregistrer le changement de mot de passe
+    case 'changePass': changePass(); exit; // Mèthode changePass() pour enregistrer le changement de mot de passe
     case 'mailconf'  : mailconf();   exit; // Mèthode pour envoyer l'email de confirmation
     case 'maillog'   : maillog();    exit;
     case 'recup'     : recuperation(); break; // Presentation de la vue
@@ -152,6 +153,30 @@ function reportList()
         $page['method'] = 'showHtml';
         $page['arg'] = 'Html/recuperation.php';
     }
+
+    function changePass() // Mèthode pour enregistrer les données
+    {
+        global $user;
+        if (!isset($user)) { // Validation pour l'envoi du mail 
+            echo "<script>location.href='index.php';</script>";
+        }else{
+            if($_POST['iCaptcha']!=$_SESSION['captcha']){ // Verification si l'input est égal la variable de session
+                echo "<script languaje='javascript'>insertCH();</script>"; // Affichage d'un message d'erreur
+            }else{
+                $dbverf = new CRecMP($GLOBALS['user']->getMail()); // Verification pour tester l'email
+                $value = $dbverf->selectPassword($GLOBALS['user']->getId());
+
+                if($value['PASSWORD']!=md5($_POST['act_pass'])){
+                    echo "<script languaje='javascript'>errorCH();</script>";
+                }else{
+                    $update = $dbverf->updatePassLog($_POST, $GLOBALS['user']->getId()); // Mise en jour Mot de passe
+                    echo $update;
+                }
+                
+            }
+        }
+    }
+
     function insert() // Mèthode pour enregistrer les données
     {
         //session_start(); //
@@ -164,7 +189,7 @@ function reportList()
             if(count($value)==0){// si l'email n'existe pas dans la BD s'affichera un message d'erreur
                 echo "<script languaje='javascript'>mailMod();</script>";
             }else{ // Cas contraire
-                $update = $dbverf->updateMotPasse($_POST); // Mise en jour Mot de passe
+                $update = $dbverf->updatePassword($_POST); // Mise en jour Mot de passe
                 $dbverf->updateRSB(); // Effacer le contenu de l'attribute dnas la BD
                 $dbverf->sendMail(); // l'envoi de mail de confirmation
                 echo $update;

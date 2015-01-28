@@ -20,9 +20,19 @@ private $mail;
 	 * @param  [String] $_data [la nouveaux mot de passe]
 	 * @return [type]        [resultat du mise à jour]
 	 */
-	public function updateMotPasse($_data){
+	public function updatePassword($_data){
 		$encrypt = md5($_data['pass1']);
 		$query = "UPDATE USER set password = '$encrypt' where MAIL = '$this->mail'";
+
+		$result = $this->conn->prepare($query);
+
+		return $result->execute();
+
+ 	} // updateMotPasse($_data)
+
+ 	public function updatePassLog($_data, $id){
+		$encrypt = md5($_data['new_pass']);
+		$query = "UPDATE USER set PASSWORD = '$encrypt' where ID = '$id'";
 
 		$result = $this->conn->prepare($query);
 
@@ -155,5 +165,15 @@ private $mail;
  		return $result->fetchAll(PDO::FETCH_ASSOC);
 
  	} // selectMD5($val)
+
+ 	public function selectPassword($val){
+		$query = "SELECT PASSWORD FROM USER where ID='$val'";
+
+		$result = $this->conn->prepare($query);
+
+ 		$result->execute();
+ 		return $result->fetch(PDO::FETCH_ASSOC);
+
+ 	} // selectPassword($val)
 }
 ?>

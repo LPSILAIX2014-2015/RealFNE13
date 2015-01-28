@@ -58,7 +58,27 @@ function insertE () {
         $('#iCaptcha-error').remove();
     });
 }
-
+function insertCH () {
+    
+    document.getElementById("chP").innerHTML='Le code ne coïncide pas avec l`image !!';
+    document.getElementById('iCaptcha').focus();
+    $(document).ready(function(){
+        $('#iCaptcha').addClass('norequired');
+        $('#iCaptcha').val('');
+        $('#iCaptcha').attr('aria-invalid','true');
+        $('#iCaptcha-error').remove();
+    });
+}
+function errorCH () {
+    document.getElementById("chP").innerHTML='Le mot de passe ingresé ne correspond pas a votre profile!!';
+    document.getElementById('act_pass').focus();
+    $(document).ready(function(){
+        $('#act_pass').addClass('norequired');
+        $('#act_pass').val('');
+        $('#act_pass').attr('aria-invalid','true');
+        $('#act_pass-error').remove();
+    });
+}
 function mailErr(){
     $(document).ready(function(){
         $('#mailR').addClass('norequired');
