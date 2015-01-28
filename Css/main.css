@@ -90,11 +90,11 @@ img {
 }
 .infosperso .nom {
     font-weight:bold;
-    font-size:15pt;
+    font-size:13pt;
 }
 .infosperso .asso {
     font-style: italic;
-    font-size:13pt;
+    font-size:11pt;
 }
 .infosperso .notification {
     display:block;
@@ -116,6 +116,10 @@ img {
 }
 .infosperso .notification a {
     cursor:url('../Img/cursor8.png'), auto ;
+    color:#0189C7;
+}
+.infosperso .notification a:hover {
+    color:#FFFFFF;
 }
 .infosperso .messages {
     display:block;
@@ -129,7 +133,7 @@ img {
     text-align:center;
     background-color: #a3cfea;
     font-weight:bold;
-    border-radius: 10px 0 0 0;
+    border-radius: 20px 0 0 0;
     font-family: 'Cabin', sans-serif;
     font-size:12pt;
     line-height:30px;
@@ -138,6 +142,7 @@ img {
 }
 .infosperso .messages a {
     cursor:url('../Img/cursor8.png'), auto ;
+    color:#0a2d5f;
 }
 .infosperso .deconnexion {
     display:block;
@@ -284,8 +289,8 @@ input:focus {
     font-size:0;
     display:block;
     position:absolute;
-    top:0;
-    left:0;
+    top:5px;
+    left:5px;
     width:84px;
     height:60px;
     background-image:url('../Img/logo.png');
