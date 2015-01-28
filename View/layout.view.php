@@ -11,6 +11,7 @@ $vHtml = new VHtml();
 <head>
     <meta charset="utf-8" />
     <title><?= $page['title']; ?></title>
+    <link rel="stylesheet" href="./Css/main.css">
 
     <?php
     // Ajout feuille de style spécifique à cette page
@@ -28,7 +29,6 @@ $vHtml = new VHtml();
     <script src="./Lib/jquery.validate.js"></script>
     <script src="./Lib/simplePagination.js"></script>
     <script src="./Js/recMP.js"></script>
-    <link rel="stylesheet" href="./Css/main.css">
 </head>
 <body>
     <div class="bandeau">

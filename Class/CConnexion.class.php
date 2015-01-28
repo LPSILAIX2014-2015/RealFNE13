@@ -9,21 +9,27 @@ class CConnexion {
         try
         {
             $db = new MDBase();
-            $query = "SELECT * FROM USER WHERE LOGIN='$login' AND PASSWORD='$password'" ;
+
+            $query = "SELECT ID, PASSWORD FROM USER WHERE LOGIN='$login'" ;
             $state = $db->prepare($query);
             $state->execute();
             $result = $state->fetch();
 
-            if (testVar($result))
+            $fail = new CloginFail($result['ID']) ;
+            $failremain = $fail->getExpire() - time() ;
+
+            if (($result['PASSWORD'] === $password) && (($fail->getAttempts() < LOGINFAIL_ATTEMPTS) || ($failremain <= 0)))
             {
 
                 $_SESSION['ID_USER'] = $result['ID'];
+                $_SESSION['ROLE'] = $result['ROLE'];
                 $user = new MUser($result['ID']) ;
-                header('Location: index.php');   
+
+                $query = 'DELETE FROM LOGINFAIL WHERE ID_USER='.$result['ID'].' AND IP=\''.$_SERVER["REMOTE_ADDR"].'\' ;' ;
+                $state = $db->prepare($query);
+                $state->execute();
             }
             else {
-                /*debugAlert('Erreur d\'authentification') ; // ToDo TEMP A MODIFIER
-                header('Location: index.php');*/
                 $customAlert[] = 'Erreur d\'authentification' ;
                 $fail->addAttempt();
 
@@ -56,7 +62,7 @@ class CConnexion {
         catch (Exception $ex)
         {
             $error_log = "[Error]"."[CConnexion.class.php]"."connection() : ".$ex->getMessage();
-            echo $error_log;
+            if (modeDebug) { echo $error_log; }
             return false;
         }
 
