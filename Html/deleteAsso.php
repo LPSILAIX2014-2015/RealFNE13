@@ -18,7 +18,7 @@
 					  <p class="alert alert-error">Êtes-vous sûr de vouloir supprimer cette association ?</p>
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-danger">Oui</button>
-                                                  <a class="btn" href="./index.php?EX=manageMembers">Non</a>
+                          <a class="btn" href="./index.php?EX=manageAsso">Non</a>
 						</div>
 					</form>
 				</div>

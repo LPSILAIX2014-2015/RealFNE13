@@ -1,33 +1,35 @@
 <?php
 class MDBase extends PDO {
 
-    private $engine = 'mysql';
-    private $host = 'localhost';
-    private $database = 'FNESITE';
-    private $user = 'root';
-    private $pass = '';
-    private $cont = '';
 
-    public function __construct() {
-        $dns = $this->engine.':dbname='.$this->database.";host=".$this->host;
-        parent::__construct( $dns, $this->user, $this->pass );
+
+    private static $engine = 'mysql';
+    private static $dbName = 'FNESITE' ;
+    private static $dbHost = 'localhost' ;
+    private static $dbUsername = 'root';
+    private static $dbUserPassword = '';
+    private static $cont  = null;
+
+    public function __construct(){
+        $dns = self::$engine.':dbname='.self::$dbName.";host=".self::$dbHost;
+        parent::__construct( $dns, self::$dbUsername, self::$dbUserPassword );
     }
-    
-    public function connect()
+
+    public static function connect()
 	{
 	   // One connection through whole application
-       if ( null == $this->cont )
+       if ( null == self::$cont )
        {
         try
         {
-          $this->cont =  new PDO( "mysql:host=".$this->host.";"."dbname=".$this->database, $this->user, $this->pass);
+          self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword);
         }
         catch(PDOException $e)
         {
           die($e->getMessage());
         }
        }
-       return $this->cont;
+       return self::$cont;
 	}
 
     public static function getAllUsers()
@@ -41,7 +43,7 @@ class MDBase extends PDO {
         return $data;
     }
 
-    public function getAllAssocs()
+    public static function getAllAssocs()
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -96,7 +98,7 @@ class MDBase extends PDO {
         return $data;
     }
 
-    public function getAllTerritories()
+    public static function getAllTerritories()
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -107,7 +109,7 @@ class MDBase extends PDO {
         return $data;
     }
 
-    public function getAllThemes()
+    public static function getAllThemes()
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -118,7 +120,7 @@ class MDBase extends PDO {
         return $data;
     }
 
-    public function getUserByEmail($mail)
+    public static function getUserByEmail($mail)
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

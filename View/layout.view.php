@@ -4,7 +4,7 @@ $vUserInfo = new VUserInfo();
 $vpage = new $page['class']();
 global $connec, $customAlert;
 $connec = new MDBase();
-$vHtml = new VHtml() ;
+$vHtml = new VHtml();
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,9 +15,7 @@ $vHtml = new VHtml() ;
 
         <link rel="stylesheet" href="./Css/reset.css">  
         <link rel="stylesheet" type="text/css" href="./Lib/bootstrap.min.css" />
-
-        <link rel="stylesheet" type="text/css" href="./Css/main.css" />
-        <link rel="stylesheet" href="Css/recupMdp.css"> 
+        <link rel="stylesheet" type="text/css" href="./Css/appli.css" />
         <link rel="stylesheet" href="./Css/jquery-ui.css">
 
     <link rel="stylesheet" href="./Css/jquery.fancybox.css" media="screen">
@@ -28,6 +26,7 @@ $vHtml = new VHtml() ;
     }
     ?>
     <link rel="stylesheet" type="text/css" href="Lib/bootstrap.icon-large.min.css" />
+    <link rel="stylesheet" type="text/css" href="Lib/simplePagination.css"/>
     <link rel="icon" type="image/png" href="Img/favicon.png" />
     <script src="Lib/jquery.min.js"></script>
     <script src="Lib/bootstrap.min.js"></script>
@@ -37,6 +36,7 @@ $vHtml = new VHtml() ;
     <script src="./Lib/jquery.fancybox.js"></script>
     <script src="./Lib/jquery.form.js"></script>
     <script src="./Lib/jquery.validate.js"></script>
+    <script src="./Lib/simplePagination.js"></script>
     <script src="./Js/recMP.js"></script>
 </head>
 <body>

@@ -58,7 +58,7 @@
 									<h3 class="panel-title">Address</h3>
 								</div>
 								<div class="panel-body">
-									<?= $GLOBALS['user']->getAdress().', '.$GLOBALS['user']->getCp();?>
+									<?= $GLOBALS['user']->getAddress().', '.$GLOBALS['user']->getCp();?>
 								</div>
 							</div>
 						</div>

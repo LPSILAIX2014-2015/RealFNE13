@@ -1,4 +1,5 @@
 <?php
+
     function __autoload($class)
     {
       if ($class[0] == 'M')
@@ -32,4 +33,5 @@
     {
         return (!empty($val) && isset($val));
     }
+
 ?>

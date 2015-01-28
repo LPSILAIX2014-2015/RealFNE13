@@ -16,6 +16,7 @@ class CConnexion {
 
             if (testVar($result))
             {
+
                 $_SESSION['ID_USER'] = $result['ID'];
                 $user = new MUser($result['ID']) ;
                 header('Location: index.php');   
