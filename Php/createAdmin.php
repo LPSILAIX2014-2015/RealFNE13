@@ -10,9 +10,9 @@
 
         $profession = $_POST['PROFESSION'];
         echo $id." ".$name." ".$surname." ".$email." ".$cp." ".$profession." ";
-		$sql = "INSERT INTO user (NAME,SURNAME,CP,MAIL,ASSOCIATION_ID, THEME_ID, THEME_INTEREST_ID, ROLE,PROFESSION) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO user (NAME,SURNAME,CP,MAIL,ASSOCIATION_ID, THEME_ID, THEME_INTEREST_ID, ROLE) values(?, ?, ?, ?, ?, ?, ?, ?)";
 		$q = $pdo->prepare($sql);
-		$q->execute(array($name, $surname, $cp, $email,$id, 1, 1,"ADMIN",$profession));
+		$q->execute(array($name, $surname, $cp, $email,$id, 1, 1,"ADMIN"));
 
         $headers = "From: webmaster@domain.com \r\n";
         $headers .= "MIME-Version: 1.0\r\n";

@@ -1,4 +1,5 @@
 <?php
+header ('Content-Type: text/html; charset=utf-8');
 require('Inc/require.inc.php');
 require('Inc/globals.inc.php');
 $EX = isset($_REQUEST['EX']) ? $_REQUEST['EX'] : 'home';
@@ -20,6 +21,7 @@ switch($EX)
     case 'deleteMember': deleteMember(); break;
     case 'insert'    : insert();     exit; // Mèthode insert() pour enregistrer le changement de mot de passe
     case 'mailconf'  : mailconf();   exit; // Mèthode pour envoyer l'email de confirmation
+    case 'maillog'   : maillog();    exit;
     case 'recup'     : recuperation(); break; // Presentation de la vue
     case 'deconnexion' :
         if (isset($_POST['login']) && isset($_POST['password']))
@@ -44,6 +46,7 @@ switch($EX)
     case 'searchAsso'  : searchAsso();      break;
     case 'manageAsso': manageAsso(); break;
     case 'deleteAsso'  : deleteAsso();      break;
+    case 'profil'    : profil(); break; // Affichage du profil
     default : check($EX);
 }
 
@@ -60,10 +63,13 @@ function check($EX)
     }else{ // Sinon s'affichera le mail dans le formulaire de changement 
         $var = $dbverf->searchMail($EX);
         $eml = $var[0]["MAIL"];
-        rec(); // Formilaire de changement 
+        rec(); // Formulaire de changement 
     }
 }
-
+function login(){
+    $lo = new CConnexion();
+    $value = $lo->connexion($_POST['login'], $_POST['password']);
+}
 function home()
 {
 	global $page;
@@ -160,10 +166,9 @@ function reportList()
         $page['method'] = 'showHtml';
         $page['arg'] = 'Html/recuperation.php';
     }
-
     function insert() // Mèthode pour enregistrer les données
     {
-        session_start(); //
+        //session_start(); //
         if($_POST['iCaptcha']!=$_SESSION['captcha']){ // Verification si l'input est égal la variable de session
             echo "<script languaje='javascript'>insertE();</script>"; // Affichage d'un message d'erreur
         }else{
@@ -190,6 +195,25 @@ function reportList()
         }else{ // Si le mail existe, s'envoyera un mail avec le lien pour changer son mot de passe
             $update = $dbverf->sendMailConf();
             echo $update;
+        }
+    }
+
+    function maillog()
+    {   
+        global $user;
+        if (!isset($user)) { // Validation pour l'envoi du mail 
+            echo "<script>location.href='index.php';</script>";
+        } else {
+            $dbverf = new CRecMP($GLOBALS['user']->getMail());
+            $value = $dbverf->selectMail(); // Verification de mail dans le formulaire
+
+            if(count($value)==0){ // Affichage d'un message d'erreur si le mail n'existe pas
+                echo "<script languaje='javascript'>mailErr();</script>";
+            }else{ // Si le mail existe, s'envoyera un mail avec le lien pour changer son mot de passe
+                echo "<script>mailErr();</script>";
+                $update = $dbverf->sendMailConf();
+		        header('Location: index.php');
+            }
         }
     }
 
@@ -264,6 +288,20 @@ function reportList()
     {
         include('Php/create.php');
     }
+    
+    function profil(){ // Presentation du profil 
+        global $user;
+        if (!isset($user)) { // S'il n'y a pas une session ouverte n'affichera rien 
+            echo "<script>location.href='index.php';</script>";
+        } else {
+            global $page;
+            $page['title'] = 'Mon profil';
+            $page['class'] = 'VHtml';
+            $page['method'] = 'showHtml';
+            $page['arg'] = 'Html/profil.php';
+        }
+    
+}
 
     function createAdmin()
     {

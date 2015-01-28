@@ -28,5 +28,5 @@
     </div>
     <input type="submit" name="btnConf" class="btn btn-default center-block">
 </form>
-<div id="result"></div><!-- id="error" -->
+<!-- <div id="result"></div>id="error"
 <div id="res"></div><!-- id="error" -->

@@ -57,7 +57,6 @@
     });
 
 </script>
-
 <?php
     $i=0;
     $pdo = new MDBase();

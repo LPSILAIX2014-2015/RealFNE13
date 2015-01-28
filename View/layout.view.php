@@ -17,7 +17,7 @@ $vHtml = new VHtml() ;
         <link rel="stylesheet" type="text/css" href="./Lib/bootstrap.min.css" />
 
         <link rel="stylesheet" type="text/css" href="./Css/main.css" />
-
+        <link rel="stylesheet" href="Css/recupMdp.css"> 
         <link rel="stylesheet" href="./Css/jquery-ui.css">
 
     <link rel="stylesheet" href="./Css/jquery.fancybox.css" media="screen">
@@ -60,4 +60,6 @@ $vHtml = new VHtml() ;
     </div>
 
     <script src="Js/createArticle.js"></script>
+    <div id="result"></div><!-- id="error"-->
+    <div id="res"></div><!-- id="error" -->
 </body>
