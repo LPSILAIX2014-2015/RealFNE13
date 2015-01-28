@@ -7,6 +7,10 @@
 @import url(http://fonts.googleapis.com/css?family=Slabo+13px);
 /**/
 
+
+/*
+* Elements génériques
+*/
 html{
     cursor:url('../Img/cursor1.png'), auto ;
 }
@@ -21,6 +25,8 @@ body {
     bottom:25px;
     overflow:auto;
     cursor:url('../Img/cursor1.png'), auto ;
+    padding:0;
+    margin:0;
 }
 nav {
     display:block;
@@ -33,25 +39,46 @@ nav {
     text-align:center;
     z-index:1;
 }
-.infosperso {
+a {
+    cursor:url('../Img/cursor4.png'), auto ;
+    text-decoration:none;
+}
+a:hover {
+    text-decoration:none;
+}
+img {
+    border:0;
+    vertical-align:middle;
+}
+/**/
+.bandeau {
+    display:block;
+    position:fixed;
+    width:100%;
+    height:70px;
     background-color: #4bc9e2;
     background-image:url('../Img/headerbg.png');
     background-size:contain;
     background-repeat:no-repeat;
     background-position:top right;
-    color:#000;
-    display:block;
-    position:fixed;
-    width:100%;
-    height:70px;
-    top:0;
-    left:0;
     border:1px solid #FFF;
+    padding:0;
+    margin:0;
+    z-index:2;
+}
+.infosperso {
+    color:#000;
+    display:table-cell;
+    vertical-align:middle;
+    position:absolute;
+    top:0;
+    left:100px;
+    bottom:0;
+    right:0;
+    padding-top:10px;
     font-size:10pt;
     z-index:2;
     overflow:hidden;
-    padding-left:100px;
-    padding-top:5px;
     font-family:'Quicksand',Verdana,sans-serif;
 }
 .infosperso .photo {
@@ -82,9 +109,13 @@ nav {
     background-color: #0189C7;
     font-weight:bold;
     font-family: 'Cabin', sans-serif;
-    font-size:11pt;
+    font-size:12pt;
     line-height:30px;
     vertical-align:middle;
+    cursor:url('../Img/cursor8.png'), auto ;
+}
+.infosperso .notification a {
+    cursor:url('../Img/cursor8.png'), auto ;
 }
 .infosperso .messages {
     display:block;
@@ -100,9 +131,13 @@ nav {
     font-weight:bold;
     border-radius: 10px 0 0 0;
     font-family: 'Cabin', sans-serif;
-    font-size:11pt;
+    font-size:12pt;
     line-height:30px;
     vertical-align:middle;
+    cursor:url('../Img/cursor8.png'), auto ;
+}
+.infosperso .messages a {
+    cursor:url('../Img/cursor8.png'), auto ;
 }
 .infosperso .deconnexion {
     display:block;
@@ -122,6 +157,7 @@ nav {
     transition:ease 0.5s;
     line-height:30px;
     vertical-align:middle;
+    cursor:url('../Img/cursor2.png'), auto ;
 }
 .infosperso .deconnexion:hover {
     background-color:#FFF;
@@ -171,7 +207,7 @@ nav li a {
     color:#0a2d5f;
     font-weight:bold;
     text-decoration: none;
-    margin:3px;
+    margin:4px;
     border-radius: 4px;
     border:1px #0c5091 solid;
     transition:ease 0.5s;
@@ -212,58 +248,6 @@ nav li a:hover {
     font-size:15pt;
     margin:2px;
 }
-.pvarticle {
-    display:block;
-    background-color: #FFF;
-    border-radius:5px;
-    font-size:10pt;
-    padding:5px 10px 20px 10px;
-    margin:3px;
-}
-#imgplace {
-    float: left;
-    margin:auto;
-    width: 150px;
-    height: 80px;
-    line-height: 80px;
-    text-align: center;
-}
-.pvarticle img {
-    max-width: 145px;
-    max-height: 80px;
-    display: table-cell;
-    vertical-align: middle;
-}
-#infoarticle {
-    display: table-cell;
-    vertical-align: middle;
-}
-.pvarticle h2 {
-    margin:0;
-    font-size:10pt;
-}
-.pvarticle .auteur {
-    font-style:italic;
-}
-.pvarticle .description {
-    font-size: 12px;
-}
-.lienarticle {
-    display:block;
-    float:right;
-    /*width:100px;      mise en commentaire pour la consultation des articles
-    text-align:center;*/
-    border-radius:5px;
-    background-color: #a3cfea;
-    color:#FFF;
-    border:1px solid #0c5091;
-    margin-top: 10px;
-}
-.lienarticle:hover {
-    background-color: #0c5091;
-    color:#FFF;
-    border:1px solid #a3cfea;
-}
 input {
     cursor:url('../Img/cursor9.png'), auto ;
     border-radius:4px;
@@ -296,13 +280,6 @@ input:focus {
     border:1px solid #0a2d5f;
     background-color:#a3cfea;
 }
-a {
-    cursor:url('../Img/cursor4.png'), auto ;
-    text-decoration:none;
-}
-a:hover {
-    text-decoration:none;
-}
 .logo {
     font-size:0;
     display:block;
@@ -319,7 +296,7 @@ a:hover {
     position:fixed;
     bottom:0;
     width:100%;
-    height:15px;
+    height:20px;
     line-height:15px;
     vertical-align:middle;
     text-align:center;
@@ -345,6 +322,8 @@ a:hover {
     background-color:#000000;
     opacity: 0.8;
     z-index:10;
+    margin:0;
+    padding:0;
 }
 .customAlert .box {
     display:block;
