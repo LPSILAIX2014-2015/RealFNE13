@@ -68,4 +68,13 @@
             return $this->territory;
         }
 
+        public function getMembers(){
+            $sql = new MDBase();
+            $state = $sql->prepare("SELECT ID, NAME, SURNAME FROM USER WHERE ASSOCIATION_ID = :id ORDER By ROLE ASC");
+            $state->bindValue('id', $this->id, PDO::PARAM_INT);
+            $state->execute();
+            $assoc = $state->fetchall();
+            return $assoc;
+        }
+
     }

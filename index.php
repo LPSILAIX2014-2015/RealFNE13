@@ -2,6 +2,10 @@
 require('Inc/require.inc.php');
 require('Inc/globals.inc.php');
 $EX = isset($_REQUEST['EX']) ? $_REQUEST['EX'] : 'home';
+if(isset($_REQUEST['idPrev'])){
+    $idPrev= $_REQUEST['idPrev'];
+    $idNext= $_REQUEST['idNext'];
+}
 
 switch($EX)
 {
@@ -11,6 +15,7 @@ switch($EX)
     case 'searchMember'     : searchMember();      break;
     case 'manageMembers': manageMembers(); break;
     case 'createMember': createMember(); break;
+    case 'createUser': createUser(); break;
     case 'updateMember': updateMember(); break;
     case 'deleteMember': deleteMember(); break;
     case 'insert'    : insert();     exit; // Mèthode insert() pour enregistrer le changement de mot de passe
@@ -30,6 +35,14 @@ switch($EX)
 
     case 'createArticle':   createArticle(); break;
     case 'formCreateArticle' : formCreateArticle(); break;
+    case 'updateAsso' : updateAsso(); break;
+    case 'updateAdminAsso': updateAdminAsso(); break;
+    case 'swapRoles': swapRoles($idPrev,$idNext); break;
+    case 'createAsso' : createAsso(); break;
+    case 'createAdmin' : createAdmin(); break;
+    case 'creationAdmin' : creationAdmin(); break;
+    case 'searchAsso'  : searchAsso();      break;
+    case 'manageAsso': manageAsso(); break;
     default : check($EX);
 }
 
@@ -83,7 +96,6 @@ function reportList()
         $formCreateArticle = new MFormCreateArticle();
         $formCreateArticle->insertDB($_POST);
     }
-
 
     function searchMember()
     {
@@ -209,7 +221,7 @@ function reportList()
         $page['class'] = 'VHome';
         $page['method'] = 'showHome';
         $page['arg'] = 'Html/accueil.php';
-    }
+       }
 
     function writeMessages()
     {
@@ -219,9 +231,78 @@ function reportList()
         $page['method'] = 'showHtml';
         $page['arg'] = 'Html/formulaireMessage.html';
     }
+    
+    function updateAsso()
+    {
+        global $page;   
+        $page['title'] = "Modif d'une association";
+        $page['class'] = 'VHtml';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Html/updateAsso.php';
+    }
+
+    function updateAdminAsso()
+    {
+        global $page;
+        $page['title'] = "Changement de gérant  ";
+        $page['class'] = 'VHtml';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Html/updateAdminAsso.php';
+    }
+
+    function createAsso()
+    {
+        global $page;   
+        $page['title'] = "Création d'une association";
+        $page['class'] = 'VHtml';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Html/createAsso.php';
+    }
+
     function createUser()
     {
         include('Php/create.php');
+    }
+
+    function createAdmin()
+    {
+        global $page;   
+        $page['title'] = "Création d'un administrateur d'association";
+        $page['class'] = 'VHtml';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Html/createAdmin.php';
+    }
+
+    function creationAdmin()
+    {
+        include('./Php/createAdmin.php');
+    }
+    function swapRoles($idPrev, $idNext){
+        global $page;
+        (new Muser($idPrev))->setRole('MEMBRE');
+        (new Muser($idNext))->setRole('ADMIN');
+        $page['title'] = 'Test';
+        $page['class'] = 'VHome';
+        $page['method'] = 'showHome';
+        $page['arg'] = 'Html/accueil.php';
+    }
+
+    function searchAsso()
+    {
+        global $page;
+        $page['title'] = 'Recherche d\'association';
+        $page['class'] = 'VHtml';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Html/searchAsso.php';
+    }
+
+    function manageAsso()
+    {
+        global $page;
+        $page['title'] = 'Gestion des associations';
+        $page['class'] = 'VHtml';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Html/manageAsso.php';
     }
 
 

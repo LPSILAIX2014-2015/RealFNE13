@@ -1,6 +1,6 @@
 <?php
-global $user ;
-    if ((isset($user)) && ($user->getRole() == "SADMIN")) {
+
+    if ($_SESSION["ROLE"] == "SADMIN") {
     $db = new MDBase();
     $stat = new PDOStatement();
     $stat = $db->prepare("SELECT * FROM REPORT");
@@ -22,7 +22,7 @@ global $user ;
     <table>
         <?php
             while ($res = $stat->fetch(PDO::FETCH_ASSOC)) {
-                echo "<div class=\"ALL ".$res['TYPE']."\">" . $res['RDATE'] . " - " . $res['CONTENT'] . "</div>";
+                echo "<div class=\"ALL ".$res['TYPE']."\">" . $res['ID'] . " - " . $res['RDATE'] . " - " . $res['CONTENT'] . "</div>";
             }
         ?>
     </table>
@@ -34,6 +34,6 @@ global $user ;
         $("."+vall).show(250);
     })
 </script>
-<?php } else { ?>
+<?php } else { echo var_dump($_SESSION); ?>
 <div>Vous n'avez pas les droits nécesaires pour accéder à cette page !</div>
 <?php }?>

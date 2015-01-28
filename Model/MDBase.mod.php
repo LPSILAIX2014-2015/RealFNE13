@@ -5,7 +5,7 @@ class MDBase extends PDO {
     private $host = 'localhost';
     private $database = 'FNESITE';
     private $user = 'root';
-    private $pass = 'mysql';
+    private $pass = '';
     private $cont = '';
 
     public function __construct() {
@@ -13,21 +13,21 @@ class MDBase extends PDO {
         parent::__construct( $dns, $this->user, $this->pass );
     }
     
-    public static function connect()
+    public function connect()
 	{
 	   // One connection through whole application
-       if ( null == self::$cont )
+       if ( null == $this->cont )
        {
         try
         {
-          self::$cont =  new PDO( "mysql:host=".self::$host.";"."dbname=".self::$database, self::$user, self::$pass);
+          $this->cont =  new PDO( "mysql:host=".$this->host.";"."dbname=".$this->database, $this->user, $this->pass);
         }
         catch(PDOException $e)
         {
           die($e->getMessage());
         }
        }
-       return self::$cont;
+       return $this->cont;
 	}
 
     public static function getAllUsers()
@@ -41,14 +41,14 @@ class MDBase extends PDO {
         return $data;
     }
 
-    public static function getAllAssocs()
+    public function getAllAssocs()
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = "SELECT * FROM ASSOC";
+        $query = "SELECT * FROM ASSOCIATION";
         $qq = $pdo->prepare($query);
         $qq->execute();
-        $data = $qq->fetch(PDO::FETCH_ASSOC);
+        $data = $qq->fetchall();
         return $data;
     }
 
@@ -96,25 +96,36 @@ class MDBase extends PDO {
         return $data;
     }
 
-    public static function getAllTerritories()
+    public function getAllTerritories()
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $query = "SELECT * FROM TERRITORY";
         $qq = $pdo->prepare($query);
         $qq->execute();
-        $data = $qq->fetch(PDO::FETCH_ASSOC);
+        $data = $qq->fetchall();
         return $data;
     }
 
-    public static function getAllThemes()
+    public function getAllThemes()
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $query = "SELECT * FROM THEME";
         $qq = $pdo->prepare($query);
         $qq->execute();
-        $data = $qq->fetch(PDO::FETCH_ASSOC);
+        $data = $qq->fetchall(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public function getUserByEmail($mail)
+    {
+        $pdo = self::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $query = "SELECT * FROM User WHERE Mail = ?";
+        $qq = $pdo->prepare($query);
+        $qq->execute(array($mail));
+        $data = $qq->fetchall();
         return $data;
     }
 }
