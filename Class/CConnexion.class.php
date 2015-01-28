@@ -1,7 +1,7 @@
 <?php
 class CConnexion {
     public function connexion($login =NULL, $password=NULL) {
-        global $user;
+        global $user, $customAlert;
 
         $login = (testVar($_POST['login'])) ? $_POST['login'] : $login;
         $password  = (testVar($_POST['password']))  ? $_POST['password']  : $password;
@@ -21,8 +21,35 @@ class CConnexion {
                 header('Location: index.php');   
             }
             else {
-                debugAlert('Erreur d\'authentification') ; // ToDo TEMP A MODIFIER
-                header('Location: index.php');
+                /*debugAlert('Erreur d\'authentification') ; // ToDo TEMP A MODIFIER
+                header('Location: index.php');*/
+                $customAlert[] = 'Erreur d\'authentification' ;
+                $fail->addAttempt();
+
+                if ($fail->getAttempts() == LOGINFAIL_WARNING) {
+                    $user = new MUser($result['ID']) ;
+                    $msg = $user->getSurname().' '.$user->getName().' a échoué '.LOGINFAIL_WARNING.' fois à se connecter (IP : '.$_SERVER["REMOTE_ADDR"].').' ;
+                    $query = 'INSERT INTO REPORT VALUES (NULL, CURDATE(), "ALERTE", "'.$msg.'");' ;
+                    $state = $db->prepare($query);
+                    $state->execute();
+                    unset($_SESSION);
+                    unset($GLOBALS['user']);
+                }
+                if ($fail->getAttempts() == LOGINFAIL_ATTEMPTS) {
+                    $user = new MUser($result['ID']) ;
+                    $msg = $user->getSurname().' '.$user->getName().' a échoué '.LOGINFAIL_ATTEMPTS.' fois à se connecter, son compte a été bloqué (IP : '.$_SERVER["REMOTE_ADDR"].').' ;
+                    $query = 'INSERT INTO REPORT VALUES (NULL, CURDATE(), "ALERTE", "'.$msg.'");' ;
+                    $state = $db->prepare($query);
+                    $state->execute();
+                    unset($_SESSION);
+                    unset($GLOBALS['user']);
+                }
+
+                if ($fail->getAttempts() >= LOGINFAIL_ATTEMPTS) {
+                    $customAlert[] = (LOGINFAIL_ATTEMPTS.' echecs de connexion, votre compte est bloqué pour les '.ceil($failremain/60).' prochaines minutes');
+                    unset($_SESSION);
+                    unset($GLOBALS['user']);
+                }
             }
         }
         catch (Exception $ex)

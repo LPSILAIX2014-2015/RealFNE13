@@ -175,8 +175,7 @@
         <table class="table table-striped table-bordered">
             <thead>
             <tr>
-                <th>Nom de famille</th>
-                <th>Pr&eacute;nom</th>
+                <th>Nom</th>
                 <th>CP</th>
                 <th>Profession</th>
                 <th>Action
@@ -228,8 +227,7 @@
                         $img = $row['PHOTOPATH'];
                     }
                     echo '<tr>';
-                    echo '<td>'. $row['NAME'] . '</td>';
-                    echo '<td>'. $row['SURNAME'] . '</td>';
+                    echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
                     echo '<td>'. $row['CP'] . '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
                     echo '<td width=250>';
@@ -278,8 +276,7 @@
                             $img = $row['PHOTOPATH'];
                         }
                         echo '<tr>';
-                        echo '<td>'. $row['NAME'] . '</td>';
-                        echo '<td>'. $row['SURNAME'] . '</td>';
+                        echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
                         echo '<td>'. $row['CP'] . '</td>';
                         echo '<td>'. $row['PROFESSION'] . '</td>';
                         echo '<td width=250>';

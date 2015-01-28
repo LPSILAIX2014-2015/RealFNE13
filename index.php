@@ -47,6 +47,7 @@ switch($EX)
     case 'manageAsso': manageAsso(); break;
     case 'deleteAsso'  : deleteAsso();      break;
     case 'profil'    : profil(); break; // Affichage du profil
+    case 'legal' : legal(); break;
     default : check($EX);
 }
 
@@ -110,6 +111,7 @@ function reportList()
         $page['title'] = 'Recherche de membre';
         $page['class'] = 'VHtml';
         $page['method'] = 'showHtml';
+        $page['css'] = 'Css/search.css';
         $page['arg'] = 'Html/searchMember.php';
     }
 
@@ -119,6 +121,7 @@ function reportList()
         $page['title'] = 'Gestion des membres';
         $page['class'] = 'VHtml';
         $page['method'] = 'showHtml';
+        $page['css'] = 'Css/search.css';
         $page['arg'] = 'Html/manageMembers.php';
     }
 
@@ -312,6 +315,14 @@ function reportList()
         $page['arg'] = 'Html/createAdmin.php';
     }
 
+    function legal() {
+        global $page;
+        $page['title'] = 'Mentions légales' ;
+        $page['class'] = 'VHtml' ;
+        $page['method'] = 'showHtml' ;
+        $page['arg'] = 'Html/legal.html' ;
+    }
+
     function creationAdmin()
     {
         include('./Php/createAdmin.php');
@@ -332,6 +343,7 @@ function reportList()
         $page['title'] = 'Recherche d\'association';
         $page['class'] = 'VHtml';
         $page['method'] = 'showHtml';
+        $page['css'] = 'Css/search.css';
         $page['arg'] = 'Html/searchAsso.php';
     }
 
@@ -341,6 +353,7 @@ function reportList()
         $page['title'] = 'Gestion des associations';
         $page['class'] = 'VHtml';
         $page['method'] = 'showHtml';
+        $page['css'] = 'Css/search.css';
         $page['arg'] = 'Html/manageAsso.php';
     }
 
