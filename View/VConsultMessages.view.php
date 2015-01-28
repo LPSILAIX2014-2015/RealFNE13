@@ -107,6 +107,12 @@ class VConsultMessages
         }
     }
 
+    global $data_theme;
+    global $data_category;
+    $mMod = new MDbase();
+    //$data_theme = $mMod->getAllThemes();
+    //$data_category = $mMod->getAllCategories();
+
 
 /* REMPLISSAGATION DU CONTENU */
 

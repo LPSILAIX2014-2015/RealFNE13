@@ -118,5 +118,16 @@ class MDBase extends PDO {
         $data = $qq->fetch(PDO::FETCH_ASSOC);
         return $data;
     }
+
+    public static function getAllCategories()
+    {
+        $pdo = self::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $query = "SELECT * FROM CATEGORY";
+        $qq = $pdo->prepare($query);
+        $qq->execute();
+        $data = $qq->fetch(PDO::FETCH_ASSOC);
+        return $data;
+    }
 }
 ?>
