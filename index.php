@@ -136,6 +136,7 @@ function showArticle()
     $page['class'] = 'VShowArticle';
     $page['method'] = 'showArticle';
     $page['arg'] = 'Html/showArticle.php';
+    $page['css'] = 'Css/showArticle.css';
 }
 
 function showInfoArticle()
