@@ -43,6 +43,7 @@ switch($EX)
     case 'creationAdmin' : creationAdmin(); break;
     case 'searchAsso'  : searchAsso();      break;
     case 'manageAsso': manageAsso(); break;
+    case 'deleteAsso'  : deleteAsso();      break;
     default : check($EX);
 }
 
@@ -284,11 +285,9 @@ function reportList()
         $page['title'] = 'Test';
         $page['class'] = 'VHome';
         $page['method'] = 'showHome';
-        $page['arg'] = 'Html/accueil.php';
+        $page['arg'] = 'Html/adminAsso.php';
     }
 
-<<<<<<< HEAD
-=======
     function searchAsso()
     {
         global $page;
@@ -307,6 +306,13 @@ function reportList()
         $page['arg'] = 'Html/manageAsso.php';
     }
 
->>>>>>> f641a656f7d31a551d71e4e426ef30a2622f2e12
+    function deleteAsso()
+    {
+        global $page;
+        $page['title'] = 'Supression d\'une association';
+        $page['class'] = 'VHtml';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Html/deleteAsso.php';
+    }
 
 ?>

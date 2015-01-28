@@ -10,7 +10,6 @@
         $q = $pdo->prepare($sql);
         $q->execute(array($name, $territory, $theme));
         $id= $pdo->lastInsertId();
-        echo $id;
         header("./index.php?EX=creationAdmin&id=".$id);
     }
     ?>

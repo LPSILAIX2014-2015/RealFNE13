@@ -11,6 +11,7 @@
         $sql = "UPDATE ASSOCIATION SET NAME = ?, TERRITORY_ID = ? WHERE ID = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($name, $territory, $id));
+        header("Location:  ./index.php?EX=manageAsso");
     }
 
     // insert data

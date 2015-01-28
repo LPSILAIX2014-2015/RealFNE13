@@ -22,7 +22,7 @@
         $subject = 'compléter votre profil';
         mail ($mail,$subject,$message,$headers);
 
-        header("Location: ./index.php");
+        header("Location: ./index.php?EX=manageAsso");
 
 	}
 ?>
