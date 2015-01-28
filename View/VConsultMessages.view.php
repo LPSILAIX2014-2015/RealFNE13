@@ -53,7 +53,7 @@ class VConsultMessages
     	
 
 		$content_messages .= '<td>
-            <button title="Afficher" class="buttonShowMessages btn btn-sm btn-warning"><i class="glyphicon glyphicon-plus"></i></button>
+            <button title="Afficher" class="buttonShowMessages btn btn-sm btn-success"><i class="glyphicon glyphicon-plus"></i></button>
             <div class="btnOptions">
                 <button title="Supprimer" class="buttonDeleteMessages btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
                 <button title="Archiver" class="buttonArchivateMessages btn btn-sm btn-primary"><i class="glyphicon glyphicon-folder-open"></i></button>

@@ -1,6 +1,7 @@
 .contentMessage {
 	display: none;
-	max-width: 415px;
+	max-width: 430px;
+	margin : 0;
 }
 .notReaded {
 	font-weight: bold;
