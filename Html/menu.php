@@ -3,10 +3,11 @@ global $user ;
 ?>
 <ul>
     <li><a href="index.php?EX=searchMember">Recherche</a></li>
-    <li><a>Agenda</a></li>
+    <li><a href ="index.php?EX=calendar">Agenda</a></li>
     <li><a>Articles</a>
         <div class="submenu">
-            <a>Consulter</a>
+
+            <a href="index.php?EX=showArticle">Consulter</a>
             <?PHP
             if (isset($user)) {
             ?>

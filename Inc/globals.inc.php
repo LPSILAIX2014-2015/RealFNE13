@@ -1,4 +1,5 @@
 <?php
+
 /*
 * Ce fichier contient les variables globales qui seront utilisées sur toutes les pages du site ainsi que leur documentation.
 * Pour chaque variable ajoutée veuillez indiquer son type, son utilisation, et dans le cas d'un objet ses attributs et méthodes

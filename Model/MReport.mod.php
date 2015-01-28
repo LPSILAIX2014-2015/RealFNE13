@@ -13,8 +13,8 @@
         private $content;
 
         function __construct ($id) {
-            $sql = new MDBase();
-            $state = $sql->prepare("SELECT * FROM REPORT WHERE ID = :id;");
+            $this->sql = new MDBase();
+            $state = $this->sql->prepare("SELECT * FROM REPORT WHERE ID = :id;");
             $state->bindValue('id', $id, PDO::PARAM_INT);
             $state->execute();
             $report = $state->fetch(PDO::FETCH_ASSOC);
@@ -25,71 +25,30 @@
             $this->content = $report['CONTENT'];
         }
 
-        /**
-         * @param mixed $content
-         */
+        // Getter
+        public function getId() { return $this->id; }
+        public function getContent() { return $this->content; }
+        public function getRdate() { return $this->rdate; }
+        public function getType() { return $this->type; }
+
+        // Setter
         public function setContent($content)
         {
             $this->content = $content;
+            $this->sql->exec('UPDATE REPORT SET CONTENT = \''.$content.'\' WHERE ID = '.$this->id.' ;');
         }
 
-        /**
-         * @return mixed
-         */
-        public function getContent()
-        {
-            return $this->content;
-        }
 
-        /**
-         * @param mixed $id
-         */
-        public function setId($id)
-        {
-            $this->id = $id;
-        }
-
-        /**
-         * @return mixed
-         */
-        public function getId()
-        {
-            return $this->id;
-        }
-
-        /**
-         * @param mixed $rdate
-         */
         public function setRdate($rdate)
         {
             $this->rdate = $rdate;
+            $this->sql->exec('UPDATE REPORT SET RDATE = \''.$rdate.'\' WHERE ID = '.$this->id.' ;');
         }
 
-        /**
-         * @return mixed
-         */
-        public function getRdate()
-        {
-            return $this->rdate;
-        }
 
-        /**
-         * @param mixed $type
-         */
         public function setType($type)
         {
             $this->type = $type;
+            $this->sql->exec('UPDATE REPORT SET TYPE = \''.$type.'\' WHERE ID = '.$this->id.' ;');
         }
-
-        /**
-         * @return mixed
-         */
-        public function getType()
-        {
-            return $this->type;
-        }
-
-
-
-
     }

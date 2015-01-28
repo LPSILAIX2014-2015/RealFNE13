@@ -76,7 +76,7 @@ nav {
     bottom:0;
     width:100px;
     border:1px solid #FFF;
-    padding:2px 5px 2px 5px;
+    padding:2px 3px 2px 3px;
     text-align:center;
     background-color: #0189C7;
     font-weight:bold;
@@ -128,6 +128,9 @@ nav {
 .infosperso label {
     font-size:12pt;
     font-weight:bold;
+    cursor:inherit;
+}
+.btn {
     cursor:inherit;
 }
 .infosperso .lostpass {
@@ -207,6 +210,24 @@ nav li a:hover {
     padding:5px 10px 20px 10px;
     margin:3px;
 }
+#imgplace {
+    float: left;
+    margin:auto;
+    width: 150px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+}
+.pvarticle img {
+    max-width: 145px;
+    max-height: 80px;
+    display: table-cell;
+    vertical-align: middle;
+}
+#infoarticle {
+    display: table-cell;
+    vertical-align: middle;
+}
 .pvarticle h2 {
     margin:0;
     font-size:10pt;
@@ -214,15 +235,19 @@ nav li a:hover {
 .pvarticle .auteur {
     font-style:italic;
 }
+.pvarticle .description {
+    font-size: 12px;
+}
 .lienarticle {
     display:block;
     float:right;
-    width:100px;
-    text-align:center;
+    /*width:100px;      mise en commentaire pour la consultation des articles
+    text-align:center;*/
     border-radius:5px;
     background-color: #a3cfea;
     color:#FFF;
     border:1px solid #0c5091;
+    margin-top: 10px;
 }
 .lienarticle:hover {
     background-color: #0c5091;
@@ -301,6 +326,7 @@ a:hover {
     color:#4bc9e2;
     text-decoration:none;
 }
+
 .customAlert {
     display:block;
     position:fixed;
@@ -343,3 +369,4 @@ a:hover {
     font-family:'Cabin',Verdana,sans-serif;
     font-size:12pt;
 }
+

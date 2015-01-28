@@ -1,0 +1,20 @@
+.contentMessage {
+	display: none;
+	max-width: 430px;
+	margin : 0;
+}
+.notReaded {
+	font-weight: bold;
+}
+.SENDER_MESSAGE {
+	width: 140px;
+}
+.DATE_MESSAGE {
+	width: 90px;
+}
+.BUTTON_MESSAGE {
+	width: 50px;
+}
+.btnOptions {
+	display: none;
+}
