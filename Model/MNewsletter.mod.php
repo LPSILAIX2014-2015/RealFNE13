@@ -15,8 +15,8 @@
         private $content;
 
         function __construct ($id) {
-            $sql = new MDBase();
-            $state = $sql->prepare("SELECT * FROM NEWSLETTER WHERE ID = :id;");
+            $this->sql = new MDBase();
+            $state = $this->sql->prepare("SELECT * FROM NEWSLETTER WHERE ID = :id;");
             $state->bindValue('id', $id, PDO::PARAM_INT);
             $state->execute();
             $newsl = $state->fetch(PDO::FETCH_ASSOC);
@@ -38,55 +38,19 @@
         public function setContent($content)
         {
             $this->content = $content;
-            $this->sql->exec('UPDATE NEWS SET CONTENT = \''.$content.'\' WHERE ID = '.$this->id.' ;');
+            $this->sql->exec('UPDATE NEWSLETTER SET CONTENT = \''.$content.'\' WHERE ID = '.$this->id.' ;');
         }
 
-        /**
-         * @param mixed $id
-         */
-        public function setId($id)
-        {
-            $this->id = $id;
-        }
-
-        /**
-         * @return mixed
-         */
-        public function getId()
-        {
-            return $this->id;
-        }
-
-        /**
-         * @param mixed $rdate
-         */
         public function setRdate($rdate)
         {
             $this->rdate = $rdate;
+            $this->sql->exec('UPDATE NEWSLETTER SET RDATE = \''.$rdate.'\' WHERE ID = '.$this->id.' ;');
         }
 
-        /**
-         * @return mixed
-         */
-        public function getRdate()
-        {
-            return $this->rdate;
-        }
-
-        /**
-         * @param mixed $type
-         */
         public function setType($type)
         {
             $this->type = $type;
-        }
-
-        /**
-         * @return mixed
-         */
-        public function getType()
-        {
-            return $this->type;
+            $this->sql->exec('UPDATE NEWSLETTER SET TYPE = \''.$type.'\' WHERE ID = '.$this->id.' ;');
         }
 
     }

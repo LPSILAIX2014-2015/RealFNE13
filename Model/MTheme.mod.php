@@ -34,7 +34,6 @@
         {
             $this->name = $name;
             $this->sql->exec('UPDATE THEME SET NAME = \''.$name.'\' WHERE ID = '.$this->id.' ;');
-
         }
 
 

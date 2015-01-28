@@ -1,11 +1,5 @@
 <?php
-//ToDo : A finir
-/**
- * Created by PhpStorm.
- * User: d1103406
- * Date: 07/01/15
- * Time: 13:43
- */
+
     class MPost {
 
         private $sql;
