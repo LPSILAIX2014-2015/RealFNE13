@@ -11,7 +11,7 @@ global $user ;
             if (isset($user)) {
             ?>
             <a href="index.php?EX=createArticle">Ecrire</a>
-            <?
+            <?PHP
             }
             ?>
         </div>
