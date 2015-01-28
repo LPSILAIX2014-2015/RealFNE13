@@ -41,6 +41,8 @@ switch($EX)
     case 'createAsso' : createAsso(); break;
     case 'createAdmin' : createAdmin(); break;
     case 'creationAdmin' : creationAdmin(); break;
+    case 'searchAsso'  : searchAsso();      break;
+    case 'manageAsso': manageAsso(); break;
     default : check($EX);
 }
 
@@ -285,5 +287,26 @@ function reportList()
         $page['arg'] = 'Html/accueil.php';
     }
 
+<<<<<<< HEAD
+=======
+    function searchAsso()
+    {
+        global $page;
+        $page['title'] = 'Recherche d\'association';
+        $page['class'] = 'VHtml';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Html/searchAsso.php';
+    }
+
+    function manageAsso()
+    {
+        global $page;
+        $page['title'] = 'Gestion des associations';
+        $page['class'] = 'VHtml';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Html/manageAsso.php';
+    }
+
+>>>>>>> f641a656f7d31a551d71e4e426ef30a2622f2e12
 
 ?>

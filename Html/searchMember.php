@@ -8,7 +8,7 @@
         $.ajax({
             type: 'POST',
             url: './Php/autocomplete.php',
-            //dataType: 'json',
+            dataType: 'json',
             data: {'categories': 'tmp'},
             success: function(data) {
 
@@ -67,6 +67,29 @@
         $assocs[$i]['NAME']=$line['NAME'];
         $i++;
     }
+
+    $i=0;
+    $territoriesList = $pdo -> getAllTerritories();
+    foreach($territoriesList as $line){
+        $territories[$i]['ID']=$line['ID'];
+        $territories[$i]['NAME']=$line['NAME'];
+        $i++;
+    }
+    $i=0;
+    $themesList = $pdo -> getAllThemes();
+    foreach($themesList as $line){
+        $themes[$i]['ID']=$line['ID'];
+        $themes[$i]['NAME']=$line['NAME'];
+        $i++;
+    }
+    /*$i=0;
+    $rolesList = $pdo -> getAllRoles();
+    foreach($rolesList as $line){
+        $roles[$i]['ID']=$line['ID'];
+        $roles[$i]['NAME']=$line['NAME'];
+        $i++;
+    }*/ //Mettre une fonction pour récupérer les roles des membres
+
 ?>
 
 <div class="container">
@@ -77,31 +100,41 @@
 
     <form class="form-horizontal" action="./index.php?EX=searchMember" method="post">
         <div class="control-group">
-            <label class="control-label">Name</label>
+            <label class="control-label">Nom de famille</label>
             <div class="controls">
-                <input name="NAME" id="name" type="text"  placeholder="Name" pattern="^[a-zA-Z \.\,\+\-]*$" value="">
+                <input name="SURNAME" id="surname" type="text"  placeholder="Nom de famille" pattern="^[a-zA-Z \.\,\+\-]*$" value="">
                 <span>(Alphabétique)</span>
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label">SurName</label>
+            <label class="control-label">Pr&eacute;nom</label>
             <div class="controls">
-                <input name="SURNAME" id="surname" type="text"  placeholder="SurName" value="">
+                <input name="NAME" id="name" type="text"  placeholder="Prenom" value="">
 
             </div>
         </div>
+        <!--<div class="control-group">
+            <label class="control-label">R&ocirc;le</label>
+            </br>
+            <select class="controls" name="ROLE" type="text">
+                    <?php 
+                        /*foreach ($roles as $key => $role) {
+                            echo('<option value ='.$role['ID'].'>'.$role['NAME'].'</option>');
+                        }*/
+                    ?>
+            </select>
+        </div>--> <!-- Il manque la fonction nécessaire pour trier par roles -->
         <div class="control-group">
-            <label class="control-label">cp - code postale</label>
+            <label class="control-label">Code postal</label>
             <div class="controls">
-                <input name="CP" type="text" id="cp"  placeholder="cp - code postale" pattern="[0-9]{5}"  value="">
+                <input name="CP" type="text" id="cp"  placeholder="Code postal" pattern="[0-9]{5}"  value="">
                 <span>(5 chiffres)</span>
             </div>
         </div>
-
         <div class="control-group">
             <label class="control-label">Profession</label>
             <div class="controls">
-                <input name="PROFESSION" id="profession" type="text"  placeholder="PROFESSION" value="">
+                <input name="PROFESSION" id="profession" type="text"  placeholder="Profession" value="">
 
             </div>
         </div>
@@ -109,7 +142,8 @@
             <label class="control-label">Association</label>
             </br>
             <select class="controls" name="ASSOCIATION" type="text">
-                    <?php 
+                    <?php
+                        echo('<option></option>');
                         foreach ($assocs as $key => $asso) {
                             echo('<option value ='.$asso['ID'].'>'.$asso['NAME'].'</option>');
                         }
@@ -117,13 +151,20 @@
             </select>
         </div>
         <div class="control-group">
-            <label class="control-label">Spécialité</label>
-            <div class="controls">
-                <input name="SPECIALITE" id="specialite" type="text"  placeholder="Spécialité" value="">
-
-            </div>
+            <label class="control-label">Th&egrave;me</label>
+            </br>
+            <select class="controls" name="THEME" type="text">
+                    <?php
+                        echo('<option></option>'); 
+                        foreach ($themes as $key => $theme) {
+                            echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
+                        }
+                    ?>
+            </select>
         </div>
         <div class="form-actions">
+            </br>
+            </br>
             <button type="submit" class="btn btn-success">Rechercher</button>
 
         </div>
@@ -171,6 +212,10 @@
                     $conditions[] = "ASSOCIATION_ID = '". $_POST['ASSOCIATION']. "'";
                     $params[] = $_POST['ASSOCIATION'];
                 }
+                if($_POST['THEME']) {
+                    $conditions[] = "THEME_ID = '". $_POST['THEME']. "' OR THEME_INTEREST_ID = '". $_POST['THEME']. "'";
+                    $params[] = $_POST['THEME'];
+                }
                 $where = " WHERE ".implode($conditions,' AND ');
                 $surnom = $_POST['SURNAME'];
                 if(count($conditions) > 0) {
@@ -194,15 +239,15 @@
                     echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
             
             <div class="active" style="display: block;"> 
-                 	<!-- About section -->
-                	<div class="about">
-                    	<input type="hidden" value="'.$img.'">
+                    <!-- About section -->
+                    <div class="about">
+                        <input type="hidden" value="'.$img.'">
                     </div>
                     <!-- /About section -->
                      
                     <!-- Personal info section -->
                     <ul class="personal-info">
-			<li><label>Name</label><span>'.$row['NAME'].'</span></li>
+            <li><label>Name</label><span>'.$row['NAME'].'</span></li>
                         <li><label>SurName</label><span>'.$row['SURNAME'].'</span></li>
                         <li><label>Adresse</label><span>'.$row['ADRESS'].'</span></li>
                         <li><label>CP</label><span>'.$row['CP'].'</span></li>
@@ -244,15 +289,15 @@
                         echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
             
             <div id="profile" class="active" style="display: block;"> 
-                 	<!-- About section -->
-                	<div class="about">
-                    	<input type="hidden" value="'.$img.'">
+                    <!-- About section -->
+                    <div class="about">
+                        <input type="hidden" value="'.$img.'">
                     </div>
                     <!-- /About section -->
                      
                     <!-- Personal info section -->
                     <ul class="personal-info">
-			<li><label>Name</label><span>'.$row['NAME'].'</span></li>
+            <li><label>Name</label><span>'.$row['NAME'].'</span></li>
                         <li><label>SurName</label><span>'.$row['SURNAME'].'</span></li>
                         <li><label>Adresse</label><span>'.$row['ADRESS'].'</span></li>
                         <li><label>CP</label><span>'.$row['CP'].'</span></li>
