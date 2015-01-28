@@ -4,7 +4,7 @@ $vUserInfo = new VUserInfo();
 $vpage = new $page['class']();
 global $connec;
 $connec = new MDBase();
-$vHtml = new VHtml() ;
+$vHtml = new VHtml();
 ?>
 <!DOCTYPE html>
 <html>
