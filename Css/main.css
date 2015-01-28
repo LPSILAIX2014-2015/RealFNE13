@@ -86,15 +86,15 @@ img {
     float:left;
     width:50px;
     height:50px;
-    margin-right:3px;
+    margin-right:5px;
 }
 .infosperso .nom {
     font-weight:bold;
-    font-size:12pt;
+    font-size:15pt;
 }
 .infosperso .asso {
     font-style: italic;
-    font-size:11pt;
+    font-size:13pt;
 }
 .infosperso .notification {
     display:block;
