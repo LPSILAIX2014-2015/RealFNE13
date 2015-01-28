@@ -2,7 +2,7 @@
 $vnav = new VNav();
 $vUserInfo = new VUserInfo();
 $vpage = new $page['class']();
-global $connec;
+global $connec, $customAlert;
 $connec = new MDBase();
 $vHtml = new VHtml() ;
 ?>
@@ -58,6 +58,21 @@ $vHtml = new VHtml() ;
     <div class="footer">
     	<a href="index.php?EX=legal">Site r&eacute;alis&eacute; par la LP SIL DA2I 20014- IUT d'Aix-en-Provence, pour le compte de la FNE13</a>
     </div>
-
+<?PHP
+/*
+ * @author <Julien Bénard>
+ * Gestion des alertes customisées
+ */
+if (isset($customAlert)) {
+    echo '<script>
+    customAlerts = new Array();' ;
+    foreach ($customAlert as $k => $a) {
+        echo 'customAlerts['.$k.']=\''.addslashes($a).'\';';
+    }
+    echo '</script>';
+    echo '<script src="Js/customAlert.js"></script>' ;
+}
+/**/
+?>
     <script src="Js/createArticle.js"></script>
 </body>

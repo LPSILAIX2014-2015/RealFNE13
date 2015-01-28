@@ -1,6 +1,6 @@
 <?php
-
-    if ($_SESSION["ROLE"] == "SADMIN") {
+global $user ;
+    if ((isset($user)) && ($user->getRole() == "SADMIN")) {
     $db = new MDBase();
     $stat = new PDOStatement();
     $stat = $db->prepare("SELECT * FROM REPORT");
@@ -22,7 +22,7 @@
     <table>
         <?php
             while ($res = $stat->fetch(PDO::FETCH_ASSOC)) {
-                echo "<div class=\"ALL ".$res['TYPE']."\">" . $res['ID'] . " - " . $res['RDATE'] . " - " . $res['CONTENT'] . "</div>";
+                echo "<div class=\"ALL ".$res['TYPE']."\">" . $res['RDATE'] . " - " . $res['CONTENT'] . "</div>";
             }
         ?>
     </table>

@@ -11,7 +11,7 @@ private $mail;
 	 * @param [String] $_mail [mail d'user]
 	 */
 	public function __construct($_mail=null){
-		$this->conn = new DBase();
+		$this->conn = new MDBase();
 		$this->mail=$_mail;
 	}
 	public function __destruct(){}

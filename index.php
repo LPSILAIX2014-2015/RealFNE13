@@ -30,6 +30,7 @@ switch($EX)
 
     case 'createArticle':   createArticle(); break;
     case 'formCreateArticle' : formCreateArticle(); break;
+    case 'legal' : legal(); break;
     default : check($EX);
 }
 
@@ -83,6 +84,7 @@ function reportList()
         $formCreateArticle = new MFormCreateArticle();
         $formCreateArticle->insertDB($_POST);
     }
+
 
     function searchMember()
     {
@@ -208,7 +210,7 @@ function reportList()
         $page['class'] = 'VHome';
         $page['method'] = 'showHome';
         $page['arg'] = 'Html/accueil.php';
-       }
+    }
 
     function writeMessages()
     {
@@ -221,6 +223,13 @@ function reportList()
     function createUser()
     {
         include('Php/create.php');
+    }
+    function legal() {
+        global $page;
+        $page['title'] = 'Mentions légales' ;
+        $page['class'] = 'VHtml' ;
+        $page['method'] = 'showHtml' ;
+        $page['arg'] = 'Html/legal.html' ;
     }
 
 
