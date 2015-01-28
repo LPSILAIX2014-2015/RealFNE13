@@ -32,7 +32,7 @@
 					      	<span>(Alphabétique)</span>
 					    </div>
 					  </div>
-                                          <div class="control-group">
+                      <div class="control-group">
 					    <label class="control-label">SurName</label>
 					    <div class="controls">
 					      	<input name="SURNAME" id="surname" type="text"  placeholder="SurName" value="">
@@ -40,22 +40,14 @@
 					    </div>
 					  </div>
 
-					  <div class="control-group">
-					    <label class="control-label">Profession</label>
-					    <div class="controls">
-					      	<input name="PROFESSION" id="profession" type="text"  placeholder="Profession" value="">
-					      	
-					    </div>
-					  </div>
-
-                                          <div class="control-group">
+                      <div class="control-group">
 					    <label class="control-label">Email</label>
 					    <div class="controls">
 					      	<input name="MAIL" id="mail" type="text"  placeholder="EMAIL" value="">
 					      	
 					    </div>
 					  </div>
-                                          <div class="control-group">
+                      <div class="control-group">
 					    <label class="control-label">cp - code postale</label>
 					    <div class="controls">
 					      	<input name="CP" type="text" id="cp" pattern="[0-9]{5}" placeholder="cp - code postale" value="">
