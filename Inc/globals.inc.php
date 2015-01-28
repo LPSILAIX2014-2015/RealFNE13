@@ -13,6 +13,12 @@ global $user;//Object Utilisateur (à completer)
 */
 session_start();
 define('modeDebug',true);
+if (modeDebug) {
+    error_reporting(E_ALL);
+}
+else {
+    error_reporting(E_ERROR);
+}
 /*
  * Définition des reglages pour le blocage du compte après plusieurs echecs d'authentification
  * LOGINFAIL_EXPIRE : durée du blocage du compte (en secondes)
@@ -23,7 +29,7 @@ define('LOGINFAIL_EXPIRE',600);
 define('LOGINFAIL_ATTEMPTS',5);
 define('LOGINFAIL_WARNING',3);
 /**/
-global $page, $db, $user;
+global $page, $db, $user, $customAlert;
 /*
 * $page
 * tableau contenant :
@@ -34,6 +40,11 @@ global $page, $db, $user;
 * [css] : chemin vers une feuille de style additionelle (optionnel)
 */
 $page = array();//Titre, class "active";
+/*
+ * array customAlert :
+ * Tableau de messages d'alert customisés
+ */
+$customAlert = array();
 /* $user
 * objet CUser (Model/MUser.mod.php) - Classe représentant un utilisateur
 * $user contient un CUser représentant l'utilisateur courant

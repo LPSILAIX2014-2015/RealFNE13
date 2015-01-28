@@ -5,8 +5,8 @@ $EX = isset($_REQUEST['EX']) ? $_REQUEST['EX'] : 'home';
 
 switch($EX)
 {
-	case 'home'      : home();       break;
-	case 'login'     : login();      break;
+    case 'home'      : home();       break;
+    case 'login'     : login();      break;
     case 'reportList': reportList(); break;
     case 'searchMember'     : searchMember();      break;
     case 'manageMembers': manageMembers(); break;
@@ -26,19 +26,13 @@ switch($EX)
             deconnexion();
         }
         break;
-	case 'consultMessages' : consultMessages(); break;
-
+    case 'consultMessages' : consultMessages(); break;
     case 'createArticle':   createArticle(); break;
-
     case 'calendar'     :   calendar();break;
-
     case 'showArticle'		: showArticle(); 	 break;
     case 'showInfoArticle'	: showInfoArticle(); break;
-
     case 'formCreateArticle' : formCreateArticle(); break;
-
-	default : error();
-
+    case 'legal' : legal(); break;
     default : check($EX);
 
 }
@@ -52,7 +46,7 @@ function check($EX)
     $dbverf = new CRecMP(); // Instantiation de la Classe CRecMP
     $value = $dbverf->selectMD5($EX); // Verification de la chaine de l'URL
     if(count($value)==0){ // Si le resultat du request est 0 montre la page d'erreur
-            error();
+        error();
     }else{ // Sinon s'affichera le mail dans le formulaire de changement 
         $var = $dbverf->searchMail($EX);
         $eml = $var[0]["MAIL"];
@@ -62,20 +56,20 @@ function check($EX)
 
 function home()
 {
-	global $page;
-	$page['title'] = 'Test';
-	$page['class'] = 'VHome';
-	$page['method'] = 'showHome';
-	$page['arg'] = 'Html/accueil.php';
+    global $page;
+    $page['title'] = 'Test';
+    $page['class'] = 'VHome';
+    $page['method'] = 'showHome';
+    $page['arg'] = 'Html/accueil.php';
 }
 
 function error()
 {
     global $page;
-	$page['title'] = 'Erreur 404 !';
-	$page['class'] = 'VHtml';
-	$page['method'] = 'showHtml';
-	$page['arg'] = 'Html/unknown.php';
+    $page['title'] = 'Erreur 404 !';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/unknown.php';
 }
 
 function reportList()
@@ -84,7 +78,7 @@ function reportList()
     $page['title'] = 'Liste des rapports';
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
-    $page['css'] = 'reportList.css';
+    $page['css'] = 'Css/reportList.css';
     $page['arg'] = 'Html/reportlist.php';
 }
 
@@ -227,6 +221,7 @@ function createArticle()
     $page['arg'] = 'Html/createArticle.php';
 }
 
+
 function deconnexion()
 {
     global $page;
@@ -237,7 +232,7 @@ function deconnexion()
     $page['class'] = 'VHome';
     $page['method'] = 'showHome';
     $page['arg'] = 'Html/accueil.php';
-   }
+}
 
 function writeMessages()
 {
@@ -250,6 +245,13 @@ function writeMessages()
 function createUser()
 {
     include('Php/create.php');
+}
+function legal() {
+    global $page;
+    $page['title'] = 'Mentions légales' ;
+    $page['class'] = 'VHtml' ;
+    $page['method'] = 'showHtml' ;
+    $page['arg'] = 'Html/legal.html' ;
 }
 
 function calendar()

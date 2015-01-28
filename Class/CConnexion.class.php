@@ -1,7 +1,7 @@
 <?php
 class CConnexion {
     public function connexion($login =NULL, $password=NULL) {
-        global $user;
+        global $user, $customAlert;
 
         $login = (testVar($_POST['login'])) ? $_POST['login'] : $login;
         $password  = (testVar($_POST['password']))  ? $_POST['password']  : $password;
@@ -20,6 +20,7 @@ class CConnexion {
 
             if (($result['PASSWORD'] === $password) && (($fail->getAttempts() < LOGINFAIL_ATTEMPTS) || ($failremain <= 0)))
             {
+
                 $_SESSION['ID_USER'] = $result['ID'];
                 $_SESSION['ROLE'] = $result['ROLE'];
                 $user = new MUser($result['ID']) ;
@@ -29,7 +30,7 @@ class CConnexion {
                 $state->execute();
             }
             else {
-                debugAlert('Erreur d\'authentification') ; // ToDo TEMP A MODIFIER
+                $customAlert[] = 'Erreur d\'authentification' ;
                 $fail->addAttempt();
 
                 if ($fail->getAttempts() == LOGINFAIL_WARNING) {
@@ -52,7 +53,7 @@ class CConnexion {
                 }
 
                 if ($fail->getAttempts() >= LOGINFAIL_ATTEMPTS) {
-                    debugAlert(LOGINFAIL_ATTEMPTS.' echecs de connexion, votre compte est bloqué pour les '.ceil($failremain/60).' prochaines minutes');
+                    $customAlert[] = (LOGINFAIL_ATTEMPTS.' echecs de connexion, votre compte est bloqué pour les '.ceil($failremain/60).' prochaines minutes');
                     unset($_SESSION);
                     unset($GLOBALS['user']);
                 }
