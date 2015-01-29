@@ -1,0 +1,253 @@
+html{
+    cursor:url('../Img/cursor1.png'), auto ;
+}
+body {
+    background-image:url('../Img/body_fond.jpg');
+    background-repeat:repeat;
+    font-family:Arial,Verdana,sans-serif;
+    display:block;
+    top:80px;
+    left:10%;
+    right:10%;
+    bottom:25px;
+    overflow:auto;
+    cursor:url('../Img/cursor1.png'), auto ;
+}
+nav {
+    display:block;
+    position:fixed;
+    top:60px;
+    left:0;
+    width:100%;
+    height:30px;
+    background-color: #0c5091;
+    text-align:center;
+    z-index:1;
+}
+.infosperso {
+    background-color: #4bc9e2;
+    background-image:url('../Img/headerbg.png');
+    background-repeat:no-repeat;
+    background-position:top right;
+    color:#000;
+    display:block;
+    position:fixed;
+    width:100%;
+    height:60px;
+    top:0;
+    left:0;
+    border:1px solid #FFF;
+    font-size:10pt;
+    z-index:2;
+    overflow:hidden;
+    padding-left:85px;
+}
+.infosperso .photo {
+    display:block;
+    float:left;
+    width:50px;
+    height:50px;
+    margin-right:3px;
+}
+.infosperso .nom {
+    font-weight:bold;
+    font-size:11pt;
+}
+.infosperso .asso {
+    font-style: italic;
+}
+.infosperso .notification {
+    display:block;
+    position:absolute;
+    right:100px;
+    bottom:0;
+    width:100px;
+    border:1px solid #FFF;
+    padding:2px 0 2px 0;
+    text-align:center;
+}
+.infosperso .messages {
+    display:block;
+    position:absolute;
+    right:200px;
+    bottom:0;
+    width:100px;
+    border:1px solid #FFF;
+    padding:2px 0 2px 0;
+    text-align:center;
+}
+.infosperso .deconnexion {
+    display:block;
+    width:100px;
+    padding:2px 0 2px 0;
+    text-align:center;
+    background-color: #000;
+    color:#a3cfea;
+    font-weight:bold;
+    position:absolute;
+    right:0;
+    bottom:0;
+    border:1px solid #FFF;
+}
+.infosperso form {
+    display:block;
+    width:100%;
+    margin:5px 0 0 0;
+    text-align:center;
+    vertical-align:middle;
+}
+.infosperso label {
+    font-size:12pt;
+    font-weight:bold;
+    cursor:inherit;
+}
+.infosperso .lostpass {
+    font-size:9pt;
+    text-decoration:none;
+    color:#FFF;
+}
+nav ul {
+    list-style-type: none;
+    list-style-position: inside;
+    margin:0;
+    padding:0;
+}
+nav li {
+    list-style-type: none;
+    list-style-position: inside;
+    margin:0;
+    padding:0;
+    display:inline-block;
+    position:relative;
+}
+nav li a {
+    display:inline-block;
+    width:150px;
+    background-color:#FFFFFF;
+    color:#0a2d5f;
+    font-weight:bold;
+    text-decoration: none;
+    margin:5px;
+    border-radius: 4px;
+    border:1px #0c5091 solid;
+}
+nav li .submenu {
+    display:none;
+}
+nav li:hover .submenu {
+    display:block;
+    position:absolute;
+    top:25px;
+    left:0;
+}
+.submenu a {
+    display:block;
+    box-shadow:2px 2px 2px;
+}
+nav li a:hover {
+    color: #000000;
+    background-color: #a3cfea;
+    text-decoration:none;
+}
+.page {
+    display:block;
+    position:absolute;
+    top:100px;
+    bottom:20px;
+    left:50%;
+    padding:10px 10px 30px 10px;
+    width:800px;
+    margin-left:-400px;
+    cursor:url('../Img/cursor1.png'), auto ;
+}
+.page h1 {
+    font-size:15pt;
+    margin:2px;
+}
+.pvarticle {
+    display:block;
+    background-color: #FFF;
+    border-radius:5px;
+    font-size:10pt;
+    padding:5px 10px 20px 10px;
+    margin:3px;
+}
+.pvarticle h2 {
+    margin:0;
+    font-size:10pt;
+}
+.pvarticle .auteur {
+    font-style:italic;
+}
+.lienarticle {
+    display:block;
+    float:right;
+    width:100px;
+    text-align:center;
+    border-radius:5px;
+    background-color: #a3cfea;
+    color:#FFF;
+    border:1px solid #0c5091;
+}
+.lienarticle:hover {
+    background-color: #0c5091;
+    color:#FFF;
+    border:1px solid #a3cfea;
+}
+input {
+    cursor:url('../Img/cursor9.png'), auto ;
+}
+#loginbutton {
+    color:#ffffff;
+    border:1px solid #ffffff;
+    background-color:#0a2d5f;
+    border-radius:5px;
+    padding:1px 4px 1px 4px;
+    font-weight:bold;
+    transition:ease 1s;
+    cursor:url('../Img/cursor2.png'), auto ;
+}
+#loginbutton:hover {
+    color:#0a2d5f;
+    border:1px solid #0a2d5f;
+    background-color:#a3cfea;
+}
+a {
+    cursor:url('../Img/cursor4.png'), auto ;
+    text-decoration:none;
+}
+a:hover {
+    text-decoration:none;
+}
+.logo {
+    font-size:0;
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    width:84px;
+    height:60px;
+    background-image:url('../Img/logo.png');
+    cursor:url('../Img/cursor3.png'), auto ;
+}
+.footer {
+    display:block;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    height:15px;
+    line-height:15px;
+    vertical-align:middle;
+    text-align:center;
+    background-color:#0a2d5f;
+    color:#FFF;
+    font-size:8pt;
+}
+.footer a {
+    color:#FFF;
+    cursor:url('../Img/cursor5.png'), auto ;
+}
+.footer a:hover {
+    color:#4bc9e2;
+    text-decoration:none;
+}
