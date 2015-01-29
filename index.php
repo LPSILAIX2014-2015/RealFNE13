@@ -137,6 +137,7 @@ function showArticle()
     $page['class'] = 'VShowArticle';
     $page['method'] = 'showArticle';
     $page['arg'] = 'Html/showArticle.php';
+    $page['css'] = 'Css/showArticle.css';
 }
 
 function showInfoArticle()
@@ -354,15 +355,29 @@ function consultMessages()
     {
         include('./Php/createAdmin.php');
     }
+
     function swapRoles($idPrev, $idNext){
         global $page;
-        (new Muser($idPrev))->setRole('MEMBRE');
-        (new Muser($idNext))->setRole('ADMIN');
+
+
+    //(new MUser($idPrev))->setRole('MEMBRE');
+    //(new MUser($idNext))->setRole('ADMIN');
+
+
+        $a = new MUser($idPrev);
+        $a->setRole('MEMBRE');
+
+        $a = new MUser ($idNext);
+        $a->setRole('ADMIN');
+
         $page['title'] = 'Test';
         $page['class'] = 'VHome';
         $page['method'] = 'showHome';
         $page['arg'] = 'Html/manageAsso.php';
     }
+
+// (new MUser($idPrev))->setRole('MEMBRE');
+//(new MUser($idNext))->setRole('ADMIN');
 
     function searchAsso()
     {

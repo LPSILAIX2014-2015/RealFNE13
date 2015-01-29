@@ -11,25 +11,16 @@ $vHtml = new VHtml();
 <head>
     <meta charset="utf-8" />
     <title><?= $page['title']; ?></title>
-        <link rel="stylesheet" href="./Css/style.css">
+    <link rel="stylesheet" href="./Css/main.css">
 
-        <link rel="stylesheet" href="./Css/reset.css">  
-        <link rel="stylesheet" type="text/css" href="./Lib/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="./Css/appli.css" />
-        <link rel="stylesheet" href="./Css/jquery-ui.css">
-
-    <link rel="stylesheet" href="./Css/jquery.fancybox.css" media="screen">
     <?php
     // Ajout feuille de style spécifique à cette page
     if (isset($page['css'])) {
         echo '<link rel="stylesheet" type="text/css" href="'.$page['css'].'" />' ;
     }
     ?>
-    <link rel="stylesheet" type="text/css" href="Lib/bootstrap.icon-large.min.css" />
-    <link rel="stylesheet" type="text/css" href="Lib/simplePagination.css"/>
     <link rel="icon" type="image/png" href="Img/favicon.png" />
     <script src="Lib/jquery.min.js"></script>
-    <script src="Lib/bootstrap.min.js"></script>
     <script src="./Js/form.js"></script>
     <script src="./Lib/jquery-ui.js"></script>
     <script src="./Lib/jquery.fancybox.pack.js"></script>
@@ -40,6 +31,8 @@ $vHtml = new VHtml();
     <script src="./Js/recMP.js"></script>
 </head>
 <body>
+    <div class="bandeau">
+        <a href="index.php?EX=home"><div class="logo">Accueil</div></a>
     <?php
     if(!isset($user)) {
         $vHtml->showHtml('Html/loginForm.php');
@@ -49,6 +42,7 @@ $vHtml = new VHtml();
         $vHtml->showHtml('Html/userInfo.php');
     }
     ?>
+    </div>
     <nav>
         <?php $vnav->showNav() ?>
     </nav>

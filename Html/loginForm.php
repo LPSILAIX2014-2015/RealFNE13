@@ -21,8 +21,7 @@
     </div>
 </div> -->
 <div class="infosperso">
-    <a href="index.php?EX=home"><div class="logo">Accueil</div></a>
-    <form method="post" id="formconnec" action="index.php?EX=login">
+    <form method="post" id="formconnec">
         Connexion :
         <label>Login : </label>
         <input type="text" name="login" id="login"/>
