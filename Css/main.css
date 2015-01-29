@@ -17,6 +17,7 @@ html{
 body {
     background-image:url('../Img/body_fond.jpg');
     background-repeat:repeat;
+    background-attachment: fixed;
     font-family:Arial,Verdana,sans-serif;
     display:block;
     top:80px;
@@ -25,8 +26,8 @@ body {
     bottom:25px;
     overflow:auto;
     cursor:url('../Img/cursor1.png'), auto ;
-    padding:0;
     margin:0;
+    padding:0;
 }
 nav {
     display:block;
@@ -36,8 +37,10 @@ nav {
     width:100%;
     height:30px;
     background-color: #0c5091;
+    background:linear-gradient(to bottom,rgba(12,80,145,1),rgba(51,122,183,0.5));
     text-align:center;
-    z-index:1;
+    z-index:2;
+    box-shadow:0px 2px 2px rgba(0,0,0,50);
 }
 a {
     cursor:url('../Img/cursor4.png'), auto ;
@@ -50,43 +53,89 @@ img {
     border:0;
     vertical-align:middle;
 }
+input {
+    cursor:url('../Img/cursor9.png'), auto ;
+    border-radius:4px;
+    background-color:#a3cfea;
+    font-size:11pt;
+    padding:1px 3px 1px 4px;
+    margin:1px 2px 1px 2px;
+    border:2px solid #0c5091;
+    font-family: 'Slabo 13px', serif;
+    transition:ease 0.5s;
+}
+input:hover {
+    border:2px solid #4bc9e2;
+}
+input:focus {
+    background-color: #FFF;
+}
 /**/
 .bandeau {
     display:block;
     position:fixed;
-    width:100%;
+    top:0;
+    left:0;
+    right:0;
     height:70px;
     background-color: #4bc9e2;
-    background-image:url('../Img/headerbg.png');
-    background-size:contain;
+    background:url('../Img/headerbg.png'),linear-gradient(to bottom right, rgba(51,122,183,0.7),rgba(75,201,226,1));
     background-repeat:no-repeat;
-    background-position:top right;
+    background-position:bottom right;
     border:1px solid #FFF;
     padding:0;
     margin:0;
-    z-index:2;
+    z-index:1;
 }
-.infosperso {
-    color:#000;
-    display:table-cell;
-    vertical-align:middle;
+.sitetitle {
+    display:block;
     position:absolute;
-    top:0;
-    left:100px;
-    bottom:0;
-    right:0;
-    padding-top:10px;
+    top:18px;
+    left:120px;
+    font-family:'Quicksand',Verdana,sans-serif;
+    font-size:24pt;
+    color:#FFFFFF;
+    text-shadow: 1px 2px #337ab7;
+}
+.leftcol {
+    display:block;
+    position:fixed;
+    top:110px;
+    right:50%;
+    width:193px;
+    margin:0 290px 0 0px;
+    padding:0;
+}
+.rightcol {
+    display:block;
+    position:fixed;
+    top:110px;
+    left:50%;
+    width:193px;
+    margin:0 0 0 290px;
+    padding:0;
+}
+.infosperso, .recentarticles, .nextevents {
+    display:block;
+    width:193px;
+    color:#000;
     font-size:10pt;
     z-index:2;
     overflow:hidden;
     font-family:'Quicksand',Verdana,sans-serif;
+    background-color: rgba(255,255,255,150);
+    border-radius:10px;
+    box-shadow:2px 2px 2px rgba(0,0,0,100);
+    text-align:center;
+    border:1px solid #0a2d5f;
+    padding: 10px 0px 10px 0px ;
+    margin:0 0 5px 0;
 }
 .infosperso .photo {
-    display:block;
-    float:left;
-    width:50px;
-    height:50px;
-    margin-right:5px;
+    display:inline-block;
+    width:100px;
+    height:100px;
+    margin:2px;
 }
 .infosperso .nom {
     font-weight:bold;
@@ -96,36 +145,37 @@ img {
     font-style: italic;
     font-size:11pt;
 }
-.infosperso .notification {
+.notification {
     display:block;
-    position:absolute;
+    position:fixed;
     right:120px;
-    bottom:0;
+    top:38px;
     width:100px;
     height:30px;
     border:1px solid #FFF;
     padding:0;
     text-align:center;
-    background-color: #0189C7;
+    background-color: #337ab7;
     font-weight:bold;
     font-family: 'Cabin', sans-serif;
     font-size:12pt;
     line-height:30px;
     vertical-align:middle;
     cursor:url('../Img/cursor8.png'), auto ;
+    z-index:2;
 }
-.infosperso .notification a {
+.notification a {
     cursor:url('../Img/cursor8.png'), auto ;
     color:#0189C7;
 }
-.infosperso .notification a:hover {
+.notification a:hover {
     color:#FFFFFF;
 }
-.infosperso .messages {
+.messages {
     display:block;
-    position:absolute;
+    position:fixed;
     right:220px;
-    bottom:0;
+    top:38px;
     width:100px;
     height:30px;
     border:1px solid #FFF;
@@ -139,13 +189,15 @@ img {
     line-height:30px;
     vertical-align:middle;
     cursor:url('../Img/cursor8.png'), auto ;
+    z-index:2;
 }
-.infosperso .messages a {
+.messages a {
     cursor:url('../Img/cursor8.png'), auto ;
     color:#0a2d5f;
 }
-.infosperso .deconnexion {
+.deconnexion {
     display:block;
+    position:fixed;
     width:120px;
     height:30px;
     padding:0;
@@ -153,9 +205,8 @@ img {
     background-color:#0a2d5f;
     color:#a3cfea;
     font-weight:bold;
-    position:absolute;
     right:0;
-    bottom:0;
+    top:38px;
     border:1px solid #FFF;
     font-family: 'Cabin', sans-serif;
     font-size:10pt;
@@ -163,8 +214,9 @@ img {
     line-height:30px;
     vertical-align:middle;
     cursor:url('../Img/cursor2.png'), auto ;
+    z-index:2;
 }
-.infosperso .deconnexion:hover {
+.deconnexion:hover {
     background-color:#FFF;
     color:#0a2d5f;
     border:1px solid #0a2d5f;
@@ -172,9 +224,26 @@ img {
 .infosperso form {
     display:block;
     width:100%;
-    margin:5px 0 0 0;
+    margin:0 0 0 0;
     text-align:center;
     vertical-align:middle;
+}
+.titrecol {
+    display:block;
+    position:relative;
+    margin:0 0 10px 0;
+    padding:1px 4px 4px 1px;
+    left:5px;
+    height:20px;
+    width:171px;
+    text-align:center;
+    background-color:#a3cfea;
+    color:#0a2d5f;
+    border-radius: 10px;
+    border:1px solid #0c5091;
+    box-shadow: 2px 2px 2px #000000;
+    font-family:'Quicksand',Verdana,sans-serif;
+    font-size:12pt;
 }
 .infosperso label {
     font-size:12pt;
@@ -184,10 +253,17 @@ img {
 .btn {
     cursor:inherit;
 }
-.infosperso .lostpass {
+.infosperso .lostpass, .lienprofil {
+    display:inline-block;
     font-size:10pt;
     text-decoration:none;
-    color:#FFF;
+    color:#0a2d5f;
+    padding:1px 2px 4px 2px;
+}
+.infosperso #login, #password {
+    width:90%;
+    margin-top:5px;
+    margin-bottom:5px;
 }
 nav ul {
     list-style-type: none;
@@ -238,36 +314,22 @@ nav li a:hover {
 .page {
     display:block;
     position:absolute;
-    top:105px;
+    top:110px;
     left:50%;
     padding:10px 10px 30px 10px;
-    width:960px;
-    margin-left:-480px;
+    width:540px;
+    margin:0 0 40px -280px;
     cursor:url('../Img/cursor1.png'), auto ;
     font-family:'Titillium Web', Verdana, sans-serif;
     font-size:12pt;
     background-color:#FFFFFF;
     border-radius:10px;
+    box-shadow:2px 2px 2px rgba(0,0,0,50);
+    border:1px solid #0a2d5f;
 }
 .page h1 {
     font-size:15pt;
     margin:2px;
-}
-input {
-    cursor:url('../Img/cursor9.png'), auto ;
-    border-radius:4px;
-    background-color:#a3cfea;
-    font-size:11pt;
-    padding:1px 3px 1px 4px;
-    border:1px solid #0c5091;
-    font-family: 'Slabo 13px', serif;
-    transition:ease 0.5s;
-}
-input:hover {
-    border:1px solid #ffffff;
-}
-input:focus {
-    background-color: #FFF;
 }
 #loginbutton {
     color:#ffffff;
@@ -290,7 +352,7 @@ input:focus {
     display:block;
     position:absolute;
     top:5px;
-    left:5px;
+    left:10px;
     width:84px;
     height:60px;
     background-image:url('../Img/logo.png');
@@ -324,8 +386,7 @@ input:focus {
     position:fixed;
     width:100%;
     height:100%;
-    background-color:#000000;
-    opacity: 0.8;
+    background:linear-gradient(to bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.9));
     z-index:10;
     margin:0;
     padding:0;
@@ -350,7 +411,7 @@ input:focus {
     display:block;
     position:absolute;
     bottom:0;
-    left:0;
+    left:-2px;
     width:100%;
     height:25px;
     line-height: 25px;
