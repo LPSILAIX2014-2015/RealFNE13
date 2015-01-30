@@ -62,7 +62,7 @@ $vHtml = new VHtml();
         ?>
     </div>
     <div class="footer">
-    	<a href="index.php?EX=legal">Site r&eacute;alis&eacute; par la LP SIL DA2I 20014- IUT d'Aix-en-Provence, pour le compte de la FNE13</a>
+    	<a href="index.php?EX=legal">Informations légales</a>
     </div>
 <?PHP
 /*

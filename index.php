@@ -83,6 +83,7 @@ function home()
     $page['class'] = 'VHome';
     $page['method'] = 'showHome';
     $page['arg'] = 'Html/accueil.php';
+    $page['css'] = 'Css/accueil.css';
 }
 
 function error()
