@@ -156,7 +156,7 @@ nav li a:hover {
     display:block;
     position:absolute;
     top:100px;
-/*    bottom:20px;   pb d'affichage (footer dépasse sur le texte) */
+/*    bottom:20px;   pb d'affichage (footer dï¿½passe sur le texte) */
     left:50%;
     padding:10px 10px 30px 10px;
     width:800px;
@@ -277,12 +277,4 @@ a:hover {
     text-decoration:none;
 }
 
-/* fin css calendrier*/
-#calendar {
-    max-width: 900px;
-    margin: 0 auto;
-    color: #0c5091;
-    size: 32px;
-    text-align: center;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
+

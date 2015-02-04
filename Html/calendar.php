@@ -1,27 +1,23 @@
-<div id="calendar">
-	
-<?php
-    /* echo date('d/m/y');*/
-require ('date.php');
-
-  $date= new Date();
-  $year= date('Y');
-  $dates = $date->getAll($year);
-  ?>
-   <div class="periods">
+ 
+        <?php
+        require('date.php');
+        $date = new Date();
+        $year = date('Y');
+        $dates = $date->getAll($year);
+        ?>
+        <div class="periods">
             <div class="year"><?php echo $year; ?></div>
             <div class="months">
                 <ul>
                     <?php foreach ($date->months as $id=>$m): ?>
-                         <li><a href="#" id="linkMonth"<?php echo $id+1; ?>"><?php echo utf8_encode(substr(utf8_decode($m),0,3)); ?></a></li>
-
+                         <li><a href="#" class="monthsList" <?php echo ' id=linkMonth'.($id+1).'"'; ?>><?php echo utf8_encode(substr(utf8_decode($m),0,3)); ?></a></li>
                     <?php endforeach; ?>
                 </ul>
             </div>
-    <div class="clear"></div>
+            <div class="clear"></div>
             <?php $dates = current($dates); ?>
             <?php foreach ($dates as $m=>$days): ?>
-               <div class="month relative" id="month<?php echo $m; ?>">
+               <div style="display:none;" class="month relative" id="month<?php echo $m; ?>">
                <table>
                    <thead>
                        <tr>
@@ -42,7 +38,7 @@ require ('date.php');
                                     <div class="day"><?php echo $d; ?></div>
                                 </div>
                                <div class="daytitle">
-                                   <?php echo $date->days[$w-1]; ?> <?php echo $d; ?> <?php echo $date->months[$m-1]; ?>
+                                   <?php echo $date->days[$w-1]; ?> <?php echo $d; ?>  <?php echo $date->months[$m-1]; ?>
                                </div>
                                <ul class="events">
                                    <?php if(isset($events[$time])): foreach($events[$time] as $e): ?>
@@ -64,9 +60,5 @@ require ('date.php');
             <?php endforeach; ?>
         </div>
         <div class="clear"></div>
-<pre><?php print_r($date); ?> </pre>
-</div>
-
-<script type="text/javascript" src="Js/jQuery-calendar"></script>
-<script type="text/javascript" src="Js/jquery.min.js"></script>
+        <script type="text/javascript" src="Js/jQuery-calendar.js"></script>
 
