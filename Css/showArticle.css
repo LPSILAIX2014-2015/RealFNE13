@@ -47,12 +47,15 @@
     background-color: #0c5091;
     color:#FFF;
     border:1px solid #a3cfea;
-=======
+}
 #pagination ul {
     list-style-type: none;
     list-style-position: inside;
     margin:0;
     padding:0;
+}
+#pagination a:visited {
+    color:#ffffff;
 }
 #pagination ul li {
     display:inline-block;
