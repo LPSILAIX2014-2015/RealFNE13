@@ -92,6 +92,8 @@ li {
     right:0;
     height:70px;
     background-color: #4bc9e2;
+    background:url('../Img/headerbg.png'),-webkit-linear-gradient(top left, rgba(51,122,183,0.7),rgba(75,201,226,1));
+    background:url('../Img/headerbg.png'),-o-linear-gradient(bottom right, rgba(51,122,183,0.7),rgba(75,201,226,1));
     background:url('../Img/headerbg.png'),linear-gradient(to bottom right, rgba(51,122,183,0.7),rgba(75,201,226,1));
     background-repeat:no-repeat;
     background-position:bottom right;
@@ -133,7 +135,6 @@ li {
     width:193px;
     color:#000;
     font-size:10pt;
-    z-index:2;
     overflow:hidden;
     font-family:'Quicksand',Verdana,sans-serif;
     background-color:#FFFFFF;
@@ -175,7 +176,7 @@ li {
     line-height:30px;
     vertical-align:middle;
     cursor:url('../Img/cursor8.png'), auto ;
-    z-index:2;
+    z-index:5;
 }
 .notification a {
     cursor:url('../Img/cursor8.png'), auto ;
@@ -291,8 +292,6 @@ nav li {
     padding:0;
     display:inline-block;
     position:relative;
-    font-family: 'Cabin', sans-serif;
-    font-size:11pt;
 }
 nav li a {
     display:inline-block;
@@ -305,6 +304,10 @@ nav li a {
     border-radius: 4px;
     border:1px #0c5091 solid;
     transition:ease 0.5s;
+    font-family: 'Cabin', sans-serif;
+    font-size:11pt;
+    font-weight:bold;
+    text-shadow:none;
 }
 nav li .submenu {
     display:none;
