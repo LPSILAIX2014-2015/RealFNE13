@@ -37,6 +37,11 @@ $vHtml = new VHtml();
         </a>
 
     </div>
+    <?php
+    if(isset($user)) {
+        $vHtml->showHtml('Html/usertopmenu.php');
+    }
+    ?>
     <nav>
         <?php $vnav->showNav() ?>
     </nav>
