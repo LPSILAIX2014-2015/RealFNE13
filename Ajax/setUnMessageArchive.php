@@ -1,0 +1,11 @@
+<?php
+	require_once('../Model/MDBase.mod.php');
+	$database = new MDBase();
+
+	$state = $database->prepare("UPDATE MESSAGES SET ISARCHIVE = :no WHERE ID = :id");
+    $state->bindValue('id', htmlspecialchars($_GET['id']), PDO::PARAM_INT);
+    $state->bindValue('no', "0", PDO::PARAM_STR);
+    $state->execute();
+
+	echo json_encode(true);
+?>
