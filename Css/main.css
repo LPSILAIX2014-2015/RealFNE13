@@ -18,7 +18,7 @@ body {
     background-image:url('../Img/body_fond.jpg');
     background-repeat:repeat;
     background-attachment: fixed;
-    font-family:Arial,Verdana,sans-serif;
+    font-family:'Titillium Web',Verdana,sans-serif;
     display:block;
     top:80px;
     left:10%;
@@ -128,7 +128,7 @@ li {
     margin:0 0 0 290px;
     padding:0;
 }
-.infosperso, .recentarticles, .nextevents {
+.infosperso, .recentarticles, .nextevents, .linksnewsletters {
     display:block;
     width:193px;
     color:#000;
@@ -443,7 +443,7 @@ nav li a:hover {
     font-family:'Titilium Web',Verdana,sans-serif;
     font-size:10pt;
     text-align:left;
-    margin:3px;
+    margin:5px;
     padding:0;
     vertical-align:middle;
 }
@@ -453,10 +453,19 @@ nav li a:hover {
     font-family:'Titilium Web',Verdana,sans-serif;
     font-size:10pt;
     text-align:left;
-    margin:3px;
+    margin:5px;
     padding:0;
 }
 .nextevents .dateevent {
     color:#0c5091;
     font-weight:bold;
+}
+.linksnewsletters ul {
+    list-style-type: none;
+    list-style-position: outside;
+    font-family:'Titilium Web',Verdana,sans-serif;
+    font-size:10pt;
+    text-align:left;
+    margin:5px;
+    padding:0;
 }

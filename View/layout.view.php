@@ -33,7 +33,7 @@ $vHtml = new VHtml();
 <body>
     <div class="bandeau">
         <a href="index.php?EX=home"><div class="logo">Accueil</div>
-        <span class="sitetitle">Mon espace FNE13</span>
+        <span class="sitetitle">La plate-forme FNE13</span>
         </a>
 
     </div>
@@ -47,7 +47,7 @@ $vHtml = new VHtml();
         <?PHP
         $vHtml->showHtml('Html/recentarticles.php');
 
-        $vHtml->showHtml('Html/nextevents.php');
+        $vHtml->showHtml('Html/linksnewsletters.php');
         ?>
     </div>
     <div class="rightcol">
@@ -59,6 +59,7 @@ $vHtml = new VHtml();
         {
             $vHtml->showHtml('Html/userInfo.php');
         }
+        $vHtml->showHtml('Html/nextevents.php');
         ?>
     </div>
     <div class="footer">
