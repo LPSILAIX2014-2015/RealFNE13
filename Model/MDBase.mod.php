@@ -124,7 +124,7 @@ class MDBase extends PDO {
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = "SELECT * FROM CATEGORY";
+        $query = "SELECT * FROM MESCAT";
         $qq = $pdo->prepare($query);
         $qq->execute();
         $data = $qq->fetchAll(PDO::FETCH_ASSOC);

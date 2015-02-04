@@ -13,10 +13,10 @@ class VConsultMessages
 
 
     $state = $connec->prepare("SELECT M.*, U.NAME SENDER_NAME, U.SURNAME SENDER_SURNAME, C.NAME CATEGORY_NAME, T.NAME THEME_NAME
-       FROM MESSAGES M, USER U, CATEGORY C, THEME T
+       FROM MESSAGE M, USER U, MESCAT C, THEME T
        WHERE M.RECEIVER_ID = :idUser 
        AND M.SENDER_ID = U.ID
-       AND C.ID = M.CATEGORY_ID
+       AND C.ID = M.CAT_ID
        AND T.ID = M.THEME_ID
        ORDER BY M.SENDDATE DESC");
     $state->bindValue('idUser', $idUser, PDO::PARAM_INT);

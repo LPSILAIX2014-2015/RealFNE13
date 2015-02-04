@@ -10,7 +10,7 @@ class CConnexion {
         {
             $db = new MDBase();
 
-            $query = "SELECT ID, PASSWORD FROM USER WHERE LOGIN='$login'" ;
+            $query = "SELECT ID, PASSWORD, ROLE FROM USER WHERE LOGIN='$login'" ;
             $state = $db->prepare($query);
             $state->execute();
             $result = $state->fetch();
