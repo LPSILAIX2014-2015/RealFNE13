@@ -2,7 +2,7 @@
 $vnav = new VNav();
 $vUserInfo = new VUserInfo();
 $vpage = new $page['class']();
-global $connec;
+global $connec, $customAlert;
 $connec = new MDBase();
 $vHtml = new VHtml();
 ?>
@@ -11,27 +11,16 @@ $vHtml = new VHtml();
 <head>
     <meta charset="utf-8" />
     <title><?= $page['title']; ?></title>
-        <link rel="stylesheet" href="./Css/style.css">
+    <link rel="stylesheet" href="./Css/main.css">
 
-        <link rel="stylesheet" href="./Css/reset.css">  
-        <link rel="stylesheet" type="text/css" href="./Lib/bootstrap.min.css" />
-
-        <link rel="stylesheet" type="text/css" href="./Css/appli.css" />
-
-        <link rel="stylesheet" href="./Css/jquery-ui.css">
-
-    <link rel="stylesheet" href="./Css/jquery.fancybox.css" media="screen">
     <?php
     // Ajout feuille de style spécifique à cette page
     if (isset($page['css'])) {
         echo '<link rel="stylesheet" type="text/css" href="'.$page['css'].'" />' ;
     }
     ?>
-    <link rel="stylesheet" type="text/css" href="Lib/bootstrap.icon-large.min.css" />
-    <link rel="stylesheet" type="text/css" href="Lib/simplePagination.css"/>
     <link rel="icon" type="image/png" href="Img/favicon.png" />
     <script src="Lib/jquery.min.js"></script>
-    <script src="Lib/bootstrap.min.js"></script>
     <script src="./Js/form.js"></script>
     <script src="./Lib/jquery-ui.js"></script>
     <script src="./Lib/jquery.fancybox.pack.js"></script>
@@ -42,14 +31,20 @@ $vHtml = new VHtml();
     <script src="./Js/recMP.js"></script>
 </head>
 <body>
+    <div class="bandeau">
+        <a href="index.php?EX=home"><div class="logo">Accueil</div>
+        <span class="sitetitle">La plate-forme FNE13</span>
+        </a>
+
+    </div>
     <?php
-    if(!isset($user)) {
-        $vHtml->showHtml('Html/loginForm.php');
+    /*
+     * Affichage des icones de messages et notifications et du bouton Deconnexion si l'utilisateur est identifié
+     */
+    if(isset($user)) {
+        $vHtml->showHtml('Html/usertopmenu.php');
     }
-    else
-    {
-        $vHtml->showHtml('Html/userInfo.php');
-    }
+    /**/
     ?>
     <nav>
         <?php $vnav->showNav() ?>
@@ -57,9 +52,45 @@ $vHtml = new VHtml();
     <div class="page">
         <?php $vpage->$page['method']($page['arg']) ?>
     </div>
-    <div class="footer">
-    	<a href="index.php?EX=legal">Site r&eacute;alis&eacute; par la LP SIL DA2I 20014- IUT d'Aix-en-Provence, pour le compte de la FNE13</a>
-    </div>
+    <div class="leftcol">
+        <?PHP
+        $vHtml->showHtml('Html/recentarticles.php');
 
+        $vHtml->showHtml('Html/linksnewsletters.php');
+        ?>
+    </div>
+    <div class="rightcol">
+        <?php
+        if(!isset($user)) {
+            $vHtml->showHtml('Html/loginForm.php');
+        }
+        else
+        {
+            $vHtml->showHtml('Html/userInfo.php');
+        }
+        $vHtml->showHtml('Html/nextevents.php');
+        ?>
+    </div>
+    <div class="footer">
+    	<a href="index.php?EX=legal">Informations légales</a>
+    </div>
+<?PHP
+/*
+ * @author <Julien Bénard>
+ * Gestion des alertes customisées
+ */
+if (isset($customAlert)) {
+    echo '<script>
+    customAlerts = new Array();' ;
+    foreach ($customAlert as $k => $a) {
+        echo 'customAlerts['.$k.']=\''.addslashes($a).'\';';
+    }
+    echo '</script>';
+    echo '<script src="Js/customAlert.js"></script>' ;
+}
+/**/
+?>
     <script src="Js/createArticle.js"></script>
+    <div id="result"></div><!-- id="error"-->
+    <div id="res"></div><!-- id="error" -->
 </body>

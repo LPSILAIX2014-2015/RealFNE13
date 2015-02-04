@@ -22,6 +22,7 @@ $(document).ready(function(){ // Fonction pour valider la première formulaire
                          showMassageError('Valide');
                          $('#mailR').val('');
                          setTimeout('',1500);
+			location.replace('index.php');
                     }else{
                         $("#res").html(data);
                         $("#res").show();

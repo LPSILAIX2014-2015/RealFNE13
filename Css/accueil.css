@@ -1,0 +1,12 @@
+.logosassos {
+    display:block;
+    width:95%;
+    border-radius:10px;
+    border:1px solid #0c5091;
+    padding:5px;
+    margin:5px;
+    text-align:center;
+}
+.logosassos img {
+    margin:3px;
+}
