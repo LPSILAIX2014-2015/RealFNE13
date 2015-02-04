@@ -32,8 +32,6 @@ class VConsultMessages
     	$data_messages[$i]["SENDDATE"] = $currentDate; 
     }
 
-    /* REMPLISSAGATION DU CONTENU */
-
 
     global $content_messages;
     $content_messages = "";
@@ -50,6 +48,16 @@ class VConsultMessages
             $content_messages .= '>';
 
 
+            $content_messages .= '<td class="currentTdMessage">'; 
+            if($data_messages[$i]['ISREADED'] == "0")
+            {
+                $content_messages .= '<span class="label label-danger">Non-Lu</span>';
+            }
+            else
+            {
+                $content_messages .= '<span class="label label-success">Lu</span>';
+            }
+            echo '</td>';
             $content_messages .= '<td class="currentTdMessage">'.$data_messages[$i]['SENDER_NAME'].' '.$data_messages[$i]['SENDER_SURNAME'].'</td>';
             $content_messages .= '<td class="currentTdMessage">'.$data_messages[$i]['TITLE'];       
             $content_messages .= '<pre class="contentMessage">'.$data_messages[$i]['CONTENT'].'</pre></td>';        
@@ -86,6 +94,16 @@ class VConsultMessages
             $content_messages_archive .= '>';
             
 
+            $content_messages_archive .= '<td class="currentTdMessage">'; 
+            if($data_messages[$i]['ISREADED'] == "0")
+            {
+                $content_messages_archive .= '<span class="label label-danger">Non-Lu</span>';
+            }
+            else
+            {
+                $content_messages_archive .= '<span class="label label-success">Lu</span>';
+            }
+            echo '</td>';
             $content_messages_archive .= '<td class="currentTdMessage">'.$data_messages[$i]['SENDER_NAME'].' '.$data_messages[$i]['SENDER_SURNAME'].'</td>';
             $content_messages_archive .= '<td class="currentTdMessage">'.$data_messages[$i]['TITLE'];       
             $content_messages_archive .= '<pre class="contentMessage">'.$data_messages[$i]['CONTENT'].'</pre></td>';        
@@ -109,12 +127,11 @@ class VConsultMessages
 
     global $data_theme;
     global $data_category;
-    $mMod = new MDbase();
-    //$data_theme = $mMod->getAllThemes();
-    //$data_category = $mMod->getAllCategories();
+    $mMod = new MDBase();
+    $data_theme = $mMod->getAllThemes();
+    $data_category = $mMod->getAllCategories();
 
 
-/* REMPLISSAGATION DU CONTENU */
 
 $vhtml = new VHtml();
 $vhtml->showHtml($path);

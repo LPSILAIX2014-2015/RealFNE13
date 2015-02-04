@@ -21,7 +21,7 @@ class MDBase extends PDO {
        {
         try
         {
-          self::$cont =  new PDO( "mysql:host=".self::$host.";"."dbname=".self::$database, self::$user, self::$pass);
+          self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword);
         }
         catch(PDOException $e)
         {
@@ -115,7 +115,7 @@ class MDBase extends PDO {
         $query = "SELECT * FROM THEME";
         $qq = $pdo->prepare($query);
         $qq->execute();
-        $data = $qq->fetch(PDO::FETCH_ASSOC);
+        $data = $qq->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
 
@@ -126,7 +126,7 @@ class MDBase extends PDO {
         $query = "SELECT * FROM CATEGORY";
         $qq = $pdo->prepare($query);
         $qq->execute();
-        $data = $qq->fetch(PDO::FETCH_ASSOC);
+        $data = $qq->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
 }
