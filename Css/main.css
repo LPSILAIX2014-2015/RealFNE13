@@ -175,7 +175,7 @@ li {
     line-height:30px;
     vertical-align:middle;
     cursor:url('../Img/cursor8.png'), auto ;
-    z-index:2;
+    z-index:20;
 }
 .notification a {
     cursor:url('../Img/cursor8.png'), auto ;
@@ -202,7 +202,7 @@ li {
     line-height:30px;
     vertical-align:middle;
     cursor:url('../Img/cursor8.png'), auto ;
-    z-index:2;
+    z-index:20;
 }
 .messages a {
     cursor:url('../Img/cursor8.png'), auto ;
@@ -227,7 +227,7 @@ li {
     line-height:30px;
     vertical-align:middle;
     cursor:url('../Img/cursor2.png'), auto ;
-    z-index:2;
+    z-index:20;
 }
 .deconnexion:hover {
     background-color:#FFF;
