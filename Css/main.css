@@ -292,8 +292,6 @@ nav li {
     padding:0;
     display:inline-block;
     position:relative;
-    font-family: 'Cabin', sans-serif;
-    font-size:11pt;
 }
 nav li a {
     display:inline-block;
@@ -306,6 +304,10 @@ nav li a {
     border-radius: 4px;
     border:1px #0c5091 solid;
     transition:ease 0.5s;
+    font-family: 'Cabin', sans-serif;
+    font-size:11pt;
+    font-weight:bold;
+    text-shadow:none;
 }
 nav li .submenu {
     display:none;

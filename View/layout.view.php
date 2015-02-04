@@ -38,9 +38,13 @@ $vHtml = new VHtml();
 
     </div>
     <?php
+    /*
+     * Affichage des icones de messages et notifications et du bouton Deconnexion si l'utilisateur est identifié
+     */
     if(isset($user)) {
         $vHtml->showHtml('Html/usertopmenu.php');
     }
+    /**/
     ?>
     <nav>
         <?php $vnav->showNav() ?>
