@@ -3,7 +3,7 @@
 	if ( !empty($_GET['id'])) {
 		$id = $_REQUEST['id'];
 	}
-    if ( !empty($_POST)) {
+    if ( isset($_POST['NAME'])) {
         $name = $_POST['NAME'];
         $surname = $_POST['SURNAME'];
         $email = $_POST['MAIL'];

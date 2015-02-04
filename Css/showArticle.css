@@ -47,4 +47,35 @@
     background-color: #0c5091;
     color:#FFF;
     border:1px solid #a3cfea;
+=======
+#pagination ul {
+    list-style-type: none;
+    list-style-position: inside;
+    margin:0;
+    padding:0;
+}
+#pagination ul li {
+    display:inline-block;
+    color:#ffffff;
+    border:1px solid #ffffff;
+    background-color:#0a2d5f;
+    border-radius:2px;
+    padding:2px 8px 2px 8px;
+    font-weight:bold;
+    transition:ease 0.5s;
+    cursor:url('../Img/cursor8.png'), auto ;
+    font-family:'Cabin',Verdana,sans-serif;
+}
+#pagination ul li:hover {
+    color:#0a2d5f;
+    border:1px solid #0a2d5f;
+    background-color:#a3cfea;
+}
+#pagination ul li:first-child {
+    border-radius: 15px 2px 2px 15px;
+    cursor:url('../Img/cursor2.png'), auto ;
+}
+#pagination ul li:last-child {
+    border-radius: 2px 15px 15px 2px;
+    cursor:url('../Img/cursor4.png'), auto ;
 }

@@ -1,5 +1,5 @@
 <?php
-
+// ToDo : Tester les setters (si les modifs impactent bien la base)
     class MAssoc {
 
         private $sql;
@@ -7,10 +7,11 @@
         private $id;
         private $name;
         private $territory;
+        private $theme;
 
         function __construct ($id) {
-            $sql = new MDBase();
-            $state = $sql->prepare("SELECT * FROM ASSOCIATION WHERE ID = :id");
+            $this->sql = new MDBase();
+            $state = $this->sql->prepare("SELECT * FROM ASSOCIATION WHERE ID = :id");
             $state->bindValue('id', $id, PDO::PARAM_INT);
             $state->execute();
             $assoc = $state->fetch(PDO::FETCH_ASSOC);
@@ -18,54 +19,45 @@
             $this->id = $id;
             $this->name = $assoc['NAME'];
             $this->territory= $assoc['TERRITORY_ID'];
+            $this->theme= $assoc['THEME_ID'];
         }
 
-        /**
-         * @param mixed $id
-         */
-        public function setId($id)
-        {
-            $this->id = $id;
-        }
 
-        /**
-         * @return mixed
-         */
-        public function getId()
-        {
-            return $this->id;
-        }
+        // Getters
+        public function getId() { return $this->id; }
+        public function getName() { return $this->name; }
+        public function getTerritory() { return $this->territory; }
+        public function getTheme() { return $this->theme; }
 
-        /**
-         * @param mixed $name
-         */
+
+        // Setters
         public function setName($name)
         {
             $this->name = $name;
+            $this->sql->exec('UPDATE ASSOCIATION SET NAME = \''.$name.'\' WHERE ID = '.$this->id.' ;');
+
         }
 
-        /**
-         * @return mixed
-         */
-        public function getName()
-        {
-            return $this->name;
-        }
-
-        /**
-         * @param mixed $territory
-         */
         public function setTerritory($territory)
         {
             $this->territory = $territory;
+            $this->sql->exec('UPDATE ASSOCIATION SET TERRITORY_ID = \''.$territory.'\' WHERE ID = '.$this->id.' ;');
         }
 
-        /**
-         * @return mixed
-         */
-        public function getTerritory()
+
+        public function setTheme($theme)
         {
-            return $this->territory;
+            $this->theme = $theme;
+            $this->sql->exec('UPDATE ASSOCIATION SET THEME_ID = \''.$theme.'\' WHERE ID = '.$this->id.' ;');
+        }
+
+        public function getMembers(){
+            $sql = new MDBase();
+            $state = $sql->prepare("SELECT ID, NAME, SURNAME FROM USER WHERE ASSOCIATION_ID = :id ORDER By ROLE ASC");
+            $state->bindValue('id', $this->id, PDO::PARAM_INT);
+            $state->execute();
+            $assoc = $state->fetchall();
+            return $assoc;
         }
 
     }

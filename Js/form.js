@@ -48,14 +48,15 @@ function closeDivError()
 } // closeDivError()
 
 function insertE () {
+    
+    showMassageError('Le code ne coïncide pas avec l`image !!');
+    document.getElementById('iCaptcha').focus();
     $(document).ready(function(){
         $('#iCaptcha').addClass('norequired');
         $('#iCaptcha').val('');
         $('#iCaptcha').attr('aria-invalid','true');
         $('#iCaptcha-error').remove();
     });
-    showMassageError('Le code ne coïncide pas avec l`image !!');
-    document.getElementById('iCaptcha').focus();
 }
 
 function mailErr(){
@@ -64,10 +65,10 @@ function mailErr(){
         $('#mailR').attr('aria-invalid','true');
         $('#mailR-error').remove();
     });
-    showMassageError('Le mail n`existe pas !!!');
+    showMassageError('Il n\'y a pas un account liée à cette mail !!!');
     document.getElementById('mailR').focus();
 }
 function mailMod(){
-    showMassageError('Le mail n`existe pas !!!');
+    showMassageError('Il n\'y a pas un account liée à cette mail!!!');
     document.getElementById('mail').focus();
 }
