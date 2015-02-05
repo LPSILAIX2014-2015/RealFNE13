@@ -1,6 +1,6 @@
 .contentMessage {
 	display: none;
-	max-width: 430px;
+	max-width: 320px;
 	margin : 0;
 }
 .notReaded {
@@ -15,6 +15,19 @@
 .BUTTON_MESSAGE {
 	width: 50px;
 }
+.CATEGORY_MESSAGE {
+	width: 100px;
+}
+.THEME_MESSAGE {
+	width: 100px;
+}
 .btnOptions {
+	display: none;
+	margin-top: 5px;
+}
+.btnOptions button {
+	margin: 5px 0;
+}
+.panelArchiveMessages {
 	display: none;
 }
