@@ -7,7 +7,7 @@ class MDBase extends PDO {
     private static $dbName = 'FNESITE' ;
     private static $dbHost = 'localhost' ;
     private static $dbUsername = 'root';
-    private static $dbUserPassword = '';
+    private static $dbUserPassword = 'mysql';
     private static $cont  = null;
 
     public function __construct(){
@@ -116,18 +116,18 @@ class MDBase extends PDO {
         $query = "SELECT * FROM THEME";
         $qq = $pdo->prepare($query);
         $qq->execute();
-        $data = $qq->fetchall(PDO::FETCH_ASSOC);
+        $data = $qq->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
 
-    public static function getUserByEmail($mail)
+    public static function getAllCategories()
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = "SELECT * FROM User WHERE Mail = ?";
+        $query = "SELECT * FROM MESCAT";
         $qq = $pdo->prepare($query);
-        $qq->execute(array($mail));
-        $data = $qq->fetchall();
+        $qq->execute();
+        $data = $qq->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
 }

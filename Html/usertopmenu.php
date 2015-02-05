@@ -1,4 +1,5 @@
-<?PHP
+
+<?php
 /*
  * @author <Julien Bénard>
  */

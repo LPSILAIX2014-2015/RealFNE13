@@ -13,6 +13,61 @@ class MFormCreateArticle
 
     public function insertDB($data){
 
+
+        /**
+        
+        Controle Image
+
+        **/
+
+
+       /* $repertoireDestination = dirname(__FILE__)."Img/ImgArticle/";
+
+        $extensionsAutorisees = array("jpeg", "jpg","png");
+        $nomOrigine = $_FILES["articleImage"]["name"];
+        $elementsChemin = pathinfo($nomOrigine);
+        $extensionFichier = $elementsChemin['extension'];
+
+        $maxImageSize = $_POST["max_file_size"];
+
+        //Check if the file is an image
+        if (in_array($extensionFichier, $extensionsAutorisees) {
+            echo "Le fichier à le bon format";
+
+            //Check if the size of the image is correct
+            if($_FILES["articleImage"]["size"] < $maxImageSize){
+    
+            }
+
+        //Check if the file is upload
+        } else{
+            echo "Ce type de fichier n'est pas autorisé";
+            return;
+        }
+
+        
+
+
+
+
+        if(is_uploaded_file($_FILES["articleImage"]["tmp_name"])) {
+
+            //Check if the file is correctly moved
+            if (rename($_FILES["articleImage"]["tmp_name"],$repertoireDestination.$_FILES["articleImage"]["name"])) {
+                echo "Le fichier temporaire ".$_FILES["articleImage"]["tmp_name"]." a été déplacé vers ".$repertoireDestination.$_FILES["articleImage"]["name"];
+            } else {
+                echo "Le fichier n'a pas été uploadé (trop gros ?) ou le déplacement du fichier temporaire a échoué ou vérifiez l'existence du répertoire ".$repertoireDestination;
+            }
+        }*/
+
+
+
+        /**
+        
+        Connexion sql
+
+        **/
+
         $sql = new MDBase();
         //Get all data from inputs in $option
         $options = array(
