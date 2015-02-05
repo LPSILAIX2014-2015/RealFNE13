@@ -7,7 +7,7 @@ session_start();
 define('modeDebug',true);
 define('LOGINFAIL_EXPIRE',600);
 define('LOGINFAIL_ATTEMPTS',5);
-define('LOGINFAIL_WARNING',3);
+define('LOGINFAIL_WARNING',5);
 if (modeDebug) {
     error_reporting(E_ALL);
 }
@@ -18,7 +18,8 @@ else {
  * Définition des reglages pour le blocage du compte après plusieurs echecs d'authentification
  * LOGINFAIL_EXPIRE : durée du blocage du compte (en secondes)
  * LOGINFAIL_ATTEMPTS : nombre d'echecs à l'authentification au bout duquel le compte est bloqué
- * LOGINFAIL_WARNING : nombre d'echecs au bout duquel une notification d'alerte est envoyée à l'administrateur. Definir une valeur supérieure à LOGINFAIL_ATTEMPTS si vous ne souhaitez pas déclencher cette notification
+ * LOGINFAIL_WARNING : nombre d'echecs au bout duquel une notification d'alerte est envoyée à l'administrateur.
+ * Definir une valeur supérieure à LOGINFAIL_ATTEMPTS ou =0 si vous ne souhaitez pas déclencher cette notification
  */
 
 /**/

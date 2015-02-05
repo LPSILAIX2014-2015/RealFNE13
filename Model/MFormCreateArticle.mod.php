@@ -3,7 +3,7 @@ class MFormCreateArticle
 {
     function __construct ($id = null) {
         $sql = new MDBase();
-        $state = $sql->prepare("SELECT * FROM POST WHERE ID = :id;");
+        $state = $sql->prepare("SELECT * FROM post WHERE ID = :id;");
         $state->bindValue('id', $id, PDO::PARAM_INT);
         $state->execute();
         $report = $state->fetch(PDO::FETCH_ASSOC);
@@ -12,6 +12,7 @@ class MFormCreateArticle
     public function __destruct(){}
 
     public function insertDB($data){
+
 
         /**
         
@@ -80,6 +81,14 @@ class MFormCreateArticle
             );
         // Fill data form with $otpion (we can get the data of all input by using $dataForm["nameinput"]
         $dataForm = filter_input_array(INPUT_POST, $options);
+        if(!$dataForm['duration'])
+        {
+            $dataForm['duration'] = 0;
+        }
+        if(!$dataForm['inscription'])
+        {
+            $dataForm['inscription'] = 0;
+        }
 
         if($_SESSION['ID_USER'] == null) return;
         if(strlen($dataForm['articleTitle']) == 0) return;
@@ -87,7 +96,7 @@ class MFormCreateArticle
         if(strlen($dataForm['textareaDecrypt']) == 0) return;
 
         $sql->beginTransaction();
-        $state = $sql->prepare("INSERT INTO POST (
+        $state = $sql->prepare("INSERT INTO post (
             WRITER_ID,
             TITLE,
             THEME,
@@ -132,7 +141,7 @@ class MFormCreateArticle
         $temp = $sql->lastInsertId();
 
         $sql->commit();
-
+        var_dump($temp);
         return $temp;
     }
 
