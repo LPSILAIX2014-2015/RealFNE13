@@ -105,12 +105,16 @@ li {
 .sitetitle {
     display:block;
     position:absolute;
-    top:18px;
+    top:5px;
     left:120px;
     font-family:'Quicksand',Verdana,sans-serif;
-    font-size:24pt;
+    font-size:20pt;
     color:#FFFFFF;
     text-shadow: 1px 2px #337ab7;
+}
+.subtitle {
+    display:block;
+    font-size:13pt;
 }
 .leftcol {
     display:block;
