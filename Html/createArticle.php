@@ -1,13 +1,9 @@
 <div id="contentTypeArticle">
-    <div class="container-fluid">
-        <div class="row">
-            <div id="offsetButtonArticle"></div>
-        </div>
-    </div>
+    
     <div class="col-md-8 col-md-offset-3" id="buttonCreationArticle">
     <p>
-        <button id="buttonCreateArticle" type="button" class="btn btn-primary">Créer un Article</button>
-        <button id="buttonCreateArticleInCalendar" type="button" class="btn btn-primary">Créer un Article lié à un évènements</button>
+        <button id="buttonCreateArticle" type="button" class="btn btn-primary buttonCreate">Créer un Article</button>
+        <button id="buttonCreateArticleInCalendar" type="button" class="btn btn-primary buttonCreate">Créer un Article lié à un évènements</button>
     </p>
     </div>
 </div>
@@ -18,11 +14,25 @@
 
     <form class="form-horizontal" role="form" action="index.php?EX=formCreateArticle" method="POST">
         <div class="form-group">
+            <label for="articleTitle" class="col-sm-3 control-label">Titre de l'article</label>
+            <div class="col-sm-5">
+                <input type="text" name="articleTitle" class="form-control" id="articleTitle" placeholder="Titre">
+            </div>
+        </div>
+
+        <div class="form-group">
             <label for="articleTheme" class="col-sm-3 control-label">Theme de l'article</label>
             <div class="col-sm-5">
                 <input type="text" name="articleTheme" class="form-control" id="articleTheme" placeholder="Theme">
             </div>
         </div>
+        <!-- <div class="form-group">
+            <label for="articleImage" class="col-sm-3 control-label">Image d'illustration</label>
+            <div class="col-sm-5">
+                <input type="file" id="articleImage" name="articleImage">
+            </div>
+        </div>
+        <input type="hidden" name=\"max_file_size" value="50000"> -->
 
         <!-- These fields are for Calendar event-->
 
@@ -35,7 +45,7 @@
         <div class="inputOnlyCalendar form-group" hidden>
             <label for="startDate" class="col-sm-3 control-label">Date et heure de début de l'évènement</label>
             <div class="col-sm-5">
-                <input type="datetime-local" name="startDate" class="form-control" id="startDate" placeholder="Date de début">
+                <input type="datetime-local" name="startDate" class="form-control" id="startDate" placeholder="jj/mm/aaaa hh/mm">
             </div>
         </div>
         <div class="inputOnlyCalendar form-group" hidden>

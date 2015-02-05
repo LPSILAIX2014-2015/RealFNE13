@@ -1,3 +1,16 @@
+/*
+* Importation polices Google fonts
+*/
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web);
+@import url(http://fonts.googleapis.com/css?family=Cabin);
+@import url(http://fonts.googleapis.com/css?family=Quicksand);
+@import url(http://fonts.googleapis.com/css?family=Slabo+13px);
+/**/
+
+
+/*
+* Elements génériques
+*/
 html{
     cursor:url('../Img/cursor1.png'), auto ;
 }
@@ -12,11 +25,13 @@ body {
     bottom:25px;
     overflow:auto;
     cursor:url('../Img/cursor1.png'), auto ;
+    padding:0;
+    margin:0;
 }
 nav {
     display:block;
     position:fixed;
-    top:60px;
+    top:70px;
     left:0;
     width:100%;
     height:30px;
@@ -24,70 +39,135 @@ nav {
     text-align:center;
     z-index:1;
 }
-.infosperso {
-    background-color: #4bc9e2;
-    background-image:url('../Img/headerbg.png');
-    background-repeat:no-repeat;
-    background-position:top right;
-    color:#000;
+a {
+    cursor:url('../Img/cursor4.png'), auto ;
+    text-decoration:none;
+}
+a:hover {
+    text-decoration:none;
+}
+img {
+    border:0;
+    vertical-align:middle;
+}
+/**/
+.bandeau {
     display:block;
     position:fixed;
     width:100%;
-    height:60px;
-    top:0;
-    left:0;
+    height:70px;
+    background-color: #4bc9e2;
+    background-image:url('../Img/headerbg.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:top right;
     border:1px solid #FFF;
+    padding:0;
+    margin:0;
+    z-index:2;
+}
+.infosperso {
+    color:#000;
+    display:table-cell;
+    vertical-align:middle;
+    position:absolute;
+    top:0;
+    left:100px;
+    bottom:0;
+    right:0;
+    padding-top:10px;
     font-size:10pt;
     z-index:2;
     overflow:hidden;
-    padding-left:85px;
+    font-family:'Quicksand',Verdana,sans-serif;
 }
 .infosperso .photo {
     display:block;
     float:left;
     width:50px;
     height:50px;
-    margin-right:3px;
+    margin-right:5px;
 }
 .infosperso .nom {
     font-weight:bold;
-    font-size:11pt;
+    font-size:13pt;
 }
 .infosperso .asso {
     font-style: italic;
+    font-size:11pt;
 }
 .infosperso .notification {
     display:block;
     position:absolute;
-    right:100px;
+    right:120px;
     bottom:0;
     width:100px;
+    height:30px;
     border:1px solid #FFF;
-    padding:2px 0 2px 0;
+    padding:0;
     text-align:center;
+    background-color: #0189C7;
+    font-weight:bold;
+    font-family: 'Cabin', sans-serif;
+    font-size:12pt;
+    line-height:30px;
+    vertical-align:middle;
+    cursor:url('../Img/cursor8.png'), auto ;
+}
+.infosperso .notification a {
+    cursor:url('../Img/cursor8.png'), auto ;
+    color:#0189C7;
+}
+.infosperso .notification a:hover {
+    color:#FFFFFF;
 }
 .infosperso .messages {
     display:block;
     position:absolute;
-    right:200px;
+    right:220px;
     bottom:0;
     width:100px;
+    height:30px;
     border:1px solid #FFF;
-    padding:2px 0 2px 0;
+    padding:0;
     text-align:center;
+    background-color: #a3cfea;
+    font-weight:bold;
+    border-radius: 20px 0 0 0;
+    font-family: 'Cabin', sans-serif;
+    font-size:12pt;
+    line-height:30px;
+    vertical-align:middle;
+    cursor:url('../Img/cursor8.png'), auto ;
+}
+.infosperso .messages a {
+    cursor:url('../Img/cursor8.png'), auto ;
+    color:#0a2d5f;
 }
 .infosperso .deconnexion {
     display:block;
-    width:100px;
-    padding:2px 0 2px 0;
+    width:120px;
+    height:30px;
+    padding:0;
     text-align:center;
-    background-color: #000;
+    background-color:#0a2d5f;
     color:#a3cfea;
     font-weight:bold;
     position:absolute;
     right:0;
     bottom:0;
     border:1px solid #FFF;
+    font-family: 'Cabin', sans-serif;
+    font-size:10pt;
+    transition:ease 0.5s;
+    line-height:30px;
+    vertical-align:middle;
+    cursor:url('../Img/cursor2.png'), auto ;
+}
+.infosperso .deconnexion:hover {
+    background-color:#FFF;
+    color:#0a2d5f;
+    border:1px solid #0a2d5f;
 }
 .infosperso form {
     display:block;
@@ -101,8 +181,11 @@ nav {
     font-weight:bold;
     cursor:inherit;
 }
+.btn {
+    cursor:inherit;
+}
 .infosperso .lostpass {
-    font-size:9pt;
+    font-size:10pt;
     text-decoration:none;
     color:#FFF;
 }
@@ -119,6 +202,8 @@ nav li {
     padding:0;
     display:inline-block;
     position:relative;
+    font-family: 'Cabin', sans-serif;
+    font-size:11pt;
 }
 nav li a {
     display:inline-block;
@@ -127,9 +212,10 @@ nav li a {
     color:#0a2d5f;
     font-weight:bold;
     text-decoration: none;
-    margin:5px;
+    margin:4px;
     border-radius: 4px;
     border:1px #0c5091 solid;
+    transition:ease 0.5s;
 }
 nav li .submenu {
     display:none;
@@ -152,50 +238,36 @@ nav li a:hover {
 .page {
     display:block;
     position:absolute;
-    top:100px;
-    bottom:20px;
+    top:105px;
     left:50%;
     padding:10px 10px 30px 10px;
-    width:800px;
-    margin-left:-400px;
+    width:960px;
+    margin-left:-480px;
     cursor:url('../Img/cursor1.png'), auto ;
+    font-family:'Titillium Web', Verdana, sans-serif;
+    font-size:12pt;
+    background-color:#FFFFFF;
+    border-radius:10px;
 }
 .page h1 {
     font-size:15pt;
     margin:2px;
 }
-.pvarticle {
-    display:block;
-    background-color: #FFF;
-    border-radius:5px;
-    font-size:10pt;
-    padding:5px 10px 20px 10px;
-    margin:3px;
-}
-.pvarticle h2 {
-    margin:0;
-    font-size:10pt;
-}
-.pvarticle .auteur {
-    font-style:italic;
-}
-.lienarticle {
-    display:block;
-    float:right;
-    width:100px;
-    text-align:center;
-    border-radius:5px;
-    background-color: #a3cfea;
-    color:#FFF;
-    border:1px solid #0c5091;
-}
-.lienarticle:hover {
-    background-color: #0c5091;
-    color:#FFF;
-    border:1px solid #a3cfea;
-}
 input {
     cursor:url('../Img/cursor9.png'), auto ;
+    border-radius:4px;
+    background-color:#a3cfea;
+    font-size:11pt;
+    padding:1px 3px 1px 4px;
+    border:1px solid #0c5091;
+    font-family: 'Slabo 13px', serif;
+    transition:ease 0.5s;
+}
+input:hover {
+    border:1px solid #ffffff;
+}
+input:focus {
+    background-color: #FFF;
 }
 #loginbutton {
     color:#ffffff;
@@ -204,27 +276,21 @@ input {
     border-radius:5px;
     padding:1px 4px 1px 4px;
     font-weight:bold;
-    transition:ease 1s;
+    transition:ease 0.5s;
     cursor:url('../Img/cursor2.png'), auto ;
+    font-family:'Cabin',Verdana,sans-serif;
 }
 #loginbutton:hover {
     color:#0a2d5f;
     border:1px solid #0a2d5f;
     background-color:#a3cfea;
 }
-a {
-    cursor:url('../Img/cursor4.png'), auto ;
-    text-decoration:none;
-}
-a:hover {
-    text-decoration:none;
-}
 .logo {
     font-size:0;
     display:block;
     position:absolute;
-    top:0;
-    left:0;
+    top:5px;
+    left:5px;
     width:84px;
     height:60px;
     background-image:url('../Img/logo.png');
@@ -235,13 +301,14 @@ a:hover {
     position:fixed;
     bottom:0;
     width:100%;
-    height:15px;
+    height:20px;
     line-height:15px;
     vertical-align:middle;
     text-align:center;
     background-color:#0a2d5f;
     color:#FFF;
-    font-size:8pt;
+    font-size:10pt;
+    font-family:'Quicksand',Verdana,sans-serif;
 }
 .footer a {
     color:#FFF;
@@ -250,4 +317,48 @@ a:hover {
 .footer a:hover {
     color:#4bc9e2;
     text-decoration:none;
+}
+.customAlert {
+    display:block;
+    position:fixed;
+    width:100%;
+    height:100%;
+    background-color:#000000;
+    opacity: 0.8;
+    z-index:10;
+    margin:0;
+    padding:0;
+}
+.customAlert .box {
+    display:block;
+    background-color:#a3cfea;
+    width:300px;
+    border-radius: 10px;
+    padding:5px 5px 40px 5px;
+    position:fixed;
+    bottom:50%;
+    left:50%;
+    margin-left: -150px;
+    margin-bottom:-20px;
+    text-align:center;
+    opacity:1;
+    color:#000000;
+    border:1px solid #FFFFFF;
+}
+.customAlert .ok {
+    display:block;
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:25px;
+    line-height: 25px;
+    background-color: #0a2d5f;
+    color:#ffffff;
+    padding:0px;
+    border-radius: 0 0 10px 10px;
+    font-weight:bold;
+    cursor:url('../Img/cursor2.png'), auto ;
+    font-family:'Cabin',Verdana,sans-serif;
+    font-size:12pt;
 }

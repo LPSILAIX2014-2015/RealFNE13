@@ -3,8 +3,8 @@
 	if ( !empty($_GET['id'])) {
 		$id = $_REQUEST['id'];
 	}
-	var_dump($_SERVER['REQUEST_METHOD']);
     if ( $_SERVER['REQUEST_METHOD'] === 'POST') {
+    //if ( isset($_POST['NAME'])) {
         $name = $_POST['NAME'];
         $surname = $_POST['SURNAME'];
         $email = $_POST['MAIL'];
@@ -16,7 +16,7 @@
         $sql = "UPDATE user SET NAME = ?, SURNAME= ?, CP = ?, MAIL = ?, PROFESSION = ? WHERE ID = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($name, $surname, $cp, $email, $profession, $user_id));
-		header("Location: ./index.php?EX=manageMembers");
+		//header("Location: ./index.php?EX=manageMembers");
     }
 
     // insert data

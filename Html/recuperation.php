@@ -10,7 +10,7 @@
     <div class="form-group" align="center">
     	<label for="pass1" class="control-label">Nouveau mot de passe</label>
         <div class="controls">
-            <input type="password" id="pass1" name="pass2" class="form-control" placeholder="Nouveau mot de passe" maxlength="30">
+            <input type="password" id="pass1" name="pass1" class="form-control" placeholder="Nouveau mot de passe" maxlength="30">
         </div>
     </div>
     <div class="form-group" align="center">
@@ -28,5 +28,6 @@
     </div>
     <input type="submit" name="btnConf" class="btn btn-default center-block">
 </form>
-<div id="result"></div><!-- id="error" -->
+
+<!-- <div id="result"></div>id="error"
 <div id="res"></div><!-- id="error" -->

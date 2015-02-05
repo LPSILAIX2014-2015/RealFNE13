@@ -1,4 +1,5 @@
-<?php 
+
+<?php
 /**
  * @author <Cesar Hernandez>
  */
@@ -20,7 +21,7 @@ private $mail;
 	 * @param  [String] $_data [la nouveaux mot de passe]
 	 * @return [type]        [resultat du mise à jour]
 	 */
-	public function updateMotPasse($_data){
+	public function updatePassword($_data){
 		$encrypt = md5($_data['pass1']);
 		$query = "UPDATE USER set password = '$encrypt' where MAIL = '$this->mail'";
 
@@ -29,6 +30,17 @@ private $mail;
 		return $result->execute();
 
  	} // updateMotPasse($_data)
+
+ 	public function updatePassLog($_data, $id){
+		$encrypt = md5($_data['new_pass']);
+		$query = "UPDATE USER set PASSWORD = '$encrypt' where ID = '$id'";
+
+		$result = $this->conn->prepare($query);
+
+		return $result->execute();
+
+ 	} // updateMotPasse($_data)
+
  	/**
  	 * [updateReset creation du lien temporaire]
  	 * @param  [String] $strEnc [chaine aleatoire]
@@ -86,6 +98,8 @@ private $mail;
  * [sendMail Envoi du mail de changement demot passe ]
  * Rappelez que cette partie se changera pour le lien correcte '<a>...</a>'
  */
+
+//TODO: Changer adresse envoi mail
   	public function sendMail(){
   		$to = $this->mail;
   		$subject = "Changement de mot de passe";
@@ -98,7 +112,7 @@ private $mail;
 					<body>
 						<h1 style='color: blue;'>Felicitations vous avez changé votre mot de passe</h1>
 						Pour acceder a votre compte faire click sur le suivant lien:
-						<a href='http://pruebasxd.esy.es/RealFNE13-master/index.php?EX=login'>Acceder à mon compte</a>
+						<a href='http://pruebasxd.esy.es/index.php?EX=login'>Acceder à mon compte</a>
 						<p style='font-size: 10pt;'>Si vous n'avez pas solicité le changement s'il vous plaît parlez avec l'administrateur.</p>
 					</body>
 					</html>";
@@ -128,7 +142,7 @@ private $mail;
 						<h5>".date('l jS \of F Y')."</h5>
 						<h1 style='color: blue;'>Vous avez reçu cet email pour commencer le  changement de votre mot de passe</h1>
 						Pour faire le changement faire click sur le suivant lien:
-						<a href='http://pruebasxd.esy.es/RealFNE13-master/index.php?EX=$ranStr' style='text-decoration: none;'>Changer mon mot de passe</a>
+						<a href='http://pruebasxd.esy.es/index.php?EX=$ranStr' style='text-decoration: none;'>Changer mon mot de passe</a>
 						<p style='font-size: 10pt;'>Si vous n'avez pas solicité le changement s'il vous plaît parlez avec l'administrateur.</p>
 					</body>
 					</html>";
@@ -155,5 +169,15 @@ private $mail;
  		return $result->fetchAll(PDO::FETCH_ASSOC);
 
  	} // selectMD5($val)
+
+ 	public function selectPassword($val){
+		$query = "SELECT PASSWORD FROM USER where ID='$val'";
+
+		$result = $this->conn->prepare($query);
+
+ 		$result->execute();
+ 		return $result->fetch(PDO::FETCH_ASSOC);
+
+ 	} // selectPassword($val)
 }
 ?>

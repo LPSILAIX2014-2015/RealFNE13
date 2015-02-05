@@ -1,6 +1,7 @@
 <?php
-
-    if ($_SESSION["ROLE"] == "SADMIN") {
+    $user= $GLOBALS['user'];
+    if ((isset($user)) && ($user->getRole() == "SADMIN")) {
+        echo $user->getRole();
     $db = new MDBase();
     $stat = new PDOStatement();
     $stat = $db->prepare("SELECT * FROM REPORT");
@@ -27,13 +28,7 @@
         ?>
     </table>
 </div>
-<script type="text/javascript">
-    $('#form_radio input[type=radio]').change(function(){
-        vall = $(this).val();
-        $(".ALL").hide();
-        $("."+vall).show(250);
-    })
-</script>
-<?php } else { echo var_dump($_SESSION); ?>
+<script type="text/javascript" src="Js/reportList.js"></script>
+<?php } else {  ?>
 <div>Vous n'avez pas les droits nécesaires pour accéder à cette page !</div>
 <?php }?>

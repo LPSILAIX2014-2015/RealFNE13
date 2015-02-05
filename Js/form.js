@@ -48,14 +48,35 @@ function closeDivError()
 } // closeDivError()
 
 function insertE () {
+    showMassageError('Le code ne coïncide pas avec l`image !!');
+    document.getElementById('iCaptcha').focus();
     $(document).ready(function(){
         $('#iCaptcha').addClass('norequired');
         $('#iCaptcha').val('');
         $('#iCaptcha').attr('aria-invalid','true');
         $('#iCaptcha-error').remove();
     });
-    showMassageError('Le code ne coïncide pas avec l`image !!');
+}
+function insertCH () {
+    
+    document.getElementById("chP").innerHTML='Le code ne coïncide pas avec l`image !!';
     document.getElementById('iCaptcha').focus();
+    $(document).ready(function(){
+        $('#iCaptcha').addClass('norequired');
+        $('#iCaptcha').val('');
+        $('#iCaptcha').attr('aria-invalid','true');
+        $('#iCaptcha-error').remove();
+    });
+}
+function errorCH () {
+    document.getElementById("chP").innerHTML='Le mot de passe ingresé ne correspond pas a votre profile!!';
+    document.getElementById('act_pass').focus();
+    $(document).ready(function(){
+        $('#act_pass').addClass('norequired');
+        $('#act_pass').val('');
+        $('#act_pass').attr('aria-invalid','true');
+        $('#act_pass-error').remove();
+    });
 }
 
 function mailErr(){
@@ -64,10 +85,10 @@ function mailErr(){
         $('#mailR').attr('aria-invalid','true');
         $('#mailR-error').remove();
     });
-    showMassageError('Le mail n`existe pas !!!');
+    showMassageError('Il n\'y a pas un account liée à cette mail !!!');
     document.getElementById('mailR').focus();
 }
 function mailMod(){
-    showMassageError('Le mail n`existe pas !!!');
+    showMassageError('Il n\'y a pas un account liée à cette mail!!!');
     document.getElementById('mail').focus();
 }

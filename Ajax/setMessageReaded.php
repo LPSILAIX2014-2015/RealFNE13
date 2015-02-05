@@ -1,4 +1,5 @@
 <?php
+	require_once('../Model/MDBase.mod.php');
 	$database = new MDBase();
 
 	$state = $database->prepare("UPDATE MESSAGES SET ISREADED = 1 WHERE ID = :id");

@@ -14,8 +14,8 @@
         private $name;
 
         function __construct ($id) {
-            $sql = new MDBase();
-            $state = $sql->prepare("SELECT * FROM THEME WHERE ID = :id;");
+            $this->sql = new MDBase();
+            $state = $this->sql->prepare("SELECT * FROM THEME WHERE ID = :id;");
             $state->bindValue('id', $id, PDO::PARAM_INT);
             $state->execute();
             $theme = $state->fetch(PDO::FETCH_ASSOC);
@@ -24,35 +24,14 @@
             $this->name = $theme['NAME'];
         }
 
-        /**
-         * @param mixed $id
-         */
-        public function setId($id)
-        {
-            $this->id = $id;
-        }
+        // Getters
+        public function getId() { return $this->id; }
+        public function getName() { return $this->name; }
 
-        /**
-         * @return mixed
-         */
-        public function getId()
-        {
-            return $this->id;
-        }
-
-        /**
-         * @param mixed $name
-         */
+        // Setters
         public function setName($name)
         {
             $this->name = $name;
-        }
-
-        /**
-         * @return mixed
-         */
-        public function getName()
-        {
-            return $this->name;
+            $this->sql->exec('UPDATE THEME SET NAME = \''.$name.'\' WHERE ID = '.$this->id.' ;');
         }
     }

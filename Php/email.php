@@ -26,7 +26,7 @@
                 foreach ($emails as $mail) {
                     $sql1 = "SELECT * FROM user WHERE MAIL LIKE '". $mail . "'";
                     foreach ($pdo->query($sql1) as $row1) {
-                        $sender = MDBase::getUserByEmail($_POST['sender']);
+                        $sender = DBase::getUserByEmail($_POST['sender']);
                         $sender_id = 1;
                         if(!empty($sender)) {
                             $sender_id = $sender['USER_ID'];
