@@ -41,7 +41,7 @@ class VConsultMessages
         if($data_messages[$i]['ISARCHIVE'] == "0")
         {
             $content_messages .= '<tr id="message'.$data_messages[$i]['ID'].'" '; 
-            if($data_messages[$i]['ISREADED'] == "0")
+            if($data_messages[$i]['ISREAD'] == "0")
             {
                 $content_messages .= ' class="notReaded" ';
             }
@@ -49,7 +49,7 @@ class VConsultMessages
 
 
             $content_messages .= '<td class="currentTdMessage">'; 
-            if($data_messages[$i]['ISREADED'] == "0")
+            if($data_messages[$i]['ISREAD'] == "0")
             {
                 $content_messages .= '<span class="label label-danger">Non-Lu</span>';
             }
@@ -87,7 +87,7 @@ class VConsultMessages
         if($data_messages[$i]['ISARCHIVE'] == "1")
         {
             $content_messages_archive .= '<tr id="message'.$data_messages[$i]['ID'].'" '; 
-            if($data_messages[$i]['ISREADED'] == "0")
+            if($data_messages[$i]['ISREAD'] == "0")
             {
                 $content_messages_archive .= ' class="notReaded" ';
             }
@@ -95,7 +95,7 @@ class VConsultMessages
             
 
             $content_messages_archive .= '<td class="currentTdMessage">'; 
-            if($data_messages[$i]['ISREADED'] == "0")
+            if($data_messages[$i]['ISREAD'] == "0")
             {
                 $content_messages_archive .= '<span class="label label-danger">Non-Lu</span>';
             }
