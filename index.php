@@ -48,11 +48,11 @@ switch($EX)
     case 'createAsso' : createAsso(); break;
     case 'createAdmin' : createAdmin(); break;
     case 'creationAdmin' : creationAdmin(); break;
-    case 'searchAsso'  : searchAsso();      break;
     case 'manageAsso': manageAsso(); break;
     case 'deleteAsso'  : deleteAsso();      break;
     case 'profil'    : profil(); break; // Affichage du profil
     case 'legal' : legal(); break;
+    case 'updateMail' : updateMail(); break;
     default : check($EX);
 }
 
@@ -387,15 +387,6 @@ function writeMessages()
 // (new MUser($idPrev))->setRole('MEMBRE');
 //(new MUser($idNext))->setRole('ADMIN');
 
-    function searchAsso()
-    {
-        global $page;
-        $page['title'] = 'Recherche d\'association';
-        $page['class'] = 'VHtml';
-        $page['method'] = 'showHtml';
-        $page['css'] = 'Css/search.css';
-        $page['arg'] = 'Html/searchAsso.php';
-    }
 
     function manageAsso()
     {
@@ -458,4 +449,14 @@ function endMessages()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/finEnvoi.html';
 }
+
+function updateMail()
+{
+    global $page;
+    $page['title'] = 'Creation de profil';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/update-mail.php';
+}
+
 ?>

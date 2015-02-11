@@ -2,7 +2,7 @@
     
 	$pdo = new MDBase();
 	if ( !empty($_POST)) {
-        $user= new Muser($_SESSION['ID_USER']);
+        $user= new MUser($_SESSION['ID_USER']);
         $assoc= $user->getAssociation();
         echo $assoc;
         $error = null;

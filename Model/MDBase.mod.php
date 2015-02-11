@@ -24,7 +24,7 @@ class MDBase extends PDO {
     private static $dbName = 'FNESITE' ;
     private static $dbHost = 'localhost' ;
     private static $dbUsername = 'root';
-    private static $dbUserPassword = 'mysql';
+    private static $dbUserPassword = '';
     private static $cont  = null;
     */
 
