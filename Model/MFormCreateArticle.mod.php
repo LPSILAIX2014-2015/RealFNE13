@@ -13,7 +13,7 @@ class MFormCreateArticle
 
     public function insertDB($data){
 
-
+        $postDate = date('d/m/Y');
         /**
         
         Controle Image
@@ -72,15 +72,18 @@ class MFormCreateArticle
         //Get all data from inputs in $option
         $options = array(
             "articleTitle"      => FILTER_SANITIZE_SPECIAL_CHARS,
-            "articleTheme"      => FILTER_SANITIZE_SPECIAL_CHARS,
+            "articleTheme"      => FILTER_VALIDATE_INT,
             "eventPlace"        => FILTER_SANITIZE_SPECIAL_CHARS,
             "startDate"         => FILTER_SANITIZE_SPECIAL_CHARS,
             "duration"          => FILTER_VALIDATE_INT,
             "inscription"       => FILTER_SANITIZE_SPECIAL_CHARS,
             "textareaDecrypt"   => FILTER_SANITIZE_SPECIAL_CHARS
-            );
+        );
+
         // Fill data form with $otpion (we can get the data of all input by using $dataForm["nameinput"]
         $dataForm = filter_input_array(INPUT_POST, $options);
+
+
         if(!$dataForm['duration'])
         {
             $dataForm['duration'] = 0;
@@ -89,66 +92,83 @@ class MFormCreateArticle
         {
             $dataForm['inscription'] = 0;
         }
-
-        if(!($dataForm['duration'])) {
-            $dataForm['duration'] = 0;
-        }
-        if(!($dataForm['inscription'])) {
-            $dataForm['inscription'] = 0;
-        }
         
         if($_SESSION['ID_USER'] == null) return;
         if(strlen($dataForm['articleTitle']) == 0) return;
-        if(strlen($dataForm['articleTheme']) == 0) return;
         if(strlen($dataForm['textareaDecrypt']) == 0) return;
 
         $sql->beginTransaction();
         $state = $sql->prepare("INSERT INTO post (
             WRITER_ID,
             TITLE,
-            THEME,
+            THEME_ID,
             PLACE,
+            PTYPE,
             PDATE,
+            DATE_BEGIN,
             DURATION,
             INSCRIPTION,
             CONTENT,
-            IMAGEPATH
+            IMAGEPATH,
+            STATUS
             )
         VALUES (
             :WRITER_ID,
             :TITLE,
-            :THEME,
+            :THEME_ID,
             :PLACE,
+            :PTYPE,
             :PDATE,
+            :DATE_BEGIN,
             :DURATION,
             :INSCRIPTION,
             :CONTENT,
-            :IMAGEPATH
-
+            :IMAGEPATH,
+            :STATUS
             )
         ");
+
         //If the preparation went wrong, we rollBack (request canceled), and we return false 
+        var_dump($state);
         if(!$state) {
             $sql->rollBack();
             return false;
         }
+
+        var_dump($postDate);
         
+        var_dump($_SESSION['ID_USER']);
+
+        var_dump($dataForm['articleTitle']);
+        var_dump($dataForm['articleTheme']);
+        var_dump($dataForm['eventPlace']);
+        var_dump($dataForm['startDate']);
+        var_dump($dataForm['duration']);
+        var_dump($dataForm['inscription']);
+        var_dump($dataForm['textareaDecrypt']);
+
+
+        //Bind datavalue and databases fields. 
         $state->bindValue('WRITER_ID',  $_SESSION['ID_USER'], PDO::PARAM_INT);
         $state->bindValue('TITLE',      $dataForm['articleTitle'], PDO::PARAM_STR);
-        $state->bindValue('THEME',      $dataForm['articleTheme'], PDO::PARAM_STR);
+        $state->bindValue('THEME_ID',   $dataForm['articleTheme'], PDO::PARAM_INT);
         $state->bindValue('PLACE',      $dataForm['eventPlace'], PDO::PARAM_STR);
-        $state->bindValue('PDATE',      $dataForm['startDate'], PDO::PARAM_STR);
+        $state->bindValue('DATE_BEGIN', $dataForm['startDate'], PDO::PARAM_STR);
         $state->bindValue('DURATION',   $dataForm['duration'], PDO::PARAM_INT);
         $state->bindValue('INSCRIPTION',$dataForm['inscription'], PDO::PARAM_INT);
         $state->bindValue('CONTENT',    $dataForm['textareaDecrypt'], PDO::PARAM_STR);
-        $state->bindValue('IMAGEPATH', "/IMG/lol.png", PDO::PARAM_STR);
-        $state->bindValue('STATUS', 0, PDO::PARAM_INT);
+        $state->bindValue('IMAGEPATH', "IMG/lol.png", PDO::PARAM_STR);
+        $state->bindValue('PDATE',      $postDate, PDO::PARAM_STR);
+        $state->bindValue('PTYPE',      "ARTICLE", PDO::PARAM_STR);
+        $state->bindValue('STATUS',     0, PDO::PARAM_INT);
 
+        //Execute SQL request
         $state->execute();
 
         $temp = $sql->lastInsertId();
 
         $sql->commit();
+
         var_dump($temp);
         return $temp;
     }
