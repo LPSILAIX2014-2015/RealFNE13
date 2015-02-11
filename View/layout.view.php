@@ -12,7 +12,6 @@ $vHtml = new VHtml();
     <meta charset="utf-8" />
     <title><?= $page['title']; ?></title>
     <link rel="stylesheet" href="./Css/main.css">
-
     <?php
     // Ajout feuille de style spécifique à cette page
     if (isset($page['css'])) {
@@ -34,6 +33,7 @@ $vHtml = new VHtml();
     <div class="bandeau">
         <a href="index.php?EX=home"><div class="logo">Accueil</div>
         <span class="sitetitle">La plate-forme<span class="subtitle">France Nature Environnement Bouches-du-Rhône</span>
+            </span>
         </a>
 
     </div>

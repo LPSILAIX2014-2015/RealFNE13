@@ -7,7 +7,7 @@ session_start();
 define('modeDebug',true);
 define('LOGINFAIL_EXPIRE',600);
 define('LOGINFAIL_ATTEMPTS',5);
-define('LOGINFAIL_WARNING',5);
+define('LOGINFAIL_WARNING',3);
 if (modeDebug) {
     error_reporting(E_ALL);
 }

@@ -25,10 +25,18 @@ class VConsultMessages
     $data_theme = $mMod->getAllThemes();
     $data_category = $mMod->getAllCategories();
 
+    $mNotif = new MNotification();
+    $data_notif = $mNotif->getNotificationByIdUser($idUser);
+        
 
 
-$vhtml = new VHtml();
-$vhtml->showHtml($path);
+    global $content_notif;
+    $content_notif = $mNotif->displayNotification($data_notif);
+
+
+
+    $vhtml = new VHtml();
+    $vhtml->showHtml($path);
 
   } // showConsultMessages($_html)
   

@@ -15,3 +15,44 @@
 {
     font-weight: bold;
 }
+#form_radio fieldset {
+    border:1px solid #0c5091;
+    border-radius: 5px;
+    margin:3px;
+    padding:3px;
+    text-align:center;
+}
+#form_radio fieldset legend {
+    display:block;
+    position:relative;
+    margin:0 0 10px 0;
+    padding:1px 15px 4px 15px;
+    left:5px;
+    height:20px;
+    text-align:center;
+    background-color:#a3cfea;
+    color:#0a2d5f;
+    border-radius: 10px;
+    border:1px solid #0c5091;
+    box-shadow: 2px 2px 2px #000000;
+    font-family:'Quicksand',Verdana,sans-serif;
+    font-size:12pt;
+    font-weight:bold;
+}
+.reportid {
+    display:none;
+}
+.reportdate {
+    border-radius:5px;
+    border:1px solid #0c5091;
+    margin:0 10px 0 0;
+    padding:2px 10px 2px 10px;
+    font-size:9pt;
+}
+.reportcontent {
+    font-size:11pt;
+}
+.ALL {
+    margin:0 0 5px 0;
+    border-bottom: 1px dashed #0c5091;
+}

@@ -8,7 +8,6 @@ class MFormCreateArticle
         $state->execute();
         $report = $state->fetch(PDO::FETCH_ASSOC);
     }
-
     public function __destruct(){}
 
     public function insertDB($data){

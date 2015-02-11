@@ -44,7 +44,6 @@
                                         <div class="isa_error">Utilisateur existe!</div>
                                         <?php } ?>
 		    		</div>
-
 	    			<form class="form-horizontal" action="index.php?EX=createUser" method="post">
 						<div class="control-group">
 				            <label class="control-label">Nom de famille</label>
@@ -78,17 +77,17 @@
 					      	<input name="MAIL" id="mail" type="text"  placeholder="EMAIL" value="">
 					      	
 					    </div>
-					    <div class="control-group">
+					    <!-- <div class="control-group">
 				            <label class="control-label">Association</label>
 				            </br>
 				            <select class="controls" name="ASSOCIATION" type="text">
 				                    <?php 
-				                        foreach ($assocs as $key => $asso) {
-				                            echo('<option value ='.$asso['ID'].'>'.$asso['NAME'].'</option>');
-				                        }
+				                        //foreach ($assocs as $key => $asso) {
+				                            //echo('<option value ='.$asso['ID'].'>'.$asso['NAME'].'</option>');
+				                        //}
 				                    ?>
 				            </select>
-				        </div>
+				        </div> -->
 				        
 				        <div class="form-actions">
 				        	</br></br>
