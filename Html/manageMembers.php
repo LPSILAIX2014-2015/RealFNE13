@@ -217,7 +217,7 @@
                     $conditions[] = "PROFESSION = '". $_POST['PROFESSION']. "'";
                     $params[] = $_POST['PROFESSION'];
                 }
-                if($assoc) {
+                if(isset($assoc)) {
                     $conditions[] = "ASSOCIATION_ID = '". $assoc. "'";
                     $params[] = $assoc;
                 }
