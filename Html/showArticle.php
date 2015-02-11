@@ -22,7 +22,7 @@
                     . ", le ". $data_article[$i]['PDATE']
                     . "</p>";
             echo "<p class='description'>"
-                    . nl2br($data_article[$i]['DESCRIPTION'])
+                    . $data_article[$i]['DESCRIPTION']
                     . "</p>";
           echo "</div>";
         echo "</div>";

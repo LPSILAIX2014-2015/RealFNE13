@@ -9,5 +9,5 @@
  		echo '<img src="' . $article[$index]['IMAGEPATH'] . '" class="img-responsive" />';
  	}
 
- 	echo '<p>' . nl2br($article[$index]['CONTENT']) . '</p>';
+ 	echo '<p>' . $article[$index]['CONTENT'] . '</p>';
 ?>
