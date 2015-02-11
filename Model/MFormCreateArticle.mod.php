@@ -133,6 +133,7 @@ class MFormCreateArticle
         $state->bindValue('INSCRIPTION',$dataForm['inscription'], PDO::PARAM_INT);
         $state->bindValue('CONTENT',    $dataForm['textareaDecrypt'], PDO::PARAM_STR);
         $state->bindValue('IMAGEPATH', "/IMG/lol.png", PDO::PARAM_STR);
+        $state->bindValue('STATUS', 0, PDO::PARAM_INT);
 
         $state->execute();
 
