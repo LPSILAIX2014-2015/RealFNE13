@@ -232,9 +232,9 @@
                 $where = " WHERE ".implode($conditions,' AND ');
                 $surnom = $_POST['SURNAME'];
                 if(count($conditions) > 0) {
-                    $sql = 'SELECT * FROM user'. $where;
+                    $sql = 'SELECT * FROM USER'. $where;
                 }else {
-                    $sql = 'SELECT * FROM user order by NAME ASC';
+                    $sql = 'SELECT * FROM USER order by NAME ASC';
                 }
                 foreach ($pdo->query($sql) as $row) {
                     $img = null;
@@ -282,10 +282,10 @@
                 }
             }else {
                 if(isset($assoc)){
-                    $sql = 'SELECT * FROM user WHERE ASSOCIATION_ID = '.$assoc.' Order by Name ASC';
+                    $sql = 'SELECT * FROM USER WHERE ASSOCIATION_ID = '.$assoc.' Order by Name ASC';
                 }
                 else
-                    $sql = 'SELECT * FROM user order by NAME ASC';
+                    $sql = 'SELECT * FROM USER order by NAME ASC';
                 if(count($sql) > 0) {
                     foreach ($pdo->query($sql) as $row) {
                         $img = null;
