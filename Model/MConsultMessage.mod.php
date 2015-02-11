@@ -42,10 +42,10 @@ class MConsultMessage {
         {
             if($data_messages[$i]['ISARCHIVE'] == "0")
             {
-                $content_messages .= '<tr  class="lineMessage '; 
+                $content_messages .= '<tr  class="lineMessage'; 
                 if($data_messages[$i]['ISREAD'] == "0")
                 {
-                    $content_messages .= ' notReaded ';
+                    $content_messages .= ' notReaded';
                 }
                 $content_messages .= '" data-categ="'.$data_messages[$i]["CAT_ID"].'" data-theme="'.$data_messages[$i]["THEME_ID"].'" id="message'.$data_messages[$i]['ID'].'" '; 
                 $content_messages .= '>';
@@ -81,7 +81,7 @@ public function displayMessagesArchive($data_messages) {
     {
         if($data_messages[$i]['ISARCHIVE'] == "1")
         {
-            $content_messages_archive .= '<tr  class="lineMessage '; 
+            $content_messages_archive .= '<tr  class="lineMessage'; 
             if($data_messages[$i]['ISREAD'] == "0")
             {
                 $content_messages_archive .= ' notReaded ';
