@@ -89,11 +89,13 @@ button, input[type="submit"] {
     border:1px solid #ffffff;
     background-color:#0a2d5f;
     border-radius:5px;
-    padding:1px 4px 1px 4px;
+    padding:2px 4px 2px 4px;
     font-weight:bold;
     transition:ease 0.5s;
     cursor:url('../Img/cursor2.png'), auto ;
     font-family:'Cabin',Verdana,sans-serif;
+    font-size:11pt;
+    box-shadow:inset -2px -2px 1px #0a2d5f, inset 2px 2px 1px rgba(255,255,255,0.5);
 }
 button:hover, input[type="submit"]:hover {
     color:#0a2d5f;

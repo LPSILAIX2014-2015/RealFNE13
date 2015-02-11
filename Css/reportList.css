@@ -21,6 +21,7 @@
     margin:3px;
     padding:3px;
     text-align:center;
+    position:relative;
 }
 #form_radio fieldset legend {
     display:block;
@@ -39,6 +40,40 @@
     font-size:12pt;
     font-weight:bold;
 }
+/*
+* Radio custom
+*/
+    #form_radio input[type="radio"]:not(:checked),
+    #form_radio input[type="radio"]:checked {
+        display: none;
+    }
+    #form_radio input[type="radio"]:not(:checked) + label,
+    #form_radio input[type="radio"]:checked + label {
+        display:inline-block;
+        border-radius:5px;
+        position: relative;
+        cursor:url('../Img/cursor6.png'), auto;
+        margin:0 2px 0 2px;
+        padding:2px 10px 2px 10px;
+        font-weight:bold;
+        font-size:11pt;
+        transition:ease 0.5s;
+    }
+    /* Aspect si "pas cochée" */
+    input[type="radio"]:not(:checked) + label {
+        background-color:#a3cfea;
+        color:#0a2d5f;
+        border:1px solid #0a2d5f;
+        box-shadow:inset -2px -2px 1px #0a2d5f, inset 2px 2px 1px rgba(255,255,255,0.5);
+    }
+    /* Aspect si "cochée" */
+    input[type="radio"]:checked + label {
+        background-color: #0a2d5f;
+        color:#ffffff;
+        border: 1px solid #4bc9e2;
+        box-shadow:inset -2px -2px 1px #0c5091, inset 2px 2px 1px #000000;
+    }
+/* */
 .reportid {
     display:none;
 }
