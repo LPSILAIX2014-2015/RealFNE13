@@ -34,7 +34,9 @@ switch($EX)
             deconnexion();
         }
         break;
+    case 'writeMessages' : writeMessages(); break;
     case 'consultMessages' : consultMessages(); break;
+    case 'endMessages' : endMessages(); break;
     case 'createArticle':   createArticle(); break;
     case 'calendar'     :   calendar();break;
     case 'showArticle'		: showArticle(); 	 break;
@@ -81,6 +83,7 @@ function home()
     $page['class'] = 'VHome';
     $page['method'] = 'showHome';
     $page['arg'] = 'Html/accueil.php';
+    $page['css'] = 'Css/accueil.css';
 }
 
 function error()
@@ -277,14 +280,14 @@ function consultMessages()
     $page['arg'] = 'Html/consultMessages.php';
 }
 
-    function writeMessages()
-    {
-        global $page;
-        $page['title'] = "Ecriture d'un message";
-        $page['class'] = 'VHtml';
-        $page['method'] = 'showHtml';
-        $page['arg'] = 'Html/formulaireMessage.html';
-    }
+function writeMessages()
+{
+    global $page;
+    $page['title'] = "Ecriture d'un message";
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/formulaireMessage.php';
+}
     
     function updateAsso()
     {
@@ -438,5 +441,14 @@ function calendar()
     $page['method'] = 'showCalendar';
     $page['arg'] = 'Html/calendar.php';
 
+}
+
+function endMessages()
+{
+    global $page;
+    $page['title'] = 'Message transmis';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/finEnvoi.html';
 }
 ?>

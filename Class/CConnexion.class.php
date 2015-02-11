@@ -30,7 +30,7 @@ class CConnexion {
                 $customAlert[] = 'Erreur d\'authentification' ;
                 $fail->addAttempt();
 
-                if ($fail->getAttempts() == LOGINFAIL_WARNING) {
+                if (($fail->getAttempts() == LOGINFAIL_WARNING) && (LOGINFAIL_WARNING != 0)) {
                     $user = new MUser($result['ID']) ;
                     $msg = $user->getSurname().' '.$user->getName().' a échoué '.LOGINFAIL_WARNING.' fois à se connecter (IP : '.$_SERVER["REMOTE_ADDR"].').' ;
                     $query = 'INSERT INTO REPORT VALUES (NULL, CURDATE(), "ALERTE", "'.$msg.'");' ;

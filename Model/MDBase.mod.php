@@ -3,12 +3,22 @@ class MDBase extends PDO {
 
 
     private static $engine = 'mysql';
+
+    // OVH
+    private static $dbName = 'laplateftifne13' ;
+    private static $dbHost = 'laplateftifne13.mysql.db' ;
+    private static $dbUsername = 'laplateftifne13';
+    private static $dbUserPassword = 'natureC13';
+    private static $cont  = null;
+
+    /*
+    // LOCAL
     private static $dbName = 'FNESITE' ;
     private static $dbHost = 'localhost' ;
     private static $dbUsername = 'root';
     private static $dbUserPassword = '';
     private static $cont  = null;
-
+*/
     public function __construct(){
         $dns = self::$engine.':dbname='.self::$dbName.";host=".self::$dbHost;
         parent::__construct( $dns, self::$dbUsername, self::$dbUserPassword );
@@ -115,18 +125,18 @@ class MDBase extends PDO {
         $query = "SELECT * FROM THEME";
         $qq = $pdo->prepare($query);
         $qq->execute();
-        $data = $qq->fetchall(PDO::FETCH_ASSOC);
+        $data = $qq->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
 
-    public static function getUserByEmail($mail)
+    public static function getAllCategories()
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = "SELECT * FROM User WHERE Mail = ?";
+        $query = "SELECT * FROM MESCAT";
         $qq = $pdo->prepare($query);
-        $qq->execute(array($mail));
-        $data = $qq->fetchall();
+        $qq->execute();
+        $data = $qq->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
 }

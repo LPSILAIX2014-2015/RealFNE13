@@ -31,25 +31,46 @@ $vHtml = new VHtml();
 </head>
 <body>
     <div class="bandeau">
-        <a href="index.php?EX=home"><div class="logo">Accueil</div></a>
+        <a href="index.php?EX=home"><div class="logo">Accueil</div>
+        <span class="sitetitle">La plate-forme<span class="subtitle">France Nature Environnement Bouches-du-Rhône</span>
+        </a>
+
+    </div>
     <?php
-    if(!isset($user)) {
-        $vHtml->showHtml('Html/loginForm.php');
-    }
-    else
-    {
-        $vHtml->showHtml('Html/userInfo.php');
+    /*
+     * Affichage des icones de messages et notifications et du bouton Deconnexion si l'utilisateur est identifié
+     */
+    if(isset($user)) {
+        $vHtml->showHtml('Html/usertopmenu.php');
     }
     ?>
-    </div>
     <nav>
         <?php $vnav->showNav() ?>
     </nav>
     <div class="page">
         <?php $vpage->$page['method']($page['arg']) ?>
     </div>
+    <div class="leftcol">
+        <?PHP
+        $vHtml->showHtml('Html/recentarticles.php');
+
+        $vHtml->showHtml('Html/linksnewsletters.php');
+        ?>
+    </div>
+    <div class="rightcol">
+        <?php
+        if(!isset($user)) {
+            $vHtml->showHtml('Html/loginForm.php');
+        }
+        else
+        {
+            $vHtml->showHtml('Html/userInfo.php');
+        }
+        $vHtml->showHtml('Html/nextevents.php');
+        ?>
+    </div>
     <div class="footer">
-    	<a href="index.php?EX=legal">Site r&eacute;alis&eacute; par la LP SIL DA2I 20014- IUT d'Aix-en-Provence, pour le compte de la FNE13</a>
+    	<a href="index.php?EX=legal">Informations légales</a>
     </div>
 <?PHP
 /*
@@ -65,7 +86,6 @@ if (isset($customAlert)) {
     echo '</script>';
     echo '<script src="Js/customAlert.js"></script>' ;
 }
-/**/
 ?>
     <script src="Js/createArticle.js"></script>
     <div id="result"></div><!-- id="error"-->

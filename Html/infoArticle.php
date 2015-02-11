@@ -10,4 +10,5 @@
  	}
 
  	echo '<p>' . $article[$index]['CONTENT'] . '</p>';
+
 ?>

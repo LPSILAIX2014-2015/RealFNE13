@@ -5,22 +5,35 @@ $(document).ready(function() {
     /////////////////////////////////////////
 
     $(function(){
-        $("#buttonCreateArticle").on('click',function(){
-            $("#buttonCreationArticle").prop('hidden', true);
-            $("#contentCreateArticle").prop('hidden', false);
+        $(".buttonCreate").on('click',function(){
+            $("#errorMsg").prop('hidden', true);
+            if ($("#verfiUser").val() == ''){
+                $("#errorMsg").empty();
+                $("#errorMsg").append('<p>Vous devez être connecté pour écrire un article !</p>');
+                $("#errorMsg").prop('hidden', false);
+            }
+            else{
+
+                $("#resetForm").trigger( "click" );
+                $("#buttonCreationArticle").prop('hidden', true);
+                $("#contentCreateArticle").prop('hidden', false);
+            }
         });
     });
 
     $(function(){
         $("#buttonCreateArticleInCalendar").on('click',function(){
-            $("#buttonCreationArticle").prop('hidden', true);
-            $("#contentCreateArticle").prop('hidden', false);
             $(".inputOnlyCalendar").prop('hidden', false);
         });
     });
 
 
 });
+
+var cancelCreactArticle = function(){
+    $("#resetForm").trigger( "click" );
+    location.reload();
+}
 
 /////////////////////////////////////////
 /// Formattage du texte de l'article ////
@@ -44,7 +57,9 @@ var insertTag = function(startTag, endTag, tagType){
 
     if (tagType) {              //On laisse en switch/case au cas où on ajouterait des operations
         switch (tagType) {
+
             case "lien":
+
                 endTag = "</lien>";
                 if (currentSelection) { // Il y a une sélection
                     if (currentSelection.indexOf("http://") == 0 || currentSelection.indexOf("https://") == 0 || currentSelection.indexOf("ftp://") == 0 || currentSelection.indexOf("www.") == 0) {
@@ -64,6 +79,21 @@ var insertTag = function(startTag, endTag, tagType){
                     currentSelection = label;
                 }
                 break;
+
+            case "cite":
+
+                endTag = "</cite>";
+                var auteur = prompt("Qui est l'auteur de la citation ? (ne mettez rien s'il n'y en a pas)") || "";
+                var citation = prompt("Quelle est la citation ?") || "";
+                if (auteur == '') {
+                    startTag = "<cite>";
+                } else {
+                    startTag = "<cite nom=\"" + auteur + "\">";
+                }
+
+                currentSelection = citation;
+
+            break;
         }
     }
 
@@ -85,14 +115,21 @@ var preview = function() {
     $("#textareaDecrypt").empty();
     var field = $("#textareaId").val();
 
-    field = field.replace(/\n/g,"<br>");            //... On remplace le sauts de ligne par de balises </br>
+    field = field.replace(/\n/g,"<br>");                        //... On remplace le sauts de ligne par de balises </br>
 
-    field = field.replace(/<g>/g, '<b>');           //... On remplace les balises g par des balises b.
-    field = field.replace(/<\/g>/g, '</b>');        //On a pas besoin de traiter les balises pour l'italic et les citations,
-                                                    //leurs balises marchent directement en HTML.
+    field = field.replace(/<g>/g, '<b>');                       //On remplace les balises g par des balises <b>.
+    field = field.replace(/<i>/g, '<i class="txtIta">');        //Les balises <u> et <i> ne fonctionnant pas, on utilise des
+    field = field.replace(/<u>/g, '<u class="txtUndln">');      //classes CSS pour formatter le texte.
 
     field = field.replace(/<lien url/g, '<a target="_blank" href');
     field = field.replace(/<\/lien>/g, '</a>');
+
+    field = field.replace(/<cite nom=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<b>$1 :</b><div class="txtIta">"$2"</div>');
+    field = field.replace(/<cite lien=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<b><a href="$1">Citation</a></b><div class="txtIta">"$2"</div>');
+    field = field.replace(/<cite nom=\"(.*?)\" lien=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<b><a href="$2">$1 :</a></b><div class="txtIta">"$3"</div>');
+    field = field.replace(/<cite lien=\"(.*?)\" nom=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<b><a href="$1">$2 :</a></b><div class="txtIta">"$3"</div>');
+    field = field.replace(/<cite>([\s\S]*?)<\/cite>/g, '<div class="txtIta">"$1"</div>');
+    field = field.replace(/<taille valeur=\"(.*?)\">([\s\S]*?)<\/taille>/g, '<span class="$1">$2</span>');
 
     field = field.replace(/<taille valeur/g, '<span class');
     field = field.replace(/<\/taille>/g, '</span>');
@@ -102,13 +139,6 @@ var preview = function() {
     field = field.replace(/<aligne valeur="centrer/g, '<p align="center');
     field = field.replace(/(<\/aligne>\n|<\/aligne>)/g, '</p>');
 
-    field = field.replace(/&lt;citation nom=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation">Citation : $1</span><div class="citation2">$2</div>');
-    field = field.replace(/&lt;citation lien=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation"><a href="$1">Citation</a></span><div class="citation2">$2</div>');
-    field = field.replace(/&lt;citation nom=\"(.*?)\" lien=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation"><a href="$2">Citation : $1</a></span><div class="citation2">$3</div>');
-    field = field.replace(/&lt;citation lien=\"(.*?)\" nom=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation"><a href="$1">Citation : $2</a></span><div class="citation2">$3</div>');
-    field = field.replace(/&lt;citation&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation">Citation</span><div class="citation2">$1</div>');
-    field = field.replace(/&lt;taille valeur=\"(.*?)\"&gt;([\s\S]*?)&lt;\/taille&gt;/g, '<span class="$1">$2</span>');
-
     $("#previewDiv").append("<p>"+ field +"</p>");
     $("#textareaDecrypt").prop('value', "<p>"+ field +"</p>");
 
@@ -116,21 +146,44 @@ var preview = function() {
 
 /*
 
- [a-z0-9._-]+
+    [a-z0-9._-]+
 
-//Envoi au serveur
-field = field.replace(/&/g, '&amp;');
-field = field.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-field = field.replace(/\n/g, '<br />').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+    //Envoi au serveur
+    field = field.replace(/&/g, '&amp;');
+    field = field.replace(/</g, '<').replace(/>/g, '>');
+    field = field.replace(/\n/g, '<br />').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
 
-field = field.replace(/&lt;gras&gt;([\s\S]*?)&lt;\/gras&gt;/g, '<b>$1</b>');
-field = field.replace(/&lt;italique&gt;([\s\S]*?)&lt;\/italique&gt;/g, '<i>$1</i>');
-field = field.replace(/&lt;lien&gt;([\s\S]*?)&lt;\/lien&gt;/g, '<a href="$1">$1</a>');
-field = field.replace(/&lt;lien url="([\s\S]*?)"&gt;([\s\S]*?)&lt;\/lien&gt;/g, '<a href="$1" title="$2">$2</a>');
-field = field.replace(/&lt;citation nom=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation">Citation : $1</span><div class="citation2">$2</div>');
-field = field.replace(/&lt;citation lien=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation"><a href="$1">Citation</a></span><div class="citation2">$2</div>');
-field = field.replace(/&lt;citation nom=\"(.*?)\" lien=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation"><a href="$2">Citation : $1</a></span><div class="citation2">$3</div>');
-field = field.replace(/&lt;citation lien=\"(.*?)\" nom=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation"><a href="$1">Citation : $2</a></span><div class="citation2">$3</div>');
-field = field.replace(/&lt;citation&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation">Citation</span><div class="citation2">$1</div>');
-field = field.replace(/&lt;taille valeur=\"(.*?)\"&gt;([\s\S]*?)&lt;\/taille&gt;/g, '<span class="$1">$2</span>');
+    field = field.replace(/<gras>([\s\S]*?)<\/gras>/g, '<b>$1</b>');
+    field = field.replace(/<italique>([\s\S]*?)<\/italique>/g, '<i>$1</i>');
+    field = field.replace(/<lien>([\s\S]*?)<\/lien>/g, '<a href="$1">$1</a>');
+    field = field.replace(/<lien url="([\s\S]*?)">([\s\S]*?)<\/lien>/g, '<a href="$1" title="$2">$2</a>');
+    field = field.replace(/<cite nom=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<br /><span class="cite">Cite : $1</span><div class="txtIta">$2</div>');
+    field = field.replace(/<cite lien=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<br /><span class="cite"><a href="$1">Cite</a></span><div class="txtIta">$2</div>');
+    field = field.replace(/<cite nom=\"(.*?)\" lien=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<br /><span class="cite"><a href="$2">Cite : $1</a></span><div class="txtIta">$3</div>');
+    field = field.replace(/<cite lien=\"(.*?)\" nom=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<br /><span class="cite"><a href="$1">Cite : $2</a></span><div class="txtIta">$3</div>');
+    field = field.replace(/<cite>([\s\S]*?)<\/cite>/g, '<br /><span class="cite">Cite</span><div class="txtIta">$1</div>');
+    field = field.replace(/<taille valeur=\"(.*?)\">([\s\S]*?)<\/taille>/g, '<span class="$1">$2</span>');
+
+    field = field.replace(/&/g, '&amp;');
+
+    field = field.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    field = field.replace(/\n/g, '<br />').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+
+    
+
+    field = field.replace(/&lt;gras&gt;([\s\S]*?)&lt;\/gras&gt;/g, '<strong>$1</strong>');
+    field = field.replace(/&lt;italique&gt;([\s\S]*?)&lt;\/italique&gt;/g, '<em>$1</em>');
+    
+    field = field.replace(/&lt;lien&gt;([\s\S]*?)&lt;\/lien&gt;/g, '<a href="$1">$1</a>');
+    field = field.replace(/&lt;lien url="([\s\S]*?)"&gt;([\s\S]*?)&lt;\/lien&gt;/g, '<a href="$1" title="$2">$2</a>');
+    field = field.replace(/&lt;image&gt;([\s\S]*?)&lt;\/image&gt;/g, '<img src="$1" alt="Image" />');
+    field = field.replace(/&lt;citation nom=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation">Citation : $1</span><div class="citation2">$2</div>');
+    field = field.replace(/&lt;citation lien=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation"><a href="$1">Citation</a></span><div class="citation2">$2</div>');
+    field = field.replace(/&lt;citation nom=\"(.*?)\" lien=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation"><a href="$2">Citation : $1</a></span><div class="citation2">$3</div>');
+    field = field.replace(/&lt;citation lien=\"(.*?)\" nom=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation"><a href="$1">Citation : $2</a></span><div class="citation2">$3</div>');
+    field = field.replace(/&lt;citation&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation">Citation</span><div class="citation2">$1</div>');
+    field = field.replace(/&lt;taille valeur=\"(.*?)\"&gt;([\s\S]*?)&lt;\/taille&gt;/g, '<span class="$1">$2</span>');
+
+    
 */

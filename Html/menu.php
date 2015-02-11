@@ -24,7 +24,7 @@ global $user ;
     <li><a>Messagerie</a>
         <div class="submenu">
             <a href="index.php?EX=consultMessages">Consulter</a>
-            <a>Ecrire</a>
+            <a href="index.php?EX=writeMessages">Ecrire</a>
         </div>
     </li>
     <?PHP

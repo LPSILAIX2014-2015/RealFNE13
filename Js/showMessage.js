@@ -1,4 +1,23 @@
 $(document).ready(function() {
+
+	$('.displayArchive').on('click', function(event) {
+		event.preventDefault();
+		if($(this).attr('data-bool') == "1")
+		{
+			$(this).attr('data-bool', "0");	
+			$('.panelArchiveMessages').show();
+			$(this).html("Cacher les messages archivés");
+			$(this).attr('class', 'displayArchive btn btn-danger')
+		}
+		else
+		{
+			$(this).attr('data-bool', "1");	
+			$('.panelArchiveMessages').hide();
+			$(this).html("Afficher les messages archivés");
+			$(this).attr('class', 'displayArchive btn btn-success')
+		}
+	});
+
 	$('.buttonDeleteMessages').on('click', function() {
 		if(confirm("Êtes vous sur de vouloir supprimer le message ?"))
 		{
@@ -12,6 +31,27 @@ $(document).ready(function() {
 		}
 	});
 
+	$('.buttonArchivateMessages').on('click', function() {
+		if(confirm("Êtes vous sur de vouloir archiver le message ?"))
+		{
+			td = $(this).parent().parent().parent();
+			var id = td.attr('id');
+			id = id.replace('message', '');
+			$.getJSON('Ajax/setMessageArchive.php', { id : id });
+			document.location.href = "index.php?EX=consultMessages";
+		}
+	});
+
+	$('.buttonUnArchivateMessages').on('click', function() {
+		if(confirm("Êtes vous sur de vouloir rétablir le messsage ?"))
+		{
+			td = $(this).parent().parent().parent();
+			var id = td.attr('id');
+			id = id.replace('message', '');
+			$.getJSON('Ajax/setUnMessageArchive.php', { id : id });
+			document.location.href = "index.php?EX=consultMessages";
+		}
+	});
 
 
 	$('.buttonShowMessages').on('click', function() {
