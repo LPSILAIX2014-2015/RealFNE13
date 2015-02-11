@@ -313,7 +313,7 @@ function cleanArray(array) {
             }else {
 
                 $sql = 'SELECT COUNT(*) FROM user order by NAME ASC';
-                $val = $sql->prepare();
+                $val = $pdo->prepare($sql);
                 $val->execute();
                 $res= $val->fetch();
                 if($res[0] > 0) {
