@@ -7,12 +7,15 @@ class VInfoArticle
   
   public function showInfoArticle($_html)
   {
+    
 	  global $connec;
   	global $article;
 
+
+    // AFFICHAGE
+
     $state = $connec->prepare(
-      "SELECT P.*,/* DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE,*/
-              U.NAME AUTHOR_NAME, U.SURNAME AUTHOR_SURNAME
+      "SELECT P.*, U.NAME AUTHOR_NAME, U.SURNAME AUTHOR_SURNAME
        FROM   POST P, USER U
        WHERE  P.WRITER_ID = U.ID"
   	);
@@ -20,7 +23,7 @@ class VInfoArticle
     $article = $state->fetchAll(PDO::FETCH_ASSOC);
 
 
-    /* AFFICHAGE */
+    // REMPLISSAGE DU CONTENU
 
     $vhtml = new VHtml();
     $vhtml->showHtml($_html);
