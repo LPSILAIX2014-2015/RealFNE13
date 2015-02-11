@@ -1,5 +1,11 @@
 <!-- TODO: Réparer autocompletion
 -->
+<?php
+global $user;
+    if(!(isset($_SESSION['ROLE']))){
+        header("Location: ../index.php");
+    }
+?>
 <script type="text/javascript">
 function cleanArray(array) {
   var i, j, len = array.length, out = [], obj = {};
@@ -11,7 +17,8 @@ function cleanArray(array) {
   }
   return out;
 }
-    $(document).ready(function(){
+
+$(document).ready(function(){
         var name = new Array();
 		var surname = new Array();
 		var cp = new Array();
@@ -42,39 +49,7 @@ function cleanArray(array) {
 	  $( "#cp" ).autocomplete({
         source: cpA
       });
-/*=======
-    $(document).ready(function(){
-        var name = new Array();
-        var surname = new Array();
-        var cp = new Array();
-        var profession = new Array();
-        $.ajax({
-            type: 'POST',
-            url: './Php/autocomplete.php',
-            dataType: 'json',
-            data: {'categories': 'tmp'},
-            success: function(data) {
 
-                var jss = jQuery.parseJSON(data);
-
-                jss.forEach(function(entry) {
-
-                    name.push(entry['LOGIN']);
-                    surname.push(entry['SURNAME']);
-                    cp.push(entry['CP']);
-                    // profession.push(entry['PROFESSION']);
-                });
-
-                $( "#name" ).autocomplete({
-                    source: name
-                });
-                $( "#surname" ).autocomplete({
-                    source: surname
-                });
-                $( "#cp" ).autocomplete({
-                    source: cp
-                });
->>>>>>> dev_sc*/
             }
         });
 

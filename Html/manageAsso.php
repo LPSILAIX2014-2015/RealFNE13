@@ -1,4 +1,10 @@
-<<<<<<< HEAD
+<?php
+    if((isset($_SESSION['ROLE']))&&($_SESSION['ROLE'])=='SADMIN'){}
+    else{
+        header("Location: ./index.php");
+    }
+?>
+
 <script type="text/javascript">
     $(document).ready(function(){
         var name = new Array();

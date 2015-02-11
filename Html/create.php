@@ -1,4 +1,6 @@
 <?php
+	if(!isset($_SESSION['ROLE'])||($_SESSION['ROLE']!='SADMIN'&&$_SESSION['ROLE']!='ADMIN'))
+		header('Location: ./index.php');
     $i=0;
     $pdo = new MDBase();
     $assocsList = $pdo -> getAllAssocs();
