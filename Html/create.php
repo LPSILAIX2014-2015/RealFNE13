@@ -84,7 +84,7 @@
 				                    <?php 
 				                        //foreach ($assocs as $key => $asso) {
 				                            //echo('<option value ='.$asso['ID'].'>'.$asso['NAME'].'</option>');
-				                        }
+				                        //}
 				                    ?>
 				            </select>
 				        </div> -->
