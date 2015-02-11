@@ -4,6 +4,12 @@
 
   function afficheArticle($indexArticle) {
     global $data_article;
+    
+    if(strlen($data_article[$indexArticle]['CONTENT']) > 200) {
+      $description = substr($data_article[$indexArticle]['CONTENT'], 200);
+    } else {
+      $description = $data_article[$indexArticle]['CONTENT'];
+    }
 
     echo "<div id='article" . $data_article[$indexArticle]['ID'] . "'"
       .      " class='lienarticle'>"
@@ -20,7 +26,7 @@
       .         ", le ". $data_article[$indexArticle]['PDATE']
       .      "</p>"
       .      "<p class='description'>"
-      .         $data_article[$indexArticle]['DESCRIPTION']
+      .         $description
       .      "</p>"
       .    "</div>"
       .  "</div>";
