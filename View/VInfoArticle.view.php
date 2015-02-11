@@ -15,7 +15,8 @@ class VInfoArticle
     // AFFICHAGE
 
     $state = $connec->prepare(
-      "SELECT P.*, U.NAME AUTHOR_NAME, U.SURNAME AUTHOR_SURNAME
+      "SELECT P.*, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE,
+              U.NAME AUTHOR_NAME, U.SURNAME AUTHOR_SURNAME
        FROM   POST P, USER U
        WHERE  P.WRITER_ID = U.ID"
   	);
