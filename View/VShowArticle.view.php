@@ -7,27 +7,28 @@ class VShowArticle
   
   public function showArticle($_html)
   {
-    //Simulation de marchage
-    //$idUser = $_SESSION['idUser'];
-    $idUser = 1;
+  	//Simulation de marchage
+  	//$idUser = $_SESSION['idUser'];
+  	$idUser = 1;
 
-    global $connec;
-    global $data_article;
-
-
-    // AFFICHAGE
-
-    $state = $connec->prepare(
-      "SELECT P.*, U.NAME, U.SURNAME, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE 
-       FROM post P, user U
-       WHERE P.WRITER_ID = U.ID
-       ORDER BY id DESC"
-    );
-    $state->execute();
-    $data_article = $state->fetchAll(PDO::FETCH_ASSOC);
+  	global $connec;
+  	global $data_article;
 
 
-    // REMPLISSAGE DU CONTENU
+  	// AFFICHAGE
+
+  	$state = $connec->prepare(
+  	  "SELECT P.*, U.NAME, U.SURNAME, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE 
+  	   FROM POST P, USER U
+  	   WHERE P.WRITER_ID = U.ID
+         AND STATUS > 0
+  	   ORDER BY id DESC"
+  	);
+  	$state->execute();
+  	$data_article = $state->fetchAll(PDO::FETCH_ASSOC);
+
+
+  	// REMPLISSAGE DU CONTENU
 
     $vhtml = new VHtml();
     $vhtml->showHtml($_html);
