@@ -1,0 +1,25 @@
+.logosassos {
+    display:block;
+    width:95%;
+    border-radius:10px;
+    border:1px solid #0c5091;
+    padding:5px;
+    margin:5px;
+    text-align:center;
+}
+.logosassos a {
+    display:inline-block;
+    width:75px;
+    height:75px;
+    vertical-align:top;
+    margin:3px;
+    padding:3px;
+    border:1px dashed #0c5091;
+    line-height: 75px;
+}
+.logosassos img {
+    vertical-align: middle;
+    border:0;
+    margin:0;
+    padding:0;
+}

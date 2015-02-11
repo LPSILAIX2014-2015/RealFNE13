@@ -5,7 +5,26 @@
 */
 session_start();
 define('modeDebug',true);
-global $page, $db, $user;
+define('LOGINFAIL_EXPIRE',600);
+define('LOGINFAIL_ATTEMPTS',5);
+define('LOGINFAIL_WARNING',5);
+if (modeDebug) {
+    error_reporting(E_ALL);
+}
+else {
+    error_reporting(E_ERROR);
+}
+/*
+ * Définition des reglages pour le blocage du compte après plusieurs echecs d'authentification
+ * LOGINFAIL_EXPIRE : durée du blocage du compte (en secondes)
+ * LOGINFAIL_ATTEMPTS : nombre d'echecs à l'authentification au bout duquel le compte est bloqué
+ * LOGINFAIL_WARNING : nombre d'echecs au bout duquel une notification d'alerte est envoyée à l'administrateur.
+ * Definir une valeur supérieure à LOGINFAIL_ATTEMPTS ou =0 si vous ne souhaitez pas déclencher cette notification
+ */
+
+/**/
+
+global $page, $db, $user, $customAlert;
 /*
 * $page
 * tableau contenant :
@@ -16,6 +35,11 @@ global $page, $db, $user;
 * [css] : chemin vers une feuille de style additionelle (optionnel)
 */
 $page = array();//Titre, class "active";
+/*
+ * array customAlert :
+ * Tableau de messages d'alert customisés
+ */
+$customAlert = array();
 /* $user
 * objet CUser (Model/MUser.mod.php) - Classe représentant un utilisateur
 * $user contient un CUser représentant l'utilisateur courant

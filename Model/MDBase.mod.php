@@ -1,18 +1,29 @@
 <?php
 class MDBase extends PDO {
 
-    private $engine = 'mysql';
-    private $host = 'localhost';
-    private $database = 'FNESITE';
-    private $user = 'root';
-    private $pass = '';
-    private $cont = '';
 
-    public function __construct() {
-        $dns = $this->engine.':dbname='.$this->database.";host=".$this->host;
-        parent::__construct( $dns, $this->user, $this->pass );
+    private static $engine = 'mysql';
+
+    // OVH
+    /*private static $dbName = 'laplateftifne13' ;
+    private static $dbHost = 'laplateftifne13.mysql.db' ;
+    private static $dbUsername = 'laplateftifne13';
+    private static $dbUserPassword = 'natureC13';
+    private static $cont  = null;
+
+    /**/
+    // LOCAL
+    private static $dbName = 'FNESITE' ;
+    private static $dbHost = 'localhost' ;
+    private static $dbUsername = 'root';
+    private static $dbUserPassword = 'mysql';
+    private static $cont  = null;
+//*/
+    public function __construct(){
+        $dns = self::$engine.':dbname='.self::$dbName.";host=".self::$dbHost;
+        parent::__construct( $dns, self::$dbUsername, self::$dbUserPassword );
     }
-    
+
     public static function connect()
 	{
 	   // One connection through whole application
@@ -20,7 +31,7 @@ class MDBase extends PDO {
        {
         try
         {
-          self::$cont =  new PDO( "mysql:host=".self::$host.";"."dbname=".self::$database, self::$user, self::$pass);
+          self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword);
         }
         catch(PDOException $e)
         {
@@ -45,10 +56,10 @@ class MDBase extends PDO {
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = "SELECT * FROM ASSOC";
+        $query = "SELECT * FROM ASSOCIATION";
         $qq = $pdo->prepare($query);
         $qq->execute();
-        $data = $qq->fetch(PDO::FETCH_ASSOC);
+        $data = $qq->fetchall();
         return $data;
     }
 
@@ -103,7 +114,7 @@ class MDBase extends PDO {
         $query = "SELECT * FROM TERRITORY";
         $qq = $pdo->prepare($query);
         $qq->execute();
-        $data = $qq->fetch(PDO::FETCH_ASSOC);
+        $data = $qq->fetchall();
         return $data;
     }
 
@@ -114,7 +125,29 @@ class MDBase extends PDO {
         $query = "SELECT * FROM THEME";
         $qq = $pdo->prepare($query);
         $qq->execute();
-        $data = $qq->fetch(PDO::FETCH_ASSOC);
+        $data = $qq->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public static function getAllCategories()
+    {
+        $pdo = self::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $query = "SELECT * FROM MESCAT";
+        $qq = $pdo->prepare($query);
+        $qq->execute();
+        $data = $qq->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public static function getUserByEmail($mail)
+    {
+        $pdo = self::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $query = "SELECT * FROM USER WHERE mail= ?  ";
+        $q = $pdo->prepare($query);
+        $q->execute(array($mail));
+        $data = $q->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
 }

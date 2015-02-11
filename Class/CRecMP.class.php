@@ -1,4 +1,5 @@
-<?php 
+
+<?php
 /**
  * @author <Cesar Hernandez>
  */
@@ -39,6 +40,7 @@ private $mail;
 		return $result->execute();
 
  	} // updateMotPasse($_data)
+
  	/**
  	 * [updateReset creation du lien temporaire]
  	 * @param  [String] $strEnc [chaine aleatoire]
@@ -96,6 +98,8 @@ private $mail;
  * [sendMail Envoi du mail de changement demot passe ]
  * Rappelez que cette partie se changera pour le lien correcte '<a>...</a>'
  */
+
+//TODO: Changer adresse envoi mail
   	public function sendMail(){
   		$to = $this->mail;
   		$subject = "Changement de mot de passe";

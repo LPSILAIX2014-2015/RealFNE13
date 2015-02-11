@@ -48,7 +48,6 @@ function closeDivError()
 } // closeDivError()
 
 function insertE () {
-    
     showMassageError('Le code ne coïncide pas avec l`image !!');
     document.getElementById('iCaptcha').focus();
     $(document).ready(function(){
@@ -79,6 +78,7 @@ function errorCH () {
         $('#act_pass-error').remove();
     });
 }
+
 function mailErr(){
     $(document).ready(function(){
         $('#mailR').addClass('norequired');

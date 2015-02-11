@@ -1,5 +1,40 @@
-#offsetButtonArticle {
-    height:150px;
+/***********************
+ **	Buttons placement **
+ ***********************/
+
+.buttonCreate {
+    display: block;
+
+    margin: auto;
+}
+
+#buttonCreateArticle {
+    margin-top: 15%;
+}
+
+#buttonCreateArticleInCalendar {
+    margin-top: 5%;
+}
+
+#buttonCreationArticle {
+    text-align: center;
+}
+
+#btnActionFormDiv {
+	margin: auto;
+    text-align: center;
+}
+
+/***************************
+ **	 Format text Article  **
+ ***************************/
+
+.txtUndln {
+    text-decoration: underline;
+}
+
+.txtIta {
+    font-style: italic;
 }
 
 .tpetit {
@@ -33,3 +68,24 @@
 .justifier {
     text-align: justify;
 }
+
+/************************
+ **	textArea Placement **
+ ************************/
+
+#textareaId{
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+/*************************
+ **	Alert Message Error **
+ *************************/
+
+ #errorMsg {
+ 	color: #D00;
+ 	text-align: center;
+ 	border-width: 3px;
+ 	border-style: dashed solid;
+ 	border-color: #D00;
+ }
