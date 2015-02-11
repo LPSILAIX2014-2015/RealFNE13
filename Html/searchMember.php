@@ -315,7 +315,8 @@ function cleanArray(array) {
                 $sql = 'SELECT COUNT(*) FROM user order by NAME ASC';
                 $val = $sql->prepare();
                 $val->execute();
-                if($val > 0) {
+                $res= $val->fetch();
+                if($res[0] > 0) {
 
                     foreach ($pdo->query($sql) as $row) {
                         $img = null;
