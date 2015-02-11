@@ -53,6 +53,7 @@ switch($EX)
     case 'deleteAsso'  : deleteAsso();      break;
     case 'profil'    : profil(); break; // Affichage du profil
     case 'legal' : legal(); break;
+    case 'updateMail' : updateMail(); break;
     default : check($EX);
 }
 
@@ -451,5 +452,14 @@ function endMessages()
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/finEnvoi.html';
+}
+
+function updateMail()
+{
+    global $page;
+    $page['title'] = 'Creation de profil';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/update-mail.php';
 }
 ?>
