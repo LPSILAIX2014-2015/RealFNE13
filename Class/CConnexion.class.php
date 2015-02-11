@@ -3,7 +3,9 @@ class CConnexion {
     public function connexion($login =NULL, $password=NULL) {
         global $user, $customAlert;
         $login = (testVar($_POST['login'])) ? $_POST['login'] : $login;
-        $password  = (testVar($_POST['password']))  ? md5($_POST['password'])  : $password;
+        $login = addslashes(strip_tags($login));
+        $password  = (testVar($_POST['password']))  ? $_POST['password']  : $password;
+        $password = addslashes(strip_tags($password));
 
         try
         {

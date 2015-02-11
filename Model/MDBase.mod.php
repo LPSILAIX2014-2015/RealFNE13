@@ -2,12 +2,30 @@
 class MDBase extends PDO {
 
 
+<<<<<<< HEAD
 
     private static $engine = 'mysql';
     private static $dbName = 'FNESITE' ;
     private static $dbHost = 'localhost' ;
     private static $dbUsername = 'root';
     private static $dbUserPassword = 'mysql';
+=======
+    private static $engine = 'mysql';
+/*
+    // SITE FINAL
+    private static $dbName = 'laplateftifne13' ;
+    private static $dbHost = 'localhost' ;
+    private static $dbUsername = 'laplateftifne13';
+    private static $dbUserPassword = 'natureC13';
+    private static $cont  = null;
+*/
+
+    // BASE DEV
+    private static $dbName = 'fnekxazadev' ;
+    private static $dbHost = 'mysql51-84.pro' ;
+    private static $dbUsername = 'fnekxazadev';
+    private static $dbUserPassword = 'natureC13';
+>>>>>>> d561c80e07ead4807d5b8e252fcf326d7ee52be7
     private static $cont  = null;
 
     public function __construct(){
