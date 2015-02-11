@@ -64,7 +64,7 @@
         background-color:#a3cfea;
         color:#0a2d5f;
         border:1px solid #0a2d5f;
-        box-shadow:inset -2px -2px 1px #0a2d5f, inset 2px 2px 1px #FFFFFF;
+        box-shadow:inset -2px -2px 1px #0a2d5f, inset 2px 2px 1px rgba(255,255,255,0.5);
     }
     /* Aspect si "cochée" */
     input[type="radio"]:checked + label {
