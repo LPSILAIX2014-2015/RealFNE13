@@ -1,5 +1,48 @@
-
+<!-- TODO: Réparer autocompletion
+-->
 <script type="text/javascript">
+function cleanArray(array) {
+  var i, j, len = array.length, out = [], obj = {};
+  for (i = 0; i < len; i++) {
+    obj[array[i]] = 0;
+  }
+  for (j in obj) {
+    out.push(j);
+  }
+  return out;
+}
+    $(document).ready(function(){
+        var name = new Array();
+		var surname = new Array();
+		var cp = new Array();
+		var association = new Array();
+        $.ajax({
+            type: 'POST',
+			dataType: 'json',
+            url: './Php/autocomplete.php',
+            data: {'categories': 'tmp'},
+            
+            success: function(data) {
+				data.forEach(function(entry) {
+			
+            name.push(entry['NAME']);
+            surname.push(entry['SURNAME']);
+            cp.push(entry['CP']);
+           association.push(entry['ASSOCIATION']);
+        });
+      var nameA = cleanArray(name);
+      $( "#name" ).autocomplete({
+        source: nameA
+      });
+	  var surnameA = cleanArray(surname);
+	  $( "#surname" ).autocomplete({
+        source: surnameA
+      });
+	  var cpA = cleanArray(cp);
+	  $( "#cp" ).autocomplete({
+        source: cpA
+      });
+/*=======
     $(document).ready(function(){
         var name = new Array();
         var surname = new Array();
@@ -31,6 +74,7 @@
                 $( "#cp" ).autocomplete({
                     source: cp
                 });
+>>>>>>> dev_sc*/
             }
         });
 
@@ -55,7 +99,6 @@
             }
         });
     });
-
 </script>
 
 <?php
@@ -127,15 +170,13 @@
         <div class="control-group">
             <label class="control-label">Code postal</label>
             <div class="controls">
-                <input name="CP" type="text" id="cp"  placeholder="Code postal" pattern="[0-9]{5}"  value="">
-                <span>(5 chiffres)</span>
+                <input name="CP" type="text" id="cp"  placeholder="Code postal"  pattern="[0-9]{1,5}"  value="">
             </div>
         </div>
         <div class="control-group">
             <label class="control-label">Profession</label>
             <div class="controls">
                 <input name="PROFESSION" id="profession" type="text"  placeholder="Profession" value="">
-
             </div>
         </div>
         <div class="control-group">
@@ -192,15 +233,15 @@
                 $conditions = array();
                 $params = array();
                 if($nom) {
-                    $conditions[] = "NAME = '". $nom. "'";
+                    $conditions[] = "NAME LIKE '%". $nom. "%'";
                     $params[]= $nom;
                 }
                 if($_POST['SURNAME']) {
-                    $conditions[] = "SURNAME = '". $_POST['SURNAME']. "'";
+                    $conditions[] = "SURNAME LIKE '%". $_POST['SURNAME']. "%'";
                     $params[] = $_POST['SURNAME'];
                 }
                 if($_POST['CP']) {
-                    $conditions[] = "CP = '". $_POST['CP']. "'";
+                    $conditions[] = "CP LIKE '". $_POST['CP']. "%'";
                     $params[] = $_POST['CP'];
                 }
                 if($_POST['PROFESSION']) {
@@ -230,14 +271,13 @@
                     }
                     echo '<tr>';
                     echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
-                    //echo '<td>'. $row['SURNAME'] . '</td>';
                     echo '<td>'. $row['CP'] . '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
                     echo '<td width=250>';
                     echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
                     echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
             
-            <div class="active" style="display: block;"> 
+            <div class="active" style="display: block;">
                     <!-- About section -->
                     <div class="about">
                         <input type="hidden" value="'.$img.'">
@@ -251,7 +291,7 @@
                         <li><label>Adresse</label><span>'.$row['ADRESS'].'</span></li>
                         <li><label>CP</label><span>'.$row['CP'].'</span></li>
                         <li><label>Email</label><span>'.$row['MAIL'].'</span></li>
-                            <li><label>Association</label><span>'.(new MAssoc($row['ASSOCIATION_ID']))->getName().'</span></li>
+                        <li><label>Association</label><span>'.(new MAssoc($row['ASSOCIATION_ID']))->getName().'</span></li>
                         <li><label>Thème</label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
                         <li><label>Thème Interest</label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
                         <li><label>Profession</label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
@@ -279,8 +319,8 @@
                             $img = $row['PHOTOPATH'];
                         }
                         echo '<tr>';
-                    echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
-                    //echo '<td>'. $row['SURNAME'] . '</td>';
+                        echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
+                        //echo '<td>'. $row['SURNAME'] . '</td>';
                         echo '<td>'. $row['CP'] . '</td>';
                         echo '<td>'. $row['PROFESSION'] . '</td>';
                         echo '<td width=250>';
@@ -311,10 +351,11 @@
                 </div>
             
         </div>';
-                        echo '&nbsp;';
+                       /* echo '&nbsp;';
                         echo '<a class="btn" href="email.php?id='.$row['ID'].'">Email</a>';
                         echo '&nbsp;';
-                        echo '<input type="checkbox" name="option1[]" value='.$row['MAIL'].'>';
+                        echo '<input type="checkbox" name="option1[]" value='.$row['MAIL'].'>';*/
+
                         echo '</td>';
                         echo '</tr>';
 

@@ -1,5 +1,4 @@
 <?php
-
 class MUser {
 
     private $sql;
@@ -204,4 +203,3 @@ class MUser {
     }
 
 }
-

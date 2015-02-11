@@ -1,21 +1,29 @@
 $(document).ready(function() {
 
+	//Quand la valeur du select change, on filtre les messages
+	$('#filterCATEGORY').on('change', function(event) {
+		sortCategory();
+	});
+	$('#filterTHEME').on('change', function(event) {
+		sortTheme();
+	});
+
 
 	$('.displayArchive').on('click', function(event) {
 		event.preventDefault();
 		if($(this).attr('data-bool') == "1")
 		{
 			$(this).attr('data-bool', "0");	
-			$('.panelArchiveMessages').show();
+			$('.divArchiveMessages').show();
 			$(this).html("Cacher les messages archivés");
-			$(this).attr('class', 'displayArchive btn btn-danger')
+			$(this).attr('class', 'displayArchive')
 		}
 		else
 		{
 			$(this).attr('data-bool', "1");	
-			$('.panelArchiveMessages').hide();
+			$('.divArchiveMessages').hide();
 			$(this).html("Afficher les messages archivés");
-			$(this).attr('class', 'displayArchive btn btn-success')
+			$(this).attr('class', 'displayArchive')
 		}
 	});
 
@@ -56,7 +64,7 @@ $(document).ready(function() {
 
 
 	$('.buttonShowMessages').on('click', function() {
-		if($(this).attr('class') != "buttonShowMessages btn btn-sm btn-success")
+		if($(this).attr('data-bool') != "1")
 		{
 			hideMessages($(this));
 		}
@@ -75,15 +83,13 @@ $(document).ready(function() {
 
 function hideAll() {
 	$('.contentMessage').hide();
-	$('.buttonShowMessages').attr('class', 'buttonShowMessages btn btn-sm btn-success');
-	$('.buttonShowMessages').children('i').attr('class', "glyphicon glyphicon-plus");
+	$('.buttonShowMessages').attr('class', 'buttonShowMessages');
 	$('.btnOptions').hide();
 }
 
 function hideMessages(arg) {
 	arg.parent().parent().children('td').children('pre').hide();
-	arg.attr('class', 'buttonShowMessages btn btn-sm btn-success');
-	arg.children('i').attr('class', "glyphicon glyphicon-plus");
+	arg.attr('data-bool', '1');
 	arg.siblings('.btnOptions').hide();
 }
 
@@ -97,10 +103,46 @@ function showMessages(arg) {
 		$.getJSON('Ajax/setMessageReaded.php', { id : id });
 	}
 	arg.parent().parent().children('td').children('pre').show();
-	arg.attr('class', 'buttonShowMessages btn btn-sm btn-warning');
-	arg.children('i').attr('class', "glyphicon glyphicon-minus");
-	//Affichage des boutons d'options
+	arg.attr('data-bool', '0');
 	arg.siblings('.btnOptions').show();
 }
 
 
+//Fonctions de tri sur les select Catégorie et thème
+function sortCategory() {
+	var idCateg = $('#filterCATEGORY option:selected').attr('value');
+	$('.lineMessage').hide();
+	if(idCateg == "0")
+	{
+		$('.lineMessage').show();
+	}
+	else
+	{
+		for(var i = 0 ; i < $('.lineMessage').length ; ++i)
+		{
+			if(idCateg == $('.lineMessage').get(i).getAttribute('data-categ'))
+			{
+				$('.lineMessage')[i].style.display = "";
+			}
+		}
+	}
+}
+
+function sortTheme() {
+	var idTheme = $('#filterTHEME option:selected').attr('value');
+	$('.lineMessage').hide();
+	if(idTheme == "0")
+	{
+		$('.lineMessage').show();
+	}
+	else
+	{
+		for(var i = 0 ; i < $('.lineMessage').length ; ++i)
+		{
+			if(idTheme == $('.lineMessage').get(i).getAttribute('data-theme'))
+			{
+				$('.lineMessage')[i].style.display = "";
+			}
+		}
+	}
+}
