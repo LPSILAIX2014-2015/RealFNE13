@@ -99,6 +99,7 @@ button, input[type="submit"] {
     transition:ease 0.5s;
     cursor:url('../Img/cursor2.png'), auto ;
     font-family:'Cabin',Verdana,sans-serif;
+    box-shadow:inset -2px -2px 1px #0a2d5f, inset 2px 2px 1px rgba(255,255,255,0.5);
 }
 button:hover, input[type="submit"]:hover {
     color:#0a2d5f;
