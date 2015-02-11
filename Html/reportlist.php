@@ -1,7 +1,6 @@
 <?php
     $user= $GLOBALS['user'];
     if ((isset($user)) && ($user->getRole() == "SADMIN")) {
-        echo $user->getRole();
     $db = new MDBase();
     $stat = new PDOStatement();
     $stat = $db->prepare("SELECT * FROM REPORT");
@@ -14,7 +13,8 @@
         <label for="report_filter_profile">Profils</label><input name="radioreport" type="radio" value="PROFIL"/>
         <label for="report_filter_article">Article</label><input name="radioreport" type="radio" value="ARTICLE"/>
         <label for="report_filter_message">Message</label><input name="radioreport" type="radio" value="MESSAGE"/>
-        <br/><label for="report_filter_message">Tout</label><input name="radioreport" type="radio" value="ALL"/>
+            <label for="report_filter_message">Sécurité</label><input name="radioreport" type="radio" value="ALERTE"/>
+        <label for="report_filter_message">Tout</label><input name="radioreport" type="radio" value="ALL"/>
         </fieldset>
     </form>
 </div>
@@ -23,7 +23,11 @@
     <table>
         <?php
             while ($res = $stat->fetch(PDO::FETCH_ASSOC)) {
-                echo "<div class=\"ALL ".$res['TYPE']."\">" . $res['ID'] . " - " . $res['RDATE'] . " - " . $res['CONTENT'] . "</div>";
+                echo '<div class="ALL '.$res['TYPE'].'">
+                <span class="reportid">' . $res['ID'] . '</span>
+                <span class="reportdate">' . $res['RDATE'] . '</span>
+                <span class="reportcontent">' . $res['CONTENT'] . '</span>
+                </div>';
             }
         ?>
     </table>

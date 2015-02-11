@@ -4,7 +4,9 @@ class CConnexion {
         global $user, $customAlert;
 
         $login = (testVar($_POST['login'])) ? $_POST['login'] : $login;
+        $login = addslashes(strip_tags($login));
         $password  = (testVar($_POST['password']))  ? $_POST['password']  : $password;
+        $password = addslashes(strip_tags($password));
 
         try
         {
