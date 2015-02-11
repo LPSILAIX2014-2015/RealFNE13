@@ -38,11 +38,8 @@
 			<table class="tableMessages table table-hover">
 				<thead>
 					<tr>
-						<th class="READ_MESSAGE"></th>
 						<th class="SENDER_MESSAGE">Envoyé par</th>
 						<th class="TITLE_MESSAGE">Objet</th>
-						<th class="CATEGORY_MESSAGE">Catégorie</th>
-						<th class="THEME_MESSAGE">Thème</th>
 						<th class="DATE_MESSAGE">Date</th>
 						<th class="BUTTON_MESSAGE"></th>
 					</tr>
@@ -62,11 +59,8 @@
 			<table class="tableMessages table table-hover">
 				<thead>
 					<tr>
-						<th class="READ_MESSAGE"></th>
 						<th class="SENDER_MESSAGE">Envoyé par</th>
 						<th class="TITLE_MESSAGE">Objet</th>
-						<th class="CATEGORY_MESSAGE">Catégorie</th>
-						<th class="THEME_MESSAGE">Thème</th>
 						<th class="DATE_MESSAGE">Date</th>
 						<th class="BUTTON_MESSAGE"></th>
 					</tr>
@@ -78,14 +72,6 @@
 		</div>
 	</div>
 </div>
-
-AAAAAA
-<!-- AAAAAAAAAAA -->
-
-<div class="currentMessage">
-	BBB
-</div>
-
 
 
 

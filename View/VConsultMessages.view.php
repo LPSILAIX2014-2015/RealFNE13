@@ -26,9 +26,8 @@ class VConsultMessages
     $data_category = $mMod->getAllCategories();
 
 
-
-$vhtml = new VHtml();
-$vhtml->showHtml($path);
+    $vhtml = new VHtml();
+    $vhtml->showHtml($path);
 
   } // showConsultMessages($_html)
   

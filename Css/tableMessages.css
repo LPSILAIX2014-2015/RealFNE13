@@ -10,10 +10,10 @@
 	width: 140px;
 }
 .DATE_MESSAGE {
-	width: 90px;
+	width: 85px;
 }
 .BUTTON_MESSAGE {
-	width: 50px;
+	width: 45px;
 }
 .CATEGORY_MESSAGE {
 	width: 100px;
@@ -28,6 +28,20 @@
 .btnOptions button {
 	margin: 5px 0;
 }
-.panelArchiveMessages {
+.divArchiveMessages {
 	display: none;
+}
+
+.TITLE_MESSAGE {
+	width: 250px;
+}
+
+table {
+	border : 1px solid black;
+	text-align : center;
+	border-spacing: 0px;
+}
+
+th {
+	border : 1px solid black;
 }

@@ -39,7 +39,7 @@ class MDBase extends PDO {
         $query = "SELECT * FROM user";
         $qq = $pdo->prepare($query);
         $qq->execute();
-        $data = $qq->fetch(PDO::FETCH_ASSOC);
+        $data = $qq->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
 
