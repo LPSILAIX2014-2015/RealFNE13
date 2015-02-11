@@ -53,7 +53,7 @@ img {
     border:0;
     vertical-align:middle;
 }
-input {
+input, textarea, select {
     cursor:url('../Img/cursor9.png'), auto ;
     border-radius:4px;
     background-color:#a3cfea;
@@ -64,10 +64,10 @@ input {
     font-family: 'Slabo 13px', serif;
     transition:ease 0.5s;
 }
-input:hover {
+input:hover, textarea:hover, select:hover {
     border:2px solid #4bc9e2;
 }
-input:focus {
+input:focus, textarea:focus, select:focus {
     background-color: #FFF;
 }
 h1 {
@@ -83,7 +83,9 @@ li {
     padding:0;
     margin:0;
 }
-/**/
+/*
+* Elements du layout
+*/
 .bandeau {
     display:block;
     position:fixed;
@@ -105,12 +107,16 @@ li {
 .sitetitle {
     display:block;
     position:absolute;
-    top:18px;
+    top:5px;
     left:120px;
     font-family:'Quicksand',Verdana,sans-serif;
-    font-size:24pt;
+    font-size:20pt;
     color:#FFFFFF;
     text-shadow: 1px 2px #337ab7;
+}
+.subtitle {
+    display:block;
+    font-size:13pt;
 }
 .leftcol {
     display:block;
@@ -203,7 +209,7 @@ li {
     line-height:30px;
     vertical-align:middle;
     cursor:url('../Img/cursor8.png'), auto ;
-    z-index:2;
+    z-index:20;
 }
 .messages a {
     cursor:url('../Img/cursor8.png'), auto ;
@@ -228,7 +234,7 @@ li {
     line-height:30px;
     vertical-align:middle;
     cursor:url('../Img/cursor2.png'), auto ;
-    z-index:2;
+    z-index:20;
 }
 .deconnexion:hover {
     background-color:#FFF;
@@ -347,10 +353,8 @@ nav li a:hover {
     font-size:15pt;
     margin:2px;
 }
-input {
-    cursor:url('../Img/cursor9.png'), auto ;
-}
-#loginbutton {
+
+button, #loginbutton {
     color:#ffffff;
     border:1px solid #ffffff;
     background-color:#0a2d5f;
@@ -361,7 +365,7 @@ input {
     cursor:url('../Img/cursor2.png'), auto ;
     font-family:'Cabin',Verdana,sans-serif;
 }
-#loginbutton:hover {
+button, #loginbutton:hover {
     color:#0a2d5f;
     border:1px solid #0a2d5f;
     background-color:#a3cfea;
@@ -444,14 +448,37 @@ input {
     font-size:12pt;
 }
 .recentarticles ul {
-    list-style-image: url('../Img/pastille.png');
-    list-style-position: inside;
+    list-style-type:none;
+    list-style-position: outside;
     font-family:'Titilium Web',Verdana,sans-serif;
     font-size:10pt;
     text-align:left;
     margin:5px;
     padding:0;
     vertical-align:middle;
+}
+.recentarticles ul li {
+    display:table-row;
+    font-family:'Titilium Web',Verdana,sans-serif;
+    font-size:10pt;
+    text-align:left;
+    margin:0;
+    padding:0;
+    vertical-align:top;
+}
+.recentarticles .iconesarticle {
+    display:table-cell;
+    width:20px;
+}
+.recentarticles .iconesarticle img {
+    height:20px;
+    width:20px;
+}
+.recentarticles .titrearticle {
+    display:table-cell;
+    vertical-align: middle;
+    padding-left: 3px;
+    border-bottom:1px dashed #0c5091;
 }
 .nextevents ul {
     list-style-type: none;

@@ -7,12 +7,9 @@ class VShowArticle
   
   public function showArticle($_html)
   {
-  	//Simulation de marchage
-  	//$idUser = $_SESSION['idUser'];
-  	$idUser = 1;
 
-  	global $connec;
-  	global $data_article;
+    $connec = new MDBase();
+    global $data_article;
 
 
   	// AFFICHAGE
