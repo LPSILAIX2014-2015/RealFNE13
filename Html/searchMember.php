@@ -251,7 +251,7 @@
                         <li><label>Adresse</label><span>'.$row['ADRESS'].'</span></li>
                         <li><label>CP</label><span>'.$row['CP'].'</span></li>
                         <li><label>Email</label><span>'.$row['MAIL'].'</span></li>
-                            <li><label>Association</label><span>'.(new MAssoc($row['ASSOCIATION_ID']))->getName().'</span></li>
+                        <li><label>Association</label><span>'.(new MAssoc($row['ASSOCIATION_ID']))->getName().'</span></li>
                         <li><label>Thème</label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
                         <li><label>Thème Interest</label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
                         <li><label>Profession</label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
