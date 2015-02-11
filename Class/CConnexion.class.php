@@ -2,19 +2,18 @@
 class CConnexion {
     public function connexion($login =NULL, $password=NULL) {
         global $user, $customAlert;
-
         $login = (testVar($_POST['login'])) ? $_POST['login'] : $login;
+        $login = addslashes(strip_tags($login));
         $password  = (testVar($_POST['password']))  ? $_POST['password']  : $password;
+        $password = addslashes(strip_tags($password));
 
         try
         {
             $db = new MDBase();
-
-            $query = "SELECT ID, PASSWORD FROM USER WHERE LOGIN='$login'" ;
+            $query = "SELECT ID, PASSWORD, ROLE FROM USER WHERE LOGIN='$login'" ;
             $state = $db->prepare($query);
             $state->execute();
             $result = $state->fetch();
-
             $fail = new CloginFail($result['ID']) ;
             $failremain = $fail->getExpire() - time() ;
 
@@ -33,7 +32,7 @@ class CConnexion {
                 $customAlert[] = 'Erreur d\'authentification' ;
                 $fail->addAttempt();
 
-                if ($fail->getAttempts() == LOGINFAIL_WARNING) {
+                if (($fail->getAttempts() == LOGINFAIL_WARNING) && (LOGINFAIL_WARNING != 0)) {
                     $user = new MUser($result['ID']) ;
                     $msg = $user->getSurname().' '.$user->getName().' a échoué '.LOGINFAIL_WARNING.' fois à se connecter (IP : '.$_SERVER["REMOTE_ADDR"].').' ;
                     $query = 'INSERT INTO REPORT VALUES (NULL, CURDATE(), "ALERTE", "'.$msg.'");' ;
