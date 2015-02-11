@@ -10,6 +10,7 @@ class MDBase extends PDO {
     private static $dbHost = 'localhost' ;
     private static $dbUsername = 'root';
     private static $dbUserPassword = 'mysql';
+    private static $cont  = null;
 
 /*
     // SITE FINAL
