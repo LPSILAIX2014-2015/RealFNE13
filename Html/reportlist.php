@@ -1,6 +1,7 @@
 <?php
     $user= $GLOBALS['user'];
     if ((isset($user)) && ($user->getRole() == "SADMIN")) {
+    echo $user->getRole();
     $db = new MDBase();
     $stat = new PDOStatement();
     $stat = $db->prepare("SELECT * FROM REPORT");

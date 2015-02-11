@@ -180,18 +180,23 @@ function deleteMember()
 
         function recuperation() // Presentation du formilaire principal pour envoyer le mail
     {
-        global $page;
-        $page['title'] = 'Recuperation du Mot de passe';
-        $page['class'] = 'VHtml';
-        $page['method'] = 'showHtml';
-        $page['css'] = 'Css/recupMdp.css';
-        $page['arg'] = 'Html/recMail.php';
+        global $page, $user;
+        if (isset($user)) { // Validation pour l'envoi du mail 
+            echo "<script>location.href='index.php';</script>";
+        }else{
+            $page['title'] = 'Recuperation du Mot de passe';
+            $page['class'] = 'VHtml';
+            $page['method'] = 'showHtml';
+            $page['css'] = 'Css/recupMdp.css';
+            $page['arg'] = 'Html/recMail.php';
+        }
     }
     function rec() // Deuxième fourmulaire pour changer le mot de passe
     {
         global $page;
         $page['title'] = 'Recuperation du Mot de passe';
         $page['class'] = 'VHtml';
+        $page['css'] = 'Css/recupMdp.css';
         $page['method'] = 'showHtml';
         $page['arg'] = 'Html/recuperation.php';
     }
@@ -331,6 +336,7 @@ function writeMessages()
             $page['title'] = 'Mon profil';
             $page['class'] = 'VHtml';
             $page['method'] = 'showHtml';
+            $page['css'] = 'Css/recupMdp.css';
             $page['arg'] = 'Html/profil.php';
         }
     
