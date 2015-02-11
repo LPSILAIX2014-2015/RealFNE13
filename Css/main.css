@@ -402,7 +402,6 @@ button, #loginbutton:hover {
     color:#4bc9e2;
     text-decoration:none;
 }
-
 .customAlert {
     display:block;
     position:fixed;
@@ -446,6 +445,7 @@ button, #loginbutton:hover {
     font-family:'Cabin',Verdana,sans-serif;
     font-size:12pt;
 }
+
 .recentarticles ul {
     list-style-type:none;
     list-style-position: outside;

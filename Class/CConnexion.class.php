@@ -2,19 +2,16 @@
 class CConnexion {
     public function connexion($login =NULL, $password=NULL) {
         global $user, $customAlert;
-
         $login = (testVar($_POST['login'])) ? $_POST['login'] : $login;
-        $password  = (testVar($_POST['password']))  ? $_POST['password']  : $password;
+        $password  = (testVar($_POST['password']))  ? md5($_POST['password'])  : $password;
 
         try
         {
             $db = new MDBase();
-
             $query = "SELECT ID, PASSWORD, ROLE FROM USER WHERE LOGIN='$login'" ;
             $state = $db->prepare($query);
             $state->execute();
             $result = $state->fetch();
-
             $fail = new CloginFail($result['ID']) ;
             $failremain = $fail->getExpire() - time() ;
 

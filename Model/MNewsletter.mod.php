@@ -27,7 +27,6 @@
             $this->content = $newsl['CONTENT'];
         }
 
-
         // Getters
         public function getId() { return $this->id; }
         public function getRdate() { return $this->rdate; }
