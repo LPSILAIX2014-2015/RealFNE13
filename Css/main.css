@@ -89,7 +89,7 @@ li {
     padding:0;
     margin:0;
 }
-button, input[type="submit"] {
+button, input[type="submit"], input[type="button"], input[type="reset"] {
     color:#ffffff;
     border:1px solid #ffffff;
     background-color:#0a2d5f;
@@ -102,7 +102,7 @@ button, input[type="submit"] {
     font-size:11pt;
     box-shadow:inset -2px -2px 1px #0a2d5f, inset 2px 2px 1px rgba(255,255,255,0.5);
 }
-button:hover, input[type="submit"]:hover {
+button:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover {
     color:#0a2d5f;
     border:1px solid #0a2d5f;
     background-color:#a3cfea;
@@ -186,6 +186,9 @@ table {
     width:100px;
     height:100px;
     margin:2px;
+    border-radius:10px;
+    border:1px solid #0a2d5f;
+    box-shadow:1px 1px 1px rgba(10,45,95,0.5);
 }
 .infosperso .nom {
     font-weight:bold;
@@ -282,7 +285,7 @@ table {
     display:block;
     position:relative;
     margin:0 0 10px 0;
-    padding:1px 4px 4px 1px;
+    padding:2px 4px 2px 1px;
     left:5px;
     height:20px;
     width:171px;
