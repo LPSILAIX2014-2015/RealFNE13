@@ -11,9 +11,13 @@
 /*
 * Elements génériques
 */
-html{
-    cursor:url('../Img/cursor1.png'), auto ;
+/* Paramètres par défaut pour tous les éléments */
+    * {
+        cursor:url('../Img/cursor1.png'), auto ;
+        margin:0;
+        padding:0;
 }
+/* */
 body {
     background-image:url('../Img/body_fond.jpg');
     background-repeat:repeat;
@@ -294,7 +298,7 @@ table {
     color:#0a2d5f;
     border-radius: 10px;
     border:1px solid #0c5091;
-    box-shadow: 2px 2px 2px #000000;
+    box-shadow: 2px 2px 2px rgba(10,45,95,0.6);
     font-family:'Quicksand',Verdana,sans-serif;
     font-size:12pt;
 }
