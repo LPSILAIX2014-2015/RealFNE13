@@ -12,7 +12,7 @@
     <a href="index.php?EX=consultMessages">
         <?PHP
         $sql = new MDBase();
-        $query = 'SELECT COUNT(*) FROM MESSAGE WHERE RECEIVER_ID=\''.$_SESSION['ID_USER'].'\' AND ISREADED=0 ;';
+        $query = 'SELECT COUNT(*) FROM MESSAGE WHERE RECEIVER_ID=\''.$_SESSION['ID_USER'].'\' AND ISREAD=0 ;';
         $nbm = $sql->query($query)->fetch(PDO::FETCH_NUM);
         $nbm = $nbm[0];echo $nbm;
         unset($sql);

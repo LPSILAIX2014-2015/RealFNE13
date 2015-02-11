@@ -13,6 +13,7 @@ class MFormCreateArticle
 
     public function insertDB($data){
 
+
         /**
         
         Controle Image
@@ -80,6 +81,14 @@ class MFormCreateArticle
             );
         // Fill data form with $otpion (we can get the data of all input by using $dataForm["nameinput"]
         $dataForm = filter_input_array(INPUT_POST, $options);
+        if(!$dataForm['duration'])
+        {
+            $dataForm['duration'] = 0;
+        }
+        if(!$dataForm['inscription'])
+        {
+            $dataForm['inscription'] = 0;
+        }
 
         if(!($dataForm['duration'])) {
             $dataForm['duration'] = 0;
@@ -140,7 +149,7 @@ class MFormCreateArticle
         $temp = $sql->lastInsertId();
 
         $sql->commit();
-
+        var_dump($temp);
         return $temp;
     }
 

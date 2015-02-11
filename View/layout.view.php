@@ -33,7 +33,7 @@ $vHtml = new VHtml();
 <body>
     <div class="bandeau">
         <a href="index.php?EX=home"><div class="logo">Accueil</div>
-        <span class="sitetitle">La plate-forme FNE13</span>
+        <span class="sitetitle">La plate-forme<span class="subtitle">France Nature Environnement Bouches-du-Rhône</span>
         </a>
 
     </div>
@@ -44,7 +44,6 @@ $vHtml = new VHtml();
     if(isset($user)) {
         $vHtml->showHtml('Html/usertopmenu.php');
     }
-    /**/
     ?>
     <nav>
         <?php $vnav->showNav() ?>
@@ -88,7 +87,6 @@ if (isset($customAlert)) {
     echo '</script>';
     echo '<script src="Js/customAlert.js"></script>' ;
 }
-/**/
 ?>
     <script src="Js/createArticle.js"></script>
     <div id="result"></div><!-- id="error"-->
