@@ -11,11 +11,10 @@ class VInfoArticle
   	global $article;
 
     $state = $connec->prepare(
-      "SELECT P.*, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE,
+      "SELECT P.*,/* DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE,*/
               U.NAME AUTHOR_NAME, U.SURNAME AUTHOR_SURNAME
        FROM   POST P, USER U
-       WHERE  P.WRITER_ID = U.ID
-         AND  STATUS > 0"
+       WHERE  P.WRITER_ID = U.ID"
   	);
     $state->execute();
     $article = $state->fetchAll(PDO::FETCH_ASSOC);

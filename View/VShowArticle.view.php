@@ -15,10 +15,9 @@ class VShowArticle
   	// AFFICHAGE
 
   	$state = $connec->prepare(
-  	  "SELECT P.*, U.NAME, U.SURNAME, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE 
+  	  "SELECT P.*, U.NAME, U.SURNAME/*, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE */
   	   FROM POST P, USER U
   	   WHERE P.WRITER_ID = U.ID
-         AND STATUS > 0
   	   ORDER BY id DESC"
   	);
   	$state->execute();
