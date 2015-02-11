@@ -12,6 +12,9 @@
 .DATE_MESSAGE {
 	width: 85px;
 }
+.DATE_NOTIF {
+	width: 85px;
+}
 .BUTTON_MESSAGE {
 	width: 45px;
 }
@@ -36,12 +39,7 @@
 	width: 250px;
 }
 
-table {
-	border : 1px solid black;
-	text-align : center;
-	border-spacing: 0px;
+.NOTIFICATION_NOTIF {
+	width: 410px;
 }
 
-th {
-	border : 1px solid black;
-}
