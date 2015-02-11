@@ -1,5 +1,6 @@
 <?php global $content_messages; ?>
 <?php global $content_messages_archive; ?>
+<?php global $content_notif; ?>
 <?php global $data_category; ?>
 <?php global $data_theme; ?>
 
@@ -52,7 +53,7 @@
 	</div>
 </div>
 
-<div class="divMessages">
+<div class="divNotif">
 	<h3 class="panel-title">Messages</h3>
 	<div class="panel-body">
 		<div class="table-responsive">
@@ -67,6 +68,26 @@
 				</thead>
 				<tbody>
 					<?= $content_messages; ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="divMessages">
+	<h3 class="panel-title">Notifications</h3>
+	<div class="panel-body">
+		<div class="table-responsive">
+			<table class="tableNotif table table-hover">
+				<thead>
+					<tr>
+						<th class="NOTIFICATION_NOTIF">Notification</th>
+						<th class="DATE_NOTIF">Date</th>
+						<th class="BUTTON_NOTIF"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<?= $content_notif; ?>
 				</tbody>
 			</table>
 		</div>

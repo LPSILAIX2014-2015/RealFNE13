@@ -40,6 +40,19 @@ $(document).ready(function() {
 		}
 	});
 
+	$('.buttonDeleteNotif').on('click', function() {
+		if(confirm("Êtes vous sur de vouloir supprimer la notification ?"))
+		{
+			$(this).parent().parent().remove();
+			td = $(this).parent().parent();
+			var id = td.attr('id');
+			id = id.replace('notif', '');
+			$.getJSON('Ajax/deleteNotif.php', { id : id }).done(function() {
+
+			});
+		}
+	});
+
 	$('.buttonArchivateMessages').on('click', function() {
 		if(confirm("Êtes vous sur de vouloir archiver le message ?"))
 		{
