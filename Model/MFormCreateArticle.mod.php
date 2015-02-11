@@ -89,6 +89,13 @@ class MFormCreateArticle
             $dataForm['inscription'] = 0;
         }
 
+        if(!($dataForm['duration'])) {
+            $dataForm['duration'] = 0;
+        }
+        if(!($dataForm['inscription'])) {
+            $dataForm['inscription'] = 0;
+        }
+        
         if($_SESSION['ID_USER'] == null) return;
         if(strlen($dataForm['articleTitle']) == 0) return;
         if(strlen($dataForm['articleTheme']) == 0) return;
@@ -134,6 +141,7 @@ class MFormCreateArticle
         $state->bindValue('INSCRIPTION',$dataForm['inscription'], PDO::PARAM_INT);
         $state->bindValue('CONTENT',    $dataForm['textareaDecrypt'], PDO::PARAM_STR);
         $state->bindValue('IMAGEPATH', "/IMG/lol.png", PDO::PARAM_STR);
+        $state->bindValue('STATUS', 0, PDO::PARAM_INT);
 
         $state->execute();
 
