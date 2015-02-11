@@ -1,5 +1,11 @@
 <!-- TODO: Réparer autocompletion
 -->
+<?php
+global $user;
+    if(!(isset($_SESSION['ROLE']))){
+        header("Location: ../index.php");
+    }
+?>
 <script type="text/javascript">
 function cleanArray(array) {
   var i, j, len = array.length, out = [], obj = {};
@@ -11,7 +17,8 @@ function cleanArray(array) {
   }
   return out;
 }
-    $(document).ready(function(){
+
+$(document).ready(function(){
         var name = new Array();
 		var surname = new Array();
 		var cp = new Array();
@@ -42,39 +49,7 @@ function cleanArray(array) {
 	  $( "#cp" ).autocomplete({
         source: cpA
       });
-/*=======
-    $(document).ready(function(){
-        var name = new Array();
-        var surname = new Array();
-        var cp = new Array();
-        var profession = new Array();
-        $.ajax({
-            type: 'POST',
-            url: './Php/autocomplete.php',
-            dataType: 'json',
-            data: {'categories': 'tmp'},
-            success: function(data) {
 
-                var jss = jQuery.parseJSON(data);
-
-                jss.forEach(function(entry) {
-
-                    name.push(entry['LOGIN']);
-                    surname.push(entry['SURNAME']);
-                    cp.push(entry['CP']);
-                    // profession.push(entry['PROFESSION']);
-                });
-
-                $( "#name" ).autocomplete({
-                    source: name
-                });
-                $( "#surname" ).autocomplete({
-                    source: surname
-                });
-                $( "#cp" ).autocomplete({
-                    source: cp
-                });
->>>>>>> dev_sc*/
             }
         });
 
@@ -259,9 +234,9 @@ function cleanArray(array) {
                 $where = " WHERE ".implode($conditions,' AND ');
                 $surnom = $_POST['SURNAME'];
                 if(count($conditions) > 0) {
-                    $sql = 'SELECT * FROM user'. $where;
+                    $sql = 'SELECT * FROM USER'. $where;
                 }else {
-                    $sql = 'SELECT * FROM user order by NAME ASC';
+                    $sql = 'SELECT * FROM USER order by NAME ASC';
                 }
 
                 foreach ($pdo->query($sql) as $row) {
@@ -291,7 +266,9 @@ function cleanArray(array) {
                         <li><label>Adresse</label><span>'.$row['ADRESS'].'</span></li>
                         <li><label>CP</label><span>'.$row['CP'].'</span></li>
                         <li><label>Email</label><span>'.$row['MAIL'].'</span></li>
-                        <li><label>Association</label><span>'.(new MAssoc($row['ASSOCIATION_ID']))->getName().'</span></li>
+
+                            <li><label>Association</label><span>'.(new MAssoc($row['ASSOCIATION_ID']))->getName().'</span></li>
+
                         <li><label>Thème</label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
                         <li><label>Thème Interest</label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
                         <li><label>Profession</label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
@@ -310,8 +287,13 @@ function cleanArray(array) {
                 }
             }else {
 
-                $sql = 'SELECT * FROM user order by NAME ASC';
-                if(count($sql) > 0) {
+                $sql2 = 'SELECT COUNT(*) FROM USER order by NAME ASC';
+                $sql = 'SELECT * FROM USER order by NAME ASC';
+
+                $val = $pdo->prepare($sql2);
+                $val->execute();
+                $res= $val->fetch();
+                if($res[0] > 0) {
 
                     foreach ($pdo->query($sql) as $row) {
                         $img = null;

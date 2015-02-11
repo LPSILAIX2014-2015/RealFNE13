@@ -1,4 +1,6 @@
 <?php
+	if(!isset($_SESSION['ROLE'])||($_SESSION['ROLE']!='SADMIN'))
+		header('Location: ./index.php');
      $id = null;
     if ( isset($_POST['NAME'])) {
         $name = $_POST['NAME'];

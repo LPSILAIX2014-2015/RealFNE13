@@ -68,12 +68,6 @@ input, textarea, select {
     font-family: 'Slabo 13px', serif;
     transition:ease 0.5s;
 }
-input[type="checkbox"] {
-    cursor:url('../Img/cursor6.png'), auto;
-}
-input[type="radio"] {
-    cursor:url('../Img/cursor6.png'), auto;
-}
 input:hover, textarea:hover, select:hover {
     border:2px solid #4bc9e2;
 }
@@ -224,10 +218,12 @@ table {
 .notification a {
     cursor:url('../Img/cursor8.png'), auto ;
     color:#0189C7;
+
 }
 .notification a:hover {
     color:#FFFFFF;
 }
+
 .messages {
     display:block;
     position:fixed;
@@ -389,6 +385,22 @@ nav li a:hover {
 .page h1 {
     font-size:15pt;
     margin:2px;
+}
+button, #loginbutton {
+    color:#ffffff;
+    border:1px solid #ffffff;
+    background-color:#0a2d5f;
+    border-radius:5px;
+    padding:1px 4px 1px 4px;
+    font-weight:bold;
+    transition:ease 0.5s;
+    cursor:url('../Img/cursor2.png'), auto ;
+    font-family:'Cabin',Verdana,sans-serif;
+}
+button, #loginbutton:hover {
+    color:#0a2d5f;
+    border:1px solid #0a2d5f;
+    background-color:#a3cfea;
 }
 .logo {
     font-size:0;

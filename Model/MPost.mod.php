@@ -7,9 +7,8 @@
         private $title;
         private $description;
         private $pdate;
-
-        private $start;
-        private $end;
+        private $begin;
+        private $duration;
         private $content;
         private $status;
         private $imagepath;
@@ -19,6 +18,7 @@
 
             $this->sql = new MDBase();
             $state = $this->sql->prepare("SELECT * FROM POST WHERE ID = :id;");
+
             $state->bindValue('id', $id, PDO::PARAM_INT);
             $state->execute();
             $post = $state->fetch(PDO::FETCH_ASSOC);
@@ -27,26 +27,38 @@
             $this->title = $post['TITLE'];
             $this->description = $post['DESCRIPTION'];
             $this->pdate = $post['PDATE'];
+            $this->duration = $post['DURATION'];
+            $this->begin = $post['BEGIN'];
             $this->content = $post['CONTENT'];
             $this->status = $post['STATUS'];
             $this->imagepath = $post['IMAGEPATH'];
             $this->writer_id = $post['TITLE'];
         }
-
         // Getters
         public function getId() { return $this->id; }
         public function getTitle() { return $this->title; }
         public function getDescription() { return $this->description; }
         public function getPdate() { return $this->pdate; }
-        public function getStart() { return $this->start; }
-        public function getEnd() { return $this->end; }
+        public function getBegin(){return $this->begin;}
+        public function getDuration(){return $this->duration;}
         public function getContent() { return $this->content; }
         public function getStatus() { return $this->status; }
         public function getImagepath() { return $this->imagepath; }
         public function getWriterId() { return $this->writer_id; }
 
+        public function setBegin($begin)
+        {
+            $this->begin = $begin;
+            $this->sql->exec('UPDATE POST SET BEGIN = \''.$begin.'\' WHERE ID = '.$this->id.' ;');
+        }
 
-        // Setters
+        public function setDuration($duration)
+        {
+            $this->duration = $duration;
+            $this->sql->exec('UPDATE POST SET DURATION = \''.$duration.'\' WHERE ID = '.$this->id.' ;');
+        }
+
+         // Setters
         public function setContent($content)
         {
             $this->content = $content;
@@ -57,19 +69,6 @@
         {
             $this->description = $description;
             $this->sql->exec('UPDATE POST SET DESCRIPTION = \''.$description.'\' WHERE ID = '.$this->id.' ;');
-        }
-
-
-        public function setStart($start)
-        {
-            $this->duration = $start;
-            $this->sql->exec('UPDATE POST SET START = \''.$start.'\' WHERE ID = '.$this->id.' ;');
-        }
-
-        public function setEnd($end)
-        {
-            $this->duration = $end;
-            $this->sql->exec('UPDATE POST SET END = \''.$end.'\' WHERE ID = '.$this->id.' ;');
         }
 
         public function setImagepath($imagepath)
