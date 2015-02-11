@@ -54,11 +54,11 @@ if (($nb_message < 100)||($senderId == 1))
 		$_SESSION['title'] = $title;
 		$_SESSION['content'] = $content;
 
-        $request4 = $pdo -> prepare("SELECT SURNAME as prenom, NAME as nom FROM user WHERE id = ?");
+        $request4 = $pdo -> prepare("SELECT SURNAME as nom, NAME as prenom FROM user WHERE id = ?");
         $request4 -> execute(array($senderId));
         $req4 = $request4->fetch();
 
-        $request5 = $pdo -> prepare("SELECT SURNAME as prenom1, NAME as nom1 FROM user WHERE id = ?");
+        $request5 = $pdo -> prepare("SELECT SURNAME as nom1, NAME as prenom1 FROM user WHERE id = ?");
         $request5 -> execute(array ($receiverId));
         $req5 = $request5->fetch();
 
