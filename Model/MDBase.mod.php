@@ -5,7 +5,6 @@ class MDBase extends PDO {
     private static $engine = 'mysql';
 
     // SITE FINAL
-    private static $engine = 'mysql';
     private static $dbName = 'laplateftifne13' ;
     private static $dbHost = 'localhost' ;
     private static $dbUsername = 'laplateftifne13';
