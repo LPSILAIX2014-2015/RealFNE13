@@ -1,5 +1,4 @@
 <?php
-
     class MPost {
 
         private $sql;
@@ -8,6 +7,7 @@
         private $title;
         private $description;
         private $pdate;
+
         private $start;
         private $end;
         private $content;
@@ -16,6 +16,7 @@
         private $writer_id;
 
         function __construct ($id) {
+
             $this->sql = new MDBase();
             $state = $this->sql->prepare("SELECT * FROM POST WHERE ID = :id;");
             $state->bindValue('id', $id, PDO::PARAM_INT);
@@ -104,6 +105,5 @@
             $this->writer_id = $writer_id;
             $this->sql->exec('UPDATE POST SET WRITER_ID = \''.$writer_id.'\' WHERE ID = '.$this->id.' ;');
         }
-
 
     }

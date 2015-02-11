@@ -1,4 +1,4 @@
-<?php 
+<?php
     
 	$pdo = new MDBase();
 	if ( !empty($_POST)) {

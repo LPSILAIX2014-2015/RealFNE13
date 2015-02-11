@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
 	$('.displayArchive').on('click', function(event) {
 		event.preventDefault();
 		if($(this).attr('data-bool') == "1")
