@@ -2,14 +2,23 @@
 class MDBase extends PDO {
 
 
-
     private static $engine = 'mysql';
+    // OVH
+    private static $dbName = 'laplateftifne13' ;
+    private static $dbHost = 'laplateftifne13.mysql.db' ;
+    private static $dbUsername = 'laplateftifne13';
+    private static $dbUserPassword = 'natureC13';
+    private static $cont  = null;
+
+    /*
+    // LOCAL
     private static $dbName = 'FNESITE' ;
     private static $dbHost = 'localhost' ;
     private static $dbUsername = 'root';
-    private static $dbUserPassword = 'mysql';
+    private static $dbUserPassword = '';
     private static $cont  = null;
 
+*/
     public function __construct(){
         $dns = self::$engine.':dbname='.self::$dbName.";host=".self::$dbHost;
         parent::__construct( $dns, self::$dbUsername, self::$dbUserPassword );
@@ -128,6 +137,17 @@ class MDBase extends PDO {
         $qq = $pdo->prepare($query);
         $qq->execute();
         $data = $qq->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public static function getUserByEmail($mail)
+    {
+        $pdo = self::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $query = "SELECT * FROM USER WHERE mail= ?  ";
+        $q = $pdo->prepare($query);
+        $q->execute(array($mail));
+        $data = $q->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
 }
