@@ -42,7 +42,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-4">
+					<div class="col-sm-12">
 						<div class="panel panel-info">
 							<div class="panel-heading">
 								<h3 class="panel-title">Mail</h3>
@@ -51,7 +51,7 @@
 								<?= $GLOBALS['user']->getMail(); ?>
 							</div>
 						</div>
-						<div class="col-sm-4">
+						<div class="col-sm-12">
 							<div class="panel panel-info">
 								<div class="panel-heading">
 									<h3 class="panel-title">Address</h3>
@@ -62,6 +62,8 @@
 							</div>
 						</div>
 					</div>
+				</div>
+				<div class="row">
 					<div class="col-sm-4">
 						<div class="panel panel-info">
 							<div class="panel-heading">
@@ -72,8 +74,6 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="row">
 					<div class="col-sm-4">
 						<div class="panel panel-info">
 							<div class="panel-heading">
@@ -96,8 +96,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-2"></div>
-					<div class="col-sm-7">
+					<div class="col-sm-12">
 						<div class="panel panel-info">
 							<div class="panel-heading">
 								<h3 class="panel-title">Changer mot de passe</h3>

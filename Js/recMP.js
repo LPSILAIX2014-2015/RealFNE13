@@ -19,7 +19,7 @@ $(document).ready(function(){ // Fonction pour valider la première formulaire
                 success: function(data){
                      if(data==1){
                          $("#res").show();
-                         showMassageError('Valide');
+                         //showMassageError('Valide');
                          $('#mailR').val('');
                          setTimeout('',1500);
 			             location.replace('index.php');
@@ -57,7 +57,7 @@ $(document).ready(function(){ // Fonction pour valider le deuxième formulaire (
                 success: function(data){
                     if(data==1){ // Verification selon les resultats du Modèle
                         $("#res").show();
-                        showMassageError('Valide');
+                        //showMassageError('Valide');
                         setTimeout('',1500);
                         location.replace('index.php');
                     }else{
@@ -104,7 +104,7 @@ $(document).ready(function(){ // Fonction pour valider le deuxième formulaire (
                     if(data==1){ // Verification selon les resultats du Modèle
                         $("#chP").show();
                         restartAll();
-                        showMassageError('Mot de passe changé');
+                        //showMassageError('Mot de passe changé');
                         $("#ch").hide();
                         $("#chP").hide();
                     }else{

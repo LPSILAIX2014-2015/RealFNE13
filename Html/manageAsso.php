@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script type="text/javascript">
     $(document).ready(function(){
         var name = new Array();
