@@ -287,8 +287,10 @@ $(document).ready(function(){
                 }
             }else {
 
-                $sql = 'SELECT COUNT(*) FROM USER order by NAME ASC';
-                $val = $pdo->prepare($sql);
+                $sql2 = 'SELECT COUNT(*) FROM USER order by NAME ASC';
+                $sql = 'SELECT * FROM USER order by NAME ASC';
+
+                $val = $pdo->prepare($sql2);
                 $val->execute();
                 $res= $val->fetch();
                 if($res[0] > 0) {
