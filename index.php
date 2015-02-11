@@ -112,25 +112,25 @@ function formCreateArticle()
     header('Location: index.php?EX=createArticle');
 }
 
-    function searchMember()
-    {
-        global $page;
-        $page['title'] = 'Recherche de membre';
-        $page['class'] = 'VHtml';
-        $page['method'] = 'showHtml';
-        $page['css'] = 'Css/search.css';
-        $page['arg'] = 'Html/searchMember.php';
-    }
+function searchMember()
+{
+    global $page;
+    $page['title'] = 'Recherche de membre';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['css'] = 'Css/search.css';
+    $page['arg'] = 'Html/searchMember.php';
+}
 
-    function manageMembers()
-    {
-        global $page;
-        $page['title'] = 'Gestion des membres';
-        $page['class'] = 'VHtml';
-        $page['method'] = 'showHtml';
-        $page['css'] = 'Css/search.css';
-        $page['arg'] = 'Html/manageMembers.php';
-    }
+function manageMembers()
+{
+    global $page;
+    $page['title'] = 'Gestion des membres';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['css'] = 'Css/search.css';
+    $page['arg'] = 'Html/manageMembers.php';
+}
 
 function showArticle()
 {
