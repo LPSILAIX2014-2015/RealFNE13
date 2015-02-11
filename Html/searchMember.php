@@ -234,9 +234,9 @@ $(document).ready(function(){
                 $where = " WHERE ".implode($conditions,' AND ');
                 $surnom = $_POST['SURNAME'];
                 if(count($conditions) > 0) {
-                    $sql = 'SELECT * FROM user'. $where;
+                    $sql = 'SELECT * FROM USER'. $where;
                 }else {
-                    $sql = 'SELECT * FROM user order by NAME ASC';
+                    $sql = 'SELECT * FROM USER order by NAME ASC';
                 }
 
                 foreach ($pdo->query($sql) as $row) {
@@ -287,7 +287,7 @@ $(document).ready(function(){
                 }
             }else {
 
-                $sql = 'SELECT COUNT(*) FROM user order by NAME ASC';
+                $sql = 'SELECT COUNT(*) FROM USER order by NAME ASC';
                 $val = $pdo->prepare($sql);
                 $val->execute();
                 $res= $val->fetch();
