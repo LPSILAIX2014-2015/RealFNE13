@@ -254,6 +254,7 @@ function consultMessages()
     $page['title'] = 'Liste des messages';
     $page['class'] = 'VConsultMessages';
     $page['method'] = 'showConsultMessages';
+    $page['css'] = 'Css/tableMessages.css';
     $page['arg'] = 'Html/consultMessages.php';
 }
 
