@@ -79,7 +79,7 @@
 					  </div>
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-success">Edit</button>
-                                                  <a class="btn" href="./datatable.php">Retour</a>
+                                                  <a class="btn" href="./index.php">Retour</a>
 						</div>
 					</form>
 				</div>

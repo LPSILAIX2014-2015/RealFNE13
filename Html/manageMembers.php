@@ -122,8 +122,7 @@
         <div class="control-group">
             <label class="control-label">Code postal</label>
             <div class="controls">
-                <input name="CP" type="text" id="cp"  placeholder="Code postal" pattern="[0-9]{5}"  value="">
-                <span>(5 chiffres)</span>
+                <input name="CP" type="text" id="cp"  placeholder="Code postal" pattern="[0-9]{1,5}"  value="">
             </div>
         </div>
         <div class="control-group">
@@ -188,15 +187,15 @@
                 $conditions = array();
                 $params = array();
                 if($nom) {
-                    $conditions[] = "NAME = '". $nom. "'";
+                    $conditions[] = "NAME LIKE '%". $nom. "%'";
                     $params[]= $nom;
                 }
                 if($_POST['SURNAME']) {
-                    $conditions[] = "SURNAME = '". $_POST['SURNAME']. "'";
+                    $conditions[] = "SURNAME LIKE '%". $_POST['SURNAME']. "%'";
                     $params[] = $_POST['SURNAME'];
                 }
                 if($_POST['CP']) {
-                    $conditions[] = "CP = '". $_POST['CP']. "'";
+                    $conditions[] = "CP LIKE '". $_POST['CP']. "%'";
                     $params[] = $_POST['CP'];
                 }
                 if($_POST['PROFESSION']) {
