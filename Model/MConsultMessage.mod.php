@@ -68,10 +68,10 @@ class MConsultMessage {
 
 
                 $content_messages .= '<td>
-                <button title="Afficher" class="buttonShowMessages btn btn-sm btn-success"><i class="glyphicon glyphicon-plus"></i></button>
+                <button title="Afficher" class="buttonShowMessages btn btn-sm btn-success">Détail</button>
                 <div class="btnOptions">
-                    <button title="Supprimer" class="buttonDeleteMessages btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
-                    <button title="Archiver" class="buttonArchivateMessages btn btn-sm btn-primary"><i class="glyphicon glyphicon-folder-open"></i></button>
+                    <button title="Supprimer" class="buttonDeleteMessages btn btn-sm btn-danger">S</button>
+                    <button title="Archiver" class="buttonArchivateMessages btn btn-sm btn-primary">A</button>
                 </div>
             </td>';       
 
@@ -119,10 +119,10 @@ public function displayMessagesArchive($data_messages) {
 
             $content_messages_archive .= '
             <td>
-                <button title="Afficher" class="buttonShowMessages btn btn-sm btn-success"><i class="glyphicon glyphicon-plus"></i></button>
+                <button title="Afficher" class="buttonShowMessages btn btn-sm btn-success">Détail</button>
                 <div class="btnOptions">
-                    <button title="Supprimer" class="buttonDeleteMessages btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
-                    <button title="Annuler l\'archive" class="buttonUnArchivateMessages btn btn-sm btn-danger"><i class="glyphicon glyphicon-folder-open"></i></button>
+                    <button title="Supprimer" class="buttonDeleteMessages btn btn-sm btn-danger">S</button>
+                    <button title="Annuler l\'archive" class="buttonUnArchivateMessages btn btn-sm btn-danger">A</button>
                 </div>
             </td>';       
 
