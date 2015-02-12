@@ -93,7 +93,7 @@ class MNotification {
             $content_notif .= '<td class="currentTdNotif">'.$data_notif[$i]['NDATE'].'</td>';
             $content_notif .= '
             <td>
-                <button title="Supprimer" class="buttonDeleteNotif">S</button>
+                <button title="Supprimer" class="buttonDeleteNotif">Supprimer</button>
             </td>';
             $content_notif .= '<tr />';
 

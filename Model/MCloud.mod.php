@@ -11,16 +11,16 @@ class MCloud {
     public function insertCloud($idUser, $filename, $size) {
 
         $state = $this->sql->prepare("INSERT INTO CLOUD (
-                                        USER_ID,
-                                        PATH_FILE,
-                                        SIZE,
-                                        CDATE
-                                        ) VALUES (
-                                        :USER_ID,
-                                        :PATH_FILE,
-                                        :SIZE,
-                                        NOW()                            
-                                        )");
+            USER_ID,
+            PATH_FILE,
+            SIZE,
+            CDATE
+            ) VALUES (
+            :USER_ID,
+            :PATH_FILE,
+            :SIZE,
+            NOW()                            
+            )");
         $state->bindValue('USER_ID', $idUser, PDO::PARAM_INT);
         $state->bindValue('PATH_FILE', $filename, PDO::PARAM_STR);
         $state->bindValue('SIZE', $size, PDO::PARAM_INT);
@@ -29,6 +29,15 @@ class MCloud {
         return true;
     }
 
+    public function getIdAssoByIdUser($idUser) {
+
+        $state = $this->sql->prepare("SELECT ASSOCIATION_ID FROM USER WHERE ID = :idUser");
+        $state->bindValue('idUser', $idUser, PDO::PARAM_INT);
+        $state->execute();
+        $results = $state->fetch(PDO::FETCH_ASSOC);
+        
+        return $results['ASSOCIATION_ID'];
+    }
 
     public function getCloudByUser($idUser) {
 
@@ -52,15 +61,29 @@ class MCloud {
         return $results;
     }
 
+    public function getCloudById($id) {
+
+        $state = $this->sql->prepare("SELECT * FROM CLOUD WHERE ID = :id");
+        $state->bindValue('id', $id, PDO::PARAM_INT);
+        $state->execute();
+        $results = $state->fetch(PDO::FETCH_ASSOC);
+        $date = $results["CDATE"];
+        $date = explode('-', $date);
+        $currentDate = $date[2].'/'.$date[1].'/'.$date[0];
+        $results["CDATE"] = $currentDate;
+        
+        return $results;
+    }
+
     public function getAssoSize($idAsso, $newSize) {
 
         //Taille maximale alloué à une association
         $maxSize = 104857600;
 
         $state = $this->sql->prepare("SELECT SUM(C.SIZE) nbr
-                                    FROM USER U, CLOUD C
-                                    WHERE U.ASSOCIATION_ID = :idAsso
-                                    AND C.USER_ID = U.ID");
+            FROM USER U, CLOUD C
+            WHERE U.ASSOCIATION_ID = :idAsso
+            AND C.USER_ID = U.ID");
         $state->bindValue('idAsso', $idAsso, PDO::PARAM_INT);
         $state->execute();    
         $results = $state->fetch(PDO::FETCH_ASSOC);
@@ -71,7 +94,23 @@ class MCloud {
 
     }
 
-    public function checkSpaceAvailable($idUser, $newSize, $idAsso) {
+    public function getAssoSizeUpload($idUser) {
+
+        $state = $this->sql->prepare("SELECT SUM(C.SIZE) nbr
+            FROM USER U, CLOUD C, USER U2
+            WHERE U.ID = :idUser
+            AND U.ASSOCIATION_ID = U2.ASSOCIATION_ID
+            AND U2.ID = C.USER_ID");
+        $state->bindValue('idUser', $idUser, PDO::PARAM_INT);
+        $state->execute();    
+        $results = $state->fetch(PDO::FETCH_ASSOC);
+        $size = $results['nbr'];
+
+        return $size;
+
+    }
+
+    public function checkSpaceAvailable($newSize, $idAsso) {
 
         return $this->getAssoSize($idAsso, $newSize);
 
@@ -91,8 +130,8 @@ class MCloud {
 
             $content_Cloud .= '
             <td>
-                <a target="_blank" href="Cloud/'.$data_cloud[$i]['PATH_FILE'].'"><button title="Télécharger" class="buttonDownloadCloud">D</button></a>
-                <button title="Supprimer" class="buttonDeleteCloud">S</button>
+                <a target="_blank" href="index.php?EX=downloadCloud&id='.$data_cloud[$i]['ID'].'"><button title="Télécharger" class="buttonDownloadCloud">Télécharger</button></a>
+                <button title="Supprimer" class="buttonDeleteCloud">Supprimer</button>
             </div>';
             $content_Cloud .= '</td>';       
 

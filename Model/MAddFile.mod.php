@@ -10,6 +10,10 @@ class MAddFile {
 
     public function addFile($data) {
 
+        echo "<pre>";
+        var_dump($_FILES);
+        echo "</pre>";
+
         $idUser = $_SESSION['ID_USER'];
         $idAsso = 
 
@@ -26,14 +30,14 @@ class MAddFile {
         $results = $state->fetch(PDO::FETCH_ASSOC);
 
         $idAsso = $results['id'];
-
-        if($mCloud->checkSpaceAvailable($idUser, $file['size'], $idAsso))
+        if($mCloud->checkSpaceAvailable($file['size'], $idAsso))
         {
-            $filename = strtr($filename,
-                'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 
-                'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
-            $filename = preg_replace('/([^.a-z0-9]+)/i', '-', $filename);
-            $filename = 'Asso'.$idAsso.'-'.$filename;
+            $date = new DateTime('now');
+            $date = md5($date->format('Y-m-d h:i:s'));
+            $rand = substr($date, 0, 4);
+
+            $filename = preg_replace('#[^.a-z0-9_-]+#i', '', $filename);
+            $filename = $rand.'-'.$filename;
 
             $mCloud->insertCloud($idUser, $filename, $file['size']);
 

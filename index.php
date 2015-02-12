@@ -12,6 +12,7 @@ switch($EX)
 {
     case 'home'      : home();       break;
     case 'cloud'      : cloud();       break;
+    case 'downloadCloud'      : downloadCloud();       break;
     case 'addFile'      : addFile();       break;
     case 'login'     : login();      break;
     case 'reportList': reportList(); break;
@@ -96,6 +97,13 @@ function cloud()
     $page['method'] = 'showCloud';
     $page['arg'] = 'Html/cloud.php';
     $page['css'] = 'Css/cloud.css';
+}
+
+function downloadCloud()
+{
+    $mDownloadCloud = new MDownloadCloud();
+    $mDownloadCloud->download(htmlspecialchars($_GET['id']));
+    header('Location: index.php?EX=cloud');
 }
 
 function addFile()
