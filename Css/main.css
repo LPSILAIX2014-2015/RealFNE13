@@ -125,8 +125,7 @@ table {
     right:0;
     height:70px;
     background-color: #4bc9e2;
-    background:url('../Img/headerbg.png'),-webkit-linear-gradient(top left, rgba(51,122,183,0.7),rgba(75,201,226,1));
-    background:url('../Img/headerbg.png'),-o-linear-gradient(bottom right, rgba(51,122,183,0.7),rgba(75,201,226,1));
+    background:url('../Img/headerbg.png'),rgba(51,122,183,0.7);
     background:url('../Img/headerbg.png'),linear-gradient(to bottom right, rgba(51,122,183,0.7),rgba(75,201,226,1));
     background-repeat:no-repeat;
     background-position:bottom right;
@@ -276,6 +275,7 @@ table {
     vertical-align:middle;
     cursor:url('../Img/cursor15.png'), auto ;
     z-index:20;
+    border-radius: 0 20px 0 0;
 }
 .deconnexion:hover {
     background-color:#FFF;
