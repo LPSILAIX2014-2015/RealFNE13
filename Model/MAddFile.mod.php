@@ -10,9 +10,10 @@ class MAddFile {
 
     public function addFile($data) {
 
-        echo "<pre>";
-        var_dump($_FILES);
-        echo "</pre>";
+        if(count($_FILES) === 0)
+        {
+            return 'ERR_NC';
+        }
 
         $idUser = $_SESSION['ID_USER'];
         $idAsso = 
@@ -30,6 +31,7 @@ class MAddFile {
         $results = $state->fetch(PDO::FETCH_ASSOC);
 
         $idAsso = $results['id'];
+
         if($mCloud->checkSpaceAvailable($file['size'], $idAsso))
         {
             $date = new DateTime('now');
@@ -43,6 +45,11 @@ class MAddFile {
 
            $rst = move_uploaded_file($file['tmp_name'], 'Cloud/'.$filename);
 
+           return 'OK';
+        }
+        else
+        {
+            return 'ERR_SIZE';
         }
 }
 

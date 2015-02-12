@@ -112,8 +112,24 @@ function addFile()
 {
 
     $mAddFile = new MAddFile();
-    $mAddFile->addFile($_FILES);
-    header('Location: index.php?EX=cloud');
+    $result = $mAddFile->addFile($_FILES);
+    
+    if($result == "OK")
+    {
+        header('Location: index.php?EX=cloud&state='.$result);
+    }
+    elseif ($result == "ERR_SIZE")
+    {
+        header('Location: index.php?EX=cloud&state='.$result);
+    }
+    elseif ($result == "ERR_NC")
+    {
+        header('Location: index.php?EX=cloud&state='.$result);
+    }
+    else
+    {
+        header('Location: index.php?EX=cloud&state=ERR_UNKNOWN');
+    }
 }
 
 function error()
