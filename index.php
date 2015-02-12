@@ -1,4 +1,6 @@
 <?php
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 'on');
 header ('Content-Type: text/html; charset=utf-8');
 require('Inc/require.inc.php');
 require('Inc/globals.inc.php');
