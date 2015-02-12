@@ -23,3 +23,11 @@
     margin:0;
     padding:0;
 }
+
+.noLogo span
+{
+    color: black;
+    font-size: 11px;
+    line-height: 12px;
+    display: inline-block;
+}
