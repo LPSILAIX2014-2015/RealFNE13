@@ -1,3 +1,12 @@
+<?php
+    if(!(isset($_SESSION['ROLE'])) || (($_SESSION['ROLE'] == 'MEMBRE')||($_SESSION['ROLE'] == 'VALIDATOR'))){
+        header("Location: ./index.php");   
+    }
+    else if($_SESSION['ROLE']=='ADMIN'){
+        $assoc=(new MUser($_SESSION['ID_USER']))->getAssociation();
+    }
+?>
+
 <script type="text/javascript">
     $(document).ready(function(){
         var name = new Array();
@@ -132,6 +141,9 @@
 
             </div>
         </div>
+        <?php
+        if(!(isset($assoc))){
+        ?>
         <div class="control-group">
             <label class="control-label">Association</label>
             </br>
@@ -144,6 +156,9 @@
                     ?>
             </select>
         </div>
+        <?php
+    }
+    ?>
         <div class="control-group">
             <label class="control-label">Th&egrave;me</label>
             </br>
@@ -202,7 +217,11 @@
                     $conditions[] = "PROFESSION = '". $_POST['PROFESSION']. "'";
                     $params[] = $_POST['PROFESSION'];
                 }
-                if($_POST['ASSOCIATION']) {
+                if(isset($assoc)) {
+                    $conditions[] = "ASSOCIATION_ID = '". $assoc. "'";
+                    $params[] = $assoc;
+                }
+                else if($_POST['ASSOCIATION']) {
                     $conditions[] = "ASSOCIATION_ID = '". $_POST['ASSOCIATION']. "'";
                     $params[] = $_POST['ASSOCIATION'];
                 }
@@ -213,9 +232,9 @@
                 $where = " WHERE ".implode($conditions,' AND ');
                 $surnom = $_POST['SURNAME'];
                 if(count($conditions) > 0) {
-                    $sql = 'SELECT * FROM user'. $where;
+                    $sql = 'SELECT * FROM USER'. $where;
                 }else {
-                    $sql = 'SELECT * FROM user order by NAME ASC';
+                    $sql = 'SELECT * FROM USER order by NAME ASC';
                 }
                 foreach ($pdo->query($sql) as $row) {
                     $img = null;
@@ -262,8 +281,11 @@
                     echo '</tr>';
                 }
             }else {
-
-                $sql = 'SELECT * FROM user order by NAME ASC';
+                if(isset($assoc)){
+                    $sql = 'SELECT * FROM USER WHERE ASSOCIATION_ID = '.$assoc.' Order by Name ASC';
+                }
+                else
+                    $sql = 'SELECT * FROM USER order by NAME ASC';
                 if(count($sql) > 0) {
                     foreach ($pdo->query($sql) as $row) {
                         $img = null;
@@ -317,66 +339,3 @@
         </table>
     </div>
 </div> <!-- /container -->
-<!--
-<script>
-function cleanArray(array) {
-  var i, j, len = array.length, out = [], obj = {};
-  for (i = 0; i < len; i++) {
-    obj[array[i]] = 0;
-  }
-  for (j in obj) {
-    out.push(j);
-  }
-  return out;
-}
-    $(document).ready(function(){
-        var name = new Array();
-		var surname = new Array();
-		var cp = new Array();
-		var association = new Array();
-        $.ajax({
-            type: 'POST',
-			dataType: 'json',
-            url: './Php/autocomplete.php',
-            data: {'categories': 'tmp'},
-            
-            success: function(data) {
-				data.forEach(function(entry) {
-			
-            name.push(entry['NAME']);
-            surname.push(entry['SURNAME']);
-            cp.push(entry['CP']);
-           association.push(entry['ASSOCIATION']);
-        });
-      var nameA = cleanArray(name);
-      $( "#name" ).autocomplete({
-        source: nameA
-      });
-	  var surnameA = cleanArray(surname);
-	  $( "#surname" ).autocomplete({
-        source: surnameA
-      });
-	  var cpA = cleanArray(cp);
-	  $( "#cp" ).autocomplete({
-        source: cpA
-      });
-	  var assoc = cleanArray(association);
-	  $( "#association" ).autocomplete({
-        source: assoc
-      });
-
-            }
-        });
-        $('a.popin').click(function (){
-            $('a.popin').fancybox();
-            var image = $(this).next().children().children().children().val();
-            var html = $(this).next().children().children().children();
-            if(!html.hasClass('photo-inner')) {
-
-                $(this).next().children().children().first().append('<div class="photo-inner"><img src="'+image+'" height="186" width="153"></div>');
-            }
-        });
-    });
-
-
-</script>-->

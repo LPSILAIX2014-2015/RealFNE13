@@ -17,7 +17,7 @@ class CConnexion {
             $fail = new CloginFail($result['ID']) ;
             $failremain = $fail->getExpire() - time() ;
 
-            if (($result['PASSWORD'] === $password) && (($fail->getAttempts() < LOGINFAIL_ATTEMPTS) || ($failremain <= 0)))
+            if (($result['PASSWORD'] === md5($password)) && (($fail->getAttempts() < LOGINFAIL_ATTEMPTS) || ($failremain <= 0)))
             {
 
                 $_SESSION['ID_USER'] = $result['ID'];
