@@ -18,6 +18,7 @@
             <table class="tableMessages table table-hover">
                 <thead>
                     <tr>
+                        <th class="PERCENT_CLOUD">%</th>
                         <th class="USER_CLOUD">Propriétaire</th>
                         <th class="PATH">Fichier</th>
                         <th class="DATE_CLOUD">Date</th>

@@ -94,6 +94,14 @@ class MCloud {
 
     }
 
+    public function getPercent($nbr) {
+        
+        //Taille maximale alloué à une association
+        $maxSize = 104857600;
+
+        return ceil($nbr / $maxSize * 100);
+    }
+
     public function getAssoSizeUpload($idUser) {
 
         $state = $this->sql->prepare("SELECT SUM(C.SIZE) nbr
@@ -124,7 +132,8 @@ class MCloud {
             $content_Cloud .= '<tr  class="lineCloud" id="cloud'.$data_cloud[$i]['ID'].'" '; 
             $content_Cloud .= '>';
             
-            $content_Cloud .= '<td class="currentTdMessage">'.$data_cloud[$i]['NAME_USER'].'</td>';
+            $content_Cloud .= '<td class="currentTdMessage">'.$this->getPercent($data_cloud[$i]['SIZE']).'%</td>';
+            $content_Cloud .= '<td class="trCenter currentTdMessage">'.$data_cloud[$i]['NAME_USER'].'</td>';
             $content_Cloud .= '<td class="currentTdMessage">'.$data_cloud[$i]['PATH_FILE'].'</td>';
             $content_Cloud .= '<td class="currentTdMessage">'.$data_cloud[$i]['CDATE'].'</td>';
 
