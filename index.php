@@ -227,7 +227,6 @@ function deleteMember()
 }
 
         function recuperation() // Presentation du formilaire principal pour envoyer le mail
->>>>>>> 7254a7f882a64bea5cf128e8bf0a9b483f43d324
     {
         global $page, $user;
         if (isset($user)) { // Validation pour l'envoi du mail 
