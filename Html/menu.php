@@ -3,16 +3,16 @@
 global $user ;
 ?>
 <ul>
-    <li><a href="index.php?EX=searchMember">Recherche</a></li>
-    <li><a href ="index.php?EX=calendar">Agenda</a></li>
-    <li><a>Articles</a>
+    <li><a class="cursor_search" href="index.php?EX=searchMember">Recherche</a></li>
+    <li><a class="cursor_time" href ="index.php?EX=calendar">Agenda</a></li>
+    <li><a class="cursor_read">Articles</a>
         <div class="submenu">
 
-            <a href="index.php?EX=showArticle">Consulter</a>
+            <a class="cursor_read" href="index.php?EX=showArticle">Consulter</a>
             <?PHP
             if (isset($user)) {
             ?>
-            <a href="index.php?EX=createArticle">Ecrire</a>
+            <a class="cursor_text" href="index.php?EX=createArticle">Ecrire</a>
             <?PHP
             }
             ?>
@@ -21,10 +21,10 @@ global $user ;
     <?PHP
     if (isset($user)) {
     ?>
-    <li><a>Messagerie</a>
+    <li><a class="cursor_message">Messagerie</a>
         <div class="submenu">
-            <a href="index.php?EX=consultMessages">Consulter</a>
-            <a href="index.php?EX=writeMessages">Ecrire</a>
+            <a class="cursor_message" href="index.php?EX=consultMessages">Consulter</a>
+            <a class="cursor_text" href="index.php?EX=writeMessages">Ecrire</a>
         </div>
     </li>
     <?PHP
@@ -37,7 +37,7 @@ global $user ;
             <a>Validations</a>
             <?php if($user->getRole() == 'SADMIN'){?>
                 <a href="index.php?EX=manageAsso">Gestion assos</a>
-                <a href="index.php?EX=reportList">Journal</a>
+                <a class="cursor_notice" href="index.php?EX=reportList">Journal</a>
             <?php } ?>
         </div>
     </li>

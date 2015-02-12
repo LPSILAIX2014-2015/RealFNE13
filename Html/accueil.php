@@ -17,10 +17,10 @@
     <a href=""><img width="75" height="25" src="Img/logosassos/Logo - Colinéo.jpg"></a>
     <a href=""><img width="75" height="61" src="Img/logosassos/Logo - Convergence économique du pays de Gardanne.gif"></a>
     <a href=""><img width="75" height="23" src="Img/logosassos/Logo - Eco-Relais.jpg"></a>
-    <a href=""> <img width="75" height="22" src="Img/logosassos/Logo - Expertise écologique, éducation à l'environnement.png"></a>
+    <a href=""><img width="75" height="22" src="Img/logosassos/Logo - Expertise écologique, éducation à l'environnement.png"></a>
     <a href=""><img width="67" height="75" src="Img/logosassos/Logo - La Bourine.jpg"></a>
     <a href=""><img width="75" height="41" src="Img/logosassos/Logo - Le collectif vélos en ville.jpg"></a>
-    <a href=""> <img width="75" height="45" src="Img/logosassos/Logo - Le Loubatas.jpg"></a>
+    <a href=""><img width="75" height="45" src="Img/logosassos/Logo - Le Loubatas.jpg"></a>
     <a href=""><img width="75" height="75" src="Img/logosassos/Logo - Ligue de Défense des Alpilles.jpg"></a>
     <a href=""><img width="75" height="36" src="Img/logosassos/Logo - Nacicca.jpg"></a>
     <a href=""><img width="75" height="38" src="Img/logosassos/Logo - Nature Environnement Allauch.png"></a>
