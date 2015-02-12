@@ -149,6 +149,7 @@ function showInfoArticle()
     $page['class'] = 'VInfoArticle';
     $page['method'] = 'showInfoArticle';
     $page['arg'] = 'Html/infoArticle.php';
+    $page['css'] = 'Css/showArticle.css';
 }
 
 function createMember()
