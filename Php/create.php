@@ -21,7 +21,7 @@
                 $headers = "From: webmaster@domain.com \r\n";
                 $headers .= "MIME-Version: 1.0\r\n";
                 $headers .= "Content-type: text/html\r\n";
-                $message = $_SERVER['REQUEST_URI'].'http://laplateformeFNE13/index.php?EX=updateMail.php?email='.$email;
+                $message = $_SERVER['REQUEST_URI'].'http://laplateformeFNE13.fr/index.php?EX=updateMail.php?email='.$email;
                 $subject = 'compléter votre profil';
                  mail ($email,$subject,$message,$headers);
 
