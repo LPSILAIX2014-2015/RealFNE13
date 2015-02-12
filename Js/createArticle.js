@@ -26,8 +26,6 @@ $(document).ready(function() {
             $(".inputOnlyCalendar").prop('hidden', false);
         });
     });
-
-
 });
 
 var cancelCreactArticle = function(){
