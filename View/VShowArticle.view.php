@@ -16,7 +16,7 @@ class VShowArticle
 
     $state = $connec->prepare(
       "SELECT P.*, U.NAME, U.SURNAME, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE 
-       FROM post P, user U
+       FROM post P, USER U
        WHERE P.WRITER_ID = U.ID
        ORDER BY id DESC"
     );

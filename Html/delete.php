@@ -4,6 +4,10 @@
 	if ( !empty($_GET['id'])) {
 		$id = $_REQUEST['id'];
 	}
+	if(!isset($_SESSION['ROLE'])||($_SESSION['ROLE']!='SADMIN'&&$_SESSION['ROLE']!='ADMIN'))
+		header('Location: ./index.php');
+	if($_SESSION['ROLE']=='ADMIN'&&$user->getAssociation()!=(new MUser($_SESSION['ID_USER']))->getAssociation())
+    	header('Location: ./index.php?EX=manageMembers');
 	
 ?>
     <div class="container">
