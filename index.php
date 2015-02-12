@@ -13,6 +13,9 @@ if(isset($_REQUEST['idPrev'])){
 switch($EX)
 {
     case 'home'      : home();       break;
+    case 'cloud'      : cloud();       break;
+    case 'downloadCloud'      : downloadCloud();       break;
+    case 'addFile'      : addFile();       break;
     case 'login'     : login();      break;
     case 'reportList': reportList(); break;
     case 'searchMember'     : searchMember();      break;
@@ -88,8 +91,34 @@ function home()
     $page['css'] = 'Css/accueil.css';
 }
 
+function cloud()
+{
+    global $page;
+    $page['title'] = 'Cloud';
+    $page['class'] = 'VCloud';
+    $page['method'] = 'showCloud';
+    $page['arg'] = 'Html/cloud.php';
+    $page['css'] = 'Css/cloud.css';
+}
+
+function downloadCloud()
+{
+    $mDownloadCloud = new MDownloadCloud();
+    $mDownloadCloud->download(htmlspecialchars($_GET['id']));
+    header('Location: index.php?EX=cloud');
+}
+
+function addFile()
+{
+
+    $mAddFile = new MAddFile();
+    $mAddFile->addFile($_FILES);
+    header('Location: index.php?EX=cloud');
+}
+
 function error()
 {
+
     global $page;
     $page['title'] = 'Erreur 404 !';
     $page['class'] = 'VHtml';
@@ -114,25 +143,25 @@ function formCreateArticle()
     header('Location: index.php?EX=createArticle');
 }
 
-    function searchMember()
-    {
-        global $page;
-        $page['title'] = 'Recherche de membre';
-        $page['class'] = 'VHtml';
-        $page['method'] = 'showHtml';
-        $page['css'] = 'Css/search.css';
-        $page['arg'] = 'Html/searchMember.php';
-    }
+function searchMember()
+{
+    global $page;
+    $page['title'] = 'Recherche de membre';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['css'] = 'Css/search.css';
+    $page['arg'] = 'Html/searchMember.php';
+}
 
-    function manageMembers()
-    {
-        global $page;
-        $page['title'] = 'Gestion des membres';
-        $page['class'] = 'VHtml';
-        $page['method'] = 'showHtml';
-        $page['css'] = 'Css/search.css';
-        $page['arg'] = 'Html/manageMembers.php';
-    }
+function manageMembers()
+{
+    global $page;
+    $page['title'] = 'Gestion des membres';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['css'] = 'Css/search.css';
+    $page['arg'] = 'Html/manageMembers.php';
+}
 
 function showArticle()
 {
