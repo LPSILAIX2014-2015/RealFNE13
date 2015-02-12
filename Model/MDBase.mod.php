@@ -19,13 +19,20 @@ class MDBase extends PDO {
     private static $dbUserPassword = 'natureC13';
     private static $cont  = null;
 
-    */
-    // LOCAL
+    /*/
+    /*/ LOCAL
     private static $dbName = 'laplateftifne13' ;
     private static $dbHost = 'localhost' ;
     private static $dbUsername = 'laplateftifne13';
     private static $dbUserPassword = 'natureC13';
     private static $cont  = null;
+    //*/
+    private static $dbName = 'fnesite' ;
+    private static $dbHost = 'localhost' ;
+    private static $dbUsername = 'root';
+    private static $dbUserPassword = '';
+    private static $cont  = null;
+    //*/
 
     public function __construct(){
         $dns = self::$engine.':dbname='.self::$dbName.";host=".self::$dbHost;

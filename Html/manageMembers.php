@@ -1,5 +1,5 @@
 <?php
-    if(!(isset($_SESSION['ROLE'])) || ($_SESSION['ROLE'] == 'MEMBRE') || ($_SESSION['ROLE'] == 'VALIDATOR')){
+    if(!(isset($_SESSION['ROLE'])) || (($_SESSION['ROLE'] == 'MEMBRE')||($_SESSION['ROLE'] == 'VALIDATOR'))){
         header("Location: ./index.php");   
     }
     else if($_SESSION['ROLE']=='ADMIN'){
