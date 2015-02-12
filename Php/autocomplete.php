@@ -2,7 +2,7 @@
 $name = null;
 if ( !empty($_POST)) {
     $pdo = new MDBase();
-    $sql = 'SELECT * FROM user ORDER BY NAME ASC';
+    $sql = 'SELECT * FROM USER ORDER BY NAME ASC';
     $d = $pdo->query($sql);
     $users = array();
     foreach ($d as $data){

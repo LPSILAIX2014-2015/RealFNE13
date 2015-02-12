@@ -12,7 +12,6 @@ class MFormCreateArticle
 
     public function insertDB($data){
 
-        $postDate = date('d/m/Y');
         /**
         
         Controle Image
@@ -20,7 +19,7 @@ class MFormCreateArticle
         **/
 
 
-       /* $repertoireDestination = dirname(__FILE__)."Img/ImgArticle/";
+        $repertoireDestination = "Img/ImgArticle/";
 
         $extensionsAutorisees = array("jpeg", "jpg","png");
         $nomOrigine = $_FILES["articleImage"]["name"];
@@ -29,37 +28,37 @@ class MFormCreateArticle
 
         $maxImageSize = $_POST["max_file_size"];
 
+        $pathImage = $repertoireDestination.$_FILES["articleImage"]["name"];
+
+        var_dump($_FILES["articleImage"]);
+        var_dump($elementsChemin);
+
         //Check if the file is an image
-        if (in_array($extensionFichier, $extensionsAutorisees) {
-            echo "Le fichier à le bon format";
+        if (in_array($extensionFichier, $extensionsAutorisees)) {
+            echo "Ce fichier à la bon format";
 
             //Check if the size of the image is correct
             if($_FILES["articleImage"]["size"] < $maxImageSize){
-    
+                echo "Ce fichier à la bonne taille";
+
+                //Check if the file is correctly moved
+                if (move_uploaded_file($_FILES["articleImage"]["tmp_name"],$repertoireDestination.$_FILES["articleImage"]["name"])) {
+                    echo "Ce fichier à bien été placé";
+
+                }else{
+                    echo "L'upload du fichier à échoué";
+                    return;
+                }
+
+            }else{
+                echo "L'image est trop volumineuse";
+                return;
             }
 
-        //Check if the file is upload
         } else{
             echo "Ce type de fichier n'est pas autorisé";
             return;
         }
-
-        
-
-
-
-
-        if(is_uploaded_file($_FILES["articleImage"]["tmp_name"])) {
-
-            //Check if the file is correctly moved
-            if (rename($_FILES["articleImage"]["tmp_name"],$repertoireDestination.$_FILES["articleImage"]["name"])) {
-                echo "Le fichier temporaire ".$_FILES["articleImage"]["tmp_name"]." a été déplacé vers ".$repertoireDestination.$_FILES["articleImage"]["name"];
-            } else {
-                echo "Le fichier n'a pas été uploadé (trop gros ?) ou le déplacement du fichier temporaire a échoué ou vérifiez l'existence du répertoire ".$repertoireDestination;
-            }
-        }*/
-
-
 
         /**
         
@@ -76,7 +75,8 @@ class MFormCreateArticle
             "startDate"         => FILTER_SANITIZE_SPECIAL_CHARS,
             "duration"          => FILTER_VALIDATE_INT,
             "inscription"       => FILTER_SANITIZE_SPECIAL_CHARS,
-            "textareaDecrypt"   => FILTER_SANITIZE_SPECIAL_CHARS
+            "textareaDecrypt"   => FILTER_SANITIZE_SPECIAL_CHARS,
+            "articleImage"      => FILTER_SANITIZE_SPECIAL_CHARS
         );
 
         // Fill data form with $otpion (we can get the data of all input by using $dataForm["nameinput"]
@@ -127,24 +127,11 @@ class MFormCreateArticle
             )
         ");
 
-        //If the preparation went wrong, we rollBack (request canceled), and we return false 
-        var_dump($state);
+        //If the preparation went wrong, we rollBack (request canceled), and we return false
         if(!$state) {
             $sql->rollBack();
             return false;
         }
-
-        var_dump($postDate);
-        
-        var_dump($_SESSION['ID_USER']);
-
-        var_dump($dataForm['articleTitle']);
-        var_dump($dataForm['articleTheme']);
-        var_dump($dataForm['eventPlace']);
-        var_dump($dataForm['startDate']);
-        var_dump($dataForm['duration']);
-        var_dump($dataForm['inscription']);
-        var_dump($dataForm['textareaDecrypt']);
 
 
         //Bind datavalue and databases fields. 
@@ -156,8 +143,8 @@ class MFormCreateArticle
         $state->bindValue('DURATION',   $dataForm['duration'], PDO::PARAM_INT);
         $state->bindValue('INSCRIPTION',$dataForm['inscription'], PDO::PARAM_INT);
         $state->bindValue('CONTENT',    $dataForm['textareaDecrypt'], PDO::PARAM_STR);
-        $state->bindValue('IMAGEPATH', "IMG/lol.png", PDO::PARAM_STR);
-        $state->bindValue('PDATE',      $postDate, PDO::PARAM_STR);
+        $state->bindValue('IMAGEPATH',  $pathImage, PDO::PARAM_STR);
+        $state->bindValue('PDATE',      date('Y-m-d'), PDO::PARAM_STR);
         $state->bindValue('PTYPE',      "ARTICLE", PDO::PARAM_STR);
         $state->bindValue('STATUS',     0, PDO::PARAM_INT);
 
@@ -166,6 +153,7 @@ class MFormCreateArticle
 
         $temp = $sql->lastInsertId();
 
+        //$temp return the ID of the last row inserted
         $sql->commit();
 
         var_dump($temp);

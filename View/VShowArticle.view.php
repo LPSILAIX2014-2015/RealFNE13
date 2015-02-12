@@ -14,14 +14,14 @@ class VShowArticle
 
   	// AFFICHAGE
 
-  	$state = $connec->prepare(
-  	  "SELECT P.*, U.NAME, U.SURNAME, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE
-  	   FROM POST P, USER U
-  	   WHERE P.WRITER_ID = U.ID
-  	   ORDER BY id DESC"
-  	);
-  	$state->execute();
-  	$data_article = $state->fetchAll(PDO::FETCH_ASSOC);
+    $state = $connec->prepare(
+      "SELECT P.*, U.NAME, U.SURNAME, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE 
+       FROM post P, USER U
+       WHERE P.WRITER_ID = U.ID
+       ORDER BY id DESC"
+    );
+    $state->execute();
+    $data_article = $state->fetchAll(PDO::FETCH_ASSOC);
 
 
   	// REMPLISSAGE DU CONTENU

@@ -74,7 +74,7 @@
                 <input type="file" id="articleImage" name="articleImage">
             </div>
         </div>
-        <input type="hidden" name="max_file_size" value="5000">
+        <input type="hidden" name="max_file_size" value="200000">
 
         <!-- 
                                      ------------------------------------------------------
