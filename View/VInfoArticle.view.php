@@ -7,8 +7,12 @@ class VInfoArticle
   
   public function showInfoArticle($_html)
   {
-    global $connec;
+    
+	  global $connec;
   	global $article;
+
+
+    // AFFICHAGE
 
     $state = $connec->prepare(
       "SELECT P.*, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE,
@@ -20,7 +24,7 @@ class VInfoArticle
     $article = $state->fetchAll(PDO::FETCH_ASSOC);
 
 
-    /* AFFICHAGE */
+    // REMPLISSAGE DU CONTENU
 
     $vhtml = new VHtml();
     $vhtml->showHtml($_html);

@@ -40,6 +40,10 @@
 }
 
 .NOTIFICATION_NOTIF {
-	width: 410px;
+	width: 385px;
+}
+
+.BUTTON_NOTIF {
+	width: 42px;
 }
 

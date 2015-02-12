@@ -1,31 +1,53 @@
 <?php
-	global $data_article;
+  global $data_article;
+  $nbArticles = count($data_article);
+
+  function afficheArticle($indexArticle) {
+    global $data_article;
+    
+    if(strlen($data_article[$indexArticle]['CONTENT']) > 200) {
+      $description = substr($data_article[$indexArticle]['CONTENT'], 200);
+    } else {
+      $description = $data_article[$indexArticle]['CONTENT'];
+    }
+
+    echo "<div id='article" . $data_article[$indexArticle]['ID'] . "'"
+      .      " class='lienarticle'>"
+      .    "<div id='imgplace'>"
+      .      "<img src='" . $data_article[$indexArticle]['IMAGEPATH'] . "'"
+      .          " class='img-responsive' />"
+      .    "</div>"
+      
+      .    "<div id='infoarticle'>"
+      .      "<h2>" . $data_article[$indexArticle]['TITLE'] . "</h2>"
+      .      "<p class='auteur'>"
+      .         $data_article[$indexArticle]['NAME']
+      .         " " . $data_article[$indexArticle]['SURNAME']
+      .         ", le ". $data_article[$indexArticle]['PDATE']
+      .      "</p>"
+      .      "<p class='description'>"
+      .         $description
+      .      "</p>"
+      .    "</div>"
+      .  "</div>";
+  }
 ?>
 
-	<div class="container-fluid pvarticle">
+  <div class="container-fluid pvarticle">
     <h1>Liste des articles</h1>
 <?php
-      for($i = 0 ; $i < count($data_article) ; ++$i)
-      {
-        echo "<div id='article" . $data_article[$i]['ID']
-                    . "' class='lienarticle'>";
-          echo "<div id='imgplace'>";
-            echo "<img src='" . $data_article[$i]['IMAGEPATH']
-                    . "' class='img-responsive' />";
-          echo "</div>";
-        
-          echo "<div id='infoarticle'>";
-            echo "<h2>" . $data_article[$i]['TITLE'] . "</h2>";
-            echo "<p class='auteur'>"
-                    . $data_article[$i]['NAME']
-                    . " ". $data_article[$i]['SURNAME']
-                    . ", le ". $data_article[$i]['PDATE']
-                    . "</p>";
-            echo "<p class='description'>"
-                    . $data_article[$i]['DESCRIPTION']
-                    . "</p>";
-          echo "</div>";
-        echo "</div>";
+      if(is_null($_SESSION['ID_USER'])) {
+        for($i = 0 ; $i < $nbArticles ; ++$i)
+        {
+          if($data_article[$i]['STATUS'] > 0) {
+            afficheArticle($i);
+          }
+        }
+      } else {
+        for($i = 0 ; $i < $nbArticles ; ++$i)
+        { 
+          afficheArticle($i);
+        }
       }
 ?>
 	</div>

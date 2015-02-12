@@ -108,7 +108,7 @@ function hideMessages(arg) {
 
 function showMessages(arg) {
 	td = arg.parent().parent();
-	if(td.attr('class') == "notReaded")
+	if(td.attr('class') == "lineMessage notReaded")
 	{
 		var id = td.attr('id');
 		id = id.replace('message', '');

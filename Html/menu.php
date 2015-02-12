@@ -27,6 +27,9 @@ global $user ;
             <a href="index.php?EX=writeMessages">Ecrire</a>
         </div>
     </li>
+    <li><a href="index.php?EX=cloud">Partage</a>
+    </li>
+
     <?PHP
     }
     if ((isset($user)) && ($user->getRole() != 'MEMBRE')) {
