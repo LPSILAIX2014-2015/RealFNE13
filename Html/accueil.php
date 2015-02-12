@@ -24,7 +24,8 @@
     <a href=""><img width="67" height="75" src="Img/logosassos/Logo - La Bourine.jpg"></a>
     <a href=""><img width="75" height="41" src="Img/logosassos/Logo - Le collectif vélos en ville.jpg"></a>
     <a href=""><img width="75" height="45" src="Img/logosassos/Logo - Le Loubatas.jpg"></a>
-    <a href="" class="noLogo"><span>Les amis du Montaiguet et du Pont de l'Arc</span></a> 
+    <a href="" class="noLogo"><span>Les amis du Montaiguet et du Pont de l'Arc</span></a>
+
     <a href=""><img width="75" height="75" src="Img/logosassos/Logo - Ligue de Défense des Alpilles.jpg"></a>
     <a href=""><img width="75" height="36" src="Img/logosassos/Logo - Nacicca.jpg"></a>
     <a href=""><img width="75" height="38" src="Img/logosassos/Logo - Nature Environnement Allauch.png"></a>
