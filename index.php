@@ -213,7 +213,7 @@ function deleteMember()
                 $dbverf = new CRecMP($GLOBALS['user']->getMail()); // Verification pour tester l'email
                 $value = $dbverf->selectPassword($GLOBALS['user']->getId());
 
-                if($value['PASSWORD']!=/*md5(*/$_POST['act_pass']/*)*/){
+                if($value['PASSWORD']!=md5($_POST['act_pass'])){
                     echo "<script languaje='javascript'>errorCH();</script>";
                 }else{
                     $update = $dbverf->updatePassLog($_POST, $GLOBALS['user']->getId()); // Mise en jour Mot de passe
