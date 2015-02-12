@@ -1,5 +1,5 @@
 <?php
-	if(!isset($_SESSION['ROLE'])||($_SESSION['ROLE']!='SADMIN'&&$_SESSION['ROLE']!='ADMIN'))
+	if(!isset($_SESSION['ROLE']) || (($_SESSION['ROLE']!='SADMIN' && $_SESSION['ROLE']!='ADMIN')))
 		header('Location: ./index.php');
 	$id = null;
 	if ( !empty($_GET['id'])) {
