@@ -8,14 +8,6 @@
         $i++;
     }
 
-    /*$i=0;
-    $rolesList = $pdo -> getAllRoles();
-    foreach($rolesList as $line){
-        $roles[$i]['ID']=$line['ID'];
-        $roles[$i]['NAME']=$line['NAME'];
-        $i++;
-    }*/ //Mettre une fonction pour récupérer les roles des membres
-
     $erreur = null;
     if(isset($_GET['error'])) {
          $erreur = $_GET['error'];
@@ -58,37 +50,13 @@
 				                <input name="NAME" id="name" type="text"  placeholder="Name" value="">
 
 				            </div>
-				        </div>
-				        <!--<div class="control-group">
-				            <label class="control-label">R&ocirc;le</label>
-				            </br>
-				            <select class="controls" name="ROLE" type="text">
-				                    <?php 
-				                        /*foreach ($roles as $key => $role) {
-				                            echo('<option value ='.$role['ID'].'>'.$role['NAME'].'</option>');
-				                        }*/
-				                    ?>
-				            </select>
-				        </div>--> <!-- Il manque la fonction nécessaire pour trier par roles -->
-				        
+				        </div>				        
 				        <div class="control-group">
 					    	<label class="control-label">Email</label>
 					    	<div class="controls">
 					      	<input name="MAIL" id="mail" type="text"  placeholder="EMAIL" value="">
 					      	
 					    </div>
-					    <!-- <div class="control-group">
-				            <label class="control-label">Association</label>
-				            </br>
-				            <select class="controls" name="ASSOCIATION" type="text">
-				                    <?php 
-				                        //foreach ($assocs as $key => $asso) {
-				                            //echo('<option value ='.$asso['ID'].'>'.$asso['NAME'].'</option>');
-				                        //}
-				                    ?>
-				            </select>
-				        </div> -->
-				        
 				        <div class="form-actions">
 				        	</br></br>
 						  	<button type="submit" class="btn btn-success">Création</button>

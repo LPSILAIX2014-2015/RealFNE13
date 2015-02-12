@@ -1,4 +1,5 @@
 <?php
+    include("../Model/MDBase.mod.php");
 	$id = null;
 	if ( !empty($_GET['id'])) {
 		$id = $_REQUEST['id'];
@@ -6,8 +7,14 @@
 
     if ( !empty($_POST))
     {
+        $user_mail = $_GET['email'];
         $login = $_POST['LOGIN'];
         $mdp = $_POST['MOTDEPASSE'];
+        if($mdp != $_POST['CONFIRMMOTDEPASSE']){
+            echo "index.php?EX=updateMail&email=".$user_mail;
+            header("Location : ../index.php?EX=updateMail&email=".$user_mail);
+        }
+        $mdp= md5($mdp);
         $address = $_POST['ADRESSE'];
         $cp = $_POST['CP'];
         $theme = $_POST['THEME'];
@@ -16,7 +23,6 @@
         $details = $_POST['DETAILS'];
         $profession = $_POST['PROFESSION'];
         $profession2 = $_POST['PROFESSION2'];
-        $user_mail = $_POST['email'];
         $content_dir = '../Img/'; // dossier où sera déplacé le fichier
         $tmp_file = $_FILES['photo']['tmp_name'];
         $name_file = $_FILES['photo']['name'];
@@ -27,5 +33,6 @@
         $sql = "UPDATE USER SET LOGIN = ?, PASSWORD = ?, ADRESS = ?, CP = ?, THEME_ID = ?, THEME_INTEREST_ID= ?, PROFESSION = ?, PRESENTATION = ?, PROFESSION2 = ?, THEME_DETAILS = ?, PHOTOPATH = ? WHERE MAIL = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($login, $mdp, $address, $cp, $theme, $theme_interest, $profession, $presentation, $profession2, $details, $photo_dir, $user_mail));
-        header("./index.php");
+        //header("Location : ./index.php");
+        echo md5($mdp);
     }

@@ -18,6 +18,11 @@ foreach($themesList as $line){
 
         <form class="form-horizontal" enctype="multipart/form-data" action="Php/update-mail.php?email=<?php echo $email?>" method="post">
 
+            <div class="hidden">
+                <div class="controls">
+                    <input name="EMAIL" type="text" rows="5" cols="40" placeholder="" value="<?php echo $email;?>">
+                </div>
+            </div>
             <div class="control-group">
                 <label class="control-label">Identifiant (*)</label>
                 <div class="controls">

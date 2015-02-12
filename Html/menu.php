@@ -3,7 +3,6 @@
 global $user ;
 ?>
 <ul>
-    <li><a href="index.php?EX=searchMember">Recherche</a></li>
     <li><a href ="index.php?EX=calendar">Agenda</a></li>
     <li><a>Articles</a>
         <div class="submenu">
@@ -21,12 +20,13 @@ global $user ;
     <?PHP
     if (isset($user)) {
     ?>
-    <li><a>Messagerie</a>
-        <div class="submenu">
-            <a href="index.php?EX=consultMessages">Consulter</a>
-            <a href="index.php?EX=writeMessages">Ecrire</a>
-        </div>
-    </li>
+        <li><a href="index.php?EX=searchMember">Recherche</a></li>
+        <li><a>Messagerie</a>
+            <div class="submenu">
+                <a href="index.php?EX=consultMessages">Consulter</a>
+                <a href="index.php?EX=writeMessages">Ecrire</a>
+            </div>
+        </li>
     <?PHP
     }
     if ((isset($user)) && ($user->getRole() != 'MEMBRE')) {
