@@ -112,7 +112,7 @@ private $mail;
 					<body>
 						<h1 style='color: blue;'>Felicitations vous avez changé votre mot de passe</h1>
 						Pour acceder a votre compte faire click sur le suivant lien:
-						<a href='http://pruebasxd.esy.es/index.php'>Acceder à mon compte</a>
+						<a href='http://dev.laplateformefne13.fr/index.php'>Acceder à mon compte</a>
 						<p style='font-size: 10pt;'>Si vous n'avez pas solicité le changement s'il vous plaît parlez avec l'administrateur.</p>
 					</body>
 					</html>";
@@ -142,14 +142,14 @@ private $mail;
 						<h5>".date('l jS \of F Y')."</h5>
 						<h1 style='color: blue;'>Vous avez reçu cet email pour commencer le  changement de votre mot de passe</h1>
 						Pour faire le changement faire click sur le suivant lien:
-						<a href='http://pruebasxd.esy.es/index.php?EX=$ranStr' style='text-decoration: none;'>Changer mon mot de passe</a>
+						<a href='http://dev.laplateformefne13.fr/index.php?EX=$ranStr' style='text-decoration: none;'>Changer mon mot de passe</a>
 						<p style='font-size: 10pt;'>Si vous n'avez pas solicité le changement s'il vous plaît parlez avec l'administrateur.</p>
 					</body>
 					</html>";
   		$headers="MIME-Version: 1.0"."\r\n";
   		$headers.="Content-type: text/html; charset=utf-8"."\r\n";
   		$headers.="To: $this->mail"."\r\n";
-  		$headers.="From: mail@prueba.fr"."\r\n";
+  		$headers.="From: mail@devfne13.fr"."\r\n";
   		mail($to, $subject, $message, $headers);
   		
   		return $this->updateReset($ranStr);
