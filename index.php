@@ -49,11 +49,11 @@ switch($EX)
     case 'createAsso' : createAsso(); break;
     case 'createAdmin' : createAdmin(); break;
     case 'creationAdmin' : creationAdmin(); break;
-    case 'searchAsso'  : searchAsso();      break;
     case 'manageAsso': manageAsso(); break;
     case 'deleteAsso'  : deleteAsso();      break;
     case 'profil'    : profil(); break; // Affichage du profil
     case 'legal' : legal(); break;
+    case 'updateMail' : updateMail(); break;
     default : check($EX);
 }
 
@@ -181,18 +181,23 @@ function deleteMember()
 
         function recuperation() // Presentation du formilaire principal pour envoyer le mail
     {
-        global $page;
-        $page['title'] = 'Recuperation du Mot de passe';
-        $page['class'] = 'VHtml';
-        $page['method'] = 'showHtml';
-        $page['css'] = 'Css/recupMdp.css';
-        $page['arg'] = 'Html/recMail.php';
+        global $page, $user;
+        if (isset($user)) { // Validation pour l'envoi du mail 
+            echo "<script>location.href='index.php';</script>";
+        }else{
+            $page['title'] = 'Recuperation du Mot de passe';
+            $page['class'] = 'VHtml';
+            $page['method'] = 'showHtml';
+            $page['css'] = 'Css/recupMdp.css';
+            $page['arg'] = 'Html/recMail.php';
+        }
     }
     function rec() // Deuxième fourmulaire pour changer le mot de passe
     {
         global $page;
         $page['title'] = 'Recuperation du Mot de passe';
         $page['class'] = 'VHtml';
+        $page['css'] = 'Css/recupMdp.css';
         $page['method'] = 'showHtml';
         $page['arg'] = 'Html/recuperation.php';
     }
@@ -332,6 +337,7 @@ function writeMessages()
             $page['title'] = 'Mon profil';
             $page['class'] = 'VHtml';
             $page['method'] = 'showHtml';
+            $page['css'] = 'Css/recupMdp.css';
             $page['arg'] = 'Html/profil.php';
         }
     
@@ -382,15 +388,6 @@ function writeMessages()
 // (new MUser($idPrev))->setRole('MEMBRE');
 //(new MUser($idNext))->setRole('ADMIN');
 
-    function searchAsso()
-    {
-        global $page;
-        $page['title'] = 'Recherche d\'association';
-        $page['class'] = 'VHtml';
-        $page['method'] = 'showHtml';
-        $page['css'] = 'Css/search.css';
-        $page['arg'] = 'Html/searchAsso.php';
-    }
 
     function manageAsso()
     {
@@ -462,4 +459,14 @@ function endMessages()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/finEnvoi.php';
 }
+
+function updateMail()
+{
+    global $page;
+    $page['title'] = 'Creation de profil';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/update-mail.php';
+}
+
 ?>

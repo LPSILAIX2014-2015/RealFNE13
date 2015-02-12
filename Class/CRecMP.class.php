@@ -112,7 +112,7 @@ private $mail;
 					<body>
 						<h1 style='color: blue;'>Felicitations vous avez changé votre mot de passe</h1>
 						Pour acceder a votre compte faire click sur le suivant lien:
-						<a href='http://pruebasxd.esy.es/index.php?EX=login'>Acceder à mon compte</a>
+						<a href='http://pruebasxd.esy.es/index.php'>Acceder à mon compte</a>
 						<p style='font-size: 10pt;'>Si vous n'avez pas solicité le changement s'il vous plaît parlez avec l'administrateur.</p>
 					</body>
 					</html>";

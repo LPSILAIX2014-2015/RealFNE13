@@ -1,8 +1,12 @@
 <?php
+	if(!isset($_SESSION)||$_SESSION['ROLE']!='SADMIN')
+		header('Location: ./index.php');
 	$id = null;
 	if ( !empty($_GET['id'])) {
 		$id = $_REQUEST['id'];
 	}
+	else
+		header('Location: ./index.php?EX=manageAsso');
     if ( isset($_POST['NAME'])) {
         $name = $_POST['NAME'];
         $territory = $_POST['TERRITORY'];

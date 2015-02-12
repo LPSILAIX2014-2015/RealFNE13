@@ -1,10 +1,13 @@
 <?php
+	if(!isset($_SESSION['ROLE'])||($_SESSION['ROLE']!='SADMIN'&&$_SESSION['ROLE']!='ADMIN'))
+		header('Location: ./index.php');
 	$id = null;
 	if ( !empty($_GET['id'])) {
 		$id = $_REQUEST['id'];
 	}
+	else
+		header('Location: ./index.php?EX=manageMembers');
     if ( $_SERVER['REQUEST_METHOD'] === 'POST') {
-    //if ( isset($_POST['NAME'])) {
         $name = $_POST['NAME'];
         $surname = $_POST['SURNAME'];
         $email = $_POST['MAIL'];
@@ -28,8 +31,8 @@
     $profession = $user->getProfession();
     $specialite= $user->getThemeDetails();
     $assoc=$user->getAssoName();
-
-
+    if($_SESSION['ROLE']=='ADMIN'&&$user->getAssociation()!=(new MUser($_SESSION['ID_USER']))->getAssociation())
+    	header('Location: ./index.php?EX=manageMembers');
      $erreur = null;
      if(isset($_GET['error'])) {
          $erreur = $_GET['error'];
