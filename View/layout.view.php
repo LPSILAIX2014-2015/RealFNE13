@@ -33,7 +33,6 @@ $vHtml = new VHtml();
     <div class="bandeau">
         <a href="index.php?EX=home"><div class="logo">Accueil</div>
         <span class="sitetitle">La plate-forme<span class="subtitle">France Nature Environnement Bouches-du-Rhône</span>
-            </span>
         </a>
 
     </div>

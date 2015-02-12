@@ -8,7 +8,7 @@
                 $message = $_POST['content'];
                 $subject = $_POST['title'];
                 
-                $sql = 'SELECT * FROM user WHERE USER_ID = '. $id;
+                $sql = 'SELECT * FROM USER WHERE USER_ID = '. $id;
                 foreach ($pdo->query($sql) as $row) {
                     $email = $row['MAIL'];
                     $header = "From: ". $email ." \r\n";
@@ -24,7 +24,7 @@
                 }
                 
                 foreach ($emails as $mail) {
-                    $sql1 = "SELECT * FROM user WHERE MAIL LIKE '". $mail . "'";
+                    $sql1 = "SELECT * FROM USER WHERE MAIL LIKE '". $mail . "'";
                     foreach ($pdo->query($sql1) as $row1) {
                         $sender = DBase::getUserByEmail($_POST['sender']);
                         $sender_id = 1;

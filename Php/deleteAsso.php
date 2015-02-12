@@ -8,7 +8,7 @@
 		// delete data
 		$pdo = new MDBase();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "DELETE FROM user  WHERE ASSOCIATION_ID = :id";
+		$sql = "DELETE FROM USER  WHERE ASSOCIATION_ID = :id";
 
 		$q = $pdo->prepare($sql);
                 $q->bindParam(":id", $id, PDO::PARAM_INT);

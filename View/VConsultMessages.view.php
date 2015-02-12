@@ -26,8 +26,9 @@ class VConsultMessages
     $data_category = $mMod->getAllCategories();
 
     $mNotif = new MNotification();
+      
     $data_notif = $mNotif->getNotificationByIdUser($idUser);
-        
+
 
 
     global $content_notif;
