@@ -37,41 +37,32 @@ class MConsultMessage {
 
         $content_messages = "";
 
+
         for($i = 0 ; $i < count($data_messages) ; ++$i)
         {
             if($data_messages[$i]['ISARCHIVE'] == "0")
             {
-                $content_messages .= '<tr id="message'.$data_messages[$i]['ID'].'" '; 
+                $content_messages .= '<tr  class="lineMessage'; 
                 if($data_messages[$i]['ISREAD'] == "0")
                 {
-                    $content_messages .= ' class="notReaded" ';
+                    $content_messages .= ' notReaded';
                 }
+                $content_messages .= '" data-categ="'.$data_messages[$i]["CAT_ID"].'" data-theme="'.$data_messages[$i]["THEME_ID"].'" id="message'.$data_messages[$i]['ID'].'" '; 
                 $content_messages .= '>';
 
 
-                $content_messages .= '<td class="currentTdMessage">'; 
-                if($data_messages[$i]['ISREAD'] == "0")
-                {
-                    $content_messages .= '<span class="label label-danger">Non-Lu</span>';
-                }
-                else
-                {
-                    $content_messages .= '<span class="label label-success">Lu</span>';
-                }
-                echo '</td>';
+                
                 $content_messages .= '<td class="currentTdMessage">'.$data_messages[$i]['SENDER_NAME'].' '.$data_messages[$i]['SENDER_SURNAME'].'</td>';
                 $content_messages .= '<td class="currentTdMessage">'.$data_messages[$i]['TITLE'];       
                 $content_messages .= '<pre class="contentMessage">'.$data_messages[$i]['CONTENT'].'</pre></td>';        
-                $content_messages .= '<td class="currentTdMessage">'.$data_messages[$i]['CATEGORY_NAME'].'</td>';       
-                $content_messages .= '<td class="currentTdMessage">'.$data_messages[$i]['THEME_NAME'].'</td>';       
                 $content_messages .= '<td class="currentTdMessage">'.$data_messages[$i]['SENDDATE'].'</td>';
 
 
                 $content_messages .= '<td>
-                <button title="Afficher" class="buttonShowMessages btn btn-sm btn-success">Détail</button>
+                <button title="Détail" data-bool="1" class="buttonShowMessages">Détail</button>
                 <div class="btnOptions">
-                    <button title="Supprimer" class="buttonDeleteMessages btn btn-sm btn-danger">S</button>
-                    <button title="Archiver" class="buttonArchivateMessages btn btn-sm btn-primary">A</button>
+                    <button title="Supprimer" class="buttonDeleteMessages">Supprimer</button>
+                    <button title="Archiver" class="buttonArchivateMessages">Archiver</button>
                 </div>
             </td>';       
 
@@ -86,51 +77,42 @@ class MConsultMessage {
 public function displayMessagesArchive($data_messages) {
 
     $content_messages_archive = "";
-    
     for($i = 0 ; $i < count($data_messages) ; ++$i)
     {
         if($data_messages[$i]['ISARCHIVE'] == "1")
         {
-            $content_messages_archive .= '<tr id="message'.$data_messages[$i]['ID'].'" '; 
+            $content_messages_archive .= '<tr  class="lineMessage'; 
             if($data_messages[$i]['ISREAD'] == "0")
             {
-                $content_messages_archive .= ' class="notReaded" ';
+                $content_messages_archive .= ' notReaded ';
             }
+            $content_messages_archive .= '" data-categ="'.$data_messages[$i]["CAT_ID"].'" data-theme="'.$data_messages[$i]["THEME_ID"].'" id="message'.$data_messages[$i]['ID'].'" '; 
             $content_messages_archive .= '>';
 
 
-            $content_messages_archive .= '<td class="currentTdMessage">'; 
-            if($data_messages[$i]['ISREAD'] == "0")
-            {
-                $content_messages_archive .= '<span class="label label-danger">Non-Lu</span>';
-            }
-            else
-            {
-                $content_messages_archive .= '<span class="label label-success">Lu</span>';
-            }
-            echo '</td>';
+            
             $content_messages_archive .= '<td class="currentTdMessage">'.$data_messages[$i]['SENDER_NAME'].' '.$data_messages[$i]['SENDER_SURNAME'].'</td>';
             $content_messages_archive .= '<td class="currentTdMessage">'.$data_messages[$i]['TITLE'];       
             $content_messages_archive .= '<pre class="contentMessage">'.$data_messages[$i]['CONTENT'].'</pre></td>';        
-            $content_messages_archive .= '<td class="currentTdMessage">'.$data_messages[$i]['CATEGORY_NAME'].'</td>';       
-            $content_messages_archive .= '<td class="currentTdMessage">'.$data_messages[$i]['THEME_NAME'].'</td>';          
             $content_messages_archive .= '<td class="currentTdMessage">'.$data_messages[$i]['SENDDATE'].'</td>';
 
 
             $content_messages_archive .= '
             <td>
-                <button title="Afficher" class="buttonShowMessages btn btn-sm btn-success">Détail</button>
+                <button title="Détail" data-bool="1" class="buttonShowMessages">Détail</button>
                 <div class="btnOptions">
-                    <button title="Supprimer" class="buttonDeleteMessages btn btn-sm btn-danger">S</button>
-                    <button title="Annuler l\'archive" class="buttonUnArchivateMessages btn btn-sm btn-danger">A</button>
+                    <button title="Supprimer" class="buttonDeleteMessages">Supprimer</button>
+                    <button title="Annuler l\'archive" class="buttonUnArchivateMessages">Rétablir</button>
                 </div>
             </td>';       
 
 
             $content_messages_archive .= '<tr />';
         }
-        return $content_messages_archive;
+
+
     }
+    return $content_messages_archive;
 }
 
 

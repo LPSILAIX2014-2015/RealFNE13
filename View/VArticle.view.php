@@ -10,7 +10,8 @@ class VArticle
         $vhtml = new VHtml();
         $vhtml->showHtml('../Html/createArticle.php');
 
-    } // showArticle($_html)
+
+    } // createArticle($_html)
 
 }
 ?>

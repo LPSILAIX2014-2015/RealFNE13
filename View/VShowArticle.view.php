@@ -12,11 +12,11 @@ class VShowArticle
     global $data_article;
 
 
-    // AFFICHAGE
+  	// AFFICHAGE
 
     $state = $connec->prepare(
       "SELECT P.*, U.NAME, U.SURNAME, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE 
-       FROM post P, user U
+       FROM post P, USER U
        WHERE P.WRITER_ID = U.ID
        ORDER BY id DESC"
     );
@@ -24,7 +24,7 @@ class VShowArticle
     $data_article = $state->fetchAll(PDO::FETCH_ASSOC);
 
 
-    // REMPLISSAGE DU CONTENU
+  	// REMPLISSAGE DU CONTENU
 
     $vhtml = new VHtml();
     $vhtml->showHtml($_html);

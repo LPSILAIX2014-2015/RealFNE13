@@ -1,5 +1,14 @@
 $(document).ready(function() {
 
+	//Quand la valeur du select change, on filtre les messages
+	$('#filterCATEGORY').on('change', function(event) {
+		sortCategory();
+	});
+	$('#filterTHEME').on('change', function(event) {
+		sortTheme();
+	});
+
+
 	$('.displayArchive').on('click', function(event) {
 		event.preventDefault();
 		if($(this).attr('data-bool') == "1")
@@ -31,6 +40,19 @@ $(document).ready(function() {
 		}
 	});
 
+	$('.buttonDeleteNotif').on('click', function() {
+		if(confirm("Êtes vous sur de vouloir supprimer la notification ?"))
+		{
+			$(this).parent().parent().remove();
+			td = $(this).parent().parent();
+			var id = td.attr('id');
+			id = id.replace('notif', '');
+			$.getJSON('Ajax/deleteNotif.php', { id : id }).done(function() {
+
+			});
+		}
+	});
+
 	$('.buttonArchivateMessages').on('click', function() {
 		if(confirm("Êtes vous sur de vouloir archiver le message ?"))
 		{
@@ -55,7 +77,7 @@ $(document).ready(function() {
 
 
 	$('.buttonShowMessages').on('click', function() {
-		if($(this).attr('class') != "buttonShowMessages")
+		if($(this).attr('data-bool') != "1")
 		{
 			hideMessages($(this));
 		}
@@ -80,13 +102,13 @@ function hideAll() {
 
 function hideMessages(arg) {
 	arg.parent().parent().children('td').children('pre').hide();
-	arg.attr('class', 'buttonShowMessages');
+	arg.attr('data-bool', '1');
 	arg.siblings('.btnOptions').hide();
 }
 
 function showMessages(arg) {
 	td = arg.parent().parent();
-	if(td.attr('class') == "notReaded")
+	if(td.attr('class') == "lineMessage notReaded")
 	{
 		var id = td.attr('id');
 		id = id.replace('message', '');
@@ -94,8 +116,46 @@ function showMessages(arg) {
 		$.getJSON('Ajax/setMessageReaded.php', { id : id });
 	}
 	arg.parent().parent().children('td').children('pre').show();
-	arg.attr('class', 'buttonShowMessages');
+	arg.attr('data-bool', '0');
 	arg.siblings('.btnOptions').show();
 }
 
 
+//Fonctions de tri sur les select Catégorie et thème
+function sortCategory() {
+	var idCateg = $('#filterCATEGORY option:selected').attr('value');
+	$('.lineMessage').hide();
+	if(idCateg == "0")
+	{
+		$('.lineMessage').show();
+	}
+	else
+	{
+		for(var i = 0 ; i < $('.lineMessage').length ; ++i)
+		{
+			if(idCateg == $('.lineMessage').get(i).getAttribute('data-categ'))
+			{
+				$('.lineMessage')[i].style.display = "";
+			}
+		}
+	}
+}
+
+function sortTheme() {
+	var idTheme = $('#filterTHEME option:selected').attr('value');
+	$('.lineMessage').hide();
+	if(idTheme == "0")
+	{
+		$('.lineMessage').show();
+	}
+	else
+	{
+		for(var i = 0 ; i < $('.lineMessage').length ; ++i)
+		{
+			if(idTheme == $('.lineMessage').get(i).getAttribute('data-theme'))
+			{
+				$('.lineMessage')[i].style.display = "";
+			}
+		}
+	}
+}

@@ -1,5 +1,5 @@
 <?php
-	if(!isset($_SESSION['ROLE'])||($_SESSION['ROLE']!='SADMIN'&&$_SESSION['ROLE']!='ADMIN'))
+	if(!isset($_SESSION['ROLE']) || (($_SESSION['ROLE']!='SADMIN' && $_SESSION['ROLE']!='ADMIN')))
 		header('Location: ./index.php');
 	$id = null;
 	if ( !empty($_GET['id'])) {
@@ -16,7 +16,7 @@
         $user_id = $_GET['id'];
         $pdo = new MDBase();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "UPDATE user SET NAME = ?, SURNAME= ?, CP = ?, MAIL = ?, PROFESSION = ? WHERE ID = ?";
+        $sql = "UPDATE USER SET NAME = ?, SURNAME= ?, CP = ?, MAIL = ?, PROFESSION = ? WHERE ID = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($name, $surname, $cp, $email, $profession, $user_id));
 		//header("Location: ./index.php?EX=manageMembers");

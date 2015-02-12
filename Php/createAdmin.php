@@ -6,7 +6,7 @@
 	$name = $_POST['NAME'];
         $surname = $_POST['SURNAME'];
         $email = $_POST['MAIL'];
-		$sql = "INSERT INTO user (NAME,SURNAME,MAIL,ASSOCIATION_ID, THEME_ID, THEME_INTEREST_ID, ROLE) values(?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO USER (NAME,SURNAME,MAIL,ASSOCIATION_ID, THEME_ID, THEME_INTEREST_ID, ROLE) values(?, ?, ?, ?, ?, ?, ?)";
 		$q = $pdo->prepare($sql);
 		$q->execute(array($name, $surname, $email,$id, 1, 1,"ADMIN"));
 
