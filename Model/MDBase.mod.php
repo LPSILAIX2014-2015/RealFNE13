@@ -4,13 +4,13 @@ class MDBase extends PDO {
 
     private static $engine = 'mysql';
     //Site FINAL
-    /*
-    private static $dbName = 'laplateftifne13' ;
-    private static $dbHost = 'laplateftifne13.mysql.db' ;
-    private static $dbUsername = 'laplateftifne13';
-    private static $dbUserPassword = 'natureC13';
+
+    private static $dbName = 'FNESITE' ;
+    private static $dbHost = 'localhost' ;
+    private static $dbUsername = 'root';
+    private static $dbUserPassword = '';
     private static $cont  = null;
-    */
+
 
     //Site DEV
     /*
@@ -21,12 +21,6 @@ class MDBase extends PDO {
     private static $cont  = null;
     */
     //LOCAL
-
-    private static $dbName = 'FNESITE' ;
-    private static $dbHost = 'localhost' ;
-    private static $dbUsername = 'root';
-    private static $dbUserPassword = '';
-    private static $cont  = null;
 
 
     public function __construct(){
@@ -55,7 +49,7 @@ class MDBase extends PDO {
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = "SELECT * FROM user";
+        $query = "SELECT * FROM USER";
         $qq = $pdo->prepare($query);
         $qq->execute();
         $data = $qq->fetchAll(PDO::FETCH_ASSOC);
@@ -152,7 +146,7 @@ class MDBase extends PDO {
     public static function getUserByEmail($mail){
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = "SELECT * FROM USER WHERE Mail = ?";
+        $query = "SELECT * FROM USER WHERE MAIL = ?";
         $qq = $pdo->prepare($query);
         $qq->execute(array($mail));
         $data = $qq->fetchall();

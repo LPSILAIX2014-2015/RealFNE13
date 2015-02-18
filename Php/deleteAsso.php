@@ -14,7 +14,7 @@
                 $q->bindParam(":id", $id, PDO::PARAM_INT);
 		$q->execute();
 
-		$sql = "DELETE FROM association  WHERE ID = :id";
+		$sql = "DELETE FROM ASSOCIATION  WHERE ID = :id";
 
 		$q = $pdo->prepare($sql);
                 $q->bindParam(":id", $id, PDO::PARAM_INT);

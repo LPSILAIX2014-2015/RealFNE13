@@ -62,6 +62,7 @@ switch($EX)
     case 'profil'    : profil(); break; // Affichage du profil
     case 'legal' : legal(); break;
     case 'updateMail' : updateMail(); break;
+    case 'downloadCVS' : downloadCVS(); break;
     default : check($EX);
 }
 
@@ -159,8 +160,9 @@ function reportList()
 function formCreateArticle()
 {
     $formCreateArticle = new MFormCreateArticle();
-    $formCreateArticle->insertDB($_POST);
-    header('Location: index.php?EX=createArticle');
+    $nextId = $formCreateArticle->insertDB($_POST);
+    $url = 'Location: index.php?EX=showInfoArticle&id='.$nextId;
+    header($url);
 }
 
 function searchMember()
@@ -189,8 +191,8 @@ function showArticle()
     $page['title'] = 'Liste des articles';
     $page['class'] = 'VShowArticle';
     $page['method'] = 'showArticle';
-    $page['arg'] = 'Html/showArticle.php';
     $page['css'] = 'Css/showArticle.css';
+    $page['arg'] = 'Html/showArticle.php';
 }
 
 function showInfoArticle()
@@ -199,8 +201,8 @@ function showInfoArticle()
     $page['title'] = 'Détail';
     $page['class'] = 'VInfoArticle';
     $page['method'] = 'showInfoArticle';
-    $page['arg'] = 'Html/infoArticle.php';
     $page['css'] = 'Css/showArticle.css';
+    $page['arg'] = 'Html/infoArticle.php';
 }
 
 function createMember()
@@ -497,8 +499,8 @@ function deconnexion()
     $page['title'] = 'Retour après déco';
     $page['class'] = 'VHome';
     $page['method'] = 'showHome';
-    $page['arg'] = 'Html/accueil.php';
     $page['css'] = 'Css/accueil.css';
+    $page['arg'] = 'Html/accueil.php';
 }
 
 
@@ -528,6 +530,12 @@ function updateMail()
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/update-mail.php';
+}
+
+function downloadCVS()
+{
+    $mDownloadCsv = new MDownloadCsv();
+    $mDownloadCsv->download();
 }
 
 ?>
