@@ -59,6 +59,7 @@ switch($EX)
     case 'profil'    : profil(); break; // Affichage du profil
     case 'legal' : legal(); break;
     case 'updateMail' : updateMail(); break;
+    case 'downloadCVS' : downloadCVS(); break;
     default : check($EX);
 }
 
@@ -156,8 +157,9 @@ function reportList()
 function formCreateArticle()
 {
     $formCreateArticle = new MFormCreateArticle();
-    $formCreateArticle->insertDB($_POST);
-    header('Location: index.php?EX=createArticle');
+    $nextId = $formCreateArticle->insertDB($_POST);
+    $url = 'Location: index.php?EX=showInfoArticle&id='.$nextId;
+    header($url);
 }
 
 function searchMember()
@@ -508,6 +510,12 @@ function updateMail()
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/update-mail.php';
+}
+
+function downloadCVS()
+{
+    $mDownloadCsv = new MDownloadCsv();
+    $mDownloadCsv->download();
 }
 
 ?>
