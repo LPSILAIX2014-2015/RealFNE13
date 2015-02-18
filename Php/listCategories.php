@@ -37,5 +37,5 @@ else
 	}
 }
 echo "</select>";
-
+echo "<a href='./index.php?EX=updateCategory'>Ajouter/Modifier</a>";
 ?>

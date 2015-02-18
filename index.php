@@ -54,6 +54,7 @@ switch($EX)
     case 'profil'    : profil(); break; // Affichage du profil
     case 'legal' : legal(); break;
     case 'updateMail' : updateMail(); break;
+	case 'updateCategory' : updateCategory(); break;
     default : check($EX);
 }
 
@@ -467,6 +468,15 @@ function updateMail()
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/update-mail.php';
+}
+
+function updateCategory()
+{
+	global $page;
+	$page['title'] = 'Ajout et modification des catégories';
+	$page['class'] = 'VHtml';
+	$page['method'] = 'showHtml';
+	$page['arg'] = 'Html/updateCategories.php';
 }
 
 ?>
