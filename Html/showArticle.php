@@ -8,8 +8,8 @@
   function afficheArticle($indexArticle) {
     global $data_article;
     
-    if(strlen($data_article[$indexArticle]['CONTENT']) > 200) {
-      $description = substr($data_article[$indexArticle]['CONTENT'], 200);
+    if(strlen($data_article[$indexArticle]['CONTENT']) > 250) {
+      $description = substr($data_article[$indexArticle]['CONTENT'], 0, 250);
     } else {
       $description = $data_article[$indexArticle]['CONTENT'];
     }
@@ -63,7 +63,6 @@
               .     $data_theme[$i]['NAME']
               .  '</option>';
           }
-        
         ?>
       </select>
     </div>

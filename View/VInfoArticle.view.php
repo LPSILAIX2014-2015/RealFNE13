@@ -14,7 +14,6 @@ class VInfoArticle
 
     // AFFICHAGE
     $id = $_GET['id'];
-    var_dump($id);
     $state = $connec->prepare(
       "SELECT P.*, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE,
               U.NAME AUTHOR_NAME, U.SURNAME AUTHOR_SURNAME
