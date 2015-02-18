@@ -24,7 +24,9 @@ switch($EX)
     case 'createMember': createMember(); break;
     case 'createUser': createUser(); break;
     case 'updateMember': updateMember(); break;
+    case 'updateAMember': updateAMember(); break;
     case 'deleteMember': deleteMember(); break;
+    case 'deleteAMember': deleteAMember(); break;
     case 'insert'    : insert();     exit; // Mèthode insert() pour enregistrer le changement de mot de passe
     case 'changePass': changePass(); exit; // Mèthode changePass() pour enregistrer le changement de mot de passe
     case 'mailconf'  : mailconf();   exit; // Mèthode pour envoyer l'email de confirmation
@@ -51,6 +53,7 @@ switch($EX)
     case 'updateAsso' : updateAsso(); break;
     case 'updateAdminAsso': updateAdminAsso(); break;
     case 'swapRoles': swapRoles($idPrev,$idNext); break;
+    case 'updateRole': updateRole(); break;
     case 'createAsso' : createAsso(); break;
     case 'createAdmin' : createAdmin(); break;
     case 'creationAdmin' : creationAdmin(); break;
@@ -72,10 +75,10 @@ function check($EX)
     $value = $dbverf->selectMD5($EX); // Verification de la chaine de l'URL
     if(count($value)==0){ // Si le resultat du request est 0 montre la page d'erreur
         error();
-    }else{ // Sinon s'affichera le mail dans le formulaire de changement 
+    }else{ // Sinon s'affichera le mail dans le formulaire de changement
         $var = $dbverf->searchMail($EX);
         $eml = $var[0]["MAIL"];
-        rec(); // Formulaire de changement 
+        rec(); // Formulaire de changement
     }
 }
 function login(){
@@ -114,7 +117,7 @@ function addFile()
 
     $mAddFile = new MAddFile();
     $result = $mAddFile->addFile($_FILES);
-    
+
     if($result == "OK")
     {
         header('Location: index.php?EX=cloud&state='.$result);
@@ -218,6 +221,15 @@ function updateMember()
     $page['arg'] = 'Html/update.php';
 }
 
+function updateAMember()
+{
+    global $page;
+    $page['title'] = 'Modification d\'un membre';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Php/update.php';
+}
+
 function deleteMember()
 {
     global $page;
@@ -227,10 +239,19 @@ function deleteMember()
     $page['arg'] = 'Html/delete.php';
 }
 
+function deleteAMember()
+{
+    global $page;
+    $page['title'] = 'Supression d\'un membre';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Php/delete.php';
+}
+
         function recuperation() // Presentation du formilaire principal pour envoyer le mail
     {
         global $page, $user;
-        if (isset($user)) { // Validation pour l'envoi du mail 
+        if (isset($user)) { // Validation pour l'envoi du mail
             echo "<script>location.href='index.php';</script>";
         }else{
             $page['title'] = 'Recuperation du Mot de passe';
@@ -254,7 +275,7 @@ function deleteMember()
     function changePass() // Mèthode pour enregistrer les données
     {
         global $user;
-        if (!isset($user)) { // Validation pour l'envoi du mail 
+        if (!isset($user)) { // Validation pour l'envoi du mail
             echo "<script>location.href='index.php';</script>";
         }else{
             if($_POST['iCaptcha']!=$_SESSION['captcha']){ // Verification si l'input est égal la variable de session
@@ -269,7 +290,7 @@ function deleteMember()
                     $update = $dbverf->updatePassLog($_POST, $GLOBALS['user']->getId()); // Mise en jour Mot de passe
                     echo $update;
                 }
-                
+
             }
         }
     }
@@ -293,7 +314,7 @@ function deleteMember()
             }
         }
     }
-        
+
     function mailconf()
     {
         $dbverf = new CRecMP($_POST['mail']);
@@ -307,9 +328,9 @@ function deleteMember()
     }
 
     function maillog()
-    {   
+    {
         global $user;
-        if (!isset($user)) { // Validation pour l'envoi du mail 
+        if (!isset($user)) { // Validation pour l'envoi du mail
             echo "<script>location.href='index.php';</script>";
         } else {
             $dbverf = new CRecMP($GLOBALS['user']->getMail());
@@ -344,10 +365,10 @@ function deleteMember()
         $page['method'] = 'showHtml';
         $page['arg'] = 'Html/formulaireMessage.php';
     }
-        
+
     function updateAsso()
     {
-        global $page;   
+        global $page;
         $page['title'] = "Modif d'une association";
         $page['class'] = 'VHtml';
         $page['method'] = 'showHtml';
@@ -365,7 +386,7 @@ function deleteMember()
 
     function createAsso()
     {
-        global $page;   
+        global $page;
         $page['title'] = "Création d'une association";
         $page['class'] = 'VHtml';
         $page['method'] = 'showHtml';
@@ -377,9 +398,9 @@ function deleteMember()
         include('Php/create.php');
     }
 
-    function profil(){ // Presentation du profil 
+    function profil(){ // Presentation du profil
         global $user;
-        if (!isset($user)) { // S'il n'y a pas une session ouverte n'affichera rien 
+        if (!isset($user)) { // S'il n'y a pas une session ouverte n'affichera rien
             echo "<script>location.href='index.php';</script>";
         } else {
             global $page;
@@ -389,12 +410,12 @@ function deleteMember()
             $page['css'] = 'Css/recupMdp.css';
             $page['arg'] = 'Html/profil.php';
         }
-        
+
     }
 
     function createAdmin()
     {
-        global $page;   
+        global $page;
         $page['title'] = "Création d'un administrateur d'association";
         $page['class'] = 'VHtml';
         $page['method'] = 'showHtml';
@@ -416,12 +437,6 @@ function deleteMember()
 
     function swapRoles($idPrev, $idNext){
         global $page;
-
-
-    //(new MUser($idPrev))->setRole('MEMBRE');
-    //(new MUser($idNext))->setRole('ADMIN');
-
-
         $a = new MUser($idPrev);
         $a->setRole('MEMBRE');
 
@@ -434,9 +449,14 @@ function deleteMember()
         $page['arg'] = 'Html/manageAsso.php';
     }
 
-    // (new MUser($idPrev))->setRole('MEMBRE');
-    //(new MUser($idNext))->setRole('ADMIN');
-
+    function updateRole()
+    {
+        global $page;
+        $page['title'] = 'Modification d\'un membre';
+        $page['class'] = 'VHtml';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Php/updateRole.php';
+    }
 
     function manageAsso()
     {
