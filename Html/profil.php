@@ -13,7 +13,7 @@
 					<div class="col-sm-4">
 						<div class="panel panel-info">
 							<div class="panel-heading">
-								<h3 class="panel-title">Assocation</h3>
+								<h3 class="panel-title">Association</h3>
 							</div>
 							<div class="panel-body">
 								<?= $GLOBALS['user']->getAssoName(); ?>
