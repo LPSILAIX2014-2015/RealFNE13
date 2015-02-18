@@ -194,9 +194,10 @@
                 </th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="dataTable">
             <?php
-            if ( isset($_POST['NAME'])) {
+            $dataCSV = array();
+            if (isset($_POST['NAME'])) {
                 $nom = $_POST['NAME'];
                 $conditions = array();
                 $params = array();
@@ -240,6 +241,7 @@
                     $sql = 'SELECT * FROM USER order by NAME ASC';
                 }
                 foreach ($pdo->query($sql) as $row) {
+                    array_push($dataCSV, $row);
                     $img = null;
                     if($row['PHOTOPATH']) {
                         $img = $row['PHOTOPATH'];
@@ -291,6 +293,7 @@
                     $sql = 'SELECT * FROM USER order by NAME ASC';
                 if(count($sql) > 0) {
                     foreach ($pdo->query($sql) as $row) {
+                        array_push($dataCSV, $row);
                         $img = null;
                         if($row['PHOTOPATH']) {
                             $img = $row['PHOTOPATH'];
@@ -340,5 +343,34 @@
             ?>
             </tbody>
         </table>
+        <a target="_blank" href="index.php?EX=downloadCVS"><button class="downloadCVS">Télécharger format CSV</button></a>
+        <?php
+        
+
+            $dataCSVOk = array();
+            for($i = 0 ; $i < count($dataCSV) ; ++$i)
+            {
+                $current = array();
+                array_push($current, $dataCSV[$i]['THEME_DETAILS']);
+                array_push($current, $dataCSV[$i]['ROLE']);
+                array_push($current, $dataCSV[$i]['NAME']);
+                array_push($current, $dataCSV[$i]['SURNAME']);
+                array_push($current, $dataCSV[$i]['MAIL']);
+                array_push($current, $dataCSV[$i]['ADRESS']);
+                array_push($current, $dataCSV[$i]['CP']);
+                array_push($current, $dataCSV[$i]['PROFESSION']);
+                array_push($current, $dataCSV[$i]['PROFESSION2']);
+
+                array_push($dataCSVOk, $current);
+            }
+
+            $fichier_csv = fopen('Csv/ExportationUser.csv', 'w+');
+            for($i = 0 ; $i < count($dataCSVOk) ; ++$i)
+            {
+                fputcsv($fichier_csv, $dataCSVOk[$i], ';');
+            }
+            fclose($fichier_csv);
+        ?>
     </div>
-</div> <!-- /container -->
+</div>
+
