@@ -1,5 +1,4 @@
 <?php
-
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 'on');
 header ('Content-Type: text/html; charset=utf-8');
@@ -10,7 +9,6 @@ if(isset($_REQUEST['idPrev'])){
     $idPrev= $_REQUEST['idPrev'];
     $idNext= $_REQUEST['idNext'];
 }
-
 switch($EX)
 {
     case 'home'      : home();       break;
@@ -29,6 +27,7 @@ switch($EX)
     case 'changePass': changePass(); exit; // Mèthode changePass() pour enregistrer le changement de mot de passe
     case 'mailconf'  : mailconf();   exit; // Mèthode pour envoyer l'email de confirmation
     case 'maillog'   : maillog();    exit;
+    case 'chImg'     : chImg();    exit; // Changer l'image du profil
     case 'recup'     : recuperation(); break; // Presentation de la vue
     case 'deconnexion' :
         if (isset($_POST['login']) && isset($_POST['password']))
@@ -45,8 +44,8 @@ switch($EX)
     case 'endMessages' : endMessages(); break;
     case 'createArticle':   createArticle(); break;
     case 'calendar'     :   calendar();break;
-    case 'showArticle'		: showArticle(); 	 break;
-    case 'showInfoArticle'	: showInfoArticle(); break;
+    case 'showArticle'      : showArticle();     break;
+    case 'showInfoArticle'  : showInfoArticle(); break;
     case 'formCreateArticle' : formCreateArticle(); break;
     case 'updateAsso' : updateAsso(); break;
     case 'updateAdminAsso': updateAdminAsso(); break;
@@ -62,9 +61,7 @@ switch($EX)
     case 'downloadCVS' : downloadCVS(); break;
     default : check($EX);
 }
-
 require('./View/layout.view.php');
-
 function check($EX)
 {
     require('Class/CRecMP.class.php'); // Appele à les mèthodes de la classe pour verifier les données dans la BD
@@ -92,7 +89,6 @@ function home()
     $page['arg'] = 'Html/accueil.php';
     $page['css'] = 'Css/accueil.css';
 }
-
 function cloud()
 {
     global $page;
@@ -102,17 +98,14 @@ function cloud()
     $page['arg'] = 'Html/cloud.php';
     $page['css'] = 'Css/cloud.css';
 }
-
 function downloadCloud()
 {
     $mDownloadCloud = new MDownloadCloud();
     $mDownloadCloud->download(htmlspecialchars($_GET['id']));
     header('Location: index.php?EX=cloud');
 }
-
 function addFile()
 {
-
     $mAddFile = new MAddFile();
     $result = $mAddFile->addFile($_FILES);
     
@@ -133,17 +126,14 @@ function addFile()
         header('Location: index.php?EX=cloud&state=ERR_UNKNOWN');
     }
 }
-
 function error()
 {
-
     global $page;
     $page['title'] = 'Erreur 404 !';
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/unknown.php';
 }
-
 function reportList()
 {
     global $page;
@@ -153,7 +143,6 @@ function reportList()
     $page['css'] = 'Css/reportList.css';
     $page['arg'] = 'Html/reportlist.php';
 }
-
 function formCreateArticle()
 {
     $formCreateArticle = new MFormCreateArticle();
@@ -161,7 +150,6 @@ function formCreateArticle()
     $url = 'Location: index.php?EX=showInfoArticle&id='.$nextId;
     header($url);
 }
-
 function searchMember()
 {
     global $page;
@@ -171,7 +159,6 @@ function searchMember()
     $page['css'] = 'Css/search.css';
     $page['arg'] = 'Html/searchMember.php';
 }
-
 function manageMembers()
 {
     global $page;
@@ -181,7 +168,6 @@ function manageMembers()
     $page['css'] = 'Css/search.css';
     $page['arg'] = 'Html/manageMembers.php';
 }
-
 function showArticle()
 {
     global $page;
@@ -191,7 +177,6 @@ function showArticle()
     $page['css'] = 'Css/showArticle.css';
     $page['arg'] = 'Html/showArticle.php';
 }
-
 function showInfoArticle()
 {
     global $page;
@@ -201,7 +186,6 @@ function showInfoArticle()
     $page['css'] = 'Css/showArticle.css';
     $page['arg'] = 'Html/infoArticle.php';
 }
-
 function createMember()
 {
     global $page;
@@ -210,7 +194,6 @@ function createMember()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/create.php';
 }
-
 function updateMember()
 {
     global $page;
@@ -219,7 +202,6 @@ function updateMember()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/update.php';
 }
-
 function deleteMember()
 {
     global $page;
@@ -228,7 +210,6 @@ function deleteMember()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/delete.php';
 }
-
         function recuperation() // Presentation du formilaire principal pour envoyer le mail
     {
         global $page, $user;
@@ -242,7 +223,6 @@ function deleteMember()
             $page['arg'] = 'Html/recMail.php';
         }
     }
-
     function rec() // Deuxième fourmulaire pour changer le mot de passe
     {
         global $page;
@@ -252,7 +232,6 @@ function deleteMember()
         $page['method'] = 'showHtml';
         $page['arg'] = 'Html/recuperation.php';
     }
-
     function changePass() // Mèthode pour enregistrer les données
     {
         global $user;
@@ -264,18 +243,17 @@ function deleteMember()
             }else{
                 $dbverf = new CRecMP($GLOBALS['user']->getMail()); // Verification pour tester l'email
                 $value = $dbverf->selectPassword($GLOBALS['user']->getId());
-
                 if($value['PASSWORD']!=md5($_POST['act_pass'])){
                     echo "<script languaje='javascript'>errorCH();</script>";
                 }else{
                     $update = $dbverf->updatePassLog($_POST, $GLOBALS['user']->getId()); // Mise en jour Mot de passe
+                    $dbverf->sendMail(); // l'envoi de mail de confirmation
                     echo $update;
                 }
                 
             }
         }
     }
-
     function insert() // Mèthode pour enregistrer les données
     {
         //session_start(); //
@@ -284,7 +262,6 @@ function deleteMember()
         }else{
             $dbverf = new CRecMP($_POST['mail']); // Verification pour tester l'email
             $value = $dbverf->selectMail();
-
             if(count($value)==0){// si l'email n'existe pas dans la BD s'affichera un message d'erreur
                 echo "<script languaje='javascript'>mailMod();</script>";
             }else{ // Cas contraire
@@ -295,7 +272,33 @@ function deleteMember()
             }
         }
     }
-        
+    
+    function chImg()
+    {
+        global $user;
+        if (!isset($user)) { // Validation pour l'envoi du mail 
+            echo "<script>location.href='index.php';</script>";
+        } else {
+            //  Nous vérifions la requete AJAX 
+            if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') 
+            {
+                $file = $_FILES['sel_img']['name']; // Nous obtenons le name du fichier
+                if(!is_dir("Photos/")){ // Si le dossier n'existe pas, nous créons le dossier
+                    mkdir("Photos/", 0777);
+                }
+                if ($file && move_uploaded_file($_FILES['sel_img']['tmp_name'],"Photos/".$file)) // Verification de téléchargement correcte
+                {
+                   sleep(3);//retrasamos la petición 3 segundos
+                   unlink($GLOBALS['user']->getPhotopath());
+                   $dbchI = new MUser($GLOBALS['user']->getId());
+                   $dbchI->setPhotopath("Photos/".$file);
+                }                
+            }else{
+                throw new Exception("Error Processing Request", 1);   
+            }
+        }
+    }
+
     function mailconf()
     {
         $dbverf = new CRecMP($_POST['mail']);
@@ -307,7 +310,6 @@ function deleteMember()
             echo $update;
         }
     }
-
     function maillog()
     {   
         global $user;
@@ -316,18 +318,15 @@ function deleteMember()
         } else {
             $dbverf = new CRecMP($GLOBALS['user']->getMail());
             $value = $dbverf->selectMail(); // Verification de mail dans le formulaire
-
             if(count($value)==0){ // Affichage d'un message d'erreur si le mail n'existe pas
                 echo "<script languaje='javascript'>mailErr();</script>";
             }else{ // Si le mail existe, s'envoyera un mail avec le lien pour changer son mot de passe
                 echo "<script>mailErr();</script>";
                 $update = $dbverf->sendMailConf();
-    	        header('Location: index.php');
+                header('Location: index.php');
             }
         }
     }
-
-
     function consultMessages()
     {
         global $page;
@@ -337,7 +336,6 @@ function deleteMember()
         $page['css'] = 'Css/tableMessages.css';
         $page['arg'] = 'Html/consultMessages.php';
     }
-
     function writeMessages()
     {
         global $page;
@@ -355,7 +353,6 @@ function deleteMember()
         $page['method'] = 'showHtml';
         $page['arg'] = 'Html/updateAsso.php';
     }
-
     function updateAdminAsso()
     {
         global $page;
@@ -364,7 +361,6 @@ function deleteMember()
         $page['method'] = 'showHtml';
         $page['arg'] = 'Html/updateAdminAsso.php';
     }
-
     function createAsso()
     {
         global $page;   
@@ -373,12 +369,10 @@ function deleteMember()
         $page['method'] = 'showHtml';
         $page['arg'] = 'Html/createAsso.php';
     }
-
     function createUser()
     {
         include('Php/create.php');
     }
-
     function profil(){ // Presentation du profil 
         global $user;
         if (!isset($user)) { // S'il n'y a pas une session ouverte n'affichera rien 
@@ -393,7 +387,6 @@ function deleteMember()
         }
         
     }
-
     function createAdmin()
     {
         global $page;   
@@ -402,7 +395,6 @@ function deleteMember()
         $page['method'] = 'showHtml';
         $page['arg'] = 'Html/createAdmin.php';
     }
-
     function legal() {
         global $page;
         $page['title'] = 'Mentions légales' ;
@@ -410,36 +402,25 @@ function deleteMember()
         $page['method'] = 'showHtml' ;
         $page['arg'] = 'Html/legal.html' ;
     }
-
     function creationAdmin()
     {
         include('./Php/createAdmin.php');
     }
-
     function swapRoles($idPrev, $idNext){
         global $page;
-
-
     //(new MUser($idPrev))->setRole('MEMBRE');
     //(new MUser($idNext))->setRole('ADMIN');
-
-
         $a = new MUser($idPrev);
         $a->setRole('MEMBRE');
-
         $a = new MUser ($idNext);
         $a->setRole('ADMIN');
-
         $page['title'] = 'Test';
         $page['class'] = 'VHome';
         $page['method'] = 'showHome';
         $page['arg'] = 'Html/manageAsso.php';
     }
-
     // (new MUser($idPrev))->setRole('MEMBRE');
     //(new MUser($idNext))->setRole('ADMIN');
-
-
     function manageAsso()
     {
         global $page;
@@ -449,7 +430,6 @@ function deleteMember()
         $page['css'] = 'Css/search.css';
         $page['arg'] = 'Html/manageAsso.php';
     }
-
     function deleteAsso()
     {
         global $page;
@@ -458,7 +438,6 @@ function deleteMember()
         $page['method'] = 'showHtml';
         $page['arg'] = 'Html/deleteAsso.php';
     }
-
 function createArticle()
 {
     global $page;
@@ -468,8 +447,6 @@ function createArticle()
     $page['css'] = 'Css/createArticle.css';
     $page['arg'] = 'Html/createArticle.php';
 }
-
-
 function deconnexion()
 {
     global $page;
@@ -482,8 +459,6 @@ function deconnexion()
     $page['css'] = 'Css/accueil.css';
     $page['arg'] = 'Html/accueil.php';
 }
-
-
 function calendar()
 {
     global $page;
@@ -491,9 +466,8 @@ function calendar()
     $page['class'] = 'VCalendar';
     $page['method'] = 'showCalendar';
     $page['arg'] = 'Html/calendar.php';
-
+    $page['css'] = 'Css/calendar.css';
 }
-
 function endMessages()
 {
     global $page;
@@ -502,7 +476,6 @@ function endMessages()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/finEnvoi.html';
 }
-
 function updateMail()
 {
     global $page;
@@ -511,11 +484,9 @@ function updateMail()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/update-mail.php';
 }
-
 function downloadCVS()
 {
     $mDownloadCsv = new MDownloadCsv();
     $mDownloadCsv->download();
 }
-
 ?>
