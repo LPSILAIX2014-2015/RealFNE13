@@ -186,8 +186,8 @@ function showArticle()
     $page['title'] = 'Liste des articles';
     $page['class'] = 'VShowArticle';
     $page['method'] = 'showArticle';
-    $page['arg'] = 'Html/showArticle.php';
     $page['css'] = 'Css/showArticle.css';
+    $page['arg'] = 'Html/showArticle.php';
 }
 
 function showInfoArticle()
@@ -196,6 +196,7 @@ function showInfoArticle()
     $page['title'] = 'Détail';
     $page['class'] = 'VInfoArticle';
     $page['method'] = 'showInfoArticle';
+    $page['css'] = 'Css/showArticle.css';
     $page['arg'] = 'Html/infoArticle.php';
 }
 
@@ -476,8 +477,8 @@ function deconnexion()
     $page['title'] = 'Retour après déco';
     $page['class'] = 'VHome';
     $page['method'] = 'showHome';
-    $page['arg'] = 'Html/accueil.php';
     $page['css'] = 'Css/accueil.css';
+    $page['arg'] = 'Html/accueil.php';
 }
 
 

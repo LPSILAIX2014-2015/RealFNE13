@@ -43,7 +43,7 @@ class MAddFile {
 
             $mCloud->insertCloud($idUser, $filename, $file['size']);
 
-           $rst = move_uploaded_file($file['tmp_name'], 'Cloud/'.$filename);
+            $rst = move_uploaded_file($file['tmp_name'], 'Cloud/'.$filename);
 
            return 'OK';
         }

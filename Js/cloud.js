@@ -2,19 +2,35 @@ $(document).ready(function() {
     $('.addFile').on('click', function(event) {
         event.preventDefault();
         $('.inputFile').trigger('click');
-        $('.sendFile').show();
-        $('.cancelFile').show();
         $(this).hide();
+    });
+
+    $('.inputFile').on('change', function(event) {
+        $('.sendFile').hide();
+        $('.cancelFile').hide();
+        $('.valInput').empty();
+        if($(this).val() != '')
+        {
+            var filename = $(this).val();
+            filename = baseName(filename);
+            $('.valInput').html(filename);
+            $('.sendFile').show();
+            $('.cancelFile').show();
+        }
     });
 
     $('.sendFile').on('click', function(event) {
         event.preventDefault();
-        $('#formFile').submit();
+        if($('.inputFile').val() != '')
+        {
+            $('#formFile').submit();
+        }
     });
 
     $('.cancelFile').on('click', function(event) {
         event.preventDefault();
         $('.sendFile').hide();
+        $('.valInput').empty();
         $('.addFile').show();
         $('.inputFile').replaceWith($('.inputFile').val('').clone(true));
         $(this).hide();
@@ -33,3 +49,8 @@ $(document).ready(function() {
         }
     });
 });
+
+function baseName(path)
+{
+   return path.replace(/\\/g,'/').replace( /.*\//, '' );
+}

@@ -24,6 +24,10 @@ class VCloud
             {
                 array_push($customAlert, "Transfert du fichier réussi");
             }
+            elseif(htmlspecialchars($_GET['state']) == "ERR_UNKNOWN")
+            {
+                array_push($customAlert, "Erreur inconnue");
+            }
         }
 
 
