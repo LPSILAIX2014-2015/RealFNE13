@@ -67,18 +67,18 @@ class MFormCreateArticle
                         echo "Ce fichier à bien été placé";
 
                     }else{
-                        echo "L'upload du fichier à échoué";
-                        return;
+                        $errorType = "Err_UploadFail";
+                        return $errorType;
                     }
 
                 }else{
-                    echo "L'image est trop volumineuse";
-                    return;
+                    $errorType = "Err_FileTooFat";
+                    return $errorType;
                 }
 
             } else{
-                echo "Ce type de fichier n'est pas autorisé";
-                return;
+                $errorType = "Err_NotAnImage";
+                return $errorType;
             }
         }
 
@@ -113,9 +113,18 @@ class MFormCreateArticle
         if(!$dataForm['duration']) $dataForm['duration'] = 0;
         if(!$dataForm['inscription']) $dataForm['inscription'] = 0;
         // arreter la fonction si l'ID de l'user, le titre ou le theme de l'article n'est pas renseigné.
-        if($_SESSION['ID_USER'] == null) return;
-        if(strlen($dataForm['articleTitle']) == 0) return;
-        if(strlen($dataForm['textareaDecrypt']) == 0) return;
+        if($_SESSION['ID_USER'] == null){
+            $errorType = "Err_UserNotLogged";
+            return $errorType;
+        }
+        if(strlen($dataForm['articleTitle']) == 0){
+            $errorType = "Err_NoTittle";
+            return $errorType;
+        } 
+        if(strlen($dataForm['textareaDecrypt']) == 0){
+            $errorType = "Err_NoText";
+            return $errorType;
+        } 
 
         /**
         Requete et Bind des values
@@ -155,7 +164,8 @@ class MFormCreateArticle
         //If the preparation went wrong, we rollBack (request canceled), and we return false
         if(!$state) {
             $sql->rollBack();
-            return false;
+            $errorType = "Err_QueryFail";
+            return $errorType;
         }
 
 
@@ -184,8 +194,13 @@ class MFormCreateArticle
         //$temp return the ID of the last row inserted
         $sql->commit();
 
-        var_dump($temp);
-        return $temp;
+
+        (!isset($errorType)) ? $errorType = "EverythingOK" : $temp = 0;
+        $jsonarray = array("lastID" => $temp, "error" => $errorType);
+        $jsonReturned = json_encode($jsonarray);
+
+        //var_dump($jsonReturned);
+        return $jsonReturned;
     }
 
 }
