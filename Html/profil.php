@@ -8,7 +8,8 @@
 			</div>
 			<div class="panel-body">
 				<!-- <div class="row"> -->
-				<img src="Img/photo.jpg" alt="Foto" class="img-thumbnail center-block" width="140px" height="140px"><br>
+				<img src="<?= $GLOBALS['user']->getPhotopath(); ?>" alt="Image" class="img-thumbnail center-block" width="140px" height="140px">
+				<input type="button" value="Changer mon image" onclick="view('cmi')" class="btn btn-danger btn-xs center-block"><br>
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="panel panel-info">
@@ -91,6 +92,27 @@
 							</div>
 							<div class="panel-body">
 								<?= $GLOBALS['user']->getPresentation();?>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row" id="cmi" style="display: none;">
+					<div class="col-sm-12">
+						<div class="panel panel-info">
+							<div class="panel-heading">
+								<h3 class="panel-title">Changer mon image de profile</h3>
+							</div>
+							<div class="panel-body" align="center">
+								<form role="form" class="form-vertical" id="frmCHIMG" enctype="multipart/form-data">
+									<div class="form-group" align="center">
+										<label for="sel_img" class="control-label">Selectionner une image</label>
+										<div class="controls">
+											<input type="file" id="sel_img" name="sel_img" class="form-control btn-info">
+										</div>
+									</div>
+									<input type="submit" name="btnIm" id="btnIm" class="btn btn-info center-block" value="Upload">
+									<div id="chI"></div><!-- id="error"--><br>
+								</form>
 							</div>
 						</div>
 					</div>
