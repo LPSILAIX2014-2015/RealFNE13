@@ -156,8 +156,9 @@ function reportList()
 function formCreateArticle()
 {
     $formCreateArticle = new MFormCreateArticle();
-    $formCreateArticle->insertDB($_POST);
-    header('Location: index.php?EX=createArticle');
+    $nextId = $formCreateArticle->insertDB($_POST);
+    $url = 'Location: index.php?EX=showInfoArticle&id='.$nextId;
+    header($url);
 }
 
 function searchMember()
