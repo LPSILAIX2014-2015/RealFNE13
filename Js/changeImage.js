@@ -16,7 +16,7 @@ $(document).ready(function(){
         if (isImage(fileExtension)) {
         	var fileSize = file.size;
 	        var fileType = file.type;
-	        showMessage("<p class='bg-warning'>Archivo para subir: "+fileName+", peso total: "+fileSize+" bytes.</p>");
+	        showMessage("<p class='bg-warning'>Fichier à télécharger : "+fileName+", peso total: "+fileSize+" bytes.</p>");
 	        $('#sel_img-error').remove();
         } else{
         	document.getElementById('frmCHIMG').reset();

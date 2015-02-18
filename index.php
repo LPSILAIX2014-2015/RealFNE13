@@ -233,7 +233,9 @@ function deleteAMember()
     $page['arg'] = 'Php/delete.php';
 }
 
-        function recuperation() // Presentation du formilaire principal pour envoyer le mail
+
+    function recuperation() // Presentation du formilaire principal pour envoyer le mail
+
     {
         global $page, $user;
         if (isset($user)) { // Validation pour l'envoi du mail
