@@ -42,10 +42,11 @@ class MCloud {
     public function getCloudByUser($idUser) {
 
         $state = $this->sql->prepare("SELECT C.*, U.NAME NAME_USER, U.SURNAME SURNAME_USER
-            FROM CLOUD C, ASSOCIATION A, USER U
-            WHERE C.USER_ID = U.ID
-            AND U.ASSOCIATION_ID = A.ID
-            AND U.ID = :idUser");
+             FROM USER U, CLOUD C, USER U2
+            WHERE U.ID = :idUser
+        AND U.ASSOCIATION_ID = U2.ASSOCIATION_ID
+        AND U2.ID = C.USER_ID");
+
         $state->bindValue('idUser', $idUser, PDO::PARAM_INT);
         $state->execute();
         $results = $state->fetchAll(PDO::FETCH_ASSOC);
