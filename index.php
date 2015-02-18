@@ -1,4 +1,5 @@
 <?php
+
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 'on');
 header ('Content-Type: text/html; charset=utf-8');
@@ -196,6 +197,7 @@ function showInfoArticle()
     $page['class'] = 'VInfoArticle';
     $page['method'] = 'showInfoArticle';
     $page['arg'] = 'Html/infoArticle.php';
+    $page['css'] = 'Css/showArticle.css';
 }
 
 function createMember()
@@ -238,6 +240,7 @@ function deleteMember()
             $page['arg'] = 'Html/recMail.php';
         }
     }
+
     function rec() // Deuxième fourmulaire pour changer le mot de passe
     {
         global $page;
@@ -290,18 +293,18 @@ function deleteMember()
             }
         }
     }
-    
-function mailconf()
-{
-    $dbverf = new CRecMP($_POST['mail']);
-    $value = $dbverf->selectMail(); // Verification de mail dans le formulaire 'recMail'
-    if(count($value)==0){ // Affichage d'un message d'erreur si le mail n'existe pas
-        echo "<script languaje='javascript'>mailErr();</script>";
-    }else{ // Si le mail existe, s'envoyera un mail avec le lien pour changer son mot de passe
-        $update = $dbverf->sendMailConf();
-        echo $update;
+        
+    function mailconf()
+    {
+        $dbverf = new CRecMP($_POST['mail']);
+        $value = $dbverf->selectMail(); // Verification de mail dans le formulaire 'recMail'
+        if(count($value)==0){ // Affichage d'un message d'erreur si le mail n'existe pas
+            echo "<script languaje='javascript'>mailErr();</script>";
+        }else{ // Si le mail existe, s'envoyera un mail avec le lien pour changer son mot de passe
+            $update = $dbverf->sendMailConf();
+            echo $update;
+        }
     }
-}
 
     function maillog()
     {   
@@ -317,31 +320,31 @@ function mailconf()
             }else{ // Si le mail existe, s'envoyera un mail avec le lien pour changer son mot de passe
                 echo "<script>mailErr();</script>";
                 $update = $dbverf->sendMailConf();
-		        header('Location: index.php');
+    	        header('Location: index.php');
             }
         }
     }
 
 
-function consultMessages()
-{
-    global $page;
-    $page['title'] = 'Liste des messages';
-    $page['class'] = 'VConsultMessages';
-    $page['method'] = 'showConsultMessages';
-    $page['css'] = 'Css/tableMessages.css';
-    $page['arg'] = 'Html/consultMessages.php';
-}
+    function consultMessages()
+    {
+        global $page;
+        $page['title'] = 'Liste des messages';
+        $page['class'] = 'VConsultMessages';
+        $page['method'] = 'showConsultMessages';
+        $page['css'] = 'Css/tableMessages.css';
+        $page['arg'] = 'Html/consultMessages.php';
+    }
 
-function writeMessages()
-{
-    global $page;
-    $page['title'] = "Ecriture d'un message";
-    $page['class'] = 'VHtml';
-    $page['method'] = 'showHtml';
-    $page['arg'] = 'Html/formulaireMessage.php';
-}
-    
+    function writeMessages()
+    {
+        global $page;
+        $page['title'] = "Ecriture d'un message";
+        $page['class'] = 'VHtml';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Html/formulaireMessage.php';
+    }
+        
     function updateAsso()
     {
         global $page;   
@@ -373,7 +376,7 @@ function writeMessages()
     {
         include('Php/create.php');
     }
-    
+
     function profil(){ // Presentation du profil 
         global $user;
         if (!isset($user)) { // S'il n'y a pas une session ouverte n'affichera rien 
@@ -386,8 +389,8 @@ function writeMessages()
             $page['css'] = 'Css/recupMdp.css';
             $page['arg'] = 'Html/profil.php';
         }
-    
-}
+        
+    }
 
     function createAdmin()
     {
@@ -431,8 +434,8 @@ function writeMessages()
         $page['arg'] = 'Html/manageAsso.php';
     }
 
-// (new MUser($idPrev))->setRole('MEMBRE');
-//(new MUser($idNext))->setRole('ADMIN');
+    // (new MUser($idPrev))->setRole('MEMBRE');
+    //(new MUser($idNext))->setRole('ADMIN');
 
 
     function manageAsso()

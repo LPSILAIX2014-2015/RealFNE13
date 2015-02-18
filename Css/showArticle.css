@@ -12,7 +12,10 @@
     height: 80px;
     text-align: center;
     margin: auto;
-    line-height: 80px,
+    line-height: 80px;
+}
+#imgArticle img{
+    max-width: 100%;
 }
 .pvarticle img {
     max-width: 145px;

@@ -8,6 +8,13 @@ $(document).ready(function() {
 		document.location.href = 'index.php?EX=showInfoArticle&id='+id;
 	});
 
+    //When select value change, articles will be filter
+    $('#filterASSOC').on('change', function(event) {
+        sortAssocArticle();
+    });
+    $('#filterTHEME').on('change', function(event) {
+        sortThemeArticle();
+    });
 });
 
 jQuery(function($) {
@@ -28,7 +35,6 @@ jQuery(function($) {
     $("#pagination").pagination({
         items: numItems,
         itemsOnPage: perPage,
-        cssStyle: "compact-theme",
         onPageClick: function(pageNumber) { // this is where the magic happens
             // someone changed page, lets hide/show trs appropriately
             var showFrom = perPage * (pageNumber - 1);
@@ -38,3 +44,42 @@ jQuery(function($) {
         }
     });
 });
+
+//Sort function for Category and theme
+function sortAssocArticle() {
+    var idAssoc = $('#filterASSOC option:selected').attr('value');
+    $('.lienarticle').hide();
+    if(idAssoc == "0")
+    {
+        $('.lienarticle').show();
+    }
+    else
+    {
+        for(var i = 0 ; i < $('.lienarticle').length ; ++i)
+        {
+            if(idAssoc == $('.lienarticle').get(i).getAttribute('data-assoc'))
+            {
+                $('.lienarticle')[i].style.display = "";
+            }
+        }
+    }
+}
+
+function sortThemeArticle() {
+    var idTheme = $('#filterTHEME option:selected').attr('value');
+    $('.lienarticle').hide();
+    if(idTheme == "0")
+    {
+        $('.lienarticle').show();
+    }
+    else
+    {
+        for(var i = 0 ; i < $('.lienarticle').length ; ++i)
+        {
+            if(idTheme == $('.lienarticle').get(i).getAttribute('data-theme'))
+            {
+                $('.lienarticle')[i].style.display = "";
+            }
+        }
+    }
+}
