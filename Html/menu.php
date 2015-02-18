@@ -34,7 +34,7 @@ global $user ;
         <div class="submenu">
             <a href="index.php?EX=manageAsso">Gestion assos</a>
             <a href="index.php?EX=manageMembers">Gestion des membres</a>
-            <a>Validations</a>
+            <a href="index.php?EX=validArticle">Validations</a>
             <a href="index.php?EX=reportList">Journal</a>
         </div>
     </li>
