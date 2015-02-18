@@ -1,16 +1,15 @@
 <?php
 	global $article;
-	$index = intval($_GET["id"])-1;
 
- 	echo '<h1>' . $article[$index]['TITLE'] . '</h1>';
- 	echo '<em>' . $article[$index]['AUTHOR_NAME'] . ' ' . $article[$index]['AUTHOR_SURNAME'] . ', le ' . $article[$index]['PDATE']. '</em>';
+ 	echo '<h1>' . $article[0]['TITLE'] . '</h1>';
+ 	echo '<em>' . $article[0]['AUTHOR_NAME'] . ' ' . $article[0]['AUTHOR_SURNAME'] . ', le ' . $article[0]['PDATE']. '</em>';
 
- 	if($article[$index]['IMAGEPATH'] != 'NULL') {
+ 	if($article[0]['IMAGEPATH'] != 'NULL') {
  		echo '<div id="imgArticle">'
- 		  .    '<img src="' . $article[$index]['IMAGEPATH'] . '" class="img-responsive" />'
+ 		  .    '<img src="' . $article[0]['IMAGEPATH'] . '" class="img-responsive" />'
  		  .  '</div>';
  	}
 
- 	echo '<p>' . $article[$index]['CONTENT'] . '</p>';
+ 	echo '<p>' . $article[0]['CONTENT'] . '</p>';
 
 ?>
