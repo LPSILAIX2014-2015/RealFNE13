@@ -47,7 +47,7 @@ class MDBase extends PDO {
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = "SELECT * FROM user";
+        $query = "SELECT * FROM USER";
         $qq = $pdo->prepare($query);
         $qq->execute();
         $data = $qq->fetchAll(PDO::FETCH_ASSOC);
@@ -144,7 +144,7 @@ class MDBase extends PDO {
     public static function getUserByEmail($mail){
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = "SELECT * FROM USER WHERE Mail = ?";
+        $query = "SELECT * FROM USER WHERE MAIL = ?";
         $qq = $pdo->prepare($query);
         $qq->execute(array($mail));
         $data = $qq->fetchall();
