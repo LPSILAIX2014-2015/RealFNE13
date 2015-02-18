@@ -157,8 +157,14 @@ function formCreateArticle()
 {
     $formCreateArticle = new MFormCreateArticle();
     $nextId = $formCreateArticle->insertDB($_POST);
-    $url = 'Location: index.php?EX=showInfoArticle&id='.$nextId;
-    header($url);
+    if($nextId == 0){
+        $url = 'Location: index.php?EX=createArticle';
+        header($url);
+    }else{
+        $url = 'Location: index.php?EX=showInfoArticle&id='.$nextId;
+        header($url);
+    }
+    return false;
 }
 
 function searchMember()
