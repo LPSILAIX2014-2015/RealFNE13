@@ -1,14 +1,26 @@
 <?php
+//petite fonction pour filtrer le nom des fichier (remplace les accent et les apostrophes etc...), elle devrait pas se trouver là mais on va faire comme si on avait rien vu :3
+function replace_accents($string){ 
+        return str_replace( array('à','á','â','ã','ä', 'ç', 'è','é','ê','ë', 'ì','í','î','ï', 'ñ', 'ò','ó','ô','õ','ö', 'ù','ú','û','ü', 'ý','ÿ', 'À','Á','Â','Ã','Ä', 'Ç', 'È','É','Ê','Ë', 'Ì','Í','Î','Ï', 'Ñ', 'Ò','Ó','Ô','Õ','Ö', 'Ù','Ú','Û','Ü', 'Ý', '\''), array('a','a','a','a','a', 'c', 'e','e','e','e', 'i','i','i','i', 'n', 'o','o','o','o','o', 'u','u','u','u', 'y','y', 'A','A','A','A','A', 'C', 'E','E','E','E', 'I','I','I','I', 'N', 'O','O','O','O','O', 'U','U','U','U', 'Y', '_'), $string);
+}
+
 class MFormCreateArticle
 {
     function __construct ($id = null) {
+        //connection à la base
         $sql = new MDBase();
-        $state = $sql->prepare("SELECT * FROM post WHERE ID = :id;");
-        $state->bindValue('id', $id, PDO::PARAM_INT);
-        $state->execute();
-        $report = $state->fetch(PDO::FETCH_ASSOC);
+        $state = $sql->prepare("SELECT * FROM post WHERE ID = :id;"); // requete à effectuer
+        $state->bindValue('id', $id, PDO::PARAM_INT); //le :id de la requete n'a aucune valeur, on lui bind alors celle de
+        $state->execute();                            //$id (parametre du contructeur). On éxécute ensuite la requête
+        $report = $state->fetch(PDO::FETCH_ASSOC);    //On récupère le résultat sous forme de tableau dans la variable $report
+        /*
+            PDO::FETCH_ASSOC permet de récuperer les résultats sous forme de tableau, on accede donc aux élément avec des []
+            PDO::FETCH_OBJECT permet de récuperer les résultats sous forme d'objets, on accede donc aux élément avec des ->
+        */
     }
     public function __destruct(){}
+
+    
 
     public function insertDB($data){
 
@@ -18,46 +30,56 @@ class MFormCreateArticle
 
         **/
 
+        /**
+        récupération des infos
+        **/
 
         $repertoireDestination = "Img/ImgArticle/";
 
-        $extensionsAutorisees = array("jpeg", "jpg","png");
         $nomOrigine = $_FILES["articleImage"]["name"];
-        $elementsChemin = pathinfo($nomOrigine);
-        $extensionFichier = $elementsChemin['extension'];
+        //On check s'il y à une image, s'il y en à une, on la traite
+        if(strlen($nomOrigine) != 0){
+            
+            $elementsChemin = pathinfo($nomOrigine);
+            $extensionFichier = $elementsChemin['extension'];
 
-        $maxImageSize = $_POST["max_file_size"];
+            $extensionsAutorisees = array("jpeg", "jpg","png");
+            $maxImageSize = $_POST["max_file_size"];
 
-        $pathImage = $repertoireDestination.$_FILES["articleImage"]["name"];
+            $sanitizeFileName = replace_accents($_FILES["articleImage"]["name"]);
 
-        var_dump($_FILES["articleImage"]);
-        var_dump($elementsChemin);
+            $pathImage = $repertoireDestination. $sanitizeFileName;
 
-        //Check if the file is an image
-        if (in_array($extensionFichier, $extensionsAutorisees)) {
-            echo "Ce fichier à la bon format";
+            /**
+            vérifications des champs
+            **/
 
-            //Check if the size of the image is correct
-            if($_FILES["articleImage"]["size"] < $maxImageSize){
-                echo "Ce fichier à la bonne taille";
+            //Check if the file is an image
+            if (in_array($extensionFichier, $extensionsAutorisees)) {
+                echo "Ce fichier à la bon format";
 
-                //Check if the file is correctly moved
-                if (move_uploaded_file($_FILES["articleImage"]["tmp_name"],$repertoireDestination.$_FILES["articleImage"]["name"])) {
-                    echo "Ce fichier à bien été placé";
+                //Check if the size of the image is correct
+                if($_FILES["articleImage"]["size"] < $maxImageSize){
+                    echo "Ce fichier à la bonne taille";
+
+                    //Check if the file is correctly moved
+                    if (move_uploaded_file($_FILES["articleImage"]["tmp_name"],$pathImage)) {
+                        echo "Ce fichier à bien été placé";
+
+                    }else{
+                        echo "L'upload du fichier à échoué";
+                        return;
+                    }
 
                 }else{
-                    echo "L'upload du fichier à échoué";
+                    echo "L'image est trop volumineuse";
                     return;
                 }
 
-            }else{
-                echo "L'image est trop volumineuse";
+            } else{
+                echo "Ce type de fichier n'est pas autorisé";
                 return;
             }
-
-        } else{
-            echo "Ce type de fichier n'est pas autorisé";
-            return;
         }
 
         /**
@@ -83,18 +105,21 @@ class MFormCreateArticle
         $dataForm = filter_input_array(INPUT_POST, $options);
 
 
-        if(!$dataForm['duration'])
-        {
-            $dataForm['duration'] = 0;
-        }
-        if(!$dataForm['inscription'])
-        {
-            $dataForm['inscription'] = 0;
-        }
-        
+        /**
+        Contrôle des champs
+        **/
+
+        // mettre des valeur par défaut pour duration et inscription quand ils ne sont pas renseignés.
+        if(!$dataForm['duration']) $dataForm['duration'] = 0;
+        if(!$dataForm['inscription']) $dataForm['inscription'] = 0;
+        // arreter la fonction si l'ID de l'user, le titre ou le theme de l'article n'est pas renseigné.
         if($_SESSION['ID_USER'] == null) return;
         if(strlen($dataForm['articleTitle']) == 0) return;
         if(strlen($dataForm['textareaDecrypt']) == 0) return;
+
+        /**
+        Requete et Bind des values
+        **/
 
         $sql->beginTransaction();
         $state = $sql->prepare("INSERT INTO post (
@@ -148,7 +173,10 @@ class MFormCreateArticle
         $state->bindValue('PTYPE',      "ARTICLE", PDO::PARAM_STR);
         $state->bindValue('STATUS',     0, PDO::PARAM_INT);
 
-        //Execute SQL request
+        /**
+        Execute SQL request
+        **/
+
         $state->execute();
 
         $temp = $sql->lastInsertId();
