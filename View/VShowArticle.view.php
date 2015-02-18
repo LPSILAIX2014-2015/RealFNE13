@@ -14,7 +14,6 @@ class VShowArticle
     global $data_theme;
 
   	// AFFICHAGE
-
   	$state = $connec->prepare(
   	  "SELECT P.*, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE,
               U.NAME, U.SURNAME, U.ASSOCIATION_ID ASSOC_ID
@@ -27,7 +26,6 @@ class VShowArticle
 
     $data_assoc = $connec->getAllAssocs();
     $data_theme = $connec->getAllThemes();
-
 
   	// REMPLISSAGE DU CONTENU
 
