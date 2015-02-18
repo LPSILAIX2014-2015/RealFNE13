@@ -48,7 +48,7 @@ if (($nb_message < 100)||($senderId == 1))
         $theme = $_POST['theme'];
         $cat = $_POST['category'];
 		
-        $request2 = $pdo->prepare("INSERT INTO message(ID,SENDER_ID,RECEIVER_ID,CAT_ID,THEME_ID,ISREAD,ISARCHIVE,SENDDATE,TITLE,CONTENT) VALUES ('',?,?,?,?,0,0,CURRENT_DATE,?,?)");
+        $request2 = $pdo->prepare("INSERT INTO MESSAGE(ID,SENDER_ID,RECEIVER_ID,CAT_ID,THEME_ID,ISREAD,ISARCHIVE,SENDDATE,TITLE,CONTENT) VALUES ('',?,?,?,?,0,0,CURRENT_DATE,?,?)");
         $request2->execute(array($senderId,$receiverId,$cat,$theme,$title,$content));
 			
 		$_SESSION['category'] = $cat;
