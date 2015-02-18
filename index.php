@@ -42,6 +42,7 @@ switch($EX)
         break;
     case 'writeMessages' : writeMessages(); break;
     case 'consultMessages' : consultMessages(); break;
+	case 'sendMessage' : sendMessage(); break;
     case 'endMessages' : endMessages(); break;
     case 'createArticle':   createArticle(); break;
     case 'calendar'     :   calendar();break;
@@ -492,13 +493,22 @@ function calendar()
 
 }
 
+function sendMessage()
+{
+    global $page;
+    $page['title'] = "Envoi à d'autres destinataires ?";
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/envoiDestinataires.php';
+}
+
 function endMessages()
 {
     global $page;
     $page['title'] = 'Message transmis';
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
-    $page['arg'] = 'Html/finEnvoi.html';
+    $page['arg'] = 'Html/finEnvoi.php';
 }
 
 function updateMail()
@@ -510,4 +520,16 @@ function updateMail()
     $page['arg'] = 'Html/update-mail.php';
 }
 
+<<<<<<< HEAD
+function updateMail()
+{
+    global $page;
+    $page['title'] = 'Creation de profil';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/update-mail.php';
+}
+
+=======
+>>>>>>> origin/autre_formulaire
 ?>
