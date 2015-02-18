@@ -11,7 +11,7 @@
 		$sql = "DELETE FROM Message  WHERE SENDER_ID = ? OR RECEIVER_ID = ?";
 		$q = $pdo->prepare($sql);
 		$q->execute(array($id, $id));
-		$sql = "DELETE FROM user  WHERE ID = ?";
+		$sql = "DELETE FROM USER  WHERE ID = ?";
 		$q = $pdo->prepare($sql);
 		$q->execute(array($id));
         header("Location: ../index.php?EX=manageMembers");

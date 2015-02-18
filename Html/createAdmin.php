@@ -1,4 +1,6 @@
 <?php
+	if(!isset($_SESSION['ROLE'])||($_SESSION['ROLE']!='SADMIN'))
+		header('Location: ./index.php');
      $id = null;
     if ( isset($_POST['NAME'])) {
         $name = $_POST['NAME'];
@@ -46,15 +48,7 @@
 					      	<input name="MAIL" id="mail" type="text"  placeholder="EMAIL" value="">
 					      	
 					    </div>
-					  </div>
-                      <div class="control-group">
-					    <label class="control-label">cp - code postale</label>
-					    <div class="controls">
-					      	<input name="CP" type="text" id="cp" pattern="[0-9]{5}" placeholder="cp - code postale" value="">
-					      	<span>(5 chiffres)</span>
-					    </div>
-					  </div>
-					  
+					  </div>				  
 					 
                                           
 					  <div class="form-actions">

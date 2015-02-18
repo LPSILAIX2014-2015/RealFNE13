@@ -31,7 +31,7 @@ class CloginFail {
          * le blocage du compte est géré par la connexion dans Class/CConnexion.class.php
          */
         if (testVar($result)) {
-            $this->user = $result['ID_USER'];
+            $this->user = $id;
             $this->ip = $result['IP'] ;
             $tmp = explode(' ',$result['EXPIRE']);
             $tmpD = explode('-',$tmp[0]);
@@ -67,7 +67,6 @@ class CloginFail {
             $query = 'UPDATE LOGINFAIL SET ATTEMPTS='.($this->attempts).', EXPIRE=FROM_UNIXTIME('.(time() + LOGINFAIL_EXPIRE).') WHERE ID_USER='.($this->user).' ;' ;
             $state = $db->prepare($query);
             $state->execute();
-
             return true ;
         }
         return false ;

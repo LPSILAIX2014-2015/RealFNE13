@@ -1,24 +1,20 @@
-<?php 
+<?php
 
 	$pdo = new MDBase();
 	if ( !empty($_POST)) {
         $id=$_POST['ID'];
-		$name = $_POST['NAME'];
+	$name = $_POST['NAME'];
         $surname = $_POST['SURNAME'];
         $email = $_POST['MAIL'];
-		$cp = $_POST['CP'];
-
-        $profession = $_POST['PROFESSION'];
-        echo $id." ".$name." ".$surname." ".$email." ".$cp." ".$profession." ";
-		$sql = "INSERT INTO user (NAME,SURNAME,CP,MAIL,ASSOCIATION_ID, THEME_ID, THEME_INTEREST_ID, ROLE) values(?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO USER (NAME,SURNAME,MAIL,ASSOCIATION_ID, THEME_ID, THEME_INTEREST_ID, ROLE) values(?, ?, ?, ?, ?, ?, ?)";
 		$q = $pdo->prepare($sql);
-		$q->execute(array($name, $surname, $cp, $email,$id, 1, 1,"ADMIN"));
+		$q->execute(array($name, $surname, $email,$id, 1, 1,"ADMIN"));
 
         $headers = "From: webmaster@domain.com \r\n";
         $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "Content-type: text/html\r\n";
-        
-        $message = $_SERVER['REQUEST_URI'].'/../Html/update-mail.php?email='.$email;
+
+				$message = $_SERVER['REQUEST_URI'].'http://laplateformeFNE13.fr/index.php?EX=updateMail.php?email='.$email;
         $subject = 'compléter votre profil';
         mail ($mail,$subject,$message,$headers);
 

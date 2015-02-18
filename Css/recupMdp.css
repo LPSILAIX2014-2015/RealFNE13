@@ -1,8 +1,21 @@
+
 /**
 * Styles pour le formulaire de recuparation de MP
 */
-#mail, #mailR, #pass1, #pass2, #iCaptcha{
+@import "../Lib/bootstrap.min.css" screen;
+#mail, #mailR, #pass1, #pass2{
     width: 330px;
+    margin: 0 auto;
+}
+#iCaptcha, #act_pass, #rnew_pass, #new_pass{
+    width: 200px;
+    margin: 0 auto;
+}
+#btn_changer{
+    width: 100px;
+    margin: 0 auto;
+}
+#ch_mp{
     margin: 0 auto;
 }
 label.valid {
@@ -44,5 +57,14 @@ label.error {
 {
     border: 0 solid #f00;
     box-shadow: 1px 1px 2px #f00;
+}
+#chP{
+    display: block; 
+    color: red; 
+    font-size: 11pt; 
+    font-weight: bold;
+}
+.center{
+    margin: 0 auto;
 }
 /*Fin styles rMP*/

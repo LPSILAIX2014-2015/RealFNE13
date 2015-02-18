@@ -1,4 +1,7 @@
 <?php
+
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 'on');
 header ('Content-Type: text/html; charset=utf-8');
 require('Inc/require.inc.php');
 require('Inc/globals.inc.php');
@@ -11,6 +14,9 @@ if(isset($_REQUEST['idPrev'])){
 switch($EX)
 {
     case 'home'      : home();       break;
+    case 'cloud'      : cloud();       break;
+    case 'downloadCloud'      : downloadCloud();       break;
+    case 'addFile'      : addFile();       break;
     case 'login'     : login();      break;
     case 'reportList': reportList(); break;
     case 'searchMember'     : searchMember();      break;
@@ -20,6 +26,7 @@ switch($EX)
     case 'updateMember': updateMember(); break;
     case 'deleteMember': deleteMember(); break;
     case 'insert'    : insert();     exit; // Mèthode insert() pour enregistrer le changement de mot de passe
+    case 'changePass': changePass(); exit; // Mèthode changePass() pour enregistrer le changement de mot de passe
     case 'mailconf'  : mailconf();   exit; // Mèthode pour envoyer l'email de confirmation
     case 'maillog'   : maillog();    exit;
     case 'recup'     : recuperation(); break; // Presentation de la vue
@@ -47,14 +54,13 @@ switch($EX)
     case 'createAsso' : createAsso(); break;
     case 'createAdmin' : createAdmin(); break;
     case 'creationAdmin' : creationAdmin(); break;
-    case 'searchAsso'  : searchAsso();      break;
     case 'manageAsso': manageAsso(); break;
     case 'deleteAsso'  : deleteAsso();      break;
     case 'profil'    : profil(); break; // Affichage du profil
     case 'legal' : legal(); break;
     case 'validArticle' : validArticle(); break;
+    case 'updateMail' : updateMail(); break;
     default : check($EX);
-
 }
 
 require('./View/layout.view.php');
@@ -87,8 +93,50 @@ function home()
     $page['css'] = 'Css/accueil.css';
 }
 
+function cloud()
+{
+    global $page;
+    $page['title'] = 'Cloud';
+    $page['class'] = 'VCloud';
+    $page['method'] = 'showCloud';
+    $page['arg'] = 'Html/cloud.php';
+    $page['css'] = 'Css/cloud.css';
+}
+
+function downloadCloud()
+{
+    $mDownloadCloud = new MDownloadCloud();
+    $mDownloadCloud->download(htmlspecialchars($_GET['id']));
+    header('Location: index.php?EX=cloud');
+}
+
+function addFile()
+{
+
+    $mAddFile = new MAddFile();
+    $result = $mAddFile->addFile($_FILES);
+    
+    if($result == "OK")
+    {
+        header('Location: index.php?EX=cloud&state='.$result);
+    }
+    elseif ($result == "ERR_SIZE")
+    {
+        header('Location: index.php?EX=cloud&state='.$result);
+    }
+    elseif ($result == "ERR_NC")
+    {
+        header('Location: index.php?EX=cloud&state='.$result);
+    }
+    else
+    {
+        header('Location: index.php?EX=cloud&state=ERR_UNKNOWN');
+    }
+}
+
 function error()
 {
+
     global $page;
     $page['title'] = 'Erreur 404 !';
     $page['class'] = 'VHtml';
@@ -109,29 +157,30 @@ function reportList()
 function formCreateArticle()
 {
     $formCreateArticle = new MFormCreateArticle();
-    $formCreateArticle->insertDB($_POST);
-    header('Location: index.php?EX=createArticle');
+    $nextId = $formCreateArticle->insertDB($_POST);
+    $url = 'Location: index.php?EX=showInfoArticle&id='.$nextId;
+    header($url);
 }
 
-    function searchMember()
-    {
-        global $page;
-        $page['title'] = 'Recherche de membre';
-        $page['class'] = 'VHtml';
-        $page['method'] = 'showHtml';
-        $page['css'] = 'Css/search.css';
-        $page['arg'] = 'Html/searchMember.php';
-    }
+function searchMember()
+{
+    global $page;
+    $page['title'] = 'Recherche de membre';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['css'] = 'Css/search.css';
+    $page['arg'] = 'Html/searchMember.php';
+}
 
-    function manageMembers()
-    {
-        global $page;
-        $page['title'] = 'Gestion des membres';
-        $page['class'] = 'VHtml';
-        $page['method'] = 'showHtml';
-        $page['css'] = 'Css/search.css';
-        $page['arg'] = 'Html/manageMembers.php';
-    }
+function manageMembers()
+{
+    global $page;
+    $page['title'] = 'Gestion des membres';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['css'] = 'Css/search.css';
+    $page['arg'] = 'Html/manageMembers.php';
+}
 
 function showArticle()
 {
@@ -139,8 +188,8 @@ function showArticle()
     $page['title'] = 'Liste des articles';
     $page['class'] = 'VShowArticle';
     $page['method'] = 'showArticle';
-    $page['arg'] = 'Html/showArticle.php';
     $page['css'] = 'Css/showArticle.css';
+    $page['arg'] = 'Html/showArticle.php';
 }
 
 function showInfoArticle()
@@ -149,6 +198,7 @@ function showInfoArticle()
     $page['title'] = 'Détail';
     $page['class'] = 'VInfoArticle';
     $page['method'] = 'showInfoArticle';
+    $page['css'] = 'Css/showArticle.css';
     $page['arg'] = 'Html/infoArticle.php';
 }
 
@@ -179,6 +229,53 @@ function deleteMember()
     $page['arg'] = 'Html/delete.php';
 }
 
+        function recuperation() // Presentation du formilaire principal pour envoyer le mail
+    {
+        global $page, $user;
+        if (isset($user)) { // Validation pour l'envoi du mail 
+            echo "<script>location.href='index.php';</script>";
+        }else{
+            $page['title'] = 'Recuperation du Mot de passe';
+            $page['class'] = 'VHtml';
+            $page['method'] = 'showHtml';
+            $page['css'] = 'Css/recupMdp.css';
+            $page['arg'] = 'Html/recMail.php';
+        }
+    }
+
+    function rec() // Deuxième fourmulaire pour changer le mot de passe
+    {
+        global $page;
+        $page['title'] = 'Recuperation du Mot de passe';
+        $page['class'] = 'VHtml';
+        $page['css'] = 'Css/recupMdp.css';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Html/recuperation.php';
+    }
+
+    function changePass() // Mèthode pour enregistrer les données
+    {
+        global $user;
+        if (!isset($user)) { // Validation pour l'envoi du mail 
+            echo "<script>location.href='index.php';</script>";
+        }else{
+            if($_POST['iCaptcha']!=$_SESSION['captcha']){ // Verification si l'input est égal la variable de session
+                echo "<script languaje='javascript'>insertCH();</script>"; // Affichage d'un message d'erreur
+            }else{
+                $dbverf = new CRecMP($GLOBALS['user']->getMail()); // Verification pour tester l'email
+                $value = $dbverf->selectPassword($GLOBALS['user']->getId());
+
+                if($value['PASSWORD']!=md5($_POST['act_pass'])){
+                    echo "<script languaje='javascript'>errorCH();</script>";
+                }else{
+                    $update = $dbverf->updatePassLog($_POST, $GLOBALS['user']->getId()); // Mise en jour Mot de passe
+                    echo $update;
+                }
+                
+            }
+        }
+    }
+
     function insert() // Mèthode pour enregistrer les données
     {
         //session_start(); //
@@ -191,43 +288,25 @@ function deleteMember()
             if(count($value)==0){// si l'email n'existe pas dans la BD s'affichera un message d'erreur
                 echo "<script languaje='javascript'>mailMod();</script>";
             }else{ // Cas contraire
-                $update = $dbverf->updateMotPasse($_POST); // Mise en jour Mot de passe
+                $update = $dbverf->updatePassword($_POST); // Mise en jour Mot de passe
                 $dbverf->updateRSB(); // Effacer le contenu de l'attribute dnas la BD
                 $dbverf->sendMail(); // l'envoi de mail de confirmation
                 echo $update;
             }
         }
     }
-
-function recuperation() // Presentation du formilaire principal pour envoyer le mail
-{
-    global $page;
-    $page['title'] = 'Recuperation du Mot de passe';
-    $page['class'] = 'VHtml';
-    $page['method'] = 'showHtml';
-    $page['css'] = 'Css/recupMdp.css';
-    $page['arg'] = 'Html/recMail.php';
-}
-function rec() // Deuxième fourmulaire pour changer le mot de passe
-{
-    global $page;
-    $page['title'] = 'Recuperation du Mot de passe';
-    $page['class'] = 'VHtml';
-    $page['method'] = 'showHtml';
-    $page['arg'] = 'Html/recuperation.php';
-}
-    
-function mailconf()
-{
-    $dbverf = new CRecMP($_POST['mail']);
-    $value = $dbverf->selectMail(); // Verification de mail dans le formulaire 'recMail'
-    if(count($value)==0){ // Affichage d'un message d'erreur si le mail n'existe pas
-        echo "<script languaje='javascript'>mailErr();</script>";
-    }else{ // Si le mail existe, s'envoyera un mail avec le lien pour changer son mot de passe
-        $update = $dbverf->sendMailConf();
-        echo $update;
+        
+    function mailconf()
+    {
+        $dbverf = new CRecMP($_POST['mail']);
+        $value = $dbverf->selectMail(); // Verification de mail dans le formulaire 'recMail'
+        if(count($value)==0){ // Affichage d'un message d'erreur si le mail n'existe pas
+            echo "<script languaje='javascript'>mailErr();</script>";
+        }else{ // Si le mail existe, s'envoyera un mail avec le lien pour changer son mot de passe
+            $update = $dbverf->sendMailConf();
+            echo $update;
+        }
     }
-}
 
     function maillog()
     {   
@@ -243,30 +322,31 @@ function mailconf()
             }else{ // Si le mail existe, s'envoyera un mail avec le lien pour changer son mot de passe
                 echo "<script>mailErr();</script>";
                 $update = $dbverf->sendMailConf();
-		        header('Location: index.php');
+    	        header('Location: index.php');
             }
         }
     }
 
 
-function consultMessages()
-{
-    global $page;
-    $page['title'] = 'Liste des messages';
-    $page['class'] = 'VConsultMessages';
-    $page['method'] = 'showConsultMessages';
-    $page['arg'] = 'Html/consultMessages.php';
-}
+    function consultMessages()
+    {
+        global $page;
+        $page['title'] = 'Liste des messages';
+        $page['class'] = 'VConsultMessages';
+        $page['method'] = 'showConsultMessages';
+        $page['css'] = 'Css/tableMessages.css';
+        $page['arg'] = 'Html/consultMessages.php';
+    }
 
-function writeMessages()
-{
-    global $page;
-    $page['title'] = "Ecriture d'un message";
-    $page['class'] = 'VHtml';
-    $page['method'] = 'showHtml';
-    $page['arg'] = 'Html/formulaireMessage.php';
-}
-    
+    function writeMessages()
+    {
+        global $page;
+        $page['title'] = "Ecriture d'un message";
+        $page['class'] = 'VHtml';
+        $page['method'] = 'showHtml';
+        $page['arg'] = 'Html/formulaireMessage.php';
+    }
+        
     function updateAsso()
     {
         global $page;   
@@ -298,7 +378,7 @@ function writeMessages()
     {
         include('Php/create.php');
     }
-    
+
     function profil(){ // Presentation du profil 
         global $user;
         if (!isset($user)) { // S'il n'y a pas une session ouverte n'affichera rien 
@@ -308,10 +388,11 @@ function writeMessages()
             $page['title'] = 'Mon profil';
             $page['class'] = 'VHtml';
             $page['method'] = 'showHtml';
+            $page['css'] = 'Css/recupMdp.css';
             $page['arg'] = 'Html/profil.php';
         }
-    
-}
+        
+    }
 
     function createAdmin()
     {
@@ -355,18 +436,9 @@ function writeMessages()
         $page['arg'] = 'Html/manageAsso.php';
     }
 
-// (new MUser($idPrev))->setRole('MEMBRE');
-//(new MUser($idNext))->setRole('ADMIN');
+    // (new MUser($idPrev))->setRole('MEMBRE');
+    //(new MUser($idNext))->setRole('ADMIN');
 
-    function searchAsso()
-    {
-        global $page;
-        $page['title'] = 'Recherche d\'association';
-        $page['class'] = 'VHtml';
-        $page['method'] = 'showHtml';
-        $page['css'] = 'Css/search.css';
-        $page['arg'] = 'Html/searchAsso.php';
-    }
 
     function manageAsso()
     {
@@ -407,6 +479,7 @@ function deconnexion()
     $page['title'] = 'Retour après déco';
     $page['class'] = 'VHome';
     $page['method'] = 'showHome';
+    $page['css'] = 'Css/accueil.css';
     $page['arg'] = 'Html/accueil.php';
 }
 
@@ -430,6 +503,7 @@ function endMessages()
     $page['arg'] = 'Html/finEnvoi.html';
 }
 
+
 function validArticle()
 {
     global $page;
@@ -440,5 +514,15 @@ function validArticle()
     $page['css'] = 'Css/showArticle.css';
 }
 
+
+
+function updateMail()
+{
+    global $page;
+    $page['title'] = 'Creation de profil';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/update-mail.php';
+}
 
 ?>

@@ -24,7 +24,6 @@
             $this->name = $theme['NAME'];
         }
 
-
         // Getters
         public function getId() { return $this->id; }
         public function getName() { return $this->name; }
@@ -35,6 +34,4 @@
             $this->name = $name;
             $this->sql->exec('UPDATE THEME SET NAME = \''.$name.'\' WHERE ID = '.$this->id.' ;');
         }
-
-
     }

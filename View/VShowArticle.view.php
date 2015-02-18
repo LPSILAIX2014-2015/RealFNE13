@@ -7,15 +7,26 @@ class VShowArticle
   
   public function showArticle($_html)
   {
-    //Simulation de marchage
-    //$idUser = $_SESSION['idUser'];
-    $idUser = 1;
 
-    global $connec;
+    $connec = new MDBase();
     global $data_article;
+    global $data_assoc;
+    global $data_theme;
 
+  	// AFFICHAGE
+  	$state = $connec->prepare(
+  	  "SELECT P.*, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE,
+              U.NAME, U.SURNAME, U.ASSOCIATION_ID ASSOC_ID
+  	   FROM POST P, USER U
+  	   WHERE P.WRITER_ID = U.ID
+  	   ORDER BY id DESC"
+  	);
+  	$state->execute();
+  	$data_article = $state->fetchAll(PDO::FETCH_ASSOC);
 
-    // AFFICHAGE
+    $data_assoc = $connec->getAllAssocs();
+    $data_theme = $connec->getAllThemes();
+
 
     $state = $connec->prepare(
       "SELECT P.*, U.NAME, U.SURNAME, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE 

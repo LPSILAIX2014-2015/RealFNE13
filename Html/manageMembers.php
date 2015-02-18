@@ -1,3 +1,11 @@
+<?php
+    if(!(isset($_SESSION['ROLE'])) || (($_SESSION['ROLE'] == 'MEMBRE')||($_SESSION['ROLE'] == 'VALIDATOR'))){
+        header("Location: ./index.php");
+    }
+    else if($_SESSION['ROLE']=='ADMIN'){
+        $assoc=(new MUser($_SESSION['ID_USER']))->getAssociation();
+    }
+?>
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -94,19 +102,18 @@
         <h3>FNESITE</h3>
     </div>
 
-
     <form class="form-horizontal" action="./index.php?EX=manageMembers" method="post">
         <div class="control-group">
             <label class="control-label">Nom de famille</label>
             <div class="controls">
-                <input name="SURNAME" id="surname" type="text"  placeholder="Nom de famille" pattern="^[a-zA-Z \.\,\+\-]*$" value="">
+                <input name="SURNAME" id="surname" type="text"  placeholder="Nom de famille" pattern="[^'\x22\;\.]+" value="">
                 <span>(Alphabétique)</span>
             </div>
         </div>
         <div class="control-group">
             <label class="control-label">Pr&eacute;nom</label>
             <div class="controls">
-                <input name="NAME" id="name" type="text"  placeholder="Prenom" value="">
+                <input name="NAME" id="name" type="text"  placeholder="Prenom" pattern="[^'\x22\;\.]+" value="">
 
             </div>
         </div>
@@ -114,7 +121,7 @@
             <label class="control-label">R&ocirc;le</label>
             </br>
             <select class="controls" name="ROLE" type="text">
-                    <?php 
+                    <?php
                         /*foreach ($roles as $key => $role) {
                             echo('<option value ='.$role['ID'].'>'.$role['NAME'].'</option>');
                         }*/
@@ -124,8 +131,7 @@
         <div class="control-group">
             <label class="control-label">Code postal</label>
             <div class="controls">
-                <input name="CP" type="text" id="cp"  placeholder="Code postal" pattern="[0-9]{5}"  value="">
-                <span>(5 chiffres)</span>
+                <input name="CP" type="text" id="cp"  placeholder="Code postal" pattern="[0-9]{1,5}"  value="">
             </div>
         </div>
         <div class="control-group">
@@ -135,6 +141,9 @@
 
             </div>
         </div>
+        <?php
+        if(!(isset($assoc))){
+        ?>
         <div class="control-group">
             <label class="control-label">Association</label>
             </br>
@@ -147,11 +156,14 @@
                     ?>
             </select>
         </div>
+        <?php
+    }
+    ?>
         <div class="control-group">
             <label class="control-label">Th&egrave;me</label>
             </br>
             <select class="controls" name="THEME" type="text">
-                    <?php 
+                    <?php
                         echo('<option></option>');
                         foreach ($themes as $key => $theme) {
                             echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
@@ -190,22 +202,26 @@
                 $conditions = array();
                 $params = array();
                 if($nom) {
-                    $conditions[] = "NAME = '". $nom. "'";
+                    $conditions[] = "NAME LIKE '%". $nom. "%'";
                     $params[]= $nom;
                 }
                 if($_POST['SURNAME']) {
-                    $conditions[] = "SURNAME = '". $_POST['SURNAME']. "'";
+                    $conditions[] = "SURNAME LIKE '%". $_POST['SURNAME']. "%'";
                     $params[] = $_POST['SURNAME'];
                 }
                 if($_POST['CP']) {
-                    $conditions[] = "CP = '". $_POST['CP']. "'";
+                    $conditions[] = "CP LIKE '". $_POST['CP']. "%'";
                     $params[] = $_POST['CP'];
                 }
                 if($_POST['PROFESSION']) {
-                    $conditions[] = "PROFESSION = '". $_POST['PROFESSION']. "'";
+                    $conditions[] = "PROFESSION LIKE '%". $_POST['PROFESSION']. "%'";
                     $params[] = $_POST['PROFESSION'];
                 }
-                if($_POST['ASSOCIATION']) {
+                if(isset($assoc)) {
+                    $conditions[] = "ASSOCIATION_ID = '". $assoc. "'";
+                    $params[] = $assoc;
+                }
+                else if($_POST['ASSOCIATION']) {
                     $conditions[] = "ASSOCIATION_ID = '". $_POST['ASSOCIATION']. "'";
                     $params[] = $_POST['ASSOCIATION'];
                 }
@@ -216,11 +232,10 @@
                 $where = " WHERE ".implode($conditions,' AND ');
                 $surnom = $_POST['SURNAME'];
                 if(count($conditions) > 0) {
-                    $sql = 'SELECT * FROM user'. $where;
+                    $sql = 'SELECT * FROM USER'. $where;
                 }else {
-                    $sql = 'SELECT * FROM user order by NAME ASC';
+                    $sql = 'SELECT * FROM USER order by NAME ASC';
                 }
-
                 foreach ($pdo->query($sql) as $row) {
                     $img = null;
                     if($row['PHOTOPATH']) {
@@ -233,14 +248,14 @@
                     echo '<td width=250>';
                     echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
                     echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
-            
-            <div class="active" style="display: block;"> 
-                    <!-- About section -->
-                    <div class="about">
-                        <input type="hidden" value="'.$img.'">
+
+            <div id="profile" class="active" style="display: block;">
+                 	<!-- About section -->
+                	<div class="about">
+                    	<input type="hidden" value="'.$img.'">
                     </div>
                     <!-- /About section -->
-                     
+
                     <!-- Personal info section -->
                     <ul class="personal-info">
             <li><label>Name</label><span>'.$row['NAME'].'</span></li>
@@ -252,11 +267,11 @@
                         <li><label>Thème</label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
                         <li><label>Thème Interest</label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
                         <li><label>Profession</label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
-                        
+
                     </ul>
                     <!-- /Personal info section -->
                 </div>
-            
+
         </div>';
                     echo '&nbsp;';
                     echo '<a class="btn btn-success" href="index.php?EX=updateMember&id='.$row['ID'].'">Edit</a>';
@@ -266,10 +281,12 @@
                     echo '</tr>';
                 }
             }else {
-
-                $sql = 'SELECT * FROM user order by NAME ASC';
+                if(isset($assoc)){
+                    $sql = 'SELECT * FROM USER WHERE ASSOCIATION_ID = '.$assoc.' Order by Name ASC';
+                }
+                else
+                    $sql = 'SELECT * FROM USER order by NAME ASC';
                 if(count($sql) > 0) {
-
                     foreach ($pdo->query($sql) as $row) {
                         $img = null;
                         if($row['PHOTOPATH']) {
@@ -282,14 +299,14 @@
                         echo '<td width=250>';
                         echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
                         echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
-            
-            <div id="profile" class="active" style="display: block;"> 
+
+            <div id="profile" class="active" style="display: block;">
                     <!-- About section -->
                     <div class="about">
                         <input type="hidden" value="'.$img.'">
                     </div>
                     <!-- /About section -->
-                     
+
                     <!-- Personal info section -->
                     <ul class="personal-info">
             <li><label>Name</label><span>'.$row['NAME'].'</span></li>
@@ -301,12 +318,13 @@
                         <li><label>Thème</label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
                         <li><label>Thème Interest</label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
                         <li><label>Profession</label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
-                        
+
                     </ul>
                     <!-- /Personal info section -->
                 </div>
-            
+
         </div>';
+
                         echo '&nbsp;';
                         echo '<a class="btn btn-success" href="index.php?EX=updateMember&id='.$row['ID'].'">Edit</a>';
                         echo '&nbsp;';

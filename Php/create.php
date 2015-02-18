@@ -1,8 +1,8 @@
-<?php 
+<?php
     
 	$pdo = new MDBase();
 	if ( !empty($_POST)) {
-        $user= new Muser($_SESSION['ID_USER']);
+        $user= new MUser($_SESSION['ID_USER']);
         $assoc= $user->getAssociation();
         echo $assoc;
         $error = null;
@@ -14,15 +14,14 @@
         var_dump($data);
 		if (count($data) == 0) {
 			
-			$sql = "INSERT INTO user (NAME,SURNAME,MAIL,ASSOCIATION_ID) values(?, ?, ?, ?)";
+			$sql = "INSERT INTO USER (NAME,SURNAME,MAIL,ASSOCIATION_ID,ROLE) values(?, ?, ?, ?,'MEMBRE')";
 			$q = $pdo->prepare($sql);
 			$q->execute(array($name, $surname, $email,$assoc));
 
-                        $headers = "From: webmaster@domain.com \r\n";
+                $headers = "From: webmaster@domain.com \r\n";
                 $headers .= "MIME-Version: 1.0\r\n";
                 $headers .= "Content-type: text/html\r\n";
-                
-                $message = $_SERVER['REQUEST_URI'].'/../Html/update-mail.php?email='.$email;
+                $message = $_SERVER['REQUEST_URI'].'http://laplateformeFNE13.fr/index.php?EX=updateMail.php?email='.$email;
                 $subject = 'compléter votre profil';
                  mail ($email,$subject,$message,$headers);
 

@@ -1,8 +1,69 @@
+.pvarticle {
+    display:block;
+    background-color: #FFF;
+    border-radius:5px;
+    font-size:10pt;
+    padding:5px 10px 20px 10px;
+    margin:3px;
+}
+#imgplace {
+    float: left;
+    width: 150px;
+    height: 80px;
+    text-align: center;
+    margin: auto;
+    line-height: 80px;
+}
+#imgplave img {
+    max-width: 150px;
+    max-height: 80px;
+}
+#imgArticle img{
+    max-width: 100%;
+}
+.pvarticle img {
+    max-width: 145px;
+    max-height: 80px;
+    display: table-cell;
+    vertical-align: middle;
+}
+#infoarticle {
+    display: table-cell;
+    vertical-align: middle;
+}
+.pvarticle h2 {
+    margin:0;
+    font-size:10pt;
+}
+.pvarticle .auteur {
+    font-style:italic;
+}
+.pvarticle .description {
+    font-size: 12px;
+}
+.lienarticle {
+    display:block;
+    padding-top: 10px;
+    border-radius:5px;
+    background-color: #a3cfea;
+    color:#FFF;
+    border:1px solid #0c5091;
+    margin-top: 10px;
+    min-height: 90px;
+}
+.lienarticle:hover {
+    background-color: #0c5091;
+    color:#FFF;
+    border:1px solid #a3cfea;
+}
 #pagination ul {
     list-style-type: none;
     list-style-position: inside;
     margin:0;
     padding:0;
+}
+#pagination a:visited {
+    color:#ffffff;
 }
 #pagination ul li {
     display:inline-block;
