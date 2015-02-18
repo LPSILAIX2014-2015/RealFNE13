@@ -5,15 +5,19 @@ $(document).ready(function() {
     /////////////////////////////////////////
 
     $(function(){
+        //Lors d'un clic sur un des boutton
         $(".buttonCreate").on('click',function(){
-            $("#errorMsg").prop('hidden', true);
-            if ($("#verfiUser").val() == ''){
+            $("#errorMsg").prop('hidden', true); //Le message d'erreur est caché par défaut
+
+            //Si l'utilisateur n'est pas enregistré ...
+            if ($("#verfiUser").val() == ''){    
                 $("#errorMsg").empty();
                 $("#errorMsg").append('<p>Vous devez être connecté pour écrire un article !</p>');
-                $("#errorMsg").prop('hidden', false);
+                $("#errorMsg").prop('hidden', false); //... un message d'erreur apparait ...
             }
-            else{
 
+            //... sinon on cache les boutton et on affiche le contenu de création d'article.
+            else{
                 $("#resetForm").trigger( "click" );
                 $("#buttonCreationArticle").prop('hidden', true);
                 $("#contentCreateArticle").prop('hidden', false);
@@ -22,14 +26,15 @@ $(document).ready(function() {
     });
 
     $(function(){
+        //Si le bouton cliqué est celui de création d'article lié à l'agenda ...
         $("#buttonCreateArticleInCalendar").on('click',function(){
-            $(".inputOnlyCalendar").prop('hidden', false);
+            $(".inputOnlyCalendar").prop('hidden', false); // ... On affiche les champs obligatoires pour les article liée à l'agenda
         });
     });
 });
 
 var cancelCreactArticle = function(){
-    $("#resetForm").trigger( "click" );
+    $("#resetForm").trigger( "click" ); // Lors d'un click sur le bouton "tout effacer", on remet les champs du formulaire à leur valeur par défaut
     location.reload();
 }
 
@@ -39,11 +44,14 @@ var cancelCreactArticle = function(){
 
 
 var insertTag = function(startTag, endTag, tagType){
+
+    //Capture du tag de valeur taille normal (soucis de lisibilité)
     if(startTag == "\<taille valeur=\"normal\">"){
         startTag = "";
         endTag = "";
     }
 
+    //On se place sur le textarea, scroll auto si necessaire.
     var field  = document.getElementById('textareaId');
     var scroll = field.scrollTop;
     field.focus();
@@ -53,7 +61,7 @@ var insertTag = function(startTag, endTag, tagType){
     var currentSelection = field.value.substring(field.selectionStart, field.selectionEnd);
     var endSelection     = field.value.substring(field.selectionEnd);
 
-    if (tagType) {              //On laisse en switch/case au cas où on ajouterait des operations
+    if (tagType) {    //Pas super utile mais on laisse en switch/case au cas où on ajouterait des operations
         switch (tagType) {
 
             case "lien":
@@ -95,7 +103,7 @@ var insertTag = function(startTag, endTag, tagType){
         }
     }
 
-    field.value = startSelection + startTag + currentSelection + endTag + endSelection;
+    field.value = startSelection + startTag + currentSelection + endTag + endSelection; //on formate le texte
     field.focus();  // On remet le focus sur la zone de texte
 
     // On recalcul la zone de selection avec les balises ajoutées
@@ -119,24 +127,31 @@ var preview = function() {
     field = field.replace(/<i>/g, '<i class="txtIta">');        //Les balises <u> et <i> ne fonctionnant pas, on utilise des
     field = field.replace(/<u>/g, '<u class="txtUndln">');      //classes CSS pour formatter le texte.
 
+    //On capture les balises correspondantes aux liens
     field = field.replace(/<lien url/g, '<a target="_blank" href');
     field = field.replace(/<\/lien>/g, '</a>');
 
+    //Tous les cas possibles de combinaison de balises Lien + Citation
     field = field.replace(/<cite nom=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<b>$1 :</b><div class="txtIta">"$2"</div>');
     field = field.replace(/<cite lien=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<b><a href="$1">Citation</a></b><div class="txtIta">"$2"</div>');
     field = field.replace(/<cite nom=\"(.*?)\" lien=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<b><a href="$2">$1 :</a></b><div class="txtIta">"$3"</div>');
     field = field.replace(/<cite lien=\"(.*?)\" nom=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<b><a href="$1">$2 :</a></b><div class="txtIta">"$3"</div>');
+    
+    //On recup les balise de citation
     field = field.replace(/<cite>([\s\S]*?)<\/cite>/g, '<div class="txtIta">"$1"</div>');
     field = field.replace(/<taille valeur=\"(.*?)\">([\s\S]*?)<\/taille>/g, '<span class="$1">$2</span>');
 
+    //On recupere les balise de "taille" pour leur appliquer leur style
     field = field.replace(/<taille valeur/g, '<span class');
     field = field.replace(/<\/taille>/g, '</span>');
 
+    //On recupere les balise de formattage de texte pour leur appliquer leur style
     field = field.replace(/<aligne valeur="gauche/g, '<p align="left');
     field = field.replace(/<aligne valeur="droite/g, '<p align="right');
     field = field.replace(/<aligne valeur="centrer/g, '<p align="center');
     field = field.replace(/(<\/aligne>\n|<\/aligne>)/g, '</p>');
 
+    //On affiche enfin le résultat dans le div de preview. OKLM
     $("#previewDiv").append("<p>"+ field +"</p>");
     $("#textareaDecrypt").prop('value', "<p>"+ field +"</p>");
 
