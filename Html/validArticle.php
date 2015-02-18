@@ -52,6 +52,6 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
 <div id='pagination' class='compact-theme simple-pagination'></div>
 
 <script type="text/javascript" src="Js/showInfoArticle.js"></script>
-<script type="text/javascript" src="../Js/jqueryValidationArticle.js"></script>
+<script type="text/javascript" src="Js/jqueryValidationArticle.js"></script>
 
 <?php } else require('../index.php') ?>

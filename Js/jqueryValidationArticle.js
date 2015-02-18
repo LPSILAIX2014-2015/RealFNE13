@@ -6,7 +6,7 @@ $("#test").click(function() {
 
         $.ajax({
             type: "POST",
-            url: "../Php/EssaiDeValidationArticle.php",
+            url: "./Html/validArticle.php",
             data: { idd : $article_id } }
         ).done(function () {
                 alert("ARTICLE VALIDE");
