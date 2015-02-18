@@ -1,4 +1,6 @@
 <?php
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 'on');
 header ('Content-Type: text/html; charset=utf-8');
 require('Inc/require.inc.php');
 require('Inc/globals.inc.php');
@@ -11,6 +13,9 @@ if(isset($_REQUEST['idPrev'])){
 switch($EX)
 {
     case 'home'      : home();       break;
+    case 'cloud'      : cloud();       break;
+    case 'downloadCloud'      : downloadCloud();       break;
+    case 'addFile'      : addFile();       break;
     case 'login'     : login();      break;
     case 'reportList': reportList(); break;
     case 'searchMember'     : searchMember();      break;
@@ -86,8 +91,50 @@ function home()
     $page['css'] = 'Css/accueil.css';
 }
 
+function cloud()
+{
+    global $page;
+    $page['title'] = 'Cloud';
+    $page['class'] = 'VCloud';
+    $page['method'] = 'showCloud';
+    $page['arg'] = 'Html/cloud.php';
+    $page['css'] = 'Css/cloud.css';
+}
+
+function downloadCloud()
+{
+    $mDownloadCloud = new MDownloadCloud();
+    $mDownloadCloud->download(htmlspecialchars($_GET['id']));
+    header('Location: index.php?EX=cloud');
+}
+
+function addFile()
+{
+
+    $mAddFile = new MAddFile();
+    $result = $mAddFile->addFile($_FILES);
+    
+    if($result == "OK")
+    {
+        header('Location: index.php?EX=cloud&state='.$result);
+    }
+    elseif ($result == "ERR_SIZE")
+    {
+        header('Location: index.php?EX=cloud&state='.$result);
+    }
+    elseif ($result == "ERR_NC")
+    {
+        header('Location: index.php?EX=cloud&state='.$result);
+    }
+    else
+    {
+        header('Location: index.php?EX=cloud&state=ERR_UNKNOWN');
+    }
+}
+
 function error()
 {
+
     global $page;
     $page['title'] = 'Erreur 404 !';
     $page['class'] = 'VHtml';
@@ -112,25 +159,25 @@ function formCreateArticle()
     header('Location: index.php?EX=createArticle');
 }
 
-    function searchMember()
-    {
-        global $page;
-        $page['title'] = 'Recherche de membre';
-        $page['class'] = 'VHtml';
-        $page['method'] = 'showHtml';
-        $page['css'] = 'Css/search.css';
-        $page['arg'] = 'Html/searchMember.php';
-    }
+function searchMember()
+{
+    global $page;
+    $page['title'] = 'Recherche de membre';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['css'] = 'Css/search.css';
+    $page['arg'] = 'Html/searchMember.php';
+}
 
-    function manageMembers()
-    {
-        global $page;
-        $page['title'] = 'Gestion des membres';
-        $page['class'] = 'VHtml';
-        $page['method'] = 'showHtml';
-        $page['css'] = 'Css/search.css';
-        $page['arg'] = 'Html/manageMembers.php';
-    }
+function manageMembers()
+{
+    global $page;
+    $page['title'] = 'Gestion des membres';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['css'] = 'Css/search.css';
+    $page['arg'] = 'Html/manageMembers.php';
+}
 
 function showArticle()
 {
@@ -428,6 +475,7 @@ function deconnexion()
     $page['class'] = 'VHome';
     $page['method'] = 'showHome';
     $page['arg'] = 'Html/accueil.php';
+    $page['css'] = 'Css/accueil.css';
 }
 
 
