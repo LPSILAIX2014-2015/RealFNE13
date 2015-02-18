@@ -74,6 +74,9 @@ input:hover, textarea:hover, select:hover {
 input:focus, textarea:focus, select:focus {
     background-color: #FFF;
 }
+textarea {
+    cursor:url('../Img/cursor17.png'), auto ;
+}
 h1 {
     font-family:'Quicksand',Verdana,sans-serif;
     font-size:13pt;
@@ -212,16 +215,18 @@ table {
     font-size:12pt;
     line-height:30px;
     vertical-align:middle;
-    cursor:url('../Img/cursor8.png'), auto ;
+    cursor:url('../Img/cursor13.png'), auto ;
     z-index:5;
 }
 .notification a {
-    cursor:url('../Img/cursor8.png'), auto ;
+    cursor:url('../Img/cursor13.png'), auto ;
     color:#0189C7;
-
 }
 .notification a:hover {
     color:#FFFFFF;
+}
+.notification img {
+    cursor:url('../Img/cursor13.png'), auto ;
 }
 
 .messages {
@@ -241,12 +246,15 @@ table {
     font-size:12pt;
     line-height:30px;
     vertical-align:middle;
-    cursor:url('../Img/cursor8.png'), auto ;
+    cursor:url('../Img/cursor16.png'), auto ;
     z-index:20;
 }
 .messages a {
-    cursor:url('../Img/cursor8.png'), auto ;
+    cursor:url('../Img/cursor16.png'), auto ;
     color:#0a2d5f;
+}
+.messages img {
+    cursor:url('../Img/cursor16.png'), auto ;
 }
 .deconnexion {
     display:block;
@@ -266,7 +274,7 @@ table {
     transition:ease 0.5s;
     line-height:30px;
     vertical-align:middle;
-    cursor:url('../Img/cursor2.png'), auto ;
+    cursor:url('../Img/cursor15.png'), auto ;
     z-index:20;
 }
 .deconnexion:hover {
@@ -490,13 +498,14 @@ button, #loginbutton:hover {
     vertical-align:middle;
 }
 .recentarticles ul li {
-    display:table-row;
+    display:block;
     font-family:'Titilium Web',Verdana,sans-serif;
     font-size:10pt;
     text-align:left;
     margin:0;
-    padding:0;
+    padding:1px;
     vertical-align:top;
+    border-bottom:1px dashed #0c5091;
 }
 .recentarticles .iconesarticle {
     display:table-cell;
@@ -510,9 +519,8 @@ button, #loginbutton:hover {
     display:table-cell;
     vertical-align: middle;
     padding-left: 3px;
-    border-bottom:1px dashed #0c5091;
 }
-.recentarticles:first-child .titrearticle {
+.recentarticles ul li:first-child {
     border-top:1px dashed #0c5091;
 }
 .nextevents ul {
@@ -537,3 +545,57 @@ button, #loginbutton:hover {
     margin:5px;
     padding:0;
 }
+/*
+* Curseurs personnalisés
+*/
+    .cursor_fne {
+        cursor:url('../Img/cursor1.png'), auto ;
+    }
+    .cursor_return {
+        cursor:url('../Img/cursor2.png'), auto ;
+    }
+    .cursor_home {
+        cursor:url('../Img/cursor3.png'), auto ;
+    }
+    .cursor_play {
+        cursor:url('../Img/cursor4.png'), auto ;
+    }
+    .cursor_question {
+        cursor:url('../Img/cursor5.png'), auto ;
+    }
+    .cursor_cross {
+        cursor:url('../Img/cursor6.png'), auto ;
+    }
+    .cursor_add {
+        cursor:url('../Img/cursor7.png'), auto ;
+    }
+    .cursor_view {
+        cursor:url('../Img/cursor8.png'), auto ;
+    }
+    .cursor_type {
+        cursor:url('../Img/cursor9.png'), auto ;
+    }
+    .cursor_check {
+        cursor:url('../Img/cursor10.png'), auto ;
+    }
+    .cursor_read {
+        cursor:url('../Img/cursor11.png'), auto ;
+    }
+    .cursor_search {
+        cursor:url('../Img/cursor12.png'), auto ;
+    }
+    .cursor_notice {
+        cursor:url('../Img/cursor13.png'), auto ;
+    }
+    .cursor_time {
+        cursor:url('../Img/cursor14.png'), auto ;
+    }
+    .cursor_switchoff {
+        cursor:url('../Img/cursor15.png'), auto ;
+    }
+    .cursor_message {
+        cursor:url('../Img/cursor16.png'), auto ;
+    }
+    .cursor_text {
+        cursor:url('../Img/cursor17.png'), auto ;
+    }

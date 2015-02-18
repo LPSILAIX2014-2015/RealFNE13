@@ -26,8 +26,6 @@ $(document).ready(function() {
             $(".inputOnlyCalendar").prop('hidden', false);
         });
     });
-
-
 });
 
 var cancelCreactArticle = function(){
@@ -116,7 +114,7 @@ var preview = function() {
     var field = $("#textareaId").val();
 
     field = field.replace(/\n/g,"<br>");                        //... On remplace le sauts de ligne par de balises </br>
-
+    field = field.replace(/<\/g>/g, '<\/b>');
     field = field.replace(/<g>/g, '<b>');                       //On remplace les balises g par des balises <b>.
     field = field.replace(/<i>/g, '<i class="txtIta">');        //Les balises <u> et <i> ne fonctionnant pas, on utilise des
     field = field.replace(/<u>/g, '<u class="txtUndln">');      //classes CSS pour formatter le texte.

@@ -45,10 +45,27 @@
         </div>
 
         <div class="form-group">
-            <label for="articleTheme" class="col-sm-3 control-label">Theme de l'article</label>
-            <div class="col-sm-5">
-                <input type="text" name="articleTheme" class="form-control" id="articleTheme" placeholder="Theme">
-            </div>
+            <label style="margin-left:10px" for="articleTheme">Thème de l'article</label>
+            <br />
+            <select id="articleTheme" name="articleTheme" style="height:32px; padding-top:2px;">
+
+            <?php
+
+                //On recupere les themes de la base avec une requete
+                $Themes = new MDBase();
+                $values = $Themes->getAllThemes();
+                $option = "";
+
+                //Les values des options du select correspondront aux IDs, Les textex aux NAMEs
+                for($i = 0 ; $i < count($values) ; ++$i)
+                {
+                    $option.= '<option value="'.$values[$i]['ID'].'">'.$values[$i]['NAME'].'</option>';
+                }
+
+                //On affiche enfin nos options remplies comme il faut.
+                echo $option;
+             ?>
+             </select>
         </div>
 
         <div class="form-group">
@@ -57,7 +74,7 @@
                 <input type="file" id="articleImage" name="articleImage">
             </div>
         </div>
-        <input type="hidden" name="max_file_size" value="5000">
+        <input type="hidden" name="max_file_size" value="200000">
 
         <!-- 
                                      ------------------------------------------------------
@@ -151,7 +168,7 @@
                                                 --------------------------------
         -->
 
-        <textarea onkeyup="preview();" onselect="preview();" onclick="preview();" id="textareaId" cols="122" rows="10"></textarea>
+        <textarea onkeyup="preview();" onselect="preview();" onclick="preview();" id="textareaId" cols="58" rows="10"></textarea>
 
         <div id="previewDiv"></div>
         <input type="hidden" name="textareaDecrypt" id="textareaDecrypt"/>
