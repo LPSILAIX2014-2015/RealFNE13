@@ -41,7 +41,7 @@ class MCloud {
 
     public function getCloudByUser($idUser) {
 
-        $state = $this->sql->prepare("SELECT C.*, U.NAME NAME_USER, U.SURNAME SURNAME_USER
+        $state = $this->sql->prepare("SELECT C.*, U2.NAME NAME_USER, U2.SURNAME SURNAME_USER
              FROM USER U, CLOUD C, USER U2
             WHERE U.ID = :idUser
         AND U.ASSOCIATION_ID = U2.ASSOCIATION_ID
@@ -134,7 +134,7 @@ class MCloud {
             $content_Cloud .= '>';
             
             $content_Cloud .= '<td class="currentTdMessage">'.$this->getPercent($data_cloud[$i]['SIZE']).'%</td>';
-            $content_Cloud .= '<td class="trCenter currentTdMessage">'.$data_cloud[$i]['NAME_USER'].'</td>';
+            $content_Cloud .= '<td class="trCenter currentTdMessage">'.$data_cloud[$i]['SURNAME_USER']." ".$data_cloud[$i]['NAME_USER'].'</td>';
             $content_Cloud .= '<td class="currentTdMessage">'.$data_cloud[$i]['PATH_FILE'].'</td>';
             $content_Cloud .= '<td class="currentTdMessage">'.$data_cloud[$i]['CDATE'].'</td>';
 
