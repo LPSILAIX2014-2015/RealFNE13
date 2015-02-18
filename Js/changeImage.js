@@ -17,6 +17,7 @@ $(document).ready(function(){
         	var fileSize = file.size;
 	        var fileType = file.type;
 	        showMessage("<p class='bg-warning'>Archivo para subir: "+fileName+", peso total: "+fileSize+" bytes.</p>");
+	        $('#sel_img-error').remove();
         } else{
         	document.getElementById('frmCHIMG').reset();
         	$('#sel_img-error').remove();
@@ -53,8 +54,8 @@ $(document).ready(function(){
 	            success: function(data){
 	                message = $("<p class='bg-success'>L\'image a été téléchargé avec succès.</p>");
 	                showMessage(message);
-	                setTimeout('',5500);
-                    //location.replace('index.php?EX=profil');
+	                document.getElementById('frmCHIMG').reset();
+	                setTimeout('redirect()',1800);
 	            },
 	            error: function(){
 	                message = $("<p class='bg-danger'>Une erreur est survenue pendant le téléchargement de l\'image</p>");
@@ -64,7 +65,9 @@ $(document).ready(function(){
         }
     });
 })
- 
+ function redirect () {
+ 	location.href='index.php?EX=profil';
+ }
 // Function pour montrer un message
 function showMessage(message){
     $("#chI").html("").show();
