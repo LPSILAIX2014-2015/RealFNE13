@@ -15,5 +15,6 @@
         $q = $pdo->prepare($sql);
         $q->execute(array($name, $surname, $cp, $email, $profession, $id));
         header("Location: index.php?EX=manageMembers");
+        //ToDo fail redirection (mais ok edit)
     }
 	
