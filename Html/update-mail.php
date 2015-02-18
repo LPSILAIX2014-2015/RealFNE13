@@ -9,6 +9,7 @@ foreach($themesList as $line){
     $i++;
 }
 ?>
+<script type="text/javascript" src="./Js/createTestImage.js"></script>
 <div class="container">
 
     <div class="span10 offset1">
@@ -16,7 +17,7 @@ foreach($themesList as $line){
             <h3>Modifier un utlisateur</h3>
         </div>
 
-        <form class="form-horizontal" enctype="multipart/form-data" action="Php/update-mail.php?email=<?php echo $email?>" method="post">
+        <form class="form-horizontal" id="createMemberForm" enctype="multipart/form-data" action="Php/update-mail.php?email=<?php echo $email?>" method="post">
             <div class="control-group">
                 <label class="control-label">Identifiant (*)</label>
                 <div class="controls">
@@ -110,9 +111,10 @@ foreach($themesList as $line){
             <div class="control-group">
                 <label class="control-label">Photo (*)</label>
                 <div class="controls">
-                    <input type="file"  name="photo" class="form-control" required="required">
+                    <input type="file"  id="photo" name="photo" class="form-control" required="required">
                 </div>
             </div>
+            <div id="chI"></div><!-- id="error"--><br>
             <div class="form-actions">
                 <button type="submit" class="btn btn-success">Terminer son inscription</button>
             </div>
