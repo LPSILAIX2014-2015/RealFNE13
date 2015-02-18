@@ -5,7 +5,9 @@ global $user ;
 <ul>
     <li><a href="index.php">Accueil</a></li>
     <li><a href ="index.php?EX=calendar">Agenda</a></li>
-    <li><a class="cursor_search" href="index.php?EX=searchMember">Recherche</a></li>
+    <?php if (isset($_SESSION['ROLE'])) { ?>
+        <li><a class="cursor_search" href="index.php?EX=searchMember">Recherche</a></li>
+    <?php } ?>
     <li><a class="cursor_time" href ="index.php?EX=calendar">Agenda</a></li>
     <li><a class="cursor_read">Articles</a>
         <div class="submenu">
