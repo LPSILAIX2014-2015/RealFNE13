@@ -28,10 +28,10 @@ $(document).ready(function(){
 			dataType: 'json',
             url: './Php/autocomplete.php',
             data: {'categories': 'tmp'},
-            
+
             success: function(data) {
 				data.forEach(function(entry) {
-			
+
             name.push(entry['NAME']);
             surname.push(entry['SURNAME']);
             cp.push(entry['CP']);
@@ -120,14 +120,14 @@ $(document).ready(function(){
         <div class="control-group">
             <label class="control-label">Nom de famille</label>
             <div class="controls">
-                <input name="SURNAME" id="surname" type="text"  placeholder="Nom de famille" pattern="^[a-zA-Z \.\,\+\-]*$" value="">
+                <input name="SURNAME" id="surname" type="text"  placeholder="Nom de famille" pattern="[^'\x22\;\.]+" value="">
                 <span>(Alphabétique)</span>
             </div>
         </div>
         <div class="control-group">
             <label class="control-label">Pr&eacute;nom</label>
             <div class="controls">
-                <input name="NAME" id="name" type="text"  placeholder="Prenom" value="">
+                <input name="NAME" id="name" type="text"  placeholder="Prenom" pattern="[^'\x22\;\.]+" value="">
 
             </div>
         </div>
@@ -135,7 +135,7 @@ $(document).ready(function(){
             <label class="control-label">R&ocirc;le</label>
             </br>
             <select class="controls" name="ROLE" type="text">
-                    <?php 
+                    <?php
                         /*foreach ($roles as $key => $role) {
                             echo('<option value ='.$role['ID'].'>'.$role['NAME'].'</option>');
                         }*/
@@ -171,7 +171,7 @@ $(document).ready(function(){
             </br>
             <select class="controls" name="THEME" type="text">
                     <?php
-                        echo('<option></option>'); 
+                        echo('<option></option>');
                         foreach ($themes as $key => $theme) {
                             echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
                         }
@@ -220,7 +220,7 @@ $(document).ready(function(){
                     $params[] = $_POST['CP'];
                 }
                 if($_POST['PROFESSION']) {
-                    $conditions[] = "PROFESSION = '". $_POST['PROFESSION']. "'";
+                    $conditions[] = "PROFESSION LIKE '%". $_POST['PROFESSION']. "%'";
                     $params[] = $_POST['PROFESSION'];
                 }
                 if($_POST['ASSOCIATION']) {
@@ -251,14 +251,14 @@ $(document).ready(function(){
                     echo '<td width=250>';
                     echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
                     echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
-            
+
             <div class="active" style="display: block;">
                     <!-- About section -->
                     <div class="about">
                         <input type="hidden" value="'.$img.'">
                     </div>
                     <!-- /About section -->
-                     
+
                     <!-- Personal info section -->
                     <ul class="personal-info">
             <li><label>Name</label><span>'.$row['NAME'].'</span></li>
@@ -272,11 +272,11 @@ $(document).ready(function(){
                         <li><label>Thème</label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
                         <li><label>Thème Interest</label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
                         <li><label>Profession</label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
-                        
+
                     </ul>
                     <!-- /Personal info section -->
                 </div>
-            
+
         </div>';
                     echo '&nbsp;';
                     echo '<a class="btn" href="email.php?id='.$row['ID'].'">Email</a>';
@@ -308,14 +308,14 @@ $(document).ready(function(){
                         echo '<td width=250>';
                         echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
                         echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
-            
-            <div id="profile" class="active" style="display: block;"> 
+
+            <div id="profile" class="active" style="display: block;">
                     <!-- About section -->
                     <div class="about">
                         <input type="hidden" value="'.$img.'">
                     </div>
                     <!-- /About section -->
-                     
+
                     <!-- Personal info section -->
                     <ul class="personal-info">
             <li><label>Name</label><span>'.$row['NAME'].'</span></li>
@@ -327,11 +327,11 @@ $(document).ready(function(){
                         <li><label>Thème</label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
                         <li><label>Thème Interest</label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
                         <li><label>Profession</label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
-                        
+
                     </ul>
                     <!-- /Personal info section -->
                 </div>
-            
+
         </div>';
                        /* echo '&nbsp;';
                         echo '<a class="btn" href="email.php?id='.$row['ID'].'">Email</a>';

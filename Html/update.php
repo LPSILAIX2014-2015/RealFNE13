@@ -37,10 +37,10 @@
      if(isset($_GET['error'])) {
          $erreur = $_GET['error'];
      }
-   
+
     ?>
     <div class="container">
-    
+
     			<div class="span10 offset1">
     				<div class="row">
 		    			<h3>Modifier un utlisateur</h3>
@@ -53,15 +53,15 @@
 					  <div class="control-group">
 					    <label class="control-label">Name</label>
 					    <div class="controls">
-					      	<input name="NAME" type="text" pattern="^[a-zA-Z \.\,\+\-]*$" placeholder="Name" value="<?php echo !empty($name)?$name:'';?>">
+					      	<input name="NAME" type="text" pattern="[^'\x22\;\.]+" placeholder="Name" value="<?php echo !empty($name)?$name:'';?>">
 					      	<span>(Alphabétique)</span>
 					    </div>
 					  </div>
                                           <div class="control-group">
 					    <label class="control-label">SurName</label>
 					    <div class="controls">
-					      	<input name="SURNAME" type="text"  placeholder="SurName" value="<?php echo !empty($surname)?$surname:'';?>">
-					      	
+					      	<input name="SURNAME" type="text"  pattern="[^'\x22\;\.]+" placeholder="SurName" value="<?php echo !empty($surname)?$surname:'';?>">
+
 					    </div>
 					  </div>
                                           <div class="control-group">
@@ -75,28 +75,28 @@
 					    <label class="control-label">Email</label>
 					    <div class="controls">
 					      	<input name="MAIL" type="text" placeholder="Email" value="<?php echo !empty($email)?$email:'';?>">
-					      	
+
 					    </div>
 					  </div>
 					  <div class="control-group">
 					    <label class="control-label">Profession</label>
 					    <div class="controls">
 					      	<input name="PROFESSION" type="text"  placeholder="Profession" value="<?php echo !empty($profession)?$profession:'';?>">
-					      	
+
 					    </div>
 					  </div>
                                           <div class="control-group">
 					    <label class="control-label">Association</label>
 					    <div class="controls">
 					      	<input name="ASSOCIATION" id="association" type="text"  placeholder="Association" value="<?php echo !empty($assoc)?$assoc:'';?>">
-					      	
+
 					    </div>
 					  </div>
                                           <div class="control-group">
 					    <label class="control-label">Spécialité</label>
 					    <div class="controls">
 					      	<input name="SPECIALITE" id="specialite" type="text"  placeholder="Spécialité" value="<?php echo !empty($specialite)?$specialite:'';?>">
-					      	
+
 					    </div>
 					  </div>
 					  <div class="form-actions">
@@ -105,5 +105,5 @@
 						</div>
 					</form>
 				</div>
-				
+
     </div> <!-- /container -->

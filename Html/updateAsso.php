@@ -46,10 +46,10 @@
      if(isset($_GET['error'])) {
          $erreur = $_GET['error'];
      }
-   
+
     ?>
     <div class="container">
-    
+
     			<div class="span10 offset1">
     				<div class="row">
 		    			<h3>Modifier une association</h3>
@@ -62,7 +62,7 @@
 					  <div class="control-group">
 					    <label class="control-label">Name</label>
 					    <div class="controls">
-					      	<input name="NAME" type="text" pattern="^[a-zA-Z \.\,\+\-]*$" placeholder="Nom" value="<?php echo !empty($name)?$name:'';?>">
+					      	<input name="NAME" type="text" pattern="[^'\x22\;\.]+" placeholder="Nom" value="<?php echo !empty($name)?$name:'';?>">
 					      	<span>(Alphabétique)</span>
 					    </div>
 					  </div>
@@ -70,7 +70,7 @@
 					    <label class="control-label">Territoire</label>
 					    </br>
 					    <select class="controls" name="TERRITORY" type="text">
-					      	<?php 
+					      	<?php
 					    		foreach ($territories as $key => $territory) {
 					    			if($territory['ID']!=$territoryID)
 					    				echo('<option value ='.$territory['ID'].'>'.$territory['NAME'].'</option>');
@@ -93,7 +93,7 @@
 		    		</div>
 					<form class="form-horizontal" action="index.php?EX=updateAdminAsso&idPrev=<?php echo $users[0]['ID'] ?>&id=<?php echo $id?>" method="post">
 					    <select class="selectpicker" name="idNext">
-					    	<?php 
+					    	<?php
 					    		foreach ($users as $key => $user) {
 					    			echo('<option value ='.$user['ID'].'>'.$user['NAME'].' '.$user['SURNAME'].'</option>');
 					    		}
@@ -105,5 +105,5 @@
 						</div>
 					</form>
 				</div>
-				
+
     </div> <!-- /container -->
