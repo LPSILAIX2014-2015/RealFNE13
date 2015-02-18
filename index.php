@@ -519,17 +519,4 @@ function updateMail()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/update-mail.php';
 }
-
-<<<<<<< HEAD
-function updateMail()
-{
-    global $page;
-    $page['title'] = 'Creation de profil';
-    $page['class'] = 'VHtml';
-    $page['method'] = 'showHtml';
-    $page['arg'] = 'Html/update-mail.php';
-}
-
-=======
->>>>>>> origin/autre_formulaire
 ?>
