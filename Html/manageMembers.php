@@ -364,7 +364,7 @@
             $fichier_csv = fopen('Csv/ExportationUser.csv', 'w+');
             for($i = 0 ; $i < count($dataCSVOk) ; ++$i)
             {
-                fputcsv($fichier_csv, $dataCSVOk[$i], '!');
+                fputcsv($fichier_csv, $dataCSVOk[$i], ';');
             }
             fclose($fichier_csv);
         ?>
