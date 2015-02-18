@@ -515,7 +515,6 @@ function validArticle()
 }
 
 
-
 function updateMail()
 {
     global $page;

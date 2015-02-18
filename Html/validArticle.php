@@ -44,10 +44,11 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
         echo "</div>";
         echo "</div>";
 
-        echo "<input id='test' type='submit' value='OK'>";
-
+        echo "<input class='butt_valid' id='valid_". $data_article[$i]['ID']."' type='submit' value='Validation'>";
+        echo "<input class='butt_suppr' id='valid_". $data_article[$i]['ID']."' type='submit' value='Suppression'>";
     }
     ?>
+
 </div>
 <div id='pagination' class='compact-theme simple-pagination'></div>
 
@@ -55,3 +56,4 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
 <script type="text/javascript" src="Js/jqueryValidationArticle.js"></script>
 
 <?php } else require('../index.php') ?>
+
