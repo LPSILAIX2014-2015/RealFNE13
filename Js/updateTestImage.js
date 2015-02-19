@@ -10,11 +10,11 @@ $(document).ready(function(){
             var fileType = file.type;
             showMessage("<p class='bg-warning'>Archivo para subir: "+fileName+", peso total: "+fileSize+" bytes.</p>");
         } else{
-            document.getElementById('photo').value="";
+            document.getElementById("photo").value="";
             message = $("<p class='bg-danger'>Le fichier n'est pas une image!!</p>");
             showMessage(message);
         }
-        $('#updateMemberForm').validate({
+        $("#updateMemberForm").validate({
             rules:{
                 photo:{required:true}
             },
@@ -23,10 +23,19 @@ $(document).ready(function(){
             },
             success: function(element) {
                 element.text('OK!').addClass('valid').closest('.control-group').removeClass('error').addClass('success');
+                setTimeout('redirect()',1800);
+            },
+            error: function(){
+                message = $("<p class='bg-danger'>Une erreur est survenue pendant le téléchargement de l\'image</p>");
+                showMessage(message);
             }
         });
     });
 });
+
+function redirect () {
+    location.href='index.php?EX=manageMembers';
+}
 
 function showMessage(message){
     $("#chI").html("").show();

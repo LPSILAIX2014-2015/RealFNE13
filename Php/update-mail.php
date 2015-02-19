@@ -32,6 +32,6 @@
         $sql = "UPDATE USER SET LOGIN = ?, PASSWORD = ?, ADRESS = ?, CP = ?, THEME_ID = ?, THEME_INTEREST_ID= ?, PROFESSION = ?, PRESENTATION = ?, PROFESSION2 = ?, THEME_DETAILS = ?, PHOTOPATH = ? WHERE MAIL = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($login, $mdp, $address, $cp, $theme, $theme_interest, $profession, $presentation, $profession2, $details, $photo_dir, $user_mail));
-        header("Location: ../index.php");
+        //header("Location: ../index.php");
         echo md5($mdp);
     }
