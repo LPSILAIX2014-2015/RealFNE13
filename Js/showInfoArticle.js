@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    sortAssocArticle();
 	//When an article is clicked, redirect to showArticle
 	$('.lienarticle').on('click', function() {
 
