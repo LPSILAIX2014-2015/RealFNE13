@@ -9,6 +9,7 @@
         $name = $_POST['NAME'];
         $territory = $_POST['TERRITORY'];
         $theme = $_POST['THEME'];
+        $pathImage = "";
 
         $repertoireDestination = "Img/LogoAsso/";
 
@@ -24,7 +25,7 @@
 
             $sanitizeFileName = replace_accents($_FILES["articleImage"]["name"]);
 
-            $pathImage = $repertoireDestination. $sanitizeFileName;
+            $pathImage .= $repertoireDestination. $sanitizeFileName;
 
             //Check if the file is an image
             if (in_array($extensionFichier, $extensionsAutorisees)) {
