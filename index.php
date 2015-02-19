@@ -22,9 +22,7 @@ switch($EX)
     case 'createMember': createMember(); break;
     case 'createUser': createUser(); break;
     case 'updateMember': updateMember(); break;
-    case 'updateAMember': updateAMember(); break;
     case 'deleteMember': deleteMember(); break;
-    case 'deleteAMember': deleteAMember(); break;
     case 'insert'    : insert();     exit; // Mèthode insert() pour enregistrer le changement de mot de passe
     case 'changePass': changePass(); exit; // Mèthode changePass() pour enregistrer le changement de mot de passe
     case 'mailconf'  : mailconf();   exit; // Mèthode pour envoyer l'email de confirmation
