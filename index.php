@@ -59,6 +59,7 @@ switch($EX)
     case 'deleteAsso'  : deleteAsso();      break;
     case 'profil'    : profil(); break; // Affichage du profil
     case 'legal' : legal(); break;
+    case 'validArticle' : validArticle(); break;
     case 'updateMail' : updateMail(); break;
     case 'downloadCVS' : downloadCVS(); break;
     default : check($EX);
@@ -495,6 +496,17 @@ function endMessages()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/finEnvoi.php';
 }
+
+function validArticle()
+{
+    global $page;
+    $page['title'] = "Validation d'article ";
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/validArticle.php';
+    $page['css'] = 'Css/showArticle.css';
+}
+
 function updateMail()
 {
     global $page;
