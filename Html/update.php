@@ -37,7 +37,6 @@
 
     ?>
 
-    <script type="text/javascript" src="./Js/updateTestImage.js"></script>
     <div class="container">
 
     			<div class="span10 offset1">

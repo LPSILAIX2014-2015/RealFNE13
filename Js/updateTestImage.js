@@ -10,10 +10,21 @@ $(document).ready(function(){
             var fileType = file.type;
             showMessage("<p class='bg-warning'>Archivo para subir: "+fileName+", peso total: "+fileSize+" bytes.</p>");
         } else{
-            document.getElementById('updateMemberForm').value="";
+            document.getElementById('photo').value="";
             message = $("<p class='bg-danger'>Le fichier n'est pas une image!!</p>");
             showMessage(message);
         }
+        $('#updateMemberForm').validate({
+            rules:{
+                photo:{required:true}
+            },
+            highlight: function(element) {
+                $(element).closest('.control-group').removeClass('success').addClass('error');
+            },
+            success: function(element) {
+                element.text('OK!').addClass('valid').closest('.control-group').removeClass('error').addClass('success');
+            }
+        });
     });
 });
 

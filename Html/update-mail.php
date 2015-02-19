@@ -9,7 +9,6 @@ foreach($themesList as $line){
     $i++;
 }
 ?>
-<script type="text/javascript" src="./Js/createTestImage.js"></script>
 <div class="container">
 
     <div class="span10 offset1">

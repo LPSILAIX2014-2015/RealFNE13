@@ -27,6 +27,8 @@ $vHtml = new VHtml();
     <script src="./Lib/jquery.form.js"></script>
     <script src="./Lib/jquery.validate.js"></script>
     <script src="./Lib/simplePagination.js"></script>
+    <script src="./Js/updateTestImage.js"></script>
+    <script src="./Js/createTestImage.js"></script>
     <script src="./Js/changeImage.js"></script>
     <script src="./Js/recMP.js"></script>
 </head>
