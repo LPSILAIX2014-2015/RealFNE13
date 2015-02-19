@@ -36,7 +36,7 @@
                                              ------------------------------
      -->
 
-    <form class="form-horizontal" role="form" action="index.php?EX=formCreateArticle" method="POST" enctype="multipart/form-data">
+    <form id="formArticle" class="form-horizontal" role="form" action="index.php?EX=formCreateArticle" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="articleTitle" class="col-sm-3 control-label">Titre de l'article</label>
             <div class="col-sm-5">

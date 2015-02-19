@@ -152,8 +152,15 @@ function formCreateArticle()
 {
     $formCreateArticle = new MFormCreateArticle();
     $nextId = $formCreateArticle->insertDB($_POST);
-    $url = 'Location: index.php?EX=showInfoArticle&id='.$nextId;
-    header($url);
+    var_dump($nextId);
+    $jsonDecoded = json_decode($nextId,true);
+    if($jsonDecoded["lastID"] == 0){  //S'il y a une erreur
+        $url = 'Location: index.php?EX=createArticle&state='.$jsonDecoded["error"];
+        header($url);
+    }else{
+        $url = 'Location: index.php?EX=showInfoArticle&id='.$jsonDecoded["lastID"];
+        header($url);
+    }
 }
 function searchMember()
 {
@@ -474,8 +481,8 @@ function createArticle()
 {
     global $page;
     $page['title'] = 'écrire un article';
-    $page['class'] = 'VHtml';
-    $page['method'] = 'showHtml';
+    $page['class'] = 'VCreateArticle';
+    $page['method'] = 'showCreateArticle';
     $page['css'] = 'Css/createArticle.css';
     $page['arg'] = 'Html/createArticle.php';
 }
