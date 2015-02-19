@@ -207,6 +207,15 @@ function updateMember()
     $page['arg'] = 'Html/update.php';
 }
 
+function updateAMember()
+{
+    global $page;
+    $page['title'] = 'Modification d\'un membre';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Php/update.php';
+}
+
 function deleteMember()
 {
     global $page;
@@ -215,6 +224,16 @@ function deleteMember()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/delete.php';
 }
+
+function deleteAMember()
+{
+    global $page;
+    $page['title'] = 'Supression d\'un membre';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Php/delete.php';
+}
+
     function recuperation() // Presentation du formilaire principal pour envoyer le mail
     {
         global $page, $user;

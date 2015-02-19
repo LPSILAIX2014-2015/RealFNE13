@@ -16,7 +16,7 @@ foreach($themesList as $line){
             <h3>Modifier un utlisateur</h3>
         </div>
 
-        <form class="form-horizontal" id="createMemberForm" enctype="multipart/form-data" action="Php/update-mail.php?email=<?php echo $email?>" method="post">
+        <form class="form-horizontal" id="createMemberForm" enctype="multipart/form-data" method="post">
             <div class="control-group">
                 <label class="control-label">Identifiant (*)</label>
                 <div class="controls">

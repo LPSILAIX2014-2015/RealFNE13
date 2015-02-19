@@ -8,33 +8,33 @@ $(document).ready(function(){
         if (isImage(fileExtension)) {
             var fileSize = file.size;
             var fileType = file.type;
-            showMessage("<p class='bg-warning'>Archivo para subir: "+fileName+", peso total: "+fileSize+" bytes.</p>");
+            showMessage("<p class='bg-warning'>Fichier à télécharger: "+fileName+", taille totale: "+fileSize+" bytes.</p>");
         } else{
-            document.getElementById("photo").value="";
+            document.getElementById('photo').value="";
             message = $("<p class='bg-danger'>Le fichier n'est pas une image!!</p>");
             showMessage(message);
         }
-        $("#updateMemberForm").validate({
-            rules:{
-                photo:{required:true}
-            },
-            highlight: function(element) {
-                $(element).closest('.control-group').removeClass('success').addClass('error');
-            },
-            success: function(element) {
-                element.text('OK!').addClass('valid').closest('.control-group').removeClass('error').addClass('success');
-                setTimeout('redirect()',1800);
-            },
-            error: function(){
-                message = $("<p class='bg-danger'>Une erreur est survenue pendant le téléchargement de l\'image</p>");
-                showMessage(message);
-            }
-        });
+    });
+    $("#updateMemberForm").validate({
+        rules:{
+            photo:{required:true}
+        },
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('success').addClass('error');
+        },
+        success: function(element) {
+            element.text('OK!').addClass('valid').closest('.control-group').removeClass('error').addClass('success');
+            setTimeout('redirect()',1800);
+        },
+        error: function(){
+            message = $("<p class='bg-danger'>Une erreur est survenue pendant le téléchargement de l\'image</p>");
+            showMessage(message);
+        }
     });
 });
 
 function redirect () {
-    location.href='index.php?EX=manageMembers';
+    location.href='index.php?EX=updateAMember&id='+'<?php echo $id?>';
 }
 
 function showMessage(message){

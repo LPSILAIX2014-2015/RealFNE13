@@ -13,7 +13,11 @@
         $profession = $_POST['PROFESSION'];
         $profession2 = $_POST['PROFESSION2'];
         $presentation = $_POST['PRESENTATION'];
-        $photo = $_POST['PHOTOPATH'];
+        $content_dir = '../Photos/'; // dossier où sera déplacé le fichier
+        $tmp_file = $_FILES['photo']['tmp_name'];
+        $name_file = $_FILES['photo']['name'];
+        move_uploaded_file($tmp_file, $content_dir . $name_file);
+        $photo_dir = $content_dir . $name_file;
         $valid = true;
 
         // update data
@@ -21,6 +25,6 @@
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "UPDATE USER  set NAME = ?, SURNAME = ?, CP = ?, PROFESSION =?, PROFESSION2 = ?, THEME_ID = ?, THEME_INTEREST_ID = ?, THEME_DETAILS = ?, PRESENTATION = ?, PHOTOPATH = ? WHERE ID = ?";
         $q = $pdo->prepare($sql);
-        $q->execute(array($name, $surname, $cp, $email, $profession, $profession2, $theme, $theme2, $themedetails, $presentation, $photo, $id));
-        //header("Location: ./index.php?EX=manageMembers");
+        $q->execute(array($name, $surname, $cp, $profession, $profession2, $theme, $theme2, $themedetails, $presentation, $photo_dir, $id));
+        header("Location: ./index.php?EX=manageMembers");
     }
