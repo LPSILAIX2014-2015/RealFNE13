@@ -6,25 +6,31 @@
 		$id = $_POST['id'];
 
 		// delete data
-		/*$pdo = new MDBase();
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "DELETE FROM MESSAGE JOIN USER ON USER.ID WHERE ASSOCIATION_ID = :id";
+		$pdo = new MDBase();
 
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$sql = "DELETE FROM MESSAGE JOIN USER ON USER.ID = SENDER_ID WHERE ASSOCIATION_ID = :id";
 		$q = $pdo->prepare($sql);
-								$q->bindParam(":id", $id, PDO::PARAM_INT);
-		$q->execute();*/
+		$q->bindParam(":id", $id, PDO::PARAM_INT);
+		$q->execute();
+
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$sql = "DELETE FROM MESSAGE JOIN USER ON USER.ID = RECEIVER_ID WHERE ASSOCIATION_ID = :id";
+		$q = $pdo->prepare($sql);
+		$q->bindParam(":id", $id, PDO::PARAM_INT);
+		$q->execute();
+
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$sql = "DELETE FROM USER  WHERE ASSOCIATION_ID = :id";
-
 		$q = $pdo->prepare($sql);
-                $q->bindParam(":id", $id, PDO::PARAM_INT);
+    $q->bindParam(":id", $id, PDO::PARAM_INT);
 		$q->execute();
 
 		$sql = "DELETE FROM ASSOCIATION  WHERE ID = :id";
-
 		$q = $pdo->prepare($sql);
-                $q->bindParam(":id", $id, PDO::PARAM_INT);
+    $q->bindParam(":id", $id, PDO::PARAM_INT);
 		$q->execute();
+		
 		header("Location: ../index.php?EX=manageAsso");
 
 	}
