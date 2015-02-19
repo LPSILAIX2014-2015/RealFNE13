@@ -20,9 +20,26 @@ class MFormCreateArticle
     }
     public function __destruct(){}
 
-    
-
     public function insertDB($data){
+
+        $temp = 0;
+
+        //Get all data from inputs in $option
+        $options = array(
+            "articleTitle"      => FILTER_SANITIZE_SPECIAL_CHARS,
+            "articleTheme"      => FILTER_VALIDATE_INT,
+            "eventPlace"        => FILTER_SANITIZE_SPECIAL_CHARS,
+            "startDate"         => FILTER_SANITIZE_SPECIAL_CHARS,
+            "duration"          => FILTER_VALIDATE_INT,
+            "inscription"       => FILTER_SANITIZE_SPECIAL_CHARS,
+            "textareaDecrypt"   => FILTER_SANITIZE_SPECIAL_CHARS,
+            "articleImage"      => FILTER_SANITIZE_SPECIAL_CHARS
+        );
+
+        // Fill data form with $otpion (we can get the data of all input by using $dataForm["nameinput"]
+        $dataForm = filter_input_array(INPUT_POST, $options);
+
+
 
         /**
         
@@ -68,16 +85,22 @@ class MFormCreateArticle
 
                     }else{
                         $errorType = "Err_UploadFail";
+                        $jsonarray = array("lastID" => $temp, "error" => $errorType);
+                        $jsonReturned = json_encode($jsonarray);
                         return $errorType;
                     }
 
                 }else{
                     $errorType = "Err_FileTooFat";
+                    $jsonarray = array("lastID" => $temp, "error" => $errorType);
+                    $jsonReturned = json_encode($jsonarray);
                     return $errorType;
                 }
 
             } else{
                 $errorType = "Err_NotAnImage";
+                $jsonarray = array("lastID" => $temp, "error" => $errorType);
+                $jsonReturned = json_encode($jsonarray);
                 return $errorType;
             }
         }
@@ -89,21 +112,6 @@ class MFormCreateArticle
         **/
 
         $sql = new MDBase();
-        //Get all data from inputs in $option
-        $options = array(
-            "articleTitle"      => FILTER_SANITIZE_SPECIAL_CHARS,
-            "articleTheme"      => FILTER_VALIDATE_INT,
-            "eventPlace"        => FILTER_SANITIZE_SPECIAL_CHARS,
-            "startDate"         => FILTER_SANITIZE_SPECIAL_CHARS,
-            "duration"          => FILTER_VALIDATE_INT,
-            "inscription"       => FILTER_SANITIZE_SPECIAL_CHARS,
-            "textareaDecrypt"   => FILTER_SANITIZE_SPECIAL_CHARS,
-            "articleImage"      => FILTER_SANITIZE_SPECIAL_CHARS
-        );
-
-        // Fill data form with $otpion (we can get the data of all input by using $dataForm["nameinput"]
-        $dataForm = filter_input_array(INPUT_POST, $options);
-
 
         /**
         Contrôle des champs
@@ -115,15 +123,21 @@ class MFormCreateArticle
         // arreter la fonction si l'ID de l'user, le titre ou le theme de l'article n'est pas renseigné.
         if($_SESSION['ID_USER'] == null){
             $errorType = "Err_UserNotLogged";
-            return $errorType;
+            $jsonarray = array("lastID" => $temp, "error" => $errorType);
+            $jsonReturned = json_encode($jsonarray);
+            return $jsonReturned;
         }
         if(strlen($dataForm['articleTitle']) == 0){
             $errorType = "Err_NoTittle";
-            return $errorType;
+            $jsonarray = array("lastID" => $temp, "error" => $errorType);
+            $jsonReturned = json_encode($jsonarray);
+            return $jsonReturned;
         } 
-        if(strlen($dataForm['textareaDecrypt']) == 0){
+        if(strlen($dataForm['textareaDecrypt']) <= 50){
             $errorType = "Err_NoText";
-            return $errorType;
+            $jsonarray = array("lastID" => $temp, "error" => $errorType);
+            $jsonReturned = json_encode($jsonarray);
+            return $jsonReturned;
         } 
 
         /**
@@ -165,7 +179,9 @@ class MFormCreateArticle
         if(!$state) {
             $sql->rollBack();
             $errorType = "Err_QueryFail";
-            return $errorType;
+            $jsonarray = array("lastID" => $temp, "error" => $errorType);
+            $jsonReturned = json_encode($jsonarray);
+            return $jsonReturned;
         }
 
 
