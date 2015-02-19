@@ -43,7 +43,6 @@ global $user ;
             <a href="index.php?EX=validArticle">Validations</a>
             <a href="index.php?EX=reportList">Journal</a>
 
-            <a>Validations</a>
             <?php if($user->getRole() == 'SADMIN'){?>
                 <a href="index.php?EX=manageAsso">Gestion assos</a>
                 <a class="cursor_notice" href="index.php?EX=reportList">Journal</a>
