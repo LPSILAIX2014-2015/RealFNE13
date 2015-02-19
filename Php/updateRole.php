@@ -12,5 +12,5 @@
           // update data
           $user->setRole($role);
         }
-        }
-        header("Location: index.php?EX=manageMembers");
+    }
+    header("Location: index.php?EX=manageMembers");

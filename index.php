@@ -43,6 +43,7 @@ switch($EX)
         break;
     case 'writeMessages' : writeMessages(); break;
     case 'consultMessages' : consultMessages(); break;
+	case 'sendMessage' : sendMessage(); break;
     case 'endMessages' : endMessages(); break;
     case 'createArticle':   createArticle(); break;
     case 'calendar'     :   calendar();break;
@@ -60,6 +61,7 @@ switch($EX)
     case 'deleteAsso'  : deleteAsso();      break;
     case 'profil'    : profil(); break; // Affichage du profil
     case 'legal' : legal(); break;
+    case 'validArticle' : validArticle(); break;
     case 'updateMail' : updateMail(); break;
     case 'downloadCVS' : downloadCVS(); break;
     default : check($EX);
@@ -232,7 +234,6 @@ function deleteAMember()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Php/delete.php';
 }
-
 
     function recuperation() // Presentation du formilaire principal pour envoyer le mail
 
@@ -500,14 +501,34 @@ function calendar()
     $page['arg'] = 'Html/calendar.php';
     $page['css'] = 'Css/calendar.css';
 }
+
+function sendMessage()
+{
+    global $page;
+    $page['title'] = "Envoi à d'autres destinataires ?";
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/envoiDestinataires.php';
+}
 function endMessages()
 {
     global $page;
     $page['title'] = 'Message transmis';
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
-    $page['arg'] = 'Html/finEnvoi.html';
+    $page['arg'] = 'Html/finEnvoi.php';
 }
+
+function validArticle()
+{
+    global $page;
+    $page['title'] = "Validation d'article ";
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/validArticle.php';
+    $page['css'] = 'Css/showArticle.css';
+}
+
 function updateMail()
 {
     global $page;
@@ -516,6 +537,7 @@ function updateMail()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/update-mail.php';
 }
+
 function downloadCVS()
 {
     $mDownloadCsv = new MDownloadCsv();
