@@ -8,18 +8,35 @@
   function afficheArticle($indexArticle) {
     global $data_article;
     
-    if(strlen($data_article[$indexArticle]['CONTENT']) > 200) {
-      $description = substr($data_article[$indexArticle]['CONTENT'], 200);
+    if($data_article[$indexArticle]['IMAGEPATH'] != NULL) {
+      $imgArticle = "<img src='".$data_article[$indexArticle]['IMAGEPATH']."'"
+                  .     " class='img-responsive' />";
     } else {
-      $description = $data_article[$indexArticle]['CONTENT'];
+      $imgArticle = "<img src='Img/logo.png'"
+                  .     " class='img-responsive transparence' />";
     }
+
+    $description = "";
+    if(strlen($data_article[$indexArticle]['CONTENT']) > 250) {
+      $contenuDecode = html_entity_decode($data_article[$indexArticle]['CONTENT']);
+
+      $contenuDecode = str_replace('<br />', '[SLaaa]', $contenuDecode);
+      $contenuDecode = str_replace('</p>', '[SLaaa]', $contenuDecode);
+      $contenuTrunc = substr(strip_tags($contenuDecode), 0, 250);
+      $contenuFormate = str_replace('[SLaaa]', '<br />', $contenuTrunc);
+
+      
+      $description = $contenuFormate;
+    } else {
+      $description = html_entity_decode($data_article[$indexArticle]['CONTENT']);
+    }
+
     echo "<div id='article" . $data_article[$indexArticle]['ID'] . "'"
       .      " class='lienarticle'"
       .      " data-assoc='" . $data_article[$indexArticle]['ASSOC_ID'] . "'"
       .      " data-theme='" . $data_article[$indexArticle]['THEME_ID'] . "'>"
       .    "<div id='imgplace'>"
-      .      "<img src='" . $data_article[$indexArticle]['IMAGEPATH'] . "'"
-      .          " class='img-responsive' />"
+      .      $imgArticle
       .    "</div>"
       
       .    "<div id='infoarticle'>"
@@ -63,7 +80,6 @@
               .     $data_theme[$i]['NAME']
               .  '</option>';
           }
-        
         ?>
       </select>
     </div>

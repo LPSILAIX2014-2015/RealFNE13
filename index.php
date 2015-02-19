@@ -158,8 +158,15 @@ function formCreateArticle()
 {
     $formCreateArticle = new MFormCreateArticle();
     $nextId = $formCreateArticle->insertDB($_POST);
-    $url = 'Location: index.php?EX=showInfoArticle&id='.$nextId;
-    header($url);
+    var_dump($nextId);
+    if($nextId[0] == 'E'){  //S'il y a une erreur
+        $url = 'Location: index.php?EX=createArticle';
+        header($url);
+    }else{
+        $jsonDecoded = json_decode($nextId,true);
+        $url = 'Location: index.php?EX=showInfoArticle&id='.$jsonDecoded["lastID"];
+        header($url);
+    }
 }
 
 function searchMember()
