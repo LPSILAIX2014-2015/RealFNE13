@@ -275,7 +275,12 @@ foreach($themesList as $line){
 
                 </div>';
                 echo '&nbsp;';
-                echo '<a class="btn" href="email.php?id='.$row['ID'].'">Email</a>';
+				$pseudo = $pdo->prepare("SELECT LOGIN as login FROM USER WHERE ID = ?");
+				$pseudo->execute(array($row['ID']));
+				$login = $pseudo->fetch();
+				$_GET['dest'] = $login['login'];
+				
+                echo '<a class="btn" href="./index.php?EX=writeMessages&dest='.$_GET['dest'].'">Message</a>';
                 echo '&nbsp;';
                 echo '<input type="checkbox" name="option1[]" value='.$row['MAIL'].'>';
                 echo '</td>';
