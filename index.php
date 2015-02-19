@@ -159,11 +159,11 @@ function formCreateArticle()
     $formCreateArticle = new MFormCreateArticle();
     $nextId = $formCreateArticle->insertDB($_POST);
     var_dump($nextId);
-    if($nextId[0] == 'E'){  //S'il y a une erreur
-        $url = 'Location: index.php?EX=createArticle';
+    $jsonDecoded = json_decode($nextId,true);
+    if($jsonDecoded["lastID"] == 0){  //S'il y a une erreur
+        $url = 'Location: index.php?EX=createArticle&state='.$jsonDecoded["error"];
         header($url);
     }else{
-        $jsonDecoded = json_decode($nextId,true);
         $url = 'Location: index.php?EX=showInfoArticle&id='.$jsonDecoded["lastID"];
         header($url);
     }
@@ -470,8 +470,8 @@ function createArticle()
 {
     global $page;
     $page['title'] = 'écrire un article';
-    $page['class'] = 'VHtml';
-    $page['method'] = 'showHtml';
+    $page['class'] = 'VCreateArticle';
+    $page['method'] = 'showCreateArticle';
     $page['css'] = 'Css/createArticle.css';
     $page['arg'] = 'Html/createArticle.php';
 }
