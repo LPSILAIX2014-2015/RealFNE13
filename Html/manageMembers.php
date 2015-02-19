@@ -248,7 +248,7 @@
                     }
                     echo '<tr>';
                     echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
-                    echo '<td>'. $row['ASSOCIATION'] . '</td>';
+                    echo '<td>'.(new MAssoc($row['ASSOCIATION_ID']))->getName(). '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
                     echo '<td width=250>';
                     echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
@@ -300,7 +300,7 @@
                         }
                         echo '<tr>';
                         echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
-                        echo '<td>'. $row['ASSOCIATION'] . '</td>';
+                        echo '<td>'. (new MAssoc($row['ASSOCIATION_ID']))->getName()   . '</td>';
                         echo '<td>'. $row['PROFESSION'] . '</td>';
                         echo '<td width=250>';
                         echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
@@ -345,7 +345,7 @@
         </table>
         <a target="_blank" href="index.php?EX=downloadCVS"><button class="downloadCVS">Télécharger format CSV</button></a>
         <?php
-        
+
 
             $dataCSVOk = array();
             for($i = 0 ; $i < count($dataCSV) ; ++$i)
@@ -373,4 +373,3 @@
         ?>
     </div>
 </div>
-

@@ -13,7 +13,7 @@
     $name = $user->getName();
     $surname = $user->getSurname();
     $theme2 = $user->getThemeInterest();
-    $theme = $user->getTheme();
+    $theme1 = $user->getTheme();
     $themedetails= $user->getThemeDetails();
     $cp = $user->getCp();
     $profession = $user->getProfession();
@@ -26,6 +26,14 @@
      if(isset($_GET['error'])) {
          $erreur = $_GET['error'];
      }
+		$i=0;
+		$pdo=new MDBase();
+		$themesList = $pdo -> getAllThemes();
+		foreach($themesList as $line){
+				$themes[$i]['ID']=$line['ID'];
+				$themes[$i]['NAME']=$line['NAME'];
+				$i++;
+		}
 
     ?>
 
@@ -77,10 +85,13 @@
 
                             <label for="themes1" class="col-sm-2 control-label">Th&eacute;matique d'expertise</label>
                             <div class="controls">
-                                <select class="controls" name="THEME" type="text" value="<?php echo $_POST[$theme];?>">
+                                <select class="controls" name="THEME" type="text">
                                     <?php
                                     foreach ($themes as $key => $theme) {
-                                        echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
+																			if($theme['ID']==$theme1)
+																					echo('<option value ='.$theme['ID'].' selected>'.$theme['NAME'].'</option>');
+                                      else
+																					echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
                                     }
                                     ?>
                                 </select>
@@ -89,18 +100,20 @@
                         <div class="control-group">
                             <label class="control-label">Sous th&eacute;matique</label>
                             <div class="controls">
-                                <input name="DETAILS" type="text" rows="5" cols="40" placeholder="Sous thématique" value="<?php echo $_POST[$themedetails];?>">
+                                <input name="DETAILS" type="text" rows="5" cols="40" placeholder="Sous thématique" value="<?php echo !empty($themedetails)?$themedetails:'';?>">
                             </div>
                         </div>
                         <div class="control-group">
 
                             <label for="themes2" class="col-sm-2 control-label">Th&eacute;matique d'implication</label>
                             <div class="controls">
-                                <select class="controls" name="THEME2" type="text" value="<?php echo $_POST[$theme2];?>">
+                                <select class="controls" name="THEME2" type="text">
                                     <?php
-                                    echo('<option></option>');
                                     foreach ($themes as $key => $theme) {
-                                        echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
+																			if($theme['ID']==$theme2)
+																					echo('<option value ='.$theme['ID'].' selected>'.$theme['NAME'].'</option>');
+																			else
+																					echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
                                     }
                                     ?>
                                 </select>

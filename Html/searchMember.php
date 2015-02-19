@@ -238,7 +238,7 @@ foreach($themesList as $line){
                     }
                     echo '<tr>';
                     echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
-                    echo '<td>'. $row['ASSOCIATION'] . '</td>';
+                    echo '<td>'.(new MAssoc($row['ASSOCIATION_ID']))->getName(). '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
                     echo '<td width=250>';
                     echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
@@ -293,7 +293,7 @@ foreach($themesList as $line){
                     }
                     echo '<tr>';
                     echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
-                    echo '<td>'. $row['ASSOCIATION'] . '</td>';
+                    echo '<td>'. (new MAssoc($row['ASSOCIATION_ID']))->getName(). '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
                     echo '<td width=250>';
                     echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
