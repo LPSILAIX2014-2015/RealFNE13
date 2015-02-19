@@ -100,14 +100,6 @@ foreach($themesList as $line){
     $themes[$i]['NAME']=$line['NAME'];
     $i++;
 }
-    /*$i=0;
-    $rolesList = $pdo -> getAllRoles();
-    foreach($rolesList as $line){
-        $roles[$i]['ID']=$line['ID'];
-        $roles[$i]['NAME']=$line['NAME'];
-        $i++;
-    }*/ //Mettre une fonction pour récupérer les roles des membres
-
     ?>
 
     <div class="container">
@@ -128,17 +120,16 @@ foreach($themesList as $line){
                 <input name="NAME" id="name" type="text"  placeholder="Prenom" pattern="[^'\x22\;\.]+" value="">
                 </div>
             </div>
-        <!--<div class="control-group">
+        <div class="control-group">
             <label class="control-label">R&ocirc;le</label>
             </br>
             <select class="controls" name="ROLE" type="text">
-                    <?php
-                        /*foreach ($roles as $key => $role) {
-                            echo('<option value ='.$role['ID'].'>'.$role['NAME'].'</option>');
-                        }*/
-                    ?>
+                <option></option>
+                <option value ='MEMBRE'>Membre</option>
+                <option value ='VALIDATOR'>Mod&eacute;rateur</option>
+                <option value ='ADMIN'>Administrateur</option>
             </select>
-        </div>--> <!-- Il manque la fonction nécessaire pour trier par roles -->
+        </div>
         <div class="control-group">
             <label class="control-label">Code postal</label>
             <div class="controls">
@@ -190,8 +181,8 @@ foreach($themesList as $line){
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>CP</th>
+                <th>Nom</th>
+                <th>Association</th>
                 <th>Profession</th>
                 <th>Action
                     <label id="btn1" class="btn">envoyer</label>
@@ -211,6 +202,10 @@ foreach($themesList as $line){
                 if($_POST['SURNAME']) {
                     $conditions[] = "SURNAME LIKE '%". $_POST['SURNAME']. "%'";
                     $params[] = $_POST['SURNAME'];
+                }
+                if($_POST['ROLE']) {
+                    $conditions[] = "ROLE = '". $_POST['ROLE'] . "'";
+                    $params[] = $_POST['ROLE'];
                 }
                 if($_POST['CP']) {
                     $conditions[] = "CP LIKE '". $_POST['CP']. "%'";
@@ -243,7 +238,7 @@ foreach($themesList as $line){
                     }
                     echo '<tr>';
                     echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
-                    echo '<td>'. $row['CP'] . '</td>';
+                    echo '<td>'.(new MAssoc($row['ASSOCIATION_ID']))->getName(). '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
                     echo '<td width=250>';
                     echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
@@ -298,7 +293,7 @@ foreach($themesList as $line){
                     }
                     echo '<tr>';
                     echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
-                    echo '<td>'. $row['CP'] . '</td>';
+                    echo '<td>'. (new MAssoc($row['ASSOCIATION_ID']))->getName(). '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
                     echo '<td width=250>';
                     echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';

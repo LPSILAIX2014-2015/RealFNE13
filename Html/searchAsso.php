@@ -119,8 +119,8 @@
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                <th>Name</th>
-                <th>Theme</th>
+                <th>Nom</th>
+                <th>Thème</th>
                 <th>Territoire</th>
                 <th>Action</th>
                 </tr>

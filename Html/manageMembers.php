@@ -117,17 +117,16 @@
 
             </div>
         </div>
-        <!--<div class="control-group">
+        <div class="control-group">
             <label class="control-label">R&ocirc;le</label>
             </br>
             <select class="controls" name="ROLE" type="text">
-                    <?php
-                        /*foreach ($roles as $key => $role) {
-                            echo('<option value ='.$role['ID'].'>'.$role['NAME'].'</option>');
-                        }*/
-                    ?>
+                <option></option>
+                <option value ='MEMBRE'>Membre</option>
+                <option value ='VALIDATOR'>Mod&eacute;rateur</option>
+                <option value ='ADMIN'>Administrateur</option>
             </select>
-        </div>--> <!-- Il manque la fonction nécessaire pour trier par roles -->
+        </div>
         <div class="control-group">
             <label class="control-label">Code postal</label>
             <div class="controls">
@@ -188,7 +187,7 @@
             <thead>
             <tr>
                 <th>Nom</th>
-                <th>CP</th>
+                <th>Association</th>
                 <th>Profession</th>
                 <th>Action
                     <label id="btn1" class="btn">envoyer</label>
@@ -209,6 +208,10 @@
                 if($_POST['SURNAME']) {
                     $conditions[] = "SURNAME LIKE '%". $_POST['SURNAME']. "%'";
                     $params[] = $_POST['SURNAME'];
+                }
+                if($_POST['ROLE']) {
+                    $conditions[] = "ROLE = '". $_POST['ROLE'] . "'";
+                    $params[] = $_POST['ROLE'];
                 }
                 if($_POST['CP']) {
                     $conditions[] = "CP LIKE '". $_POST['CP']. "%'";
@@ -245,7 +248,7 @@
                     }
                     echo '<tr>';
                     echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
-                    echo '<td>'. $row['CP'] . '</td>';
+                    echo '<td>'.(new MAssoc($row['ASSOCIATION_ID']))->getName(). '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
                     echo '<td width=250>';
                     echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
@@ -297,7 +300,7 @@
                         }
                         echo '<tr>';
                         echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
-                        echo '<td>'. $row['CP'] . '</td>';
+                        echo '<td>'. (new MAssoc($row['ASSOCIATION_ID']))->getName()   . '</td>';
                         echo '<td>'. $row['PROFESSION'] . '</td>';
                         echo '<td width=250>';
                         echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
@@ -342,7 +345,7 @@
         </table>
         <a target="_blank" href="index.php?EX=downloadCVS"><button class="downloadCVS">Télécharger format CSV</button></a>
         <?php
-        
+
 
             $dataCSVOk = array();
             for($i = 0 ; $i < count($dataCSV) ; ++$i)
@@ -370,4 +373,3 @@
         ?>
     </div>
 </div>
-

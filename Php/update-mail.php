@@ -22,7 +22,7 @@
         $details = $_POST['DETAILS'];
         $profession = $_POST['PROFESSION'];
         $profession2 = $_POST['PROFESSION2'];
-        $content_dir = '../Img/'; // dossier où sera déplacé le fichier
+        $content_dir = '../Photos/'; // dossier où sera déplacé le fichier
         $tmp_file = $_FILES['photo']['tmp_name'];
         $name_file = $_FILES['photo']['name'];
         move_uploaded_file($tmp_file, $content_dir . $name_file);
@@ -33,5 +33,4 @@
         $q = $pdo->prepare($sql);
         $q->execute(array($login, $mdp, $address, $cp, $theme, $theme_interest, $profession, $presentation, $profession2, $details, $photo_dir, $user_mail));
         header("Location: ../index.php");
-        echo md5($mdp);
     }
