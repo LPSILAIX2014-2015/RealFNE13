@@ -10,7 +10,7 @@
         {
             ?>
                 <a <?php echo 'href="index.php?EX=showArticle&idA='.$data_association[$i]['ID'].'"'; ?> >
-                    <img width="75" height="58" <?php echo 'src="'.$data_association[$i]['ID'].'"'; ?> >
+                    <img width="75" height="58" <?php echo 'src="'.$data_association[$i]['IMAGEPATH'].'"'; ?> >
                 </a>
             <?php
         }
