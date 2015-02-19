@@ -20,35 +20,35 @@ foreach($themesList as $line){
             <div class="control-group">
                 <label class="control-label">Identifiant (*)</label>
                 <div class="controls">
-                    <input name="LOGIN" type="text" rows="5" cols="40" placeholder="Identifiant" value="">
+                    <input name="LOGIN" type="text" rows="5" cols="40" placeholder="Identifiant" value="" required>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">Mot de passe (*)</label>
                 <div class="controls">
-                    <input name="MOTDEPASSE" type="password" rows="5" cols="40" placeholder="Mot de passe" value="">
+                    <input name="MOTDEPASSE" type="password" rows="5" cols="40" placeholder="Mot de passe" value="" required>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">Confirmation mot de passe (*)</label>
                 <div class="controls">
-                    <input name="CONFIRMMOTDEPASSE" type="password" rows="5" cols="40" placeholder="Confirmation mot de passe" value="">
+                    <input name="CONFIRMMOTDEPASSE" type="password" rows="5" cols="40" placeholder="Confirmation mot de passe" value="" required>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">Adresse (*)</label>
                 <div class="controls">
-                    <input name="ADRESSE" type="text" rows="5" cols="40" placeholder="Adresse" value="">
+                    <input name="ADRESSE" type="text" rows="5" cols="40" placeholder="Adresse" value="" required>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">Code postal (*)</label>
                 <div class="controls">
-                    <input name="CP" type="text" rows="5" cols="40" placeholder="Code postal" value="">
+                    <input name="CP" type="text" rows="5" cols="40" placeholder="Code postal" value="" required>
                 </div>
             </div>
 
@@ -90,7 +90,7 @@ foreach($themesList as $line){
             <div class="control-group">
                 <label class="control-label">Profession (*)</label>
                 <div class="controls">
-                    <input name="PROFESSION" type="text"  placeholder="Profession" value="">
+                    <input name="PROFESSION" type="text"  placeholder="Profession" value="" required>
                 </div>
             </div>
             <div class="control-group">
@@ -103,7 +103,7 @@ foreach($themesList as $line){
             <div class="control-group">
                 <label class="control-label">Pr&eacute;sentation</label>
                 <div class="controls">
-                    <textarea name="PRESENTATION" id="presentation" type="text" rows="10" cols="90" placeholder="Présentation"></textarea>
+                    <textarea name="PRESENTATION" id="presentation" type="text" rows="10" cols="90" placeholder="Présentation" required></textarea>
                     <span>(Informations utiles)</span>
                 </div>
             </div>

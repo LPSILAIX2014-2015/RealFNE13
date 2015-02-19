@@ -34,7 +34,7 @@ global $user ;
     </li>
     <?PHP
     }
-    if ((isset($user)) && ($user->getRole() != 'MEMBRE')) {
+    if (isset($user) && (($user->getRole() != 'MEMBRE') && ($user->getRole() != 'VALIDATOR'))) {
     ?>
     <li><a>Administration</a>
         <div class="submenu">
