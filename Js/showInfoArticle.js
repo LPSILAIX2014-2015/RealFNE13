@@ -27,7 +27,8 @@ jQuery(function($) {
     /////////////////////////////////////////////
     //Set the number of item displayed par page//
     /////////////////////////////////////////////
-    var perPage = 20;
+
+    var perPage = 15;
 
 
     items.slice(perPage).hide();
