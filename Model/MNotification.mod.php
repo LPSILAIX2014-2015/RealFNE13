@@ -11,7 +11,7 @@ class MNotification {
     public function sendNotificationToUser($receiver_id, $content) {
 
         $this->sql->beginTransaction();
-        $state = $this->sql->prepare("INSERT INTO notification (
+        $state = $this->sql->prepare("INSERT INTO NOTIFICATION (
             RECEIVER_ID,
             CONTENT,
             NDATE
@@ -60,7 +60,7 @@ class MNotification {
     public function getNotificationByIdUser($id) {
 
         $this->sql->beginTransaction();
-        $state = $this->sql->prepare("SELECT * FROM notification WHERE RECEIVER_ID = :id");
+        $state = $this->sql->prepare("SELECT * FROM NOTIFICATION WHERE RECEIVER_ID = :id");
 
         $state->bindValue('id', $id, PDO::PARAM_INT);
         $state->execute();    

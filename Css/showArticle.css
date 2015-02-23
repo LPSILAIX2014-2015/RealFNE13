@@ -12,7 +12,14 @@
     height: 80px;
     text-align: center;
     margin: auto;
-    line-height: 80px,
+    line-height: 80px;
+}
+#imgplave img {
+    max-width: 150px;
+    max-height: 80px;
+}
+#imgArticle img{
+    max-width: 100%;
 }
 .pvarticle img {
     max-width: 145px;
@@ -42,6 +49,7 @@
     color:#FFF;
     border:1px solid #0c5091;
     margin-top: 10px;
+    min-height: 90px;
 }
 .lienarticle:hover {
     background-color: #0c5091;

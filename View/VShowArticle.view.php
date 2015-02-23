@@ -10,13 +10,27 @@ class VShowArticle
 
     $connec = new MDBase();
     global $data_article;
-
+    global $data_assoc;
+    global $data_theme;
 
   	// AFFICHAGE
+  	$state = $connec->prepare(
+  	  "SELECT P.*, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE,
+              U.NAME, U.SURNAME, U.ASSOCIATION_ID ASSOC_ID
+  	   FROM POST P, USER U
+  	   WHERE P.WRITER_ID = U.ID
+  	   ORDER BY id DESC"
+  	);
+  	$state->execute();
+  	$data_article = $state->fetchAll(PDO::FETCH_ASSOC);
+
+    $data_assoc = $connec->getAllAssocs();
+    $data_theme = $connec->getAllThemes();
+
 
     $state = $connec->prepare(
       "SELECT P.*, U.NAME, U.SURNAME, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE 
-       FROM post P, USER U
+       FROM POST P, USER U
        WHERE P.WRITER_ID = U.ID
        ORDER BY id DESC"
     );
@@ -24,7 +38,7 @@ class VShowArticle
     $data_article = $state->fetchAll(PDO::FETCH_ASSOC);
 
 
-  	// REMPLISSAGE DU CONTENU
+    // REMPLISSAGE DU CONTENU
 
     $vhtml = new VHtml();
     $vhtml->showHtml($_html);

@@ -1,3 +1,7 @@
+.trCenter {
+	text-align: center;
+}
+
 .percent {
 	text-align:right;
 }
@@ -16,4 +20,8 @@
 
 .PATH {
 	width: 237px;
+}
+
+.PERCENT_CLOUD {
+	width:28px;
 }

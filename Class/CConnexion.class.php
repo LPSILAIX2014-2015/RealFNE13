@@ -10,7 +10,7 @@ class CConnexion {
         try
         {
             $db = new MDBase();
-            $query = "SELECT ID, PASSWORD, ROLE FROM USER WHERE LOGIN='$login'" ;
+            $query = "SELECT ID, PASSWORD,ASSOCIATION_ID, ROLE FROM USER WHERE LOGIN='$login'" ;
             $state = $db->prepare($query);
             $state->execute();
             $result = $state->fetch();
@@ -22,6 +22,7 @@ class CConnexion {
 
                 $_SESSION['ID_USER'] = $result['ID'];
                 $_SESSION['ROLE'] = $result['ROLE'];
+                $_SESSION['ASSOCIATION_ID'] = $result['ASSOCIATION_ID'];
                 $user = new MUser($result['ID']) ;
 
                 $query = 'DELETE FROM LOGINFAIL WHERE ID_USER='.$result['ID'].' AND IP=\''.$_SERVER["REMOTE_ADDR"].'\' ;' ;
