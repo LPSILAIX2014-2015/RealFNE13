@@ -21,6 +21,9 @@
 #imgArticle img{
     max-width: 100%;
 }
+.transparence {
+    opacity: 0.5;
+}
 .pvarticle img {
     max-width: 145px;
     max-height: 80px;

@@ -7,6 +7,11 @@ class VHome
 
     public function showHome($path)
     {
+    	$mDBase = new MDBase();
+    	global $data_association;
+    	$data_association = $mDBase->getAllAssocs();
+
+
         $vhtml = new VHtml();
         $vhtml->showHtml($path);
 

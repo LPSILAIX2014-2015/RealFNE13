@@ -22,7 +22,9 @@ switch($EX)
     case 'createMember': createMember(); break;
     case 'createUser': createUser(); break;
     case 'updateMember': updateMember(); break;
+    case 'updateAMember': updateAMember(); break;
     case 'deleteMember': deleteMember(); break;
+    case 'deleteAMember': deleteAMember(); break;
     case 'insert'    : insert();     exit; // Mèthode insert() pour enregistrer le changement de mot de passe
     case 'changePass': changePass(); exit; // Mèthode changePass() pour enregistrer le changement de mot de passe
     case 'mailconf'  : mailconf();   exit; // Mèthode pour envoyer l'email de confirmation
@@ -150,8 +152,15 @@ function formCreateArticle()
 {
     $formCreateArticle = new MFormCreateArticle();
     $nextId = $formCreateArticle->insertDB($_POST);
-    $url = 'Location: index.php?EX=showInfoArticle&id='.$nextId;
-    header($url);
+    var_dump($nextId);
+    $jsonDecoded = json_decode($nextId,true);
+    if($jsonDecoded["lastID"] == 0){  //S'il y a une erreur
+        $url = 'Location: index.php?EX=createArticle&state='.$jsonDecoded["error"];
+        header($url);
+    }else{
+        $url = 'Location: index.php?EX=showInfoArticle&id='.$jsonDecoded["lastID"];
+        header($url);
+    }
 }
 function searchMember()
 {
@@ -206,6 +215,15 @@ function updateMember()
     $page['arg'] = 'Html/update.php';
 }
 
+function updateAMember()
+{
+    global $page;
+    $page['title'] = 'Modification d\'un membre';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Php/update.php';
+}
+
 function deleteMember()
 {
     global $page;
@@ -214,6 +232,16 @@ function deleteMember()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/delete.php';
 }
+
+function deleteAMember()
+{
+    global $page;
+    $page['title'] = 'Supression d\'un membre';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Php/delete.php';
+}
+
     function recuperation() // Presentation du formilaire principal pour envoyer le mail
     {
         global $page, $user;
@@ -453,8 +481,8 @@ function createArticle()
 {
     global $page;
     $page['title'] = 'écrire un article';
-    $page['class'] = 'VHtml';
-    $page['method'] = 'showHtml';
+    $page['class'] = 'VCreateArticle';
+    $page['method'] = 'showCreateArticle';
     $page['css'] = 'Css/createArticle.css';
     $page['arg'] = 'Html/createArticle.php';
 }
