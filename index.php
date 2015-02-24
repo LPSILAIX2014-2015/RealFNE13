@@ -29,6 +29,7 @@ switch($EX)
     case 'maillog'   : maillog();    exit;
     case 'chImg'     : chImg();    exit; // Changer l'image du profil
     case 'recup'     : recuperation(); break; // Presentation de la vue
+    case 'genNL'     : genNL();    exit; // Newsletter
     case 'deconnexion' :
         if (isset($_POST['login']) && isset($_POST['password']))
         {
@@ -488,5 +489,10 @@ function downloadCVS()
 {
     $mDownloadCsv = new MDownloadCsv();
     $mDownloadCsv->download();
+}
+function genNL(){
+    $pdf = new MGenNewL();
+    $pdf->setDate($_GET);
+    $pdf->generate();
 }
 ?>

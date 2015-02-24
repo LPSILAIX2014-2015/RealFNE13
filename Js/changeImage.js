@@ -1,3 +1,7 @@
+/**
+ * Controlateur de changement d'image
+ * @author Cesar Hernandez <[Mex]>
+ */
 $('input[id=lefile]').change(function() {
 	$('#photoCover').val($(this).val());
 });
@@ -5,9 +9,7 @@ $('input[id=lefile]').change(function() {
 $(document).ready(function(){
  
     $("#chI").hide();
-    //queremos que esta variable sea global
     var fileExtension = "";
-    //función que observa los cambios del campo file y obtiene información
     $(':file').change(function()
     {
         var file = $("#sel_img")[0].files[0];
@@ -16,7 +18,7 @@ $(document).ready(function(){
         if (isImage(fileExtension)) {
         	var fileSize = file.size;
 	        var fileType = file.type;
-	        showMessage("<p class='bg-warning'>Archivo para subir: "+fileName+", peso total: "+fileSize+" bytes.</p>");
+	        showMessage("<p class='bg-warning'>Fichier à télécharger : "+fileName+", poid total: "+fileSize+" octets.</p>");
 	        $('#sel_img-error').remove();
         } else{
         	document.getElementById('frmCHIMG').reset();
@@ -55,7 +57,7 @@ $(document).ready(function(){
 	                message = $("<p class='bg-success'>L\'image a été téléchargé avec succès.</p>");
 	                showMessage(message);
 	                document.getElementById('frmCHIMG').reset();
-	                setTimeout('redirect()',1800);
+	                setTimeout('redirect()',1100);
 	            },
 	            error: function(){
 	                message = $("<p class='bg-danger'>Une erreur est survenue pendant le téléchargement de l\'image</p>");
