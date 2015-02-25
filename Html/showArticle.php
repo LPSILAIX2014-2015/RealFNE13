@@ -76,12 +76,27 @@ function afficheArticle($indexArticle) {
 			?>
 			<option class="optionAssoc" value="0">- Assoc -</option>
 			<?php
-
-			for($i = 0 ; $i < count($data_assoc) ; ++$i)
+			if(isset($_GET['idA']))
 			{
-				echo '<option class="optionAssoc" value="' . $data_assoc[$i]['ID'] . '">'
-				.     $data_assoc[$i]['NAME']
-				.  '</option>';
+				for($i = 0 ; $i < count($data_assoc) ; ++$i)
+				{
+					if(intval(htmlspecialchars($_GET['idA'])) != $data_assoc[$i]['ID'])
+					{
+						echo '<option class="optionAssoc" value="' . $data_assoc[$i]['ID'] . '">'
+						.     $data_assoc[$i]['NAME']
+						.  '</option>';
+					}
+
+				}
+			}
+			else
+			{
+				for($i = 0 ; $i < count($data_assoc) ; ++$i)
+				{
+					echo '<option class="optionAssoc" value="' . $data_assoc[$i]['ID'] . '">'
+					.     $data_assoc[$i]['NAME']
+					.  '</option>';
+				}
 			}
 
 			?>

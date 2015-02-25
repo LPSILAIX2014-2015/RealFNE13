@@ -54,6 +54,6 @@ class VShowArticle
 		$vhtml->showHtml($_html);
 
 	} // showShowArticle($_html)
-	
+
 } // VHtml
 ?>

@@ -9,6 +9,7 @@
         $name = $_POST['NAME'];
         $territory = $_POST['TERRITORY'];
         $theme = $_POST['THEME'];
+        $pathImage = "";
 
         $repertoireDestination = "Img/LogoAsso/";
 
@@ -24,7 +25,7 @@
 
             $sanitizeFileName = replace_accents($_FILES["articleImage"]["name"]);
 
-            $pathImage = $repertoireDestination. $sanitizeFileName;
+            $pathImage .= $repertoireDestination. $sanitizeFileName;
 
             //Check if the file is an image
             if (in_array($extensionFichier, $extensionsAutorisees)) {
@@ -59,11 +60,12 @@
         $q = $pdo->prepare($sql);
         $q->execute(array($name, $territory, $theme,$pathImage));
         $id= $pdo->lastInsertId();
-        header("./index.php?EX=creationAdmin&id=".$id);
     }
+		else
+				header("Location: ./index.php?EX=createAsso")
     ?>
     <div class="container">
-    
+
     			<div class="span10 offset1">
     				<div class="row">
 		    			<h2>Création d'un administrateur</h2>
@@ -77,34 +79,34 @@
 					  <div class="control-group">
 					    <label class="control-label">Name</label>
 					    <div class="controls">
-					      	<input name="NAME" id="name" type="text" pattern="^[a-zA-Z \.\,\+\-]*$" placeholder="Name" value="">
+					      	<input name="NAME" id="name" type="text" pattern="^[a-zA-Z \.\,\+\-]*$" placeholder="Name" value="" required>
 					      	<span>(Alphabétique)</span>
 					    </div>
 					  </div>
                       <div class="control-group">
 					    <label class="control-label">SurName</label>
 					    <div class="controls">
-					      	<input name="SURNAME" id="surname" type="text"  placeholder="SurName" value="">
-					      	
+					      	<input name="SURNAME" id="surname" type="text"  placeholder="SurName" value="" required>
+
 					    </div>
 					  </div>
 
                       <div class="control-group">
 					    <label class="control-label">Email</label>
 					    <div class="controls">
-					      	<input name="MAIL" id="mail" type="text"  placeholder="EMAIL" value="">
-					      	
+					      	<input name="MAIL" id="mail" type="text"  placeholder="EMAIL" value="" required>
+
 					    </div>
-					  </div>				  
-					 
-                                          
+					  </div>
+
+
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-success">Création</button>
                           <a href="./index.php?EX=manageMembers"><button type="button" class="btn">Retour</button></a>
                       </div>
 					</form>
 				</div>
-				
+
     </div> <!-- /container -->
   </body>
 </html>

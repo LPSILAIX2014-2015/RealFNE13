@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 	$pdo = new MDBase();
 	if ( !empty($_POST)) {
         $id=$_POST['ID'];
-	$name = $_POST['NAME'];
+				$name = $_POST['NAME'];
         $surname = $_POST['SURNAME'];
         $email = $_POST['MAIL'];
 		$sql = "INSERT INTO USER (NAME,SURNAME,MAIL,ASSOCIATION_ID, THEME_ID, THEME_INTEREST_ID, ROLE) values(?, ?, ?, ?, ?, ?, ?)";
@@ -13,8 +13,8 @@
         $headers = "From: webmaster@domain.com \r\n";
         $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "Content-type: text/html\r\n";
-        
-        $message = $_SERVER['REQUEST_URI'].'/../Html/update-mail.php?email='.$email;
+
+				$message = 'http://dev.laplateformeFNE13.fr/index.php?EX=updateMail&email='.$email;
         $subject = 'compléter votre profil';
         mail ($mail,$subject,$message,$headers);
 

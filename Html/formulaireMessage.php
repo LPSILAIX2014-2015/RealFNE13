@@ -1,52 +1,80 @@
 <form method="POST" id="formulaire" name="MAIL" action="">
     <fieldset>
 
-        <p><label for="count">Messages envoyés :</label><br><br>
+        <p><label for="count">Messages envoyés :</label>
             <p id="compteur"></p>
-        </p><br><br>
+        </p>
 
+		<p>
+            <label for="receiver">Destinataire :</label>
+			<?php
+			//Il faut qu'en utilisant la recherche de membre, en cliquant sur "envoyer un message à un membre", le pseudo du membre soit transmis au formulaire et écrit automatiquement dans "Destinataire"
+			if (isset($_GET['dest']))
+			{
+				echo "<input type='text' id='destinataire' name='RECEIVER' size='30' value=".$_GET['dest']." length='50' required='required'/>";
+			}
+			else
+			{
+				echo "<input type='text' id='destinataire' name='RECEIVER' size='30' maxlength='50' required='required'/>";
+			}
+			?>
+			<a href="index.php?EX=searchMember"><input type="button" value="Rechercher un membre" /></a>
+		</p>
+		
         <p>
-            <label for="category">Catégorie :</label><br><br>
-                <p id="list_categories"></p><br><br>
+            <label for="category">Catégorie :</label>
+                <p id="list_categories"></p>
         </p>
 
         <p>
-            <label for="receiver">Destinataire :</label><br><br>
-            <input type="text" id="destinataire" name="RECEIVER" size="30" maxlength="50" required="required"/><br><br>
+            <label for="subject">Sujet :</label>
+			<?php
+			if (isset($_SESSION['title']))
+			{
+				$titre = htmlspecialchars($_SESSION['title'],ENT_QUOTES);
+				echo "<input type='text' id='sujet' name='TITLE' size='30' value='".$titre."' maxlength='300' required='required'/><br><br>";
+			}
+			else
+			{
+				echo "<input type='text' id='sujet' name='TITLE' size='30' maxlength='300' required='required'/>";
+			}
+			?>
         </p>
 
         <p>
-            <label for="subject">Sujet :</label><br><br>
-            <input type="text" id="sujet" name="TITLE" size="30" maxlength="50"required="required"/><br><br>
+            <label for="theme">Thématique :</label>
+                <p id="list_themes"></p><br><br>
         </p>
 
         <p>
-            <label for="theme">Thématique :</label><br><br>
-            <select id="theme">
-                <option value="1">Transports</option>
-                <option value="2">Mission Juridique</option>
-                <option value="3">Climat, Air, Energie</option>
-                <option value="4">Santé Environnement</option>
-                <option value="5">Aménagement durable du territoire</option>
-                <option value="6">Industrie</option>
-                <option value="7">Eau et milieux naturels</option>
-                <option value="8">Agriculture</option>
-            </select><br><br>
+            <label for="message">Message :</label>
+			<?php
+			if (isset($_SESSION['content']))
+			{
+				echo '<textarea id="message" style="resize: none;" name="CONTENT" rows="10" cols="45" required="required">'.$_SESSION["content"].'</textarea><br><br>';
+			}
+			else
+			{
+				echo '<textarea id="message" style="resize: none;" name="CONTENT" rows="10" cols="45" required=required"></textarea>';
+			} ?>
         </p>
 
         <p>
-            <label for="message">Message :</label><br><br>
-            <textarea id="message" style="resize: none;" name="CONTENT" rows="10" cols="45" required="required"></textarea><br><br>
-        </p>
-
-        <p>
-            <input type="submit" value="Ok"/>
+            <input type="submit" value="Ok"/><a href="Php/resetForm.php"><input type="button" value="Effacer" /></a>
         </p>
     </fieldset>
 </form>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <script>
+    $.ajax({
+        type: "POST",
+        url: "Php/listThemes.php",
+        success: function(msg){
+            $("#list_themes").html(msg);
+        }
+    })
+
     $.ajax({
         type: "POST",
         url: "Php/listCategories.php",
@@ -83,10 +111,10 @@
                             alert("Vous avez dépassé le nombre de messages autorisés par association.");
                             document.location.href = "./index.php";
                         }
-                        else
+						else
                         {
                             alert("Le message a été envoyé.");
-                            document.location.href = "./index.php?EX=endMessages";
+                            document.location.href = "./index.php?EX=sendMessage";
                         }
                     }
                 });
@@ -94,4 +122,5 @@
             });
         }
     );
+	
 </script>
