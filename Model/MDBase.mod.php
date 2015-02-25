@@ -11,7 +11,6 @@ class MDBase extends PDO {
     private static $dbUserPassword = 'mysql';
     private static $cont  = null;
 
-
     //Site DEV
     /*
     private static $dbName = 'fnekxazadev' ;
@@ -24,6 +23,7 @@ class MDBase extends PDO {
     public function __construct(){
         $dns = self::$engine.':dbname='.self::$dbName.";host=".self::$dbHost;
         parent::__construct( $dns, self::$dbUsername, self::$dbUserPassword );
+        $this->exec("SET CHARACTER SET utf8");
     }
 
     public static function connect()

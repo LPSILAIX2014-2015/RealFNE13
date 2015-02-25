@@ -1,12 +1,12 @@
 <form method="POST" id="formulaire" name="MAIL" action="">
     <fieldset>
 
-        <p><label for="count">Messages envoyés :</label><br><br>
+        <p><label for="count">Messages envoyés :</label>
             <p id="compteur"></p>
-        </p><br><br>
+        </p>
 
 		<p>
-            <label for="receiver">Destinataire :</label><br><br>
+            <label for="receiver">Destinataire :</label>
 			<?php
 			//Il faut qu'en utilisant la recherche de membre, en cliquant sur "envoyer un message à un membre", le pseudo du membre soit transmis au formulaire et écrit automatiquement dans "Destinataire"
 			if (isset($_GET['dest']))
@@ -18,16 +18,16 @@
 				echo "<input type='text' id='destinataire' name='RECEIVER' size='30' maxlength='50' required='required'/>";
 			}
 			?>
-			<a href="index.php?EX=searchMember"><input type="button" value="Rechercher un membre" /></a><br><br>
+			<a href="index.php?EX=searchMember"><input type="button" value="Rechercher un membre" /></a>
 		</p>
 		
         <p>
-            <label for="category">Catégorie :</label><br><br>
-                <p id="list_categories"></p><br><br>
+            <label for="category">Catégorie :</label>
+                <p id="list_categories"></p>
         </p>
 
         <p>
-            <label for="subject">Sujet :</label><br><br>
+            <label for="subject">Sujet :</label>
 			<?php
 			if (isset($_SESSION['title']))
 			{
@@ -36,18 +36,18 @@
 			}
 			else
 			{
-				echo "<input type='text' id='sujet' name='TITLE' size='30' maxlength='300' required='required'/><br><br>";
+				echo "<input type='text' id='sujet' name='TITLE' size='30' maxlength='300' required='required'/>";
 			}
 			?>
         </p>
 
         <p>
-            <label for="theme">Thématique :</label><br><br>
+            <label for="theme">Thématique :</label>
                 <p id="list_themes"></p><br><br>
         </p>
 
         <p>
-            <label for="message">Message :</label><br><br>
+            <label for="message">Message :</label>
 			<?php
 			if (isset($_SESSION['content']))
 			{
@@ -55,7 +55,7 @@
 			}
 			else
 			{
-				echo '<textarea id="message" style="resize: none;" name="CONTENT" rows="10" cols="45" required=required"></textarea><br><br>';
+				echo '<textarea id="message" style="resize: none;" name="CONTENT" rows="10" cols="45" required=required"></textarea>';
 			} ?>
         </p>
 
@@ -104,13 +104,16 @@
                             alert("Le destinataire n'est pas inscrit.");
                             document.location.href = "./index.php?EX=searchMember";
                         }
-                        else if (msg == "1") {
-                            alert("Vous n'êtes pas connecté.");
-                        }
                         else if (msg == "2") {
                             alert("Vous avez dépassé le nombre de messages autorisés par association.");
                             document.location.href = "./index.php";
                         }
+						else if (msg == "4") {
+							alert("Vous n'avez pas sélectionné de thème.");
+						}
+						else if (msg == "5") {
+							alert("Vous n'avez pas sélectionné de catégorie.");
+						}
 						else
                         {
                             alert("Le message a été envoyé.");

@@ -22,13 +22,16 @@ switch($EX)
     case 'createMember': createMember(); break;
     case 'createUser': createUser(); break;
     case 'updateMember': updateMember(); break;
+    case 'updateAMember': updateAMember(); break;
     case 'deleteMember': deleteMember(); break;
+    case 'deleteAMember': deleteAMember(); break;
     case 'insert'    : insert();     exit; // Mèthode insert() pour enregistrer le changement de mot de passe
     case 'changePass': changePass(); exit; // Mèthode changePass() pour enregistrer le changement de mot de passe
     case 'mailconf'  : mailconf();   exit; // Mèthode pour envoyer l'email de confirmation
     case 'maillog'   : maillog();    exit;
     case 'chImg'     : chImg();    exit; // Changer l'image du profil
     case 'recup'     : recuperation(); break; // Presentation de la vue
+    case 'genNL'     : genNL();    exit; // Newsletter
     case 'deconnexion' :
         if (isset($_POST['login']) && isset($_POST['password']))
         {
@@ -150,8 +153,15 @@ function formCreateArticle()
 {
     $formCreateArticle = new MFormCreateArticle();
     $nextId = $formCreateArticle->insertDB($_POST);
-    $url = 'Location: index.php?EX=showInfoArticle&id='.$nextId;
-    header($url);
+    var_dump($nextId);
+    $jsonDecoded = json_decode($nextId,true);
+    if($jsonDecoded["lastID"] == 0){  //S'il y a une erreur
+        $url = 'Location: index.php?EX=createArticle&state='.$jsonDecoded["error"];
+        header($url);
+    }else{
+        $url = 'Location: index.php?EX=showInfoArticle&id='.$jsonDecoded["lastID"];
+        header($url);
+    }
 }
 function searchMember()
 {
@@ -206,6 +216,15 @@ function updateMember()
     $page['arg'] = 'Html/update.php';
 }
 
+function updateAMember()
+{
+    global $page;
+    $page['title'] = 'Modification d\'un membre';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Php/update.php';
+}
+
 function deleteMember()
 {
     global $page;
@@ -214,7 +233,18 @@ function deleteMember()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/delete.php';
 }
+
+function deleteAMember()
+{
+    global $page;
+    $page['title'] = 'Supression d\'un membre';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Php/delete.php';
+}
+
     function recuperation() // Presentation du formilaire principal pour envoyer le mail
+
     {
         global $page, $user;
         if (isset($user)) { // Validation pour l'envoi du mail
@@ -280,11 +310,11 @@ function deleteMember()
     function chImg()
     {
         global $user;
-        if (!isset($user)) { // Validation pour l'envoi du mail 
+        if (!isset($user)) { // Validation pour l'envoi du mail
             echo "<script>location.href='index.php';</script>";
         } else {
-            //  Nous vérifions la requete AJAX 
-            if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') 
+            //  Nous vérifions la requete AJAX
+            if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
             {
                 $file = $_FILES['sel_img']['name']; // Nous obtenons le name du fichier
                 if(!is_dir("Photos/")){ // Si le dossier n'existe pas, nous créons le dossier
@@ -296,9 +326,9 @@ function deleteMember()
                    unlink($GLOBALS['user']->getPhotopath());
                    $dbchI = new MUser($GLOBALS['user']->getId());
                    $dbchI->setPhotopath("Photos/".$file);
-                }                
+                }
             }else{
-                throw new Exception("Error Processing Request", 1);   
+                throw new Exception("Error Processing Request", 1);
             }
         }
     }
@@ -387,7 +417,8 @@ function deleteMember()
             $page['title'] = 'Mon profil';
             $page['class'] = 'VHtml';
             $page['method'] = 'showHtml';
-            $page['css'] = 'Css/recupMdp.css';
+            //$page['css'] = 'Css/recupMdp.css';
+            $page['css'] = 'Css/profil.css';
             $page['arg'] = 'Html/profil.php';
         }
 
@@ -453,8 +484,8 @@ function createArticle()
 {
     global $page;
     $page['title'] = 'écrire un article';
-    $page['class'] = 'VHtml';
-    $page['method'] = 'showHtml';
+    $page['class'] = 'VCreateArticle';
+    $page['method'] = 'showCreateArticle';
     $page['css'] = 'Css/createArticle.css';
     $page['arg'] = 'Html/createArticle.php';
 }
@@ -520,5 +551,15 @@ function downloadCVS()
 {
     $mDownloadCsv = new MDownloadCsv();
     $mDownloadCsv->download();
+}
+
+function genNL(){
+    if ($_GET['data']=='') {
+        header('Location: index.php');
+    } else {
+        $pdf = new MGenNewL();
+        $pdf->setDate($_GET);
+        $pdf->generate();
+    }
 }
 ?>

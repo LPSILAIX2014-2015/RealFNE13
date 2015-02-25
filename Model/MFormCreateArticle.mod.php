@@ -9,7 +9,7 @@ class MFormCreateArticle
     function __construct ($id = null) {
         //connection à la base
         $sql = new MDBase();
-        $state = $sql->prepare("SELECT * FROM post WHERE ID = :id;"); // requete à effectuer
+        $state = $sql->prepare("SELECT * FROM POST WHERE ID = :id;"); // requete à effectuer
         $state->bindValue('id', $id, PDO::PARAM_INT); //le :id de la requete n'a aucune valeur, on lui bind alors celle de
         $state->execute();                            //$id (parametre du contructeur). On éxécute ensuite la requête
         $report = $state->fetch(PDO::FETCH_ASSOC);    //On récupère le résultat sous forme de tableau dans la variable $report
@@ -20,9 +20,26 @@ class MFormCreateArticle
     }
     public function __destruct(){}
 
-    
-
     public function insertDB($data){
+
+        $temp = 0;
+
+        //Get all data from inputs in $option
+        $options = array(
+            "articleTitle"      => FILTER_SANITIZE_SPECIAL_CHARS,
+            "articleTheme"      => FILTER_VALIDATE_INT,
+            "eventPlace"        => FILTER_SANITIZE_SPECIAL_CHARS,
+            "startDate"         => FILTER_SANITIZE_SPECIAL_CHARS,
+            "duration"          => FILTER_VALIDATE_INT,
+            "inscription"       => FILTER_SANITIZE_SPECIAL_CHARS,
+            "textareaDecrypt"   => FILTER_SANITIZE_SPECIAL_CHARS,
+            "articleImage"      => FILTER_SANITIZE_SPECIAL_CHARS
+        );
+
+        // Fill data form with $otpion (we can get the data of all input by using $dataForm["nameinput"]
+        $dataForm = filter_input_array(INPUT_POST, $options);
+
+
 
         /**
         
@@ -67,18 +84,24 @@ class MFormCreateArticle
                         echo "Ce fichier à bien été placé";
 
                     }else{
-                        echo "L'upload du fichier à échoué";
-                        return;
+                        $errorType = "Err_UploadFail";
+                        $jsonarray = array("lastID" => $temp, "error" => $errorType);
+                        $jsonReturned = json_encode($jsonarray);
+                        return $jsonReturned;
                     }
 
                 }else{
-                    echo "L'image est trop volumineuse";
-                    return;
+                    $errorType = "Err_FileTooFat";
+                    $jsonarray = array("lastID" => $temp, "error" => $errorType);
+                    $jsonReturned = json_encode($jsonarray);
+                    return $jsonReturned;
                 }
 
             } else{
-                echo "Ce type de fichier n'est pas autorisé";
-                return;
+                $errorType = "Err_NotAnImage";
+                $jsonarray = array("lastID" => $temp, "error" => $errorType);
+                $jsonReturned = json_encode($jsonarray);
+                return $jsonReturned;
             }
         }
 
@@ -89,21 +112,6 @@ class MFormCreateArticle
         **/
 
         $sql = new MDBase();
-        //Get all data from inputs in $option
-        $options = array(
-            "articleTitle"      => FILTER_SANITIZE_SPECIAL_CHARS,
-            "articleTheme"      => FILTER_VALIDATE_INT,
-            "eventPlace"        => FILTER_SANITIZE_SPECIAL_CHARS,
-            "startDate"         => FILTER_SANITIZE_SPECIAL_CHARS,
-            "duration"          => FILTER_VALIDATE_INT,
-            "inscription"       => FILTER_SANITIZE_SPECIAL_CHARS,
-            "textareaDecrypt"   => FILTER_SANITIZE_SPECIAL_CHARS,
-            "articleImage"      => FILTER_SANITIZE_SPECIAL_CHARS
-        );
-
-        // Fill data form with $otpion (we can get the data of all input by using $dataForm["nameinput"]
-        $dataForm = filter_input_array(INPUT_POST, $options);
-
 
         /**
         Contrôle des champs
@@ -113,16 +121,31 @@ class MFormCreateArticle
         if(!$dataForm['duration']) $dataForm['duration'] = 0;
         if(!$dataForm['inscription']) $dataForm['inscription'] = 0;
         // arreter la fonction si l'ID de l'user, le titre ou le theme de l'article n'est pas renseigné.
-        if($_SESSION['ID_USER'] == null) return;
-        if(strlen($dataForm['articleTitle']) == 0) return;
-        if(strlen($dataForm['textareaDecrypt']) == 0) return;
+        if($_SESSION['ID_USER'] == null){
+            $errorType = "Err_UserNotLogged";
+            $jsonarray = array("lastID" => $temp, "error" => $errorType);
+            $jsonReturned = json_encode($jsonarray);
+            return $jsonReturned;
+        }
+        if(strlen($dataForm['articleTitle']) == 0){
+            $errorType = "Err_NoTittle";
+            $jsonarray = array("lastID" => $temp, "error" => $errorType);
+            $jsonReturned = json_encode($jsonarray);
+            return $jsonReturned;
+        } 
+        if(strlen($dataForm['textareaDecrypt']) <= 50){
+            $errorType = "Err_NoText";
+            $jsonarray = array("lastID" => $temp, "error" => $errorType);
+            $jsonReturned = json_encode($jsonarray);
+            return $jsonReturned;
+        } 
 
         /**
         Requete et Bind des values
         **/
 
         $sql->beginTransaction();
-        $state = $sql->prepare("INSERT INTO post (
+        $state = $sql->prepare("INSERT INTO POST (
             WRITER_ID,
             TITLE,
             THEME_ID,
@@ -155,7 +178,10 @@ class MFormCreateArticle
         //If the preparation went wrong, we rollBack (request canceled), and we return false
         if(!$state) {
             $sql->rollBack();
-            return false;
+            $errorType = "Err_QueryFail";
+            $jsonarray = array("lastID" => $temp, "error" => $errorType);
+            $jsonReturned = json_encode($jsonarray);
+            return $jsonReturned;
         }
 
 
@@ -184,8 +210,13 @@ class MFormCreateArticle
         //$temp return the ID of the last row inserted
         $sql->commit();
 
-        var_dump($temp);
-        return $temp;
+
+        (!isset($errorType)) ? $errorType = "EverythingOK" : $temp = 0;
+        $jsonarray = array("lastID" => $temp, "error" => $errorType);
+        $jsonReturned = json_encode($jsonarray);
+
+        //var_dump($jsonReturned);
+        return $jsonReturned;
     }
 
 }

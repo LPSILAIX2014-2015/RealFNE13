@@ -18,6 +18,11 @@
       {
           require_once('Class/'.$class.'.class.php');
       }
+
+      elseif ($class[0] == 'F')
+      {
+          require_once('FPDF/'.$class.'.php');
+      }
       return;
     } // __autoload($class)
 

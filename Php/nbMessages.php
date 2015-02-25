@@ -10,12 +10,11 @@ $pdo = new MDBase();
 $senderId = $_SESSION['ID_USER'];
 
 
-
-$requete7 = $pdo->prepare("SELECT ROLE as role from USER WHERE id = ?");
+$requete7 = $pdo->prepare("SELECT ROLE as role from USER WHERE ID = ?");
 $requete7 -> execute(array($senderId));
 $reqt7 = $requete7->fetch();
 
-$request7 = $pdo->prepare("SELECT association_id as assoc FROM USER where id = ?");
+$request7 = $pdo->prepare("SELECT ASSOCIATION_ID as assoc FROM USER where ID = ?");
 $request7 -> execute(array($senderId));
 $req7 = $request7->fetch();
 

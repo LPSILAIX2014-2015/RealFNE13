@@ -38,6 +38,20 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
     for($i = 0 ; $i < count($data_article) ; ++$i)
     {
 
+        if(strlen($data_article[$i]['CONTENT']) > 250) {
+            $contenuDecode = html_entity_decode($data_article[$i]['CONTENT']);
+
+            $contenuDecode = str_replace('<br />', '[SLaaa]', $contenuDecode);
+            $contenuDecode = str_replace('</p>', '[SLaaa]', $contenuDecode);
+            $contenuTrunc = substr(strip_tags($contenuDecode), 0, 250);
+            $contenuFormate = str_replace('[SLaaa]', '<br />', $contenuTrunc);
+
+
+            $description = $contenuFormate;
+        } else {
+            $description = html_entity_decode($data_article[$i]['CONTENT']);
+        }
+
             if($data_article[$i]['STATUS'] == 0)
             {
                 if(strlen($data_article[$i]['CONTENT']) > 250)
@@ -62,7 +76,7 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
                 . ", le ". $data_article[$i]['PDATE']
                 . "</p>";
             echo "<p class='description'>"
-                . $data_article[$i]['DESCRIPTION']
+                . $description
                 . "</p>";
             echo "</div>";
 
@@ -92,7 +106,7 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
                 . ", le ". $data_article[$i]['PDATE']
                 . "</p>";
             echo "<p class='description'>"
-                . $data_article[$i]['DESCRIPTION']
+                . $description
                 . "</p>";
             echo "</div>";
 
@@ -164,7 +178,7 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
                 . ", le ". $data_article[$i]['PDATE']
                 . "</p>";
             echo "<p class='description'>"
-                . $data_article[$i]['DESCRIPTION']
+                . $description
                 . "</p>";
             echo "</div>";
 
@@ -192,7 +206,7 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
                 . ", le ". $data_article[$i]['PDATE']
                 . "</p>";
             echo "<p class='description'>"
-                . $data_article[$i]['DESCRIPTION']
+                . $description
                 . "</p>";
             echo "</div>";
 
@@ -262,7 +276,7 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
                 . ", le ". $data_article[$i]['PDATE']
                 . "</p>";
             echo "<p class='description'>"
-                . $data_article[$i]['DESCRIPTION']
+                . $description
                 . "</p>";
             echo "</div>";
 
@@ -290,7 +304,7 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
                 . ", le ". $data_article[$i]['PDATE']
                 . "</p>";
             echo "<p class='description'>"
-                . $data_article[$i]['DESCRIPTION']
+                . $description
                 . "</p>";
             echo "</div>";
 

@@ -1,7 +1,9 @@
 $(document).ready(function() {
 
+
     $('.lienarticle').hide();
 
+    sortAssocArticle();
 	//When an article is clicked, redirect to showArticle
 	$('.lienarticle').on('click', function() {
 
@@ -37,7 +39,8 @@ jQuery(function($) {
     /////////////////////////////////////////////
     //Set the number of item displayed par page//
     /////////////////////////////////////////////
-    var perPage = 20;
+
+    var perPage = 15;
 
 
     items.slice(perPage).hide();
