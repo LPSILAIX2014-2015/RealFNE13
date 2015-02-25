@@ -170,6 +170,7 @@
                 echo '<a class="btn btn-danger" href="index.php?EX=deleteAsso&id='.$row['ID'].'">Supprimer</a>';
                 echo '</td>';
                 echo '</tr>';
+                ++$i;
             }
 
         }else {
@@ -189,6 +190,7 @@
                     echo '<a class="btn btn-danger" href="index.php?EX=deleteAsso&id='.$row['ID'].'">Supprimer</a>';
                     echo '</td>';
                     echo '</tr>';
+                    ++$i;
 
                 }
 
