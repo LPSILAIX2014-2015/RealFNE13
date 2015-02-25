@@ -417,7 +417,8 @@ function deleteAMember()
             $page['title'] = 'Mon profil';
             $page['class'] = 'VHtml';
             $page['method'] = 'showHtml';
-            $page['css'] = 'Css/recupMdp.css';
+            //$page['css'] = 'Css/recupMdp.css';
+            $page['css'] = 'Css/profil.css';
             $page['arg'] = 'Html/profil.php';
         }
 
@@ -553,8 +554,12 @@ function downloadCVS()
 }
 
 function genNL(){
-    $pdf = new MGenNewL();
-    $pdf->setDate($_GET);
-    $pdf->generate();
+    if ($_GET['data']=='') {
+        header('Location: index.php');
+    } else {
+        $pdf = new MGenNewL();
+        $pdf->setDate($_GET);
+        $pdf->generate();
+    }
 }
 ?>

@@ -1,8 +1,13 @@
 .table{
-	width: 540px;
-	table-layout:fixed;
+    width: 540px;
+    table-layout:fixed;
 }
-
+#profile.active {
+    display:block;
+    background:linear-gradient(to bottom,rgba(255,255,255,0.8),rgba(75,201,226,0.8));
+    border:1px solid #337AB7;
+    border-radius:10px;
+}
 .tr-even{
 	background-color: #DBDBDB;
 }
