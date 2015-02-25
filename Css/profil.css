@@ -57,7 +57,8 @@
     border:1px solid #337AB7;
     border-radius:10px;
     text-align:center;
-    padding:5px;
+    padding:15px;
+    box-shadow:2px 2px 1px rgba(10,45,95,0.6);
 }
 .profilePresentation label {
     display:block;
