@@ -1,5 +1,5 @@
 $(document).ready(function(){               
-    $('#photo').change(function()
+    $(':file').change(function()
     {
         var file = $("#photo")[0].files[0];
         var fileName = file.name;

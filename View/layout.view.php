@@ -17,6 +17,9 @@ $vHtml = new VHtml();
     if (isset($page['css'])) {
         echo '<link rel="stylesheet" type="text/css" href="'.$page['css'].'" />' ;
     }
+    if (isset($page['js'])) {
+        echo '<link rel="javascript" type="text/javascript" href="'.$page['js'].'" />' ;
+    }
     ?>
     <link rel="icon" type="image/png" href="Img/favicon.png" />
     <script src="Lib/jquery.min.js"></script>
