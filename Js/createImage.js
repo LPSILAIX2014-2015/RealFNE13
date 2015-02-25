@@ -26,7 +26,7 @@ $(document).ready(function(){
     });
 });
 
-function redirect () {
+function redirectCreate () {
     location.href='Php/update-mail.php?email='+'<?php echo $email?>';
 }
 

@@ -114,7 +114,7 @@ foreach($themesList as $line){
                 </div>
             </div>
             <div class="form-actions">
-                <button type="submit" class="btn btn-success">Terminer son inscription</button>
+                <button type="submit" class="btn btn-success" onsubmit="redirectCreate()">Terminer son inscription</button>
             </div>
             <div id="chI"></div><!-- id="error"--><br>
         </form>
