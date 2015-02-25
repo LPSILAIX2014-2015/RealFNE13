@@ -43,6 +43,7 @@ class MUser {
         //$this->reset = $user['RESET']; // ToDo a modif
         $this->association_id = $user['ASSOCIATION_ID'];
         $this->theme_interest_id = $user['THEME_INTEREST_ID'];
+        $this->theme_id = $user['THEME_ID'];
         $this->theme_details = $user['THEME_DETAILS'];
         $this->role = $user['ROLE'];
         $this->name = $user['NAME'];

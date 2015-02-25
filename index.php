@@ -31,6 +31,7 @@ switch($EX)
     case 'maillog'   : maillog();    exit;
     case 'chImg'     : chImg();    exit; // Changer l'image du profil
     case 'recup'     : recuperation(); break; // Presentation de la vue
+    case 'genNL'     : genNL();    exit; // Newsletter
     case 'deconnexion' :
         if (isset($_POST['login']) && isset($_POST['password']))
         {
@@ -243,6 +244,7 @@ function deleteAMember()
 }
 
     function recuperation() // Presentation du formilaire principal pour envoyer le mail
+
     {
         global $page, $user;
         if (isset($user)) { // Validation pour l'envoi du mail
@@ -308,11 +310,11 @@ function deleteAMember()
     function chImg()
     {
         global $user;
-        if (!isset($user)) { // Validation pour l'envoi du mail 
+        if (!isset($user)) { // Validation pour l'envoi du mail
             echo "<script>location.href='index.php';</script>";
         } else {
-            //  Nous vérifions la requete AJAX 
-            if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') 
+            //  Nous vérifions la requete AJAX
+            if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
             {
                 $file = $_FILES['sel_img']['name']; // Nous obtenons le name du fichier
                 if(!is_dir("Photos/")){ // Si le dossier n'existe pas, nous créons le dossier
@@ -324,9 +326,9 @@ function deleteAMember()
                    unlink($GLOBALS['user']->getPhotopath());
                    $dbchI = new MUser($GLOBALS['user']->getId());
                    $dbchI->setPhotopath("Photos/".$file);
-                }                
+                }
             }else{
-                throw new Exception("Error Processing Request", 1);   
+                throw new Exception("Error Processing Request", 1);
             }
         }
     }
@@ -548,5 +550,11 @@ function downloadCVS()
 {
     $mDownloadCsv = new MDownloadCsv();
     $mDownloadCsv->download();
+}
+
+function genNL(){
+    $pdf = new MGenNewL();
+    $pdf->setDate($_GET);
+    $pdf->generate();
 }
 ?>

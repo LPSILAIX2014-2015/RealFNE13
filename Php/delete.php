@@ -13,6 +13,7 @@
 		$sql = "DELETE FROM USER  WHERE ID = ?";
 		$q = $pdo->prepare($sql);
 		$q->execute(array($id));
-        header("Location: ./index.php?EX=manageMembers");
+
+		header("Location: ./index.php?EX=manageMembers");
 	}
 ?>

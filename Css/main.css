@@ -53,6 +53,9 @@ a {
 a:hover {
     text-decoration:none;
 }
+a:visited{
+    color:#0c5091;
+}
 img {
     border:0;
     vertical-align:middle;
@@ -78,6 +81,14 @@ textarea {
     cursor:url('../Img/cursor17.png'), auto ;
 }
 h1 {
+    font-family:'Quicksand',Verdana,sans-serif;
+    font-size:15pt;
+    color:#0c5091;
+    text-shadow: 1px 2px #a3cfea;
+    padding:0;
+    margin:2px;
+}
+h3 {
     font-family:'Quicksand',Verdana,sans-serif;
     font-size:13pt;
     color:#0c5091;
@@ -125,8 +136,7 @@ table {
     right:0;
     height:70px;
     background-color: #4bc9e2;
-    background:url('../Img/headerbg.png'),-webkit-linear-gradient(top left, rgba(51,122,183,0.7),rgba(75,201,226,1));
-    background:url('../Img/headerbg.png'),-o-linear-gradient(bottom right, rgba(51,122,183,0.7),rgba(75,201,226,1));
+    background:url('../Img/headerbg.png'),rgba(51,122,183,0.7);
     background:url('../Img/headerbg.png'),linear-gradient(to bottom right, rgba(51,122,183,0.7),rgba(75,201,226,1));
     background-repeat:no-repeat;
     background-position:bottom right;
@@ -203,7 +213,7 @@ table {
     display:block;
     position:fixed;
     right:120px;
-    top:38px;
+    top:37px;
     width:100px;
     height:30px;
     border:1px solid #FFF;
@@ -233,7 +243,7 @@ table {
     display:block;
     position:fixed;
     right:220px;
-    top:38px;
+    top:37px;
     width:100px;
     height:30px;
     border:1px solid #FFF;
@@ -267,7 +277,7 @@ table {
     color:#a3cfea;
     font-weight:bold;
     right:0;
-    top:38px;
+    top:37px;
     border:1px solid #FFF;
     font-family: 'Cabin', sans-serif;
     font-size:10pt;
@@ -276,11 +286,18 @@ table {
     vertical-align:middle;
     cursor:url('../Img/cursor15.png'), auto ;
     z-index:20;
+    border-radius: 0 20px 0 0;
 }
 .deconnexion:hover {
     background-color:#FFF;
     color:#0a2d5f;
     border:1px solid #0a2d5f;
+}
+.deconnexion:visited {
+    color:#a3cfea;
+}
+.deconnexion:hover:visited {
+    color:#0a2d5f;
 }
 .infosperso form {
     display:block;
@@ -342,7 +359,7 @@ nav li {
 }
 nav li a {
     display:inline-block;
-    width:150px;
+    width:140px;
     background-color:#FFFFFF;
     color:#0a2d5f;
     font-weight:bold;
