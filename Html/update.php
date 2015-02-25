@@ -127,14 +127,14 @@
                         <div class="control-group">
                             <label class="control-label">Photo</label>
                             <div class="controls">
-                                <input type="file" id="newphoto" name="PHOTO" class="form-control" required="required">
+                                <input type="file" id="newphoto" name="PHOTO" class="form-control">
                             </div>
                         </div>
-                        <div id="chI"></div><!-- id="error"--><br>
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-success">Edit</button>
                           <a class="btn" href="./index.php?EX=manageMembers">Retour</a>
 						</div>
+                        <div id="chI"></div><!-- id="error"--><br>
 					</form>
 
 					<form class="form-horizontal" action="index.php?EX=updateRole&id=<?php echo $id?>" method="post">
