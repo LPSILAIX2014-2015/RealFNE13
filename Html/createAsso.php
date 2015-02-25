@@ -21,10 +21,10 @@
      if(isset($_GET['error'])) {
          $erreur = $_GET['error'];
      }
-   
+
     ?>
     <div class="container">
-    
+
     			<div class="span10 offset1">
     				<div class="row">
 		    			<h3>Créer une association</h3>
@@ -34,7 +34,7 @@
 					  <div class="control-group">
 					    <label class="control-label">Name</label>
 					    <div class="controls">
-					      	<input name="NAME" type="text" pattern="^[a-zA-Z \.\,\+\-]*$" placeholder="Nom" value="<?php echo !empty($name)?$name:'';?>">
+					      	<input name="NAME" type="text" pattern="^[a-zA-Z \.\,\+\-]*$" placeholder="Nom" value="<?php echo !empty($name)?$name:'';?>" required>
 					      	<span>(Alphabétique)</span>
 					    </div>
 					  </div>
@@ -42,7 +42,7 @@
 					    <label class="control-label">Territoire</label>
 					    </br>
 					    <select class="controls" name="TERRITORY" type="text">
-					      	<?php 
+					      	<?php
 					    		foreach ($territories as $key => $territory) {
 					    			if($territory['ID']!=$territoryID)
 					    				echo('<option value ='.$territory['ID'].'>'.$territory['NAME'].'</option>');
@@ -57,7 +57,7 @@
 					    <label class="control-label">Theme</label>
 					    </br>
 					    <select class="controls" name="THEME" type="text">
-					      	<?php 
+					      	<?php
 					    		foreach ($themes as $key => $theme) {
 					    				echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
 					    			}
@@ -70,5 +70,5 @@
 						</div>
 					</form>
 				</div>
-				
+
     </div> <!-- /container -->

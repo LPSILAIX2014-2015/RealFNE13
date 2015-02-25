@@ -61,6 +61,7 @@ switch($EX)
     case 'deleteAsso'  : deleteAsso();      break;
     case 'profil'    : profil(); break; // Affichage du profil
     case 'legal' : legal(); break;
+    case 'validArticle' : validArticle(); break;
     case 'updateMail' : updateMail(); break;
     case 'downloadCVS' : downloadCVS(); break;
     default : check($EX);
@@ -207,6 +208,15 @@ function updateMember()
     $page['arg'] = 'Html/update.php';
 }
 
+function updateAMember()
+{
+    global $page;
+    $page['title'] = 'Modification d\'un membre';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Php/update.php';
+}
+
 function deleteMember()
 {
     global $page;
@@ -215,6 +225,16 @@ function deleteMember()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/delete.php';
 }
+
+function deleteAMember()
+{
+    global $page;
+    $page['title'] = 'Supression d\'un membre';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Php/delete.php';
+}
+
     function recuperation() // Presentation du formilaire principal pour envoyer le mail
     {
         global $page, $user;
@@ -497,6 +517,17 @@ function endMessages()
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/finEnvoi.php';
 }
+
+function validArticle()
+{
+    global $page;
+    $page['title'] = "Validation d'article ";
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/validArticle.php';
+    $page['css'] = 'Css/showArticle.css';
+}
+
 function updateMail()
 {
     global $page;

@@ -3,7 +3,7 @@
 	$pdo = new MDBase();
 	if ( !empty($_POST)) {
         $id=$_POST['ID'];
-	$name = $_POST['NAME'];
+				$name = $_POST['NAME'];
         $surname = $_POST['SURNAME'];
         $email = $_POST['MAIL'];
 		$sql = "INSERT INTO USER (NAME,SURNAME,MAIL,ASSOCIATION_ID, THEME_ID, THEME_INTEREST_ID, ROLE) values(?, ?, ?, ?, ?, ?, ?)";
