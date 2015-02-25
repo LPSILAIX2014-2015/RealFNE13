@@ -1,5 +1,5 @@
 <div class="infosperso">
-	<img src="<?PHP echo ($GLOBALS['user']->getPhotoPath()); ?>" class="photo">
+	<img src="<?= $GLOBALS['user']->getPhotopath(); ?>" class="photo">
 	<div class="nom">
 		<?PHP echo ($GLOBALS['user']->getSurname().' '.$GLOBALS['user']->getName()); ?>
 	</div>
