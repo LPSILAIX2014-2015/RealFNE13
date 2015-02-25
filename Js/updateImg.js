@@ -18,14 +18,39 @@ $(document).ready(function(){
         rules:{
             newphoto:{required:true}
         },
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('success').addClass('error');
+        },
         success: function(element) {
-            setTimeout('redirect()',1800);
-        }
+            element.text('OK!').addClass('valid').closest('.control-group').removeClass('error').addClass('success');
+        },
+        submitHandler: function(form){
+            //Donées du formulaire
+            var formData = new FormData($("#updateMemberForm"));
+            var message = "";
 
+            $.ajax({
+                url: 'index.php?EX=updateAMember&id='+'<?php echo $id?>',
+                type: 'POST',
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(data){
+                    message = $("<p class='bg-success'>L\'image a été téléchargé avec succès.</p>");
+                    showMessage(message);
+                    setTimeout('redirect()',1100);
+                },
+                error: function(){
+                    message = $("<p class='bg-danger'>Une erreur est survenue pendant le téléchargement de l\'image</p>");
+                    showMessage(message);
+                }
+            });
+        }
     });
 });
 
-function redirectUpdate () {
+function redirect() {
     location.href='index.php?EX=updateAMember&id='+'<?php echo $id?>';
 }
 
