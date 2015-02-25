@@ -23,8 +23,8 @@
         $profession = $_POST['PROFESSION'];
         $profession2 = $_POST['PROFESSION2'];
         $content_dir = '../Photos/'; // dossier où sera déplacé le fichier
-        $tmp_file = $_FILES['photo']['tmp_name'];
-        $name_file = $_FILES['photo']['name'];
+        $tmp_file = $_FILES['sel_img']['tmp_name'];
+        $name_file = $_FILES['sel_img']['name'];
         move_uploaded_file($tmp_file, $content_dir . $name_file);
         $photo_dir = $content_dir . $name_file;
         $pdo = new MDBase();

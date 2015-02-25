@@ -44,7 +44,7 @@
 		    			<h3>Modifier un utilisateur</h3>
 		    		</div>
 
-	    			<form class="form-horizontal" id="updateMemberForm" method="post">
+	    			<form class="form-horizontal" id="updateMemberForm" action="index.php?EX=updateAMember&id='+'<?php echo $id?>" method="post">
 					  <div class="control-group">
 					    <label class="control-label">Nom</label>
 					    <div class="controls">
