@@ -415,7 +415,8 @@ function deleteAMember()
             $page['title'] = 'Mon profil';
             $page['class'] = 'VHtml';
             $page['method'] = 'showHtml';
-            $page['css'] = 'Css/recupMdp.css';
+            //$page['css'] = 'Css/recupMdp.css';
+            $page['css'] = 'Css/profil.css';
             $page['arg'] = 'Html/profil.php';
         }
 
