@@ -15,18 +15,9 @@ $(document).ready(function(){
             showMessage(message);
         }
     });
-    $('#createMemberForm').validate({
-        rules:{
-            photo:{required:true}
-        },
-        success: function(element) {
-            setTimeout('redirect()',1800);
-        }
-
-    });
 });
 
-function redirect () {
+function redirectCreate () {
     location.href='Php/update-mail.php?email='+'<?php echo $email?>';
 }
 

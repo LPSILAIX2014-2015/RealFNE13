@@ -14,18 +14,9 @@ $(document).ready(function(){
             showMessage(message);
         }
     });
-    $('#updateMemberForm').validate({
-        rules:{
-            newphoto:{required:true}
-        },
-        success: function(element) {
-            setTimeout('redirect()',1800);
-        }
-
-    });
 });
 
-function redirect () {
+function redirectUpdate () {
     location.href='index.php?EX=updateAMember&id='+'<?php echo $id?>';
 }
 
