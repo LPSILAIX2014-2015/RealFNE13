@@ -1,13 +1,15 @@
+/**
+ * Controlateur de changement d'image
+ * @author Cesar Hernandez <[Mex]>
+ */
 $('input[id=lefile]').change(function() {
 	$('#photoCover').val($(this).val());
 });
 
 $(document).ready(function(){
- 
+
     $("#chI").hide();
-    //queremos que esta variable sea global
     var fileExtension = "";
-    //función que observa los cambios del campo file y obtiene información
     $(':file').change(function()
     {
         var file = $("#sel_img")[0].files[0];
@@ -16,7 +18,7 @@ $(document).ready(function(){
         if (isImage(fileExtension)) {
         	var fileSize = file.size;
 	        var fileType = file.type;
-	        showMessage("<p class='bg-warning'>Fichier à télécharger : "+fileName+", peso total: "+fileSize+" bytes.</p>");
+	        showMessage("<p class='bg-warning'>Fichier à télécharger : "+fileName+", poid total: "+fileSize+" octets.</p>");
 	        $('#sel_img-error').remove();
         } else{
         	document.getElementById('frmCHIMG').reset();
@@ -38,10 +40,10 @@ $(document).ready(function(){
         submitHandler: function(form){
         	//Donées du formulaire
 	        var formData = new FormData($("#frmCHIMG")[0]);
-	        var message = ""; 
+	        var message = "";
 
 	        $.ajax({
-	            url: 'index.php?EX=chImg',  
+	            url: 'index.php?EX=chImg',
 	            type: 'POST',
 	            data: formData,
 	            cache: false,
@@ -49,13 +51,13 @@ $(document).ready(function(){
 	            processData: false,
 	            beforeSend: function(){
 	                message = $("<p class='bg-danger'>Transfert en cours, attendez s\'il vous plaît ...</p>");
-	                showMessage(message)        
+	                showMessage(message)
 	            },
 	            success: function(data){
 	                message = $("<p class='bg-success'>L\'image a été téléchargé avec succès.</p>");
 	                showMessage(message);
 	                document.getElementById('frmCHIMG').reset();
-	                setTimeout('redirect()',1800);
+	                setTimeout('redirect()',1100);
 	            },
 	            error: function(){
 	                message = $("<p class='bg-danger'>Une erreur est survenue pendant le téléchargement de l\'image</p>");
@@ -76,7 +78,7 @@ function showMessage(message){
 // Verification d'extension de l'image
 function isImage(extension)
 {
-    switch(extension.toLowerCase()) 
+    switch(extension.toLowerCase())
     {
         case 'jpg': case 'gif': case 'png': case 'jpeg':
             return true;
