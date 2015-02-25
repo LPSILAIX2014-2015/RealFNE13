@@ -491,8 +491,12 @@ function downloadCVS()
     $mDownloadCsv->download();
 }
 function genNL(){
-    $pdf = new MGenNewL();
-    $pdf->setDate($_GET);
-    $pdf->generate();
+    if ($_GET['data']=='') {
+        header('Location: index.php');
+    } else {
+        $pdf = new MGenNewL();
+        $pdf->setDate($_GET);
+        $pdf->generate();
+    }
 }
 ?>
