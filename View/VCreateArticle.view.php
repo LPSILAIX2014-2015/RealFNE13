@@ -38,12 +38,8 @@ class VCreateArticle
             break;
           case 'Err_NoText':
             global $customAlert;
-            array_push($customAlert, "Erreur : Veuillez entrer du texte dans votre article.");
+            array_push($customAlert, "Erreur : Pour limiter l'abus de création d'article, veuillez saisir plus de 50 caractères dans le corps de votre article.");
             break;
-      }
-      if(htmlspecialchars($_GET['state']) == 'Err_NoTittle')
-      {
-        
       }
     }  	
 

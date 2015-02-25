@@ -14,7 +14,6 @@ function getCommentaire(){
 		dataType: 'json',
 		data: {idPost: idArticle},
 		success: function(response) {
-			console.log(response);
 
 			for(i in response.com){
 
@@ -45,7 +44,6 @@ jQuery(function($) {
     /////////////////////////////////////////////
 
     var perPage = 10;
-
 
     items.slice(perPage).hide();
     // now setup pagination
