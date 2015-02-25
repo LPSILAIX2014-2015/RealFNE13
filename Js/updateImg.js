@@ -14,6 +14,15 @@ $(document).ready(function(){
             showMessage(message);
         }
     });
+    $('#updateMemberForm').validate({
+        rules:{
+            newphoto:{required:true}
+        },
+        success: function(element) {
+            setTimeout('redirect()',1800);
+        }
+
+    });
 });
 
 function redirectUpdate () {
