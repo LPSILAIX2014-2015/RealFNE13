@@ -29,6 +29,10 @@ $vHtml = new VHtml();
     <script src="./Lib/simplePagination.js"></script>
     <script src="./Js/changeImage.js"></script>
     <script src="./Js/recMP.js"></script>
+    <link rel='stylesheet' href='./Lib/fullcalendar/fullcalendar.css' />
+    <script src='./Lib/moments.js'></script>
+    <script src='./Lib/fullcalendar/fullcalendar.js'></script>
+    <script src='./Lib/fullcalendar/lang/fr.js'></script>
 </head>
 <body>
     <div class="bandeau">
