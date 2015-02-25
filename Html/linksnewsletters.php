@@ -5,7 +5,7 @@
  * @author [Cesar Hernandez] 
  */
 	$sql = new MDBase();
-	$query = "SELECT DISTINCT SUBSTRING(PDATE,1,7)DATE FROM WHERE STATUS=1 POST ORDER BY(DATE) DESC";
+	$query = "SELECT DISTINCT SUBSTRING(PDATE,1,7)DATE FROM POST WHERE STATUS=1 ORDER BY(DATE) DESC";
 
 	$result = $sql->prepare($query);
 
