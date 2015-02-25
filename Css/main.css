@@ -92,6 +92,7 @@ input:focus, textarea:focus, select:focus {
 }
 textarea {
     cursor:url('../Img/cursor17.png'), auto ;
+    width:95%;
 }
 h1 {
     font-family:'Quicksand',Verdana,sans-serif;

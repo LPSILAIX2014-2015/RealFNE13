@@ -1,4 +1,3 @@
-
 <?PHP
 global $user ;
 ?>
