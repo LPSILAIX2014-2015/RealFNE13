@@ -8,7 +8,7 @@ $pdo = new MDBase();
 
 $request10 = $pdo -> query("select NAME as categories from MESCAT");
 $row = $request10->fetchAll();
-$var = 1;
+$var = 0;
 $taille = count($row);
 echo "<select id='category'>";
 if (isset ($_SESSION["category"]))
@@ -16,13 +16,14 @@ if (isset ($_SESSION["category"]))
 	echo "<option value='0'>Pas de catégorie sélectionnée</option>";
 	while ($var<$taille)
 	{
-		if ($var == $_SESSION["category"])
+		$a = $var+1;
+		if ($var == $_SESSION["category"]-1)
 		{
-			echo "<option value='".$var."' selected>".$row[$var]['categories']."</option>";
+			echo "<option value='".$a."' selected>".$row[$var]['categories']."</option>";
 		}
 		else
 		{
-			echo "<option value='".$var."'>".$row[$var]['categories']."</option>";	
+			echo "<option value='".$a."'>".$row[$var]['categories']."</option>";	
 		}
 		$var = $var+1;
 	}
@@ -32,7 +33,8 @@ else
 	echo "<option value='0'>Pas de catégorie sélectionnée</option>";
 	while($var<$taille)
 	{
-		echo "<option value='".$var."'>".$row[$var]['categories']."</option>";
+		$a = $var+1;
+		echo "<option value='".$a."'>".$row[$var]['categories']."</option>";
 		$var = $var+1;
 	}
 }
