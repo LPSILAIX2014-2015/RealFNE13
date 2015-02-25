@@ -127,7 +127,7 @@
                         <div class="control-group">
                             <label class="control-label">Photo</label>
                             <div class="controls">
-                                <input type="file" id="newphoto" name="PHOTO" class="form-control" required="required">
+                                <input type="file" id="newphoto" name="PHOTO" class="form-control">
                             </div>
                         </div>
                         <div id="chI"></div><!-- id="error"--><br>

@@ -159,7 +159,7 @@
             }
 
             foreach ($pdo->query($sql) as $row) {
-                echo '<tr>';
+                echo ($i%2==0)?'<tr class="tr-even">':'<tr>';
                 echo '<td>'. $row['NAME'] . '</td>';
                 echo '<td>'.(new MTheme($row['THEME_ID']))->getName().'</td>';
                 echo '<td>'.(new MTerritory($row['TERRITORY_ID']))->getName().'</td>';
@@ -178,7 +178,7 @@
             if(count($sql) > 0) {
 
                 foreach ($pdo->query($sql) as $row) {
-                    echo '<tr>';
+                    echo ($i%2==0)?'<tr class="tr-even">':'<tr>';
                     echo '<td>'. $row['NAME'] . '</td>';
                     echo '<td>'.(new MTheme($row['THEME_ID']))->getName().'</td>';
                     echo '<td>'.(new MTerritory($row['TERRITORY_ID']))->getName().'</td>';
