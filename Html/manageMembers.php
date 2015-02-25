@@ -240,13 +240,14 @@
                 }else {
                     $sql = 'SELECT * FROM USER order by NAME ASC';
                 }
+                $i=0;
                 foreach ($pdo->query($sql) as $row) {
                     array_push($dataCSV, $row);
                     $img = null;
                     if($row['PHOTOPATH']) {
                         $img = $row['PHOTOPATH'];
                     }
-                    echo '<tr>';
+                    echo ($i%2==0)?'<tr class="tr-even">':'<tr>';
                     echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
                     echo '<td>'.(new MAssoc($row['ASSOCIATION_ID']))->getName(). '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
@@ -284,6 +285,7 @@
                     echo '<a class="btn btn-danger" href="index.php?EX=deleteMember&id='.$row['ID'].'">Supprimer</a>';
                     echo '</td>';
                     echo '</tr>';
+                    ++$i;
                 }
             }else {
                 if(isset($assoc)){
@@ -298,7 +300,7 @@
                         if($row['PHOTOPATH']) {
                             $img = $row['PHOTOPATH'];
                         }
-                        echo '<tr>';
+                        echo ($i%2==0)?'<tr class="tr-even">':'<tr>';
                         echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
                         echo '<td>'. (new MAssoc($row['ASSOCIATION_ID']))->getName()   . '</td>';
                         echo '<td>'. $row['PROFESSION'] . '</td>';
@@ -337,6 +339,7 @@
                         echo '<a class="btn btn-danger" href="index.php?EX=deleteMember&id='.$row['ID'].'">Supprimer</a>';
                         echo '</td>';
                         echo '</tr>';
+                        ++$i;
                     }
                 }
             }

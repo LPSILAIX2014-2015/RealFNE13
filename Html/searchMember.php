@@ -178,14 +178,14 @@ foreach($themesList as $line){
 <div class="row">
 
 
-    <table class="table table-striped table-bordered">
+    <table class="table">
         <thead>
             <tr>
                 <th>Nom</th>
                 <th>Association</th>
                 <th>Profession</th>
                 <th>Action
-                    <label id="btn1" class="btn">envoyer</label>
+                    <!-- <label id="btn1" class="btn">envoyer</label> -->
                 </th>
             </tr>
         </thead>
@@ -224,19 +224,18 @@ foreach($themesList as $line){
                     $params[] = $_POST['THEME'];
                 }
                 $where = " WHERE ".implode($conditions,' AND ');
-                $surnom = $_POST['SURNAME'];
                 if(count($conditions) > 0) {
                     $sql = 'SELECT * FROM USER'. $where;
                 }else {
                     $sql = 'SELECT * FROM USER order by NAME ASC';
                 }
-
+                $i=0;
                 foreach ($pdo->query($sql) as $row) {
                     $img = null;
                     if($row['PHOTOPATH']) {
                         $img = $row['PHOTOPATH'];
                     }
-                    echo '<tr>';
+                    echo ($i%2==0)?'<tr class="tr-even">':'<tr>';
                     echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
                     echo '<td>'.(new MAssoc($row['ASSOCIATION_ID']))->getName(). '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
@@ -275,6 +274,7 @@ foreach($themesList as $line){
                 //echo '<input type="checkbox" name="option1[]" value='.$row['MAIL'].'>';
                 echo '</td>';
                 echo '</tr>';
+                ++$i;
             }
         }else {
 
@@ -291,7 +291,7 @@ foreach($themesList as $line){
                     if($row['PHOTOPATH']) {
                         $img = $row['PHOTOPATH'];
                     }
-                    echo '<tr>';
+                    echo ($i%2==0)?'<tr class="tr-even">':'<tr>';
                     echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
                     echo '<td>'. (new MAssoc($row['ASSOCIATION_ID']))->getName(). '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
@@ -330,7 +330,7 @@ foreach($themesList as $line){
 
                         echo '</td>';
                         echo '</tr>';
-
+                        ++$i;
                     }
 
                 }
