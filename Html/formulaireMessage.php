@@ -47,7 +47,7 @@
         </p>
 
         <p>
-            <label for="message">Message :</label>
+            <label for="message">Message :</label><br/>
 			<?php
 			if (isset($_SESSION['content']))
 			{
