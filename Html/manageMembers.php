@@ -1,6 +1,6 @@
 <?php
     if(!(isset($_SESSION['ROLE'])) || (($_SESSION['ROLE'] == 'MEMBRE')||($_SESSION['ROLE'] == 'VALIDATOR'))){
-        header("Location: ./index.php");   
+        header("Location: ./index.php");
     }
     else if($_SESSION['ROLE']=='ADMIN'){
         $assoc=(new MUser($_SESSION['ID_USER']))->getAssociation();
@@ -106,14 +106,14 @@
         <div class="control-group">
             <label class="control-label">Nom de famille</label>
             <div class="controls">
-                <input name="SURNAME" id="surname" type="text"  placeholder="Nom de famille" pattern="^[a-zA-Z \.\,\+\-]*$" value="">
+                <input name="SURNAME" id="surname" type="text"  placeholder="Nom de famille" pattern="[^'\x22\;\.]+" value="">
                 <span>(Alphabétique)</span>
             </div>
         </div>
         <div class="control-group">
             <label class="control-label">Pr&eacute;nom</label>
             <div class="controls">
-                <input name="NAME" id="name" type="text"  placeholder="Prenom" value="">
+                <input name="NAME" id="name" type="text"  placeholder="Prenom" pattern="[^'\x22\;\.]+" value="">
 
             </div>
         </div>
@@ -121,7 +121,7 @@
             <label class="control-label">R&ocirc;le</label>
             </br>
             <select class="controls" name="ROLE" type="text">
-                    <?php 
+                    <?php
                         /*foreach ($roles as $key => $role) {
                             echo('<option value ='.$role['ID'].'>'.$role['NAME'].'</option>');
                         }*/
@@ -163,7 +163,7 @@
             <label class="control-label">Th&egrave;me</label>
             </br>
             <select class="controls" name="THEME" type="text">
-                    <?php 
+                    <?php
                         echo('<option></option>');
                         foreach ($themes as $key => $theme) {
                             echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
@@ -215,7 +215,7 @@
                     $params[] = $_POST['CP'];
                 }
                 if($_POST['PROFESSION']) {
-                    $conditions[] = "PROFESSION = '". $_POST['PROFESSION']. "'";
+                    $conditions[] = "PROFESSION LIKE '%". $_POST['PROFESSION']. "%'";
                     $params[] = $_POST['PROFESSION'];
                 }
                 if(isset($assoc)) {
@@ -250,14 +250,14 @@
                     echo '<td width=250>';
                     echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
                     echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
-            
-            <div id="profile" class="active" style="display: block;"> 
-                    <!-- About section -->
-                    <div class="about">
-                        <input type="hidden" value="'.$img.'">
+
+            <div id="profile" class="active" style="display: block;">
+                 	<!-- About section -->
+                	<div class="about">
+                    	<input type="hidden" value="'.$img.'">
                     </div>
                     <!-- /About section -->
-                     
+
                     <!-- Personal info section -->
                     <ul class="personal-info">
             <li><label>Name</label><span>'.$row['NAME'].'</span></li>
@@ -269,11 +269,11 @@
                         <li><label>Thème</label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
                         <li><label>Thème Interest</label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
                         <li><label>Profession</label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
-                        
+
                     </ul>
                     <!-- /Personal info section -->
                 </div>
-            
+
         </div>';
                     echo '&nbsp;';
                     echo '<a class="btn btn-success" href="index.php?EX=updateMember&id='.$row['ID'].'">Edit</a>';
@@ -302,30 +302,30 @@
                         echo '<td width=250>';
                         echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
                         echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
-            
+
             <div id="profile" class="active" style="display: block;">
                     <!-- About section -->
                     <div class="about">
                         <input type="hidden" value="'.$img.'">
                     </div>
                     <!-- /About section -->
-                     
+
                     <!-- Personal info section -->
                     <ul class="personal-info">
             <li><label>Name</label><span>'.$row['NAME'].'</span></li>
                         <li><label>SurName</label><span>'.$row['SURNAME'].'</span></li>
                         <li><label>Adresse</label><span>'.$row['ADRESS'].'</span></li>
                         <li><label>CP</label><span>'.$row['CP'].'</span></li>
-                        <li><label>Email</label><span>'.$row['MAIL'].'</span></li>                        
+                        <li><label>Email</label><span>'.$row['MAIL'].'</span></li>
                         <li><label>Association</label><span>'.(new MAssoc($row['ASSOCIATION_ID']))->getName().'</span></li>
                         <li><label>Thème</label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
                         <li><label>Thème Interest</label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
                         <li><label>Profession</label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
-                        
+
                     </ul>
                     <!-- /Personal info section -->
                 </div>
-            
+
         </div>';
 
                         echo '&nbsp;';
@@ -364,7 +364,7 @@
             $fichier_csv = fopen('Csv/ExportationUser.csv', 'w+');
             for($i = 0 ; $i < count($dataCSVOk) ; ++$i)
             {
-                fputcsv($fichier_csv, $dataCSVOk[$i], '!');
+                fputcsv($fichier_csv, $dataCSVOk[$i], ';');
             }
             fclose($fichier_csv);
         ?>

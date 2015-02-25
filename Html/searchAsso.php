@@ -145,9 +145,9 @@
                     }
                     $where = " WHERE ".implode($conditions,' AND ');
                     if(count($conditions) > 0) {
-                        $sql = 'SELECT * FROM association'. $where;
+                        $sql = 'SELECT * FROM ASSOCIATION'. $where;
                     }else {
-                        $sql = 'SELECT * FROM association order by NAME ASC';
+                        $sql = 'SELECT * FROM ASSOCIATION order by NAME ASC';
                     }
 
                     foreach ($pdo->query($sql) as $row) {
@@ -162,7 +162,7 @@
                     
                 }else {
 
-                    $sql = 'SELECT * FROM association order by NAME ASC';
+                    $sql = 'SELECT * FROM ASSOCIATION order by NAME ASC';
                     if(count($sql) > 0) {
 
                         foreach ($pdo->query($sql) as $row) {

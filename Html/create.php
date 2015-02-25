@@ -30,7 +30,7 @@
     }
 ?>
     <div class="container">
-    
+
     			<div class="span10 offset1">
     				<div class="row">
 		    			<h2>Création d'un utilisateur</h2>
@@ -42,22 +42,22 @@
 						<div class="control-group">
 				            <label class="control-label">Nom de famille</label>
 				            <div class="controls">
-				                <input name="SURNAME" id="surname" type="text"  placeholder="Surname" pattern="^[a-zA-Z \.\,\+\-]*$" value="">
+				                <input name="SURNAME" id="surname" type="text"  placeholder="Surname" pattern="[^'\x22\;\.]+" value="">
 				                <span>(Alphabétique)</span>
 				            </div>
 				        </div>
 				        <div class="control-group">
 				            <label class="control-label">Pr&eacute;nom</label>
 				            <div class="controls">
-				                <input name="NAME" id="name" type="text"  placeholder="Name" value="">
+				                <input name="NAME" id="name" type="text"  placeholder="Name" pattern="[^'\x22\;\.]+" value="">
 
 				            </div>
-				        </div>				        
+				        </div>
 				        <div class="control-group">
 					    	<label class="control-label">Email</label>
 					    	<div class="controls">
 					      	<input name="MAIL" id="mail" type="text"  placeholder="EMAIL" value="">
-					      	
+
 					    </div>
 				        <div class="form-actions">
 				        	</br></br>
@@ -66,7 +66,7 @@
                       	</div>
 					</form>
 				</div>
-				
+
     </div> <!-- /container -->
   </body>
 </html>

@@ -28,10 +28,10 @@ $(document).ready(function(){
         dataType: 'json',
         url: './Php/autocomplete.php',
         data: {'categories': 'tmp'},
-        
+
         success: function(data) {
             data.forEach(function(entry) {
-             
+
                 name.push(entry['NAME']);
                 surname.push(entry['SURNAME']);
                 cp.push(entry['CP']);
@@ -114,28 +114,25 @@ foreach($themesList as $line){
         <div class="row">
             <h3>FNESITE</h3>
         </div>
-
-
-        <form class="form-horizontal" action="./index.php?EX=searchMember" method="post">
-            <div class="control-group">
-                <label class="control-label">Nom de famille</label>
-                <div class="controls">
-                    <input name="SURNAME" id="surname" type="text"  placeholder="Nom de famille" pattern="^[a-zA-Z \.\,\+\-]*$" value="">
-                    <span>(Alphabétique)</span>
-                </div>
+    <form class="form-horizontal" action="./index.php?EX=searchMember" method="post">
+        <div class="control-group">
+            <label class="control-label">Nom de famille</label>
+            <div class="controls">
+                <input name="SURNAME" id="surname" type="text"  placeholder="Nom de famille" pattern="[^'\x22\;\.]+" value="">
+                <span>(Alphabétique)</span>
             </div>
-            <div class="control-group">
-                <label class="control-label">Pr&eacute;nom</label>
-                <div class="controls">
-                    <input name="NAME" id="name" type="text"  placeholder="Prenom" value="">
-
+        </div>
+        <div class="control-group">
+            <label class="control-label">Pr&eacute;nom</label>
+            <div class="controls">
+                <input name="NAME" id="name" type="text"  placeholder="Prenom" pattern="[^'\x22\;\.]+" value="">
                 </div>
             </div>
         <!--<div class="control-group">
             <label class="control-label">R&ocirc;le</label>
             </br>
             <select class="controls" name="ROLE" type="text">
-                    <?php 
+                    <?php
                         /*foreach ($roles as $key => $role) {
                             echo('<option value ='.$role['ID'].'>'.$role['NAME'].'</option>');
                         }*/
@@ -156,32 +153,32 @@ foreach($themesList as $line){
         </div>
         <div class="control-group">
             <label class="control-label">Association</label>
-        </br>
-        <select class="controls" name="ASSOCIATION" type="text">
-            <?php
-            echo('<option></option>');
-            foreach ($assocs as $key => $asso) {
-                echo('<option value ='.$asso['ID'].'>'.$asso['NAME'].'</option>');
-            }
-            ?>
-        </select>
-    </div>
-    <div class="control-group">
-        <label class="control-label">Th&egrave;me</label>
-    </br>
-    <select class="controls" name="THEME" type="text">
-        <?php
-        echo('<option></option>'); 
-        foreach ($themes as $key => $theme) {
-            echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
-        }
-        ?>
-    </select>
-</div>
-<div class="form-actions">
-</br>
-</br>
-<button type="submit" class="btn btn-success">Rechercher</button>
+            </br>
+            <select class="controls" name="ASSOCIATION" type="text">
+                    <?php
+                        echo('<option></option>');
+                        foreach ($assocs as $key => $asso) {
+                            echo('<option value ='.$asso['ID'].'>'.$asso['NAME'].'</option>');
+                        }
+                    ?>
+            </select>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Th&egrave;me</label>
+            </br>
+            <select class="controls" name="THEME" type="text">
+                    <?php
+                        echo('<option></option>');
+                        foreach ($themes as $key => $theme) {
+                            echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
+                        }
+                    ?>
+            </select>
+        </div>
+        <div class="form-actions">
+            </br>
+            </br>
+            <button type="submit" class="btn btn-success">Rechercher</button>
 
 </div>
 
@@ -220,7 +217,7 @@ foreach($themesList as $line){
                     $params[] = $_POST['CP'];
                 }
                 if($_POST['PROFESSION']) {
-                    $conditions[] = "PROFESSION = '". $_POST['PROFESSION']. "'";
+                    $conditions[] = "PROFESSION LIKE '%". $_POST['PROFESSION']. "%'";
                     $params[] = $_POST['PROFESSION'];
                 }
                 if($_POST['ASSOCIATION']) {
@@ -251,14 +248,13 @@ foreach($themesList as $line){
                     echo '<td width=250>';
                     echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
                     echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
-                    
                     <div class="active" style="display: block;">
                         <!-- About section -->
                         <div class="about">
                             <input type="hidden" value="'.$img.'">
                         </div>
                         <!-- /About section -->
-                        
+
                         <!-- Personal info section -->
                         <ul class="personal-info">
                             <li><label>Name</label><span>'.$row['NAME'].'</span></li>
@@ -272,11 +268,11 @@ foreach($themesList as $line){
                             <li><label>Thème</label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
                             <li><label>Thème Interest</label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
                             <li><label>Profession</label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
-                            
+
                         </ul>
                         <!-- /Personal info section -->
                     </div>
-                    
+
                 </div>';
                 echo '&nbsp;';
                 echo '<a class="btn" href="email.php?id='.$row['ID'].'">Email</a>';
@@ -302,20 +298,19 @@ foreach($themesList as $line){
                     }
                     echo '<tr>';
                     echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
-                        //echo '<td>'. $row['SURNAME'] . '</td>';
                     echo '<td>'. $row['CP'] . '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
                     echo '<td width=250>';
                     echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
                     echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
-                    
-                    <div id="profile" class="active" style="display: block;"> 
+
+                    <div id="profile" class="active" style="display: block;">
                         <!-- About section -->
                         <div class="about">
                             <input type="hidden" value="'.$img.'">
                         </div>
                         <!-- /About section -->
-                        
+
                         <!-- Personal info section -->
                         <ul class="personal-info">
                             <li><label>Name</label><span>'.$row['NAME'].'</span></li>
@@ -327,11 +322,11 @@ foreach($themesList as $line){
                             <li><label>Thème</label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
                             <li><label>Thème Interest</label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
                             <li><label>Profession</label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
-                            
+
                         </ul>
                         <!-- /Personal info section -->
                     </div>
-                    
+
                 </div>';
                        /* echo '&nbsp;';
                         echo '<a class="btn" href="email.php?id='.$row['ID'].'">Email</a>';

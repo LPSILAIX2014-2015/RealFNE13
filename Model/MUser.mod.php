@@ -178,10 +178,10 @@ class MUser {
     }
 
 
-        public function toString()
-        {
-            return $this->surname." ".$this->name;
-        }
+    public function toString()
+    {
+        return $this->surname." ".$this->name;
+    }
 
     public function setThemeDetails($theme_details)
     {

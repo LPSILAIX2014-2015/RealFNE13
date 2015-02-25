@@ -7,20 +7,6 @@
 	}
 	else
 		header('Location: ./index.php?EX=manageMembers');
-    if ( $_SERVER['REQUEST_METHOD'] === 'POST') {
-        $name = $_POST['NAME'];
-        $surname = $_POST['SURNAME'];
-        $email = $_POST['MAIL'];
-        $cp = $_POST['CP'];
-        $profession = $_POST['PROFESSION'];
-        $user_id = $_GET['id'];
-        $pdo = new MDBase();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "UPDATE USER SET NAME = ?, SURNAME= ?, CP = ?, MAIL = ?, PROFESSION = ? WHERE ID = ?";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($name, $surname, $cp, $email, $profession, $user_id));
-		//header("Location: ./index.php?EX=manageMembers");
-    }
 
     // insert data
     $user= new MUser($id);
@@ -37,10 +23,10 @@
      if(isset($_GET['error'])) {
          $erreur = $_GET['error'];
      }
-   
+
     ?>
     <div class="container">
-    
+
     			<div class="span10 offset1">
     				<div class="row">
 		    			<h3>Modifier un utlisateur</h3>
@@ -49,19 +35,19 @@
                                         <?php } ?>
 		    		</div>
 
-	    			<form class="form-horizontal" action="index.php?EX=updateMember&id=<?php echo $id?>" method="post">
+	    			<form class="form-horizontal" action="index.php?EX=updateAMember&id=<?php echo $id?>" method="post">
 					  <div class="control-group">
 					    <label class="control-label">Name</label>
 					    <div class="controls">
-					      	<input name="NAME" type="text" pattern="^[a-zA-Z \.\,\+\-]*$" placeholder="Name" value="<?php echo !empty($name)?$name:'';?>">
+					      	<input name="NAME" type="text" pattern="[^'\x22\;\.]+" placeholder="Name" value="<?php echo !empty($name)?$name:'';?>">
 					      	<span>(Alphabétique)</span>
 					    </div>
 					  </div>
                                           <div class="control-group">
 					    <label class="control-label">SurName</label>
 					    <div class="controls">
-					      	<input name="SURNAME" type="text"  placeholder="SurName" value="<?php echo !empty($surname)?$surname:'';?>">
-					      	
+					      	<input name="SURNAME" type="text"  pattern="[^'\x22\;\.]+" placeholder="SurName" value="<?php echo !empty($surname)?$surname:'';?>">
+
 					    </div>
 					  </div>
                                           <div class="control-group">
@@ -75,28 +61,28 @@
 					    <label class="control-label">Email</label>
 					    <div class="controls">
 					      	<input name="MAIL" type="text" placeholder="Email" value="<?php echo !empty($email)?$email:'';?>">
-					      	
+
 					    </div>
 					  </div>
 					  <div class="control-group">
 					    <label class="control-label">Profession</label>
 					    <div class="controls">
 					      	<input name="PROFESSION" type="text"  placeholder="Profession" value="<?php echo !empty($profession)?$profession:'';?>">
-					      	
+
 					    </div>
 					  </div>
                                           <div class="control-group">
 					    <label class="control-label">Association</label>
 					    <div class="controls">
 					      	<input name="ASSOCIATION" id="association" type="text"  placeholder="Association" value="<?php echo !empty($assoc)?$assoc:'';?>">
-					      	
+
 					    </div>
 					  </div>
                                           <div class="control-group">
 					    <label class="control-label">Spécialité</label>
 					    <div class="controls">
 					      	<input name="SPECIALITE" id="specialite" type="text"  placeholder="Spécialité" value="<?php echo !empty($specialite)?$specialite:'';?>">
-					      	
+
 					    </div>
 					  </div>
 					  <div class="form-actions">
@@ -104,6 +90,24 @@
                           <a class="btn" href="./index.php?EX=manageMembers">Retour</a>
 						</div>
 					</form>
+
+					<form class="form-horizontal" action="index.php?EX=updateRole&id=<?php echo $id?>" method="post">
+						<div class="control-group">
+
+								<label for="themes1" class="col-sm-2 control-label">Nouveau Rôle</label>
+								<div class="controls">
+										<select class="controls" name="ROLE" type="text">
+														<option value ='VALIDATOR'>Validateur</option>
+														<option value ='MEMBER'>Membre</option>
+												?>
+										</select>
+								</div>
+						</div>
+					<div class="form-actions">
+						<button type="submit" class="btn btn-success">Edit</button>
+												<a class="btn" href="./index.php?EX=manageMembers">Retour</a>
+					</div>
+				</form>
 				</div>
-				
+
     </div> <!-- /container -->

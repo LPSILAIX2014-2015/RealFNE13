@@ -59,8 +59,9 @@ $(document).ready(function() {
 			td = $(this).parent().parent().parent();
 			var id = td.attr('id');
 			id = id.replace('message', '');
-			$.getJSON('Ajax/setMessageArchive.php', { id : id });
-			document.location.href = "index.php?EX=consultMessages";
+			$.getJSON('Ajax/setMessageArchive.php', { id : id }).done(function () {
+                document.location.href = "index.php?EX=consultMessages";
+            });
 		}
 	});
 
@@ -70,8 +71,10 @@ $(document).ready(function() {
 			td = $(this).parent().parent().parent();
 			var id = td.attr('id');
 			id = id.replace('message', '');
-			$.getJSON('Ajax/setUnMessageArchive.php', { id : id });
-			document.location.href = "index.php?EX=consultMessages";
+			$.getJSON('Ajax/setUnMessageArchive.php', { id : id }).done(function () {
+                document.location.href = "index.php?EX=consultMessages";
+            });
+
 		}
 	});
 

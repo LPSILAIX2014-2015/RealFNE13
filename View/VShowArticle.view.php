@@ -1,6 +1,7 @@
 <?php
 class VShowArticle
 {
+
 	public function __construct(){}
 	
 	public function __destruct(){}
@@ -54,6 +55,6 @@ class VShowArticle
 		$vhtml->showHtml($_html);
 
 	} // showShowArticle($_html)
-	
+
 } // VHtml
 ?>
