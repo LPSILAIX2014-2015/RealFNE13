@@ -1,3 +1,8 @@
 .table{
-	width: 940px;
+	width: 540px;
+	table-layout:fixed;
+}
+
+.tr-even{
+	background-color: #DBDBDB;
 }

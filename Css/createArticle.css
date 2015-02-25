@@ -113,3 +113,15 @@
     content: 'Cit.' ;
     font-size:8pt;
 }
+.glyphicon-align-left:before {
+    content: '[--' ;
+    font-size:8pt;
+}
+.glyphicon-align-center:before {
+    content: '-|-' ;
+    font-size:8pt;
+}
+.glyphicon-align-right:before {
+    content: '--]' ;
+    font-size:8pt;
+}
