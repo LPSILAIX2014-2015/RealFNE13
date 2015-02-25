@@ -28,7 +28,7 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
     for($i = 0 ; $i < count($data_article) ; ++$i)
     {
 
-        if(srlen($data_article[$i]['CONTENT'])>250)
+        if(strlen($data_article[$i]['CONTENT'])>250)
                 $description = substr($data_article[$i]['CONTENT'],0,250);
 
             if($data_article[$i]['STATUS'] == 0)
