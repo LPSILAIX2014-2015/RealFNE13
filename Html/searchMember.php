@@ -241,7 +241,7 @@ foreach($themesList as $line){
                     echo '<td>'.(new MAssoc($row['ASSOCIATION_ID']))->getName(). '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
                     echo '<td width=250>';
-                    echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
+                    echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Profil</a>';
                     echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
                     <div class="active" style="display: block;">
                         <!-- About section -->
@@ -271,8 +271,8 @@ foreach($themesList as $line){
                 </div>';
                 echo '&nbsp;';
                 echo '<a class="btn" href="email.php?id='.$row['ID'].'">Email</a>';
-                echo '&nbsp;';
-                echo '<input type="checkbox" name="option1[]" value='.$row['MAIL'].'>';
+                //echo '&nbsp;';
+                //echo '<input type="checkbox" name="option1[]" value='.$row['MAIL'].'>';
                 echo '</td>';
                 echo '</tr>';
             }
