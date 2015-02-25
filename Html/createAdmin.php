@@ -19,6 +19,7 @@
             
             $elementsChemin = pathinfo($nomOrigine);
             $extensionFichier = $elementsChemin['extension'];
+            $errorType ="";
 
             $extensionsAutorisees = array("jpeg", "jpg","png");
             $maxImageSize = $_POST["max_file_size"];
@@ -54,12 +55,14 @@
                 return $errorType;
             }
         }
+
         $pdo = new MDBase();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "INSERT INTO ASSOCIATION (NAME, TERRITORY_ID,THEME_ID,IMAGEPATH) values(?,?,?,?)";
         $q = $pdo->prepare($sql);
         $q->execute(array($name, $territory, $theme,$pathImage));
         $id= $pdo->lastInsertId();
+
     }
 		else
 				header("Location: ./index.php?EX=createAsso")
