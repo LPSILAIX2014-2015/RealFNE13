@@ -44,7 +44,7 @@
 		    			<h3>Modifier un utilisateur</h3>
 		    		</div>
 
-	    			<form class="form-horizontal" id="updateMemberForm" action="index.php?EX=updateAMember&id='+'<?php echo $id?>" method="post">
+	    			<form class="form-horizontal" id="updateMemberForm" action="index.php?EX=updateAMember&id=<?php echo $id?>" method="post">
 					  <div class="control-group">
 					    <label class="control-label">Nom</label>
 					    <div class="controls">
@@ -129,7 +129,7 @@
 						  <button type="submit" class="btn btn-success">Edit</button>
                           <a class="btn" href="./index.php?EX=manageMembers">Retour</a>
 						</div>
-					</form>
+					</form><!--
                     <form class="form-horizontal" id="frmCHIMG" enctype="multipart/form-data" method="post">
                         <div class="control-group">
                             <label class="control-label">Photo</label>
@@ -140,8 +140,8 @@
                         <div class="form-actions">
                             <button type="submit" class="btn btn-success">Edit</button>
                         </div>
-                        <div id="chI"></div><!-- id="error"--><br>
-                    </form>
+                        <div id="chI"></div><br>
+                    </form> -->
 
 					<form class="form-horizontal" action="index.php?EX=updateRole&id=<?php echo $id?>" method="post">
 						<div class="control-group">
