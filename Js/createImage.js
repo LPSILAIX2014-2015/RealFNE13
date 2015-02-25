@@ -15,6 +15,15 @@ $(document).ready(function(){
             showMessage(message);
         }
     });
+    $('#createMemberForm').validate({
+        rules:{
+            photo:{required:true}
+        },
+        success: function(element) {
+            setTimeout('redirect()',1800);
+        }
+
+    });
 });
 
 function redirect () {
