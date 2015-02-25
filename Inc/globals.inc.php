@@ -5,7 +5,7 @@ date_default_timezone_set('Europe/Paris');
 * Ce fichier contient les variables globales qui seront utilisées sur toutes les pages du site ainsi que leur documentation.
 * Pour chaque variable ajoutée veuillez indiquer son type, son utilisation, et dans le cas d'un objet ses attributs et méthodes
 */
-session_start();
+if (!isset($_SESSION)) { session_start(); }
 define('modeDebug',true);
 define('LOGINFAIL_EXPIRE',600);
 define('LOGINFAIL_ATTEMPTS',5);
