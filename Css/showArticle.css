@@ -98,3 +98,39 @@
     border-radius: 2px 15px 15px 2px;
     cursor:url('../Img/cursor4.png'), auto ;
 }
+
+/** COMMENAIRE DES ARTICLES **/
+
+#titleCom
+{
+    text-align: center;
+}
+.com
+{
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 2%;
+    margin: 1% 0;
+    background-color: #337AB7;
+    color: #fff;
+}
+.nameCom
+{
+    float: left;
+}
+.dateCom
+{
+    float: right;
+}
+.sepCom
+{
+    clear: both;
+    margin-bottom: 1%;
+}
+.contentCom
+{
+    color: #000;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1%;
+}
