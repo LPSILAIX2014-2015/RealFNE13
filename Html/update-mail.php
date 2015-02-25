@@ -13,42 +13,42 @@ foreach($themesList as $line){
 
     <div class="span10 offset1">
         <div class="row">
-            <h3>Modifier un utlisateur</h3>
+            <h3>Finalisation d'inscription</h3>
         </div>
 
-        <form class="form-horizontal" enctype="multipart/form-data" action="Php/update-mail.php?email=<?php echo $email?>" method="post">
+        <form class="form-horizontal" id="createMemberForm" enctype="multipart/form-data" method="post">
             <div class="control-group">
                 <label class="control-label">Identifiant (*)</label>
                 <div class="controls">
-                    <input name="LOGIN" type="text" rows="5" cols="40" placeholder="Identifiant" value="">
+                    <input name="LOGIN" type="text" rows="5" cols="40" placeholder="Identifiant" value="" required>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">Mot de passe (*)</label>
                 <div class="controls">
-                    <input name="MOTDEPASSE" type="password" rows="5" cols="40" placeholder="Mot de passe" value="">
+                    <input name="MOTDEPASSE" type="password" rows="5" cols="40" placeholder="Mot de passe" value="" required>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">Confirmation mot de passe (*)</label>
                 <div class="controls">
-                    <input name="CONFIRMMOTDEPASSE" type="password" rows="5" cols="40" placeholder="Confirmation mot de passe" value="">
+                    <input name="CONFIRMMOTDEPASSE" type="password" rows="5" cols="40" placeholder="Confirmation mot de passe" value="" required>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">Adresse (*)</label>
                 <div class="controls">
-                    <input name="ADRESSE" type="text" rows="5" cols="40" placeholder="Adresse" value="">
+                    <input name="ADRESSE" type="text" rows="5" cols="40" placeholder="Adresse" value="" required>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">Code postal (*)</label>
                 <div class="controls">
-                    <input name="CP" type="text" rows="5" cols="40" placeholder="Code postal" value="">
+                    <input name="CP" type="text" rows="5" cols="40" placeholder="Code postal" value="" required>
                 </div>
             </div>
 
@@ -90,7 +90,7 @@ foreach($themesList as $line){
             <div class="control-group">
                 <label class="control-label">Profession (*)</label>
                 <div class="controls">
-                    <input name="PROFESSION" type="text"  placeholder="Profession" value="">
+                    <input name="PROFESSION" type="text"  placeholder="Profession" value="" required>
                 </div>
             </div>
             <div class="control-group">
@@ -103,19 +103,20 @@ foreach($themesList as $line){
             <div class="control-group">
                 <label class="control-label">Pr&eacute;sentation</label>
                 <div class="controls">
-                    <textarea name="PRESENTATION" id="presentation" type="text" rows="10" cols="90" placeholder="Présentation"></textarea>
+                    <textarea name="PRESENTATION" id="presentation" type="text" rows="10" cols="90" placeholder="Présentation" required></textarea>
                     <span>(Informations utiles)</span>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label">Photo (*)</label>
                 <div class="controls">
-                    <input type="file"  name="photo" class="form-control" required="required">
+                    <input type="file"  id="photo" name="PHOTO" class="form-control" required="required">
                 </div>
             </div>
             <div class="form-actions">
                 <button type="submit" class="btn btn-success">Terminer son inscription</button>
             </div>
+            <div id="chI"></div><!-- id="error"--><br>
         </form>
     </div>
 
