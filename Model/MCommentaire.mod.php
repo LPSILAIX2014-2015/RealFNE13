@@ -27,4 +27,14 @@ class MCommentaire {
 
         return $results;
     }
+
+    public function addCommentairePost($idPost, $content) {
+        $state = $this->sql->prepare("INSERT INTO COMMENTAIRE(WRITER_ID,POST_ID,CONTENT,COM_DATE) VALUES (:ID,:ID_POST,:CONTENT,:COM_DATE)");
+
+        $state->bindValue('ID', $_SESSION['ID_USER'], PDO::PARAM_INT);
+        $state->bindValue('ID_POST', $idPost, PDO::PARAM_INT);
+        $state->bindValue('CONTENT', $content, PDO::PARAM_STR);
+        $state->bindValue('COM_DATE', date('d/m/Y h:i:s'), PDO::PARAM_STR);
+        return $state->execute();
+    }
 }
