@@ -6,9 +6,9 @@
 		$idPrev = $_REQUEST['idPrev'];
 		$idNext = $_REQUEST['idNext'];
 	}
-	$asso= new Massoc($id);
-	$prevAdmin = new Muser($idPrev);
-	$nextAdmin = new Muser($idNext);
+	$asso= new MAssoc($id);
+	$prevAdmin = new MUser($idPrev);
+	$nextAdmin = new MUser($idNext);
 	
 ?>
     <div class="container">
