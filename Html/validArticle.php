@@ -28,6 +28,9 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
     for($i = 0 ; $i < count($data_article) ; ++$i)
     {
 
+        if(srlen($data_article[$i]['CONTENT'])>250)
+                $description = substr($data_article[$i]['CONTENT'],0,250);
+
             if($data_article[$i]['STATUS'] == 0)
             {
             echo "<div id='article" . $data_article[$i]['ID']
@@ -45,7 +48,7 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
                 . ", le ". $data_article[$i]['PDATE']
                 . "</p>";
             echo "<p class='description'>"
-                . $data_article[$i]['DESCRIPTION']
+                . $description
                 . "</p>";
             echo "</div>";
             echo "</div>";
