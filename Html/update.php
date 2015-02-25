@@ -131,7 +131,7 @@
                             </div>
                         </div>
 					  <div class="form-actions">
-						  <button type="submit" class="btn btn-success">Edit</button>
+						  <button type="submit" class="btn btn-success" onsubmit="redirectUpdate()">Edit</button>
                           <a class="btn" href="./index.php?EX=manageMembers">Retour</a>
 						</div>
                         <div id="chI"></div><!-- id="error"--><br>

@@ -25,7 +25,7 @@ $(document).ready(function(){
     });
 });
 
-function redirect () {
+function redirectUpdate () {
     location.href='index.php?EX=updateAMember&id='+'<?php echo $id?>';
 }
 
