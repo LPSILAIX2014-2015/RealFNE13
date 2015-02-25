@@ -1,4 +1,14 @@
 /*
+* Palette de couleurs
+*
+*   Bleu foncé :    #0A2D5F     10  45  95
+*   Bleu texte :    #0C5091     12  80  145
+*   Bleu moyen :    #337AB7     51  122 183
+*   Bleu clair h:   #A3CFEA     163 207 234
+*   Bleu clair :    #4BC9E2     75  201 226
+*/
+
+/*
 * Importation polices Google fonts
 */
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web);
@@ -24,6 +34,7 @@ body {
     background-attachment: fixed;
     font-family:'Titillium Web',Verdana,sans-serif;
     display:block;
+    color:#0C5091;
     top:80px;
     left:10%;
     right:10%;
@@ -86,7 +97,8 @@ h1 {
     color:#0c5091;
     text-shadow: 1px 2px #a3cfea;
     padding:0;
-    margin:2px;
+    margin:5px 0 15px 0;
+    border-bottom: 1px solid #337AB7;
 }
 h3 {
     font-family:'Quicksand',Verdana,sans-serif;
@@ -94,7 +106,7 @@ h3 {
     color:#0c5091;
     text-shadow: 1px 2px #a3cfea;
     padding:0;
-    margin:2px;
+    margin:3px 0 5px 0;
 }
 li {
     text-indent: 0;
