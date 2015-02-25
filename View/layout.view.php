@@ -29,7 +29,6 @@ $vHtml = new VHtml();
     <script src="./Lib/simplePagination.js"></script>
     <script src="./Js/updateImage.js"></script>
     <script src="./Js/createImage.js"></script>
-    <script src="./Js/changeImage.js"></script>
     <script src="./Js/recMP.js"></script>
     <link rel='stylesheet' href='./Lib/fullcalendar/fullcalendar.css' />
     <script src='./Lib/moments.js'></script>
