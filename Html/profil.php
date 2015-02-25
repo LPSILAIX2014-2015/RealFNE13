@@ -165,3 +165,4 @@
 		</div>
 	</div>
 </div><br>
+<script src="./Js/changeImage.js"></script>
