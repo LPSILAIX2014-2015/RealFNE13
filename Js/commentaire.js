@@ -8,8 +8,10 @@ $(document).ready(function() {
 		}
 	});
 
-	getCommentaire();
-	jQuery(function($) {
+	getCommentaire();	
+});
+
+jQuery(function($) {
     //Change this selector to apply the pagination
     var items = $(".com");
     //don't touch this value until you know what you do!
@@ -22,12 +24,11 @@ $(document).ready(function() {
 
     var perPage = 1;
 
-
     items.slice(perPage).hide();
     // now setup pagination
     $("#pagination").pagination({
-        items: numItems,
-        itemsOnPage: perPage,
+    	items: numItems,
+    	itemsOnPage: perPage,
         onPageClick: function(pageNumber) { // this is where the magic happens
         	console.log(pageNumber);
             // someone changed page, lets hide/show trs appropriately
@@ -37,8 +38,6 @@ $(document).ready(function() {
             .slice(showFrom, showTo).show();
         }
     });
-});
-	
 });
 
 function getCommentaire(){
@@ -57,7 +56,7 @@ function getCommentaire(){
 
 				$('#divCom').append('<div id="'+ currentComId +'" class="com">');
 				$('#'+currentComId).append('<span class="nameCom">'+ response.com[i]['NAME'] + ' ' + response.com[i]['SURNAME'] +'</span>'
-								   +'<span class="dateCom">'+ response.com[i]['COM_DATE'] +'</span>');
+					+'<span class="dateCom">'+ response.com[i]['COM_DATE'] +'</span>');
 				$('#'+currentComId).append('<hr class="sepCom">');
 				$('#'+currentComId).append('<div class="contentCom">'+ response.com[i]['CONTENT'] +'</div>');
 				$('#'+currentComId).append('</div>');
