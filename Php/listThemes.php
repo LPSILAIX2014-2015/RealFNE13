@@ -6,7 +6,7 @@ require('../Inc/require.inc.php');
 
 $pdo = new MDBase();
 
-$request11 = $pdo -> query("select NAME as themes from theme");
+$request11 = $pdo -> query("select NAME as themes from THEME");
 $row1 = $request11->fetchAll();
 $var = 1;
 $taille = count($row1);
