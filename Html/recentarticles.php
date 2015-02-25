@@ -20,7 +20,10 @@ $query->execute();
         while ($row = $query->fetch()) {
             if ($row['IMG'] != NULL) { $icone = 'Img/iconesthemes/'.$row['IMG']; }
             else { $icone = 'Img/pastille.png'; }
-            echo '<li><span class="iconesarticle"><img src="'.$icone.'"></span><span class="titrearticle">'.$row['TITLE'].'</span></li>' ;
+            echo '<li><a href="index.php?EX=showInfoArticle&id='.$row['ID'].'">'
+               .   '<span class="iconesarticle"><img src="'.$icone.'"></span>'
+               .   '<span class="titrearticle">'.$row['TITLE'].'</span>'
+               . '</a></li>' ;
         }
         ?>
     </ul>
