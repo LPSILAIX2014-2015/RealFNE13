@@ -6,7 +6,7 @@ require('../Inc/require.inc.php');
 
 $pdo = new MDBase();
 
-$request10 = $pdo -> query("select NAME as categories from mescat");
+$request10 = $pdo -> query("select NAME as categories from MESCAT");
 $row = $request10->fetchAll();
 $var = 0;
 $taille = count($row);
