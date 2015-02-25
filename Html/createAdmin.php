@@ -2,13 +2,6 @@
 	if(!isset($_SESSION['ROLE'])||($_SESSION['ROLE']!='SADMIN'))
 		header('Location: ./index.php');
      $id = null;
-<<<<<<< HEAD
-    if ( !empty($_POST['NAME'])) {
-        $name = $_POST['NAME'];
-        $territory = $_POST['TERRITORY'];
-        $theme = $_POST['THEME'];
-        $pdo = new MDBase()	;
-=======
  	function replace_accents($string){ 
         return str_replace( array('à','á','â','ã','ä', 'ç', 'è','é','ê','ë', 'ì','í','î','ï', 'ñ', 'ò','ó','ô','õ','ö', 'ù','ú','û','ü', 'ý','ÿ', 'À','Á','Â','Ã','Ä', 'Ç', 'È','É','Ê','Ë', 'Ì','Í','Î','Ï', 'Ñ', 'Ò','Ó','Ô','Õ','Ö', 'Ù','Ú','Û','Ü', 'Ý', '\''), array('a','a','a','a','a', 'c', 'e','e','e','e', 'i','i','i','i', 'n', 'o','o','o','o','o', 'u','u','u','u', 'y','y', 'A','A','A','A','A', 'C', 'E','E','E','E', 'I','I','I','I', 'N', 'O','O','O','O','O', 'U','U','U','U', 'Y', '_'), $string);
 	}
@@ -62,7 +55,6 @@
             }
         }
         $pdo = new MDBase();
->>>>>>> 856e7ca5ee8d7d6f3bcc2b5463fb4e201265ad80
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "INSERT INTO ASSOCIATION (NAME, TERRITORY_ID,THEME_ID,IMAGEPATH) values(?,?,?,?)";
         $q = $pdo->prepare($sql);
