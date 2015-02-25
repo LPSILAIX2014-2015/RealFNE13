@@ -168,6 +168,7 @@ table {
     font-size:20pt;
     color:#FFFFFF;
     text-shadow: 1px 2px #337ab7;
+    text-align:left;
 }
 .subtitle {
     display:block;
