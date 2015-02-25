@@ -13,10 +13,10 @@ foreach($themesList as $line){
 
     <div class="span10 offset1">
         <div class="row">
-            <h3>Modifier un utlisateur</h3>
+            <h3>Finalisation d'inscription</h3>
         </div>
 
-        <form class="form-horizontal" id="createMemberForm" enctype="multipart/form-data" action="Php/update-mail.php?email=<?php echo $email?>" method="post">
+        <form class="form-horizontal" id="createMemberForm" enctype="multipart/form-data" method="post">
             <div class="control-group">
                 <label class="control-label">Identifiant (*)</label>
                 <div class="controls">
@@ -110,13 +110,13 @@ foreach($themesList as $line){
             <div class="control-group">
                 <label class="control-label">Photo (*)</label>
                 <div class="controls">
-                    <input type="file"  id="photo" name="photo" class="form-control" required="required">
+                    <input type="file"  id="photo" name="PHOTO" class="form-control" required="required">
                 </div>
             </div>
-            <div id="chI"></div><!-- id="error"--><br>
             <div class="form-actions">
                 <button type="submit" class="btn btn-success">Terminer son inscription</button>
             </div>
+            <div id="chI"></div><!-- id="error"--><br>
         </form>
     </div>
 

@@ -44,7 +44,7 @@
 		    			<h3>Modifier un utilisateur</h3>
 		    		</div>
 
-	    			<form class="form-horizontal" id="updateMemberForm" action="index.php?EX=updateAMember&id=<?php echo $id?>" method="post">
+	    			<form class="form-horizontal" id="updateMemberForm" method="post">
 					  <div class="control-group">
 					    <label class="control-label">Nom</label>
 					    <div class="controls">
@@ -109,10 +109,10 @@
                                 <select class="controls" name="THEME2" type="text">
                                     <?php
                                     foreach ($themes as $key => $theme) {
-																			if($theme['ID']==$theme2)
-																					echo('<option value ='.$theme['ID'].' selected>'.$theme['NAME'].'</option>');
-																			else
-																					echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
+                                                        if($theme['ID']==$theme2)
+                                                                echo('<option value ='.$theme['ID'].' selected>'.$theme['NAME'].'</option>');
+                                                        else
+                                                                echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
                                     }
                                     ?>
                                 </select>
@@ -127,7 +127,7 @@
                         <div class="control-group">
                             <label class="control-label">Photo</label>
                             <div class="controls">
-                                <input type="file" id=photo" name="photo" class="form-control" required="required">
+                                <input type="file" id="newphoto" name="PHOTO" class="form-control" required="required">
                             </div>
                         </div>
                         <div id="chI"></div><!-- id="error"--><br>
