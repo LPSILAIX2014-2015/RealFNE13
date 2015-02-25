@@ -17,9 +17,6 @@ $vHtml = new VHtml();
     if (isset($page['css'])) {
         echo '<link rel="stylesheet" type="text/css" href="'.$page['css'].'" />' ;
     }
-    if (isset($page['js'])) {
-        echo '<link rel="javascript" type="text/javascript" href="'.$page['js'].'" />' ;
-    }
     ?>
     <link rel="icon" type="image/png" href="Img/favicon.png" />
     <script src="Lib/jquery.min.js"></script>
@@ -30,8 +27,6 @@ $vHtml = new VHtml();
     <script src="./Lib/jquery.form.js"></script>
     <script src="./Lib/jquery.validate.js"></script>
     <script src="./Lib/simplePagination.js"></script>
-    <script src="./Js/updateImage.js"></script>
-    <script src="./Js/createImage.js"></script>
     <script src="./Js/changeImage.js"></script>
     <script src="./Js/recMP.js"></script>
     <link rel='stylesheet' href='./Lib/fullcalendar/fullcalendar.css' />

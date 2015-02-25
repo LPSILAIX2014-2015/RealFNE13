@@ -124,17 +124,22 @@
                                 <textarea name="PRESENTATION" id="presentation" type="text" rows="10" cols="90" placeholder="Présentation" value="<?php echo !empty($presentation)?$presentation:'';?>"></textarea>
                             </div>
                         </div>
-                        <div class="control-group">
-                            <label class="control-label">Photo</label>
-                            <div class="controls">
-                                <input type="file" id="newphoto" name="PHOTO" class="form-control">
+                        <form class="form-horizontal" id="frmCHIMG" enctype="multipart/form-data" method="post">
+                            <div class="control-group">
+                                <label class="control-label">Photo</label>
+                                <div class="controls">
+                                    <input type="file"  id="sel_img" name="PHOTO" class="form-control" required="required">
+                                </div>
                             </div>
-                        </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-success">Edit</button>
+                            </div>
+                            <div id="chI"></div><!-- id="error"--><br>
+                        </form>
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-success">Edit</button>
                           <a class="btn" href="./index.php?EX=manageMembers">Retour</a>
 						</div>
-                        <div id="chI"></div><!-- id="error"--><br>
 					</form>
 
 					<form class="form-horizontal" action="index.php?EX=updateRole&id=<?php echo $id?>" method="post">

@@ -214,7 +214,6 @@ function updateMember()
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/update.php';
-    $page['js'] = "Js/updateImg.js";
 }
 
 function updateAMember()
@@ -420,7 +419,6 @@ function deleteAMember()
             $page['method'] = 'showHtml';
             $page['css'] = 'Css/recupMdp.css';
             $page['arg'] = 'Html/profil.php';
-            $page['js'] = 'Js/changeImage.js';
         }
 
     }
@@ -546,7 +544,6 @@ function updateMail()
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/update-mail.php';
-    $page['js'] = 'Js/createImage.js';
 }
 
 function downloadCVS()

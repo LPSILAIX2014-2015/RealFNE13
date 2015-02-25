@@ -57,7 +57,7 @@ $(document).ready(function(){
 	                message = $("<p class='bg-success'>L\'image a été téléchargé avec succès.</p>");
 	                showMessage(message);
 	                document.getElementById('frmCHIMG').reset();
-	                setTimeout('redirect()',1100);
+	                //setTimeout('redirect()',1100);
 	            },
 	            error: function(){
 	                message = $("<p class='bg-danger'>Une erreur est survenue pendant le téléchargement de l\'image</p>");
