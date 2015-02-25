@@ -119,7 +119,7 @@ class MGenNewL extends FPDF
 			    # Author et Asso
 				$this->SetFont('Times','I',9);
 				$this->setTextColor(130,120,225);
-				$this->Cell(0,5,utf8_decode("Écrit par : ".$dataN[$b]['USER_NAME']." - ".$dataN[$b]['ASSO_NAME']." le ".$dataN[$b]['PDATE']),0,1,'C');
+				$this->Cell(0,5,utf8_decode("Écrit par : ".$dataN[$b]['USER_NAME']." - ".$dataN[$b]['ASSO_NAME']." le ".date("d-m-Y",strtotime($dataN[$b]['PDATE']))),0,1,'C');
 				$this->Ln();
 				# Content
 				$this->SetFont('Times','',12);
