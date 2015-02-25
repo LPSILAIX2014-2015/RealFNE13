@@ -9,7 +9,7 @@ class MFormCreateArticle
     function __construct ($id = null) {
         //connection à la base
         $sql = new MDBase();
-        $state = $sql->prepare("SELECT * FROM post WHERE ID = :id;"); // requete à effectuer
+        $state = $sql->prepare("SELECT * FROM POST WHERE ID = :id;"); // requete à effectuer
         $state->bindValue('id', $id, PDO::PARAM_INT); //le :id de la requete n'a aucune valeur, on lui bind alors celle de
         $state->execute();                            //$id (parametre du contructeur). On éxécute ensuite la requête
         $report = $state->fetch(PDO::FETCH_ASSOC);    //On récupère le résultat sous forme de tableau dans la variable $report
@@ -145,7 +145,7 @@ class MFormCreateArticle
         **/
 
         $sql->beginTransaction();
-        $state = $sql->prepare("INSERT INTO post (
+        $state = $sql->prepare("INSERT INTO POST (
             WRITER_ID,
             TITLE,
             THEME_ID,
