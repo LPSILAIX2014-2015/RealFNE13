@@ -3,9 +3,10 @@
 //SADMIN//
 if ((isset($_SESSION)) && ($_SESSION['ROLE'] == 'SADMIN'))
 {
-
+    global $data_assoc;
     global $data_article;
     global $connec;
+
 
 
 // AFFICHAGE
@@ -21,9 +22,18 @@ $state->execute();
 $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des articles
 ?>
 
-<div class="container-fluid pvarticle">
-    <h1>Liste des articles</h1>
+    <div class="container-fluid pvarticle">
+
+        <div class="filter">
+            <select id="filterVALID">
+                <option value="0">- En attente de validation -</option>
+                <option value="1">- Validé</option>
+            </select>
+        </div>
+
+        <h1>Liste des articles</h1>
     <?php
+
 
     for($i = 0 ; $i < count($data_article) ; ++$i)
     {
@@ -44,11 +54,18 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
 
             if($data_article[$i]['STATUS'] == 0)
             {
-            echo "<div id='article" . $data_article[$i]['ID']
-                . "' class='lienarticle'>";
+                if(strlen($data_article[$i]['CONTENT']) > 250)
+                    $description = substr($data_article[$i]['CONTENT'], 0, 250);
+
+                echo "<div id='article" . $data_article[$i]['ID']
+                    . "' class='lienarticle '"
+
+                    .      " data-theme='" . $data_article[$i]['THEME_ID'] . "'"
+                    .       "data-valid='"  . $data_article[$i]['STATUS']  . "'>";
             echo "<div id='imgplace'>";
             echo "<img src='" . $data_article[$i]['IMAGEPATH']
-                . "' class='img-responsive' />";
+                . "' class='img-responsive' " . "'>";
+
             echo "</div>";
 
             echo "<div id='infoarticle'>";
@@ -62,15 +79,20 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
                 . $description
                 . "</p>";
             echo "</div>";
-            echo "</div>";
+
 
             echo "<input class='butt_valid' id='valid_". $data_article[$i]['ID']."' type='submit' value='Validation'>";
             echo "<input class='butt_suppr' id='valid_". $data_article[$i]['ID']."' type='submit' value='Suppression'>";
-        }
+
+            echo "</div>";
+            }
         else if($data_article[$i]['STATUS'] == 1)
         {
             echo "<div id='article" . $data_article[$i]['ID']
-                . "' class='lienarticle'>";
+                . "' class='lienarticle '"
+
+                .      " data-theme='" . $data_article[$i]['THEME_ID'] . "'"
+                .       "data-valid='"  . $data_article[$i]['STATUS']  . "'>";
             echo "<div id='imgplace'>";
             echo "<img src='" . $data_article[$i]['IMAGEPATH']
                 . "' class='img-responsive' />";
@@ -87,9 +109,10 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
                 . $description
                 . "</p>";
             echo "</div>";
-            echo "</div>";
+
 
             echo "<input class='butt_suppr' id='valid_". $data_article[$i]['ID']."' type='submit' value='Suppression'>";
+            echo "</div>";
         }
 
         else echo "<p> INTERDICTION POUR CET ARTICLE ! </p>";
@@ -150,8 +173,11 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
         {
             if($data_article[$i]['STATUS'] == 0)
             {
-            echo "<div id='article" . $data_article[$i]['ID']
-                . "' class='lienarticle'>";
+                echo "<div id='article" . $data_article[$i]['ID']
+                    . "' class='lienarticle '"
+
+                    .      " data-theme='" . $data_article[$i]['THEME_ID'] . "'"
+                    .      "data-valid='"  . $data_article[$i]['STATUS']  . "'>";
             echo "<div id='imgplace'>";
             echo "<img src='" . $data_article[$i]['IMAGEPATH']
                 . "' class='img-responsive' />";
@@ -168,15 +194,18 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
                 . $description
                 . "</p>";
             echo "</div>";
-            echo "</div>";
+
 
             echo "<input class='butt_valid' id='valid_". $data_article[$i]['ID']."' type='submit' value='Validation'>";
             echo "<input class='butt_suppr' id='valid_". $data_article[$i]['ID']."' type='submit' value='Suppression'>";
-        }
+            echo "</div>";
+            }
         else if($data_article[$i]['STATUS'] == 1)
         {
             echo "<div id='article" . $data_article[$i]['ID']
-                . "' class='lienarticle'>";
+                . "' class='lienarticle'>"
+                .      " data-theme='" . $data_article[$i]['THEME_ID'] . "'"
+                .       "data-valid='"  . $data_article[$i]['STATUS']  . "'>";
             echo "<div id='imgplace'>";
             echo "<img src='" . $data_article[$i]['IMAGEPATH']
                 . "' class='img-responsive' />";
@@ -193,9 +222,10 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
                 . $description
                 . "</p>";
             echo "</div>";
-            echo "</div>";
+
 
             echo "<input class='butt_suppr' id='valid_". $data_article[$i]['ID']."' type='submit' value='Suppression'>";
+            echo "</div>";
         }
         }
 
@@ -257,7 +287,9 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
             if($data_article[$i]['STATUS'] == 0)
              {
             echo "<div id='article" . $data_article[$i]['ID']
-                . "' class='lienarticle'>";
+                . "' class='lienarticle'>"
+                .      " data-theme='" . $data_article[$i]['THEME_ID'] . "'"
+                .       "data-valid='"  . $data_article[$i]['STATUS']  . "'>";
             echo "<div id='imgplace'>";
             echo "<img src='" . $data_article[$i]['IMAGEPATH']
                 . "' class='img-responsive' />";
@@ -274,15 +306,18 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
                 . $description
                 . "</p>";
             echo "</div>";
-            echo "</div>";
+
 
             echo "<input class='butt_valid' id='valid_". $data_article[$i]['ID']."' type='submit' value='Validation'>";
             echo "<input class='butt_suppr' id='valid_". $data_article[$i]['ID']."' type='submit' value='Suppression'>";
+            echo "</div>";
             }
         else if($data_article[$i]['STATUS'] == 1)
               {
             echo "<div id='article" . $data_article[$i]['ID']
-                . "' class='lienarticle'>";
+                . "' class='lienarticle'>"
+                .      " data-theme='" . $data_article[$i]['THEME_ID'] . "'"
+                .       "data-valid='"  . $data_article[$i]['STATUS']  . "'>";
             echo "<div id='imgplace'>";
             echo "<img src='" . $data_article[$i]['IMAGEPATH']
                 . "' class='img-responsive' />";
@@ -299,10 +334,12 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
                 . $description
                 . "</p>";
             echo "</div>";
-            echo "</div>";
+
 
             echo "<input class='butt_valid' id='valid_". $data_article[$i]['ID']."' type='submit' value='Validation'>";
             echo "<input class='butt_suppr' id='valid_". $data_article[$i]['ID']."' type='submit' value='Suppression'>";
+
+            echo "</div>";
         }
         }
         else echo "<p> INTERDICTION POUR CET ARTICLE ! </p>";
