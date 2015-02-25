@@ -2,7 +2,7 @@
 	if(!isset($_SESSION['ROLE'])||($_SESSION['ROLE']!='SADMIN'))
 		header('Location: ./index.php');
      $id = null;
- 	function replace_accents($string){ 
+ 	function replace_accents($string){
         return str_replace( array('à','á','â','ã','ä', 'ç', 'è','é','ê','ë', 'ì','í','î','ï', 'ñ', 'ò','ó','ô','õ','ö', 'ù','ú','û','ü', 'ý','ÿ', 'À','Á','Â','Ã','Ä', 'Ç', 'È','É','Ê','Ë', 'Ì','Í','Î','Ï', 'Ñ', 'Ò','Ó','Ô','Õ','Ö', 'Ù','Ú','Û','Ü', 'Ý', '\''), array('a','a','a','a','a', 'c', 'e','e','e','e', 'i','i','i','i', 'n', 'o','o','o','o','o', 'u','u','u','u', 'y','y', 'A','A','A','A','A', 'C', 'E','E','E','E', 'I','I','I','I', 'N', 'O','O','O','O','O', 'U','U','U','U', 'Y', '_'), $string);
 	}
     if ( isset($_POST['NAME'])) {
@@ -16,7 +16,7 @@
         $nomOrigine = $_FILES["articleImage"]["name"];
         //On check s'il y à une image, s'il y en à une, on la traite
         if(strlen($nomOrigine) != 0){
-            
+
             $elementsChemin = pathinfo($nomOrigine);
             $extensionFichier = $elementsChemin['extension'];
 
@@ -79,14 +79,14 @@
 					  <div class="control-group">
 					    <label class="control-label">Name</label>
 					    <div class="controls">
-					      	<input name="NAME" id="name" type="text" pattern="^[a-zA-Z \.\,\+\-]*$" placeholder="Name" value="" required>
+					      	<input name="NAME" id="name" type="text" pattern="[^'\x22\;\.]+" placeholder="Name" value="" required>
 					      	<span>(Alphabétique)</span>
 					    </div>
 					  </div>
                       <div class="control-group">
 					    <label class="control-label">SurName</label>
 					    <div class="controls">
-					      	<input name="SURNAME" id="surname" type="text"  placeholder="SurName" value="" required>
+					      	<input name="SURNAME" id="surname" type="text"  pattern="[^'\x22\;\.]+" placeholder="SurName" value="" required>
 
 					    </div>
 					  </div>
