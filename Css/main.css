@@ -53,6 +53,9 @@ a {
 a:hover {
     text-decoration:none;
 }
+a:visited{
+    color:#0c5091;
+}
 img {
     border:0;
     vertical-align:middle;
@@ -289,6 +292,12 @@ table {
     background-color:#FFF;
     color:#0a2d5f;
     border:1px solid #0a2d5f;
+}
+.deconnexion:visited {
+    color:#a3cfea;
+}
+.deconnexion:hover:visited {
+    color:#0a2d5f;
 }
 .infosperso form {
     display:block;
