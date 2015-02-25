@@ -13,3 +13,17 @@
  	echo '<p>' . html_entity_decode($article[0]['CONTENT']) . '</p>';
 
 ?>
+<br/>
+<hr>
+<br/>
+<div>
+	<?php
+
+
+
+	?>
+	<form method="post" action="index.php?EX=submitCommentary">
+	    <textarea id="textareaId" cols="58" rows="8"></textarea>
+        <input type="submit" class="btn btn-success" value="Ajouter un commentaire"/>
+    </form>
+</div>
