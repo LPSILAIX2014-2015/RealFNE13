@@ -28,8 +28,8 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
     for($i = 0 ; $i < count($data_article) ; ++$i)
     {
 
-        if(strlen($data_article[$indexArticle]['CONTENT']) > 250) {
-            $contenuDecode = html_entity_decode($data_article[$indexArticle]['CONTENT']);
+        if(strlen($data_article[$i]['CONTENT']) > 250) {
+            $contenuDecode = html_entity_decode($data_article[$i]['CONTENT']);
 
             $contenuDecode = str_replace('<br />', '[SLaaa]', $contenuDecode);
             $contenuDecode = str_replace('</p>', '[SLaaa]', $contenuDecode);
@@ -39,7 +39,7 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
 
             $description = $contenuFormate;
         } else {
-            $description = html_entity_decode($data_article[$indexArticle]['CONTENT']);
+            $description = html_entity_decode($data_article[$i]['CONTENT']);
         }
 
             if($data_article[$i]['STATUS'] == 0)
