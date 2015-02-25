@@ -22,6 +22,7 @@
 	echo '<div id="divCom" idArticle="'.$article[0]['ID'].'"> </div>';
 ?>
 
+<div id='pagination' class='compact-theme simple-pagination'></div>
 <form method="post">
     <textarea id="textareaId" cols="58" rows="8"></textarea>
     <input type="submit" class="btn btn-success" value="Ajouter un commentaire"/>
