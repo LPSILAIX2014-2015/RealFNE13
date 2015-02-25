@@ -1,5 +1,9 @@
 $(document).ready(function() {
-    sortAssocArticle();
+
+
+    $('.lienarticle').hide();
+
+
 	//When an article is clicked, redirect to showArticle
 	$('.lienarticle').on('click', function() {
 
@@ -8,13 +12,21 @@ $(document).ready(function() {
 		document.location.href = 'index.php?EX=showInfoArticle&id='+id;
 	});
 
+
+
     //When select value change, articles will be filter
+    $('#filterVALID').on('change' , function(event) {
+        sortValidArticle();
+    })
     $('#filterASSOC').on('change', function(event) {
         sortAssocArticle();
     });
     $('#filterTHEME').on('change', function(event) {
         sortThemeArticle();
+
     });
+
+
 });
 
 jQuery(function($) {
@@ -83,4 +95,40 @@ function sortThemeArticle() {
             }
         }
     }
+}
+
+function sortValidArticle() {
+    var idValid = $('#filterVALID option:selected').attr('value');
+    $('.lienarticle').hide();
+
+    if(idValid == "0") //Si la sélection est a valider
+    {
+
+
+        for(var i = 0 ; i < $('.lienarticle').length ; ++i)
+        {
+            if ($('.lienarticle').get(i).getAttribute('data-valid')==0)
+               // console.log($('.lienarticle')[i]);
+
+
+                $('.lienarticle')[i].style.display=""; //Affiche div article
+
+        }
+
+    }
+
+    else
+    { //Si c'est la selection des articles déjà validé
+       for(var i = 0 ; i < $('.lienarticle').length ; ++i)
+       {
+
+             if ($('.lienarticle').get(i).getAttribute('data-valid')>0)
+             //console.log($('.lienarticle')[i]);
+            $('.lienarticle')[i].style.display="";
+
+             }
+
+        }
+
+
 }
