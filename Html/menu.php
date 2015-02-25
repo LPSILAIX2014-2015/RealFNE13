@@ -41,7 +41,6 @@ global $user ;
             <a href="index.php?EX=manageMembers">Gestion des membres</a>
 
             <a href="index.php?EX=validArticle">Validations</a>
-            <a href="index.php?EX=reportList">Journal</a>
 
             <?php if($user->getRole() == 'SADMIN'){?>
                 <a href="index.php?EX=manageAsso">Gestion assos</a>

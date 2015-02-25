@@ -79,6 +79,14 @@ textarea {
 }
 h1 {
     font-family:'Quicksand',Verdana,sans-serif;
+    font-size:15pt;
+    color:#0c5091;
+    text-shadow: 1px 2px #a3cfea;
+    padding:0;
+    margin:2px;
+}
+h3 {
+    font-family:'Quicksand',Verdana,sans-serif;
     font-size:13pt;
     color:#0c5091;
     text-shadow: 1px 2px #a3cfea;
@@ -342,7 +350,7 @@ nav li {
 }
 nav li a {
     display:inline-block;
-    width:150px;
+    width:140px;
     background-color:#FFFFFF;
     color:#0a2d5f;
     font-weight:bold;

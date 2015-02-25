@@ -1,32 +1,88 @@
 /* fin css calendrier*/
 #calendar {
-    max-width: 900px;
+    max-width: 520px;
     margin: 0 auto;
     color: #0c5091;
-    seize: 32px;
     text-align: center;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-body{  background:#EEEEEE;  letter-spacing:1px;  font-family:Helvetica; padding:10px;}
-.year{  color:#D90000;  font-size:85px;}
+.year{
+    font-family:'Quicksand',Verdana,sans-serif;
+    font-size:15pt;
+    color:#0c5091;
+    text-shadow: 1px 2px #a3cfea;
+    margin:2px;
+    font-weight:bold;
+}
 .relative{  position:relative;}
 .months{}
 .month{  margin-top:12px;}
-.months ul{  list-style:none;  margin:0px;  padding:0px;}
-.months ul li a{  float:left;  margin:-1px;  padding:0px 15px 0px 0px;  color:#888888;  text-decoration:none;  font-size:35px;  font-weight:bold;  text-transform:uppercase;}
-.months ul li a:hover, .months ul li a.active{  color:#D90000;}
-table{  border-collapse:collapse;}
-table td{  border:1px solid #A3A3A3;  width:80px;  height:80px;}
-table td.today{  border:2px solid #D90000;  width:80px;  height:80px;}
+.months ul{
+    list-style:none;
+    margin:0px;
+    padding:0px;
+    text-align:center;
+}
+.months ul li {
+    display:inline-block;
+}
+.months ul li a{
+
+    text-decoration:none;
+    text-transform:uppercase;
+    color:#ffffff;
+    border:1px solid #ffffff;
+    background-color:#0a2d5f;
+    border-radius:5px;
+    padding:2px 4px 2px 4px;
+    font-weight:bold;
+    transition:ease 0.5s;
+    cursor:url('../Img/cursor2.png'), auto ;
+    font-family:'Cabin',Verdana,sans-serif;
+    font-size:12pt;
+    box-shadow:inset -2px -2px 1px #0a2d5f, inset 2px 2px 1px rgba(255,255,255,0.5);
+}
+.months ul li a:hover, .months ul li a.active{
+    color:#0a2d5f;
+    border:1px solid #0a2d5f;
+    background-color:#a3cfea;
+}
+table{
+    border-collapse:collapse;
+    margin:25px 0 0 0;
+    border:none;
+}
+table td{  border:1px solid #a3cfea;  width:75px;  height:75px;}
+table td.today{  border:2px solid #0C5091;  width:75px;  height:75px;}
 table td.padding{  border:none;}
-table td:hover{  background:#DFDFDF;  cursor:pointer;}
+table td:hover{
+    background:#DFDFDF;
+    cursor:url('../Img/cursor4.png'), auto ;
+}
 table th{  font-weight:normal;  color:#A8A8A8;}
 table td .day{  position:absolute;  color:#8C8C8C;  bottom:-40px;  right:5px;  font-weight:bold;  font-size:24.3pt;}
-table td .events{  position:relative;  width:79px;  height:0px;  margin:-39px 0px 0px;  padding:0px;}
+table td .events{  position:relative;  width:74px;  height:0px;  margin:-39px 0px 0px;  padding:0px;}
 table td .events li{  width:10px;  height:10px;  float:left;  background:#000;  /*+border-radius:10px;*/  -moz-border-radius:10px;  -webkit-border-radius:10px;  -khtml-border-radius:10px;  border-radius:10px 10px 10px 10px;  margin-left:6px;  overflow:hidden;  text-indent:-3000px;}
 table td:hover .events{  position:absolute;  left:582px;  top:66px;  width:442px;  list-style:none;  margin:0px;  padding:11px 0px 0px;}
 table td:hover .events li{  height:40px;  line-height:40px;  font-weight:bold;  border-bottom:1px solid #D6D6D6;  padding-left:41px;  text-indent:0;  background:none;  width:500px;}
 table td:hover .events li:first-child{  border-top:1px solid #D6D6D6;}
 table td .daytitle{  display:none;}
-table td:hover .daytitle{  position:absolute;  left:582px;  top:21px;  width:442px;  list-style:none;  margin:0px 0px 0px 16px;  padding:0px;  color:#D90000;  font-size:41px;  display:block;  font-weight:bold;}
+table td:hover .daytitle {
+    font-family:'Quicksand',Verdana,sans-serif;
+    position:absolute;
+    left:50%;
+    top:-20px;
+    width:250px;
+    list-style:none;
+    margin:0px 0px 0px -125px;
+    padding:0px;
+    color:#0c5091;
+    font-size:20px;
+    display:block;
+    font-weight:bold;
+    text-align:center;
+    background:#ffffff;
+    border:1px solid #a3cfea;
+    border-radius:10px;
+}
 .clear{  clear:both;}
