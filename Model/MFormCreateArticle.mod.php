@@ -87,21 +87,21 @@ class MFormCreateArticle
                         $errorType = "Err_UploadFail";
                         $jsonarray = array("lastID" => $temp, "error" => $errorType);
                         $jsonReturned = json_encode($jsonarray);
-                        return $errorType;
+                        return $jsonReturned;
                     }
 
                 }else{
                     $errorType = "Err_FileTooFat";
                     $jsonarray = array("lastID" => $temp, "error" => $errorType);
                     $jsonReturned = json_encode($jsonarray);
-                    return $errorType;
+                    return $jsonReturned;
                 }
 
             } else{
                 $errorType = "Err_NotAnImage";
                 $jsonarray = array("lastID" => $temp, "error" => $errorType);
                 $jsonReturned = json_encode($jsonarray);
-                return $errorType;
+                return $jsonReturned;
             }
         }
 

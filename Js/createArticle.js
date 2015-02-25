@@ -17,7 +17,7 @@ $(document).ready(function() {
                 $("#errorMsg").prop('hidden', false); //... un message d'erreur apparait ...
             }
 
-            //... sinon on cache les boutton et on affiche le contenu de création d'article.
+            //... sinon on cache les bouttons et on affiche le contenu de création d'article.
             else{
                 $("#resetForm").trigger( "click" );
                 $("#buttonCreationArticle").prop('hidden', true);
@@ -138,15 +138,15 @@ var preview = function() {
     field = field.replace(/<cite nom=\"(.*?)\" lien=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<b><a href="$2">$1 :</a></b><div class="txtIta">"$3"</div>');
     field = field.replace(/<cite lien=\"(.*?)\" nom=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<b><a href="$1">$2 :</a></b><div class="txtIta">"$3"</div>');
     
-    //On recup les balise de citation
+    //On recup les balises de citation
     field = field.replace(/<cite>([\s\S]*?)<\/cite>/g, '<div class="txtIta">"$1"</div>');
     field = field.replace(/<taille valeur=\"(.*?)\">([\s\S]*?)<\/taille>/g, '<span class="$1">$2</span>');
 
-    //On recupere les balise de "taille" pour leur appliquer leur style
+    //On recupere les balises de "taille" pour leur appliquer leur style
     field = field.replace(/<taille valeur/g, '<span class');
     field = field.replace(/<\/taille>/g, '</span>');
 
-    //On recupere les balise de formattage de texte pour leur appliquer leur style
+    //On recupere les balises de formattage de texte pour leur appliquer leur style
     field = field.replace(/<aligne valeur="gauche/g, '<p align="left');
     field = field.replace(/<aligne valeur="droite/g, '<p align="right');
     field = field.replace(/<aligne valeur="centrer/g, '<p align="center');
