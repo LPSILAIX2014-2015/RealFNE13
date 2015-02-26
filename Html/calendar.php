@@ -7,8 +7,6 @@ $cal = $mEventCalendar->getEventCalendar();
 ?>
 <div id="calendar"></div>
 
-
-
 <script type="text/javascript">
     $(document).ready(function() {
 
@@ -18,7 +16,7 @@ $cal = $mEventCalendar->getEventCalendar();
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
-            contentHeight: 500,
+            contentHeight: 420,
             eventClick: function(calEvent, jsEvent, view) {
                 document.location.href = "index.php?EX=showInfoArticle&id="+calEvent.id;
             },
