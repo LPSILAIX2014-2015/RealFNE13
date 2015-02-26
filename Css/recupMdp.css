@@ -2,7 +2,6 @@
 /**
 * Styles pour le formulaire de recuparation de MP
 */
-@import "../Lib/bootstrap.min.css" screen;
 #mail, #mailR, #pass1, #pass2{
     width: 330px;
     margin: 0 auto;

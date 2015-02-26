@@ -23,7 +23,7 @@
 ?>
 
 <div id='pagination' class='compact-theme simple-pagination'></div>
-<form method="post">
+<form id="newCom" method="post" action="">
     <textarea id="textareaId" cols="58" rows="8"></textarea>
-    <input type="submit" class="btn btn-success" value="Ajouter un commentaire"/>
+    <input type="submit" id="clickNewCom" class="btn btn-success" value="Ajouter un commentaire"/>
 </form>
