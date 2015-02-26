@@ -22,9 +22,18 @@ class MCommentaire {
         {
             $date = $results[$i]["COM_DATE"];
             $dateFormat = new DateTime($date);
-            $results[$i]["COM_DATE"] = $dateFormat->format('d/m/Y h:i:s');
+            $results[$i]["COM_DATE"] = $dateFormat->format('d/m/Y H:i:s');
         }
 
         return $results;
+    }
+
+    public function addCommentairePost($idPost, $content) {
+        $state = $this->sql->prepare("INSERT INTO COMMENTAIRE(WRITER_ID,POST_ID,CONTENT) VALUES (:ID,:ID_POST,:CONTENT)");
+
+        $state->bindValue('ID', $_SESSION['ID_USER'], PDO::PARAM_INT);
+        $state->bindValue('ID_POST', $idPost, PDO::PARAM_INT);
+        $state->bindValue('CONTENT', $content, PDO::PARAM_STR);
+        return $state->execute();
     }
 }
