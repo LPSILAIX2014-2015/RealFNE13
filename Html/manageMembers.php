@@ -1,3 +1,12 @@
+<?php
+if(!(isset($_SESSION['ROLE'])) || (($_SESSION['ROLE'] == 'MEMBRE')||($_SESSION['ROLE'] == 'VALIDATOR'))){
+    header("Location: ./index.php");
+}
+else if($_SESSION['ROLE']=='ADMIN'){
+    $assoc=(new MUser($_SESSION['ID_USER']))->getAssociation();
+}
+?>
+
 <script type="text/javascript">
     $(document).ready(function(){
         var name = new Array();
