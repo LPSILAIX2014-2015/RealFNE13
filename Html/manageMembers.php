@@ -256,7 +256,7 @@ foreach($rolesList as $line){
                 if($row['PHOTOPATH']) {
                     $img = $row['PHOTOPATH'];
                 }
-                echo '<tr>';
+                echo ($i%2==0)?'<tr class="tr-even">':'<tr>';;
                 echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
                 echo '<td>'. $row['CP'] . '</td>';
                 echo '<td>'. $row['PROFESSION'] . '</td>';
@@ -310,7 +310,7 @@ foreach($rolesList as $line){
                     if($row['PHOTOPATH']) {
                         $img = $row['PHOTOPATH'];
                     }
-                    echo '<tr>';
+                    echo ($i%2==0)?'<tr class="tr-even">':'<tr>';;
                     echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
                     echo '<td>'. $row['CP'] . '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
