@@ -219,6 +219,7 @@ foreach($rolesList as $line){
         <tbody>
         <?php
         $dataCSV = array();
+        $i=0;
         if ( isset($_POST['NAME'])) {
             $nom = $_POST['NAME'];
             $conditions = array();
@@ -303,6 +304,7 @@ foreach($rolesList as $line){
                 echo '<a class="btn btn-danger" href="index.php?EX=deleteMember&id='.$row['ID'].'">Supprimer</a>';
                 echo '</td>';
                 echo '</tr>';
+                $i++;
             }
         }else {
 
@@ -357,6 +359,7 @@ foreach($rolesList as $line){
                     echo '<a class="btn btn-danger" href="index.php?EX=deleteMember&id='.$row['ID'].'">Supprimer</a>';
                     echo '</td>';
                     echo '</tr>';
+                    $i++;
                 }
             }
         }
