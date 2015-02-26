@@ -343,5 +343,31 @@ foreach($rolesList as $line){
         ?>
         </tbody>
     </table>
+    <a target="_blank" href="index.php?EX=downloadCVS"><button class="downloadCVS">Télécharger format CSV</button></a>
+    <?php
+    $dataCSVOk = array();
+    for($i = 0 ; $i < count($dataCSV) ; ++$i)
+    {
+        $current = array();
+        array_push($current, $dataCSV[$i]['THEME_DETAILS']);
+        array_push($current, $dataCSV[$i]['ROLE']);
+        array_push($current, $dataCSV[$i]['NAME']);
+        array_push($current, $dataCSV[$i]['SURNAME']);
+        array_push($current, $dataCSV[$i]['MAIL']);
+        array_push($current, $dataCSV[$i]['ADRESS']);
+        array_push($current, $dataCSV[$i]['CP']);
+        array_push($current, $dataCSV[$i]['PROFESSION']);
+        array_push($current, $dataCSV[$i]['PROFESSION2']);
+        array_push($dataCSVOk, $current);
+    }
+    $fichier_csv = fopen('Csv/ExportationUser.csv', 'w+');
+    for($i = 0 ; $i < count($dataCSVOk) ; ++$i)
+    {
+        fputcsv($fichier_csv, $dataCSVOk[$i], ';');
+    }
+    fclose($fichier_csv);
+    ?>
 </div>
+</div>
+
 </div> <!-- /container -->
