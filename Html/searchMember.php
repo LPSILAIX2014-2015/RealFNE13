@@ -328,7 +328,7 @@ foreach($themesList as $line){
                     </div>
 
                 </div>';
-                    echo '<a class="btn" href="./index.php?EX=writeMessages&dest='.$row['ID'].'">Message</a>';
+                    echo '<a class="btn" href="./index.php?EX=writeMessages&dest='.$row['LOGIN'].'">Message</a>';
                     echo '&nbsp;';
                     echo '<input type="checkbox" name="option1[]" value='.$row['MAIL'].'>';
 
