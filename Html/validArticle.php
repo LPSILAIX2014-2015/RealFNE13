@@ -115,7 +115,6 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
             echo "</div>";
         }
 
-        else echo "<p> INTERDICTION POUR CET ARTICLE ! </p>";
 
     }
     ?>
@@ -229,7 +228,6 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
         }
         }
 
-        else echo "<p> INTERDICTION POUR CET ARTICLE ! </p>";
     }
     ?>
 
@@ -342,7 +340,7 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
             echo "</div>";
         }
         }
-        else echo "<p> INTERDICTION POUR CET ARTICLE ! </p>";
+
     }
     ?>
 

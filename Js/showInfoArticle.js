@@ -1,7 +1,11 @@
 $(document).ready(function() {
 
-
-    $('.lienarticle').hide();
+    //Foutre les valeurs par défauts des consultations d'articles
+    //PROBLEMU
+    sortAssocArticle();
+    sortThemeArticle();
+    sortValidArticle();
+    //$('.lienarticle').hide();
 
 
 	//When an article is clicked, redirect to showArticle
@@ -60,7 +64,10 @@ jQuery(function($) {
 
 //Sort function for Category and theme
 function sortAssocArticle() {
-    var idAssoc = $('#filterASSOC option:selected').attr('value');
+    var idAssoc;
+    if( $('#filterASSOC option:selected').attr('value') == 'undefined') idAssoc =0;
+    else  idAssoc = $('#filterASSOC option:selected').attr('value');
+
     $('.lienarticle').hide();
     if(idAssoc == "0")
     {
@@ -79,7 +86,10 @@ function sortAssocArticle() {
 }
 
 function sortThemeArticle() {
-    var idTheme = $('#filterTHEME option:selected').attr('value');
+
+    var idTheme;
+    if( $('#filterTHEME option:selected').attr('value') == 'undefined') idTheme =0;
+                    else  idTheme = $('#filterTHEME option:selected').attr('value');
     $('.lienarticle').hide();
     if(idTheme == "0")
     {
@@ -98,7 +108,11 @@ function sortThemeArticle() {
 }
 
 function sortValidArticle() {
-    var idValid = $('#filterVALID option:selected').attr('value');
+    var idValid;
+    if( $('#filterVALID option:selected').attr('value') == 'undefined') idValid =0;
+    else  idValid = $('#filterVALID option:selected').attr('value');
+
+    console.log(idValid);
     $('.lienarticle').hide();
 
     if(idValid == "0") //Si la sélection est a valider
