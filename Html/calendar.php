@@ -25,7 +25,7 @@ $cal = $mEventCalendar->getEventCalendar();
             for($i = 0 ; $i < count($cal) ; ++$i) 
             {
                 //start
-                $date = strtotime($cal[$i]['BEGIN']);
+                $date = strtotime($cal[$i]['DATE_BEGIN']);
                 $year = date('Y', $date);
                 $day = date('d', $date);
                 $month = date('m', $date);
@@ -34,7 +34,7 @@ $cal = $mEventCalendar->getEventCalendar();
                 $interval = $cal[$i]['DURATION'];
 
                 //end
-                $date = new DateTime($cal[$i]['BEGIN']);
+                $date = new DateTime($cal[$i]['DATE_BEGIN']);
                 $date->add(new DateInterval('P'.$interval.'D'));
                 $yearEnd = $date->format('Y');
                 $dayEnd = $date->format('d');

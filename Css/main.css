@@ -122,7 +122,6 @@ button:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type
 table {
     border:1px solid #0c5091;
     border-radius: 5px;
-    margin:3px;
     padding:3px;
 }
 /*
