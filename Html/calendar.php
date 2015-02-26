@@ -10,13 +10,27 @@ $cal = $mEventCalendar->getEventCalendar();
 <script type="text/javascript">
     $(document).ready(function() {
 
+
+
+
+
+
+
+
+        
+
+
+
+
         $('#calendar').fullCalendar({
             header: {
                 left: 'prev,next today',
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
-            contentHeight: 420,
+            eventLimit: true,
+            eventLimitClick: 'popover',
+            contentHeight: 450,
             eventClick: function(calEvent, jsEvent, view) {
                 document.location.href = "index.php?EX=showInfoArticle&id="+calEvent.id;
             },
@@ -59,6 +73,10 @@ $cal = $mEventCalendar->getEventCalendar();
 
             ?>
             ]
+        });
+
+        $('.fc-more').on('click', function() {
+            $('.fc-more-popover').attr('style', 'top: 25%; left: -45%;');
         });
 });
 </script>
