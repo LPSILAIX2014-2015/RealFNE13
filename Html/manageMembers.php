@@ -209,6 +209,7 @@ foreach($rolesList as $line){
         </thead>
         <tbody>
         <?php
+        $dataCSV = array();
         if ( isset($_POST['NAME'])) {
             $nom = $_POST['NAME'];
             $conditions = array();
@@ -229,7 +230,11 @@ foreach($rolesList as $line){
                 $conditions[] = "PROFESSION = '". $_POST['PROFESSION']. "'";
                 $params[] = $_POST['PROFESSION'];
             }
-            if($_POST['ASSOCIATION']) {
+            if(isset($assoc)) {
+                $conditions[] = "ASSOCIATION_ID = '". $assoc. "'";
+                $params[] = $assoc;
+            }
+            else if($_POST['ASSOCIATION']) {
                 $conditions[] = "ASSOCIATION_ID = '". $_POST['ASSOCIATION']. "'";
                 $params[] = $_POST['ASSOCIATION'];
             }
@@ -246,6 +251,7 @@ foreach($rolesList as $line){
             }
 
             foreach ($pdo->query($sql) as $row) {
+                array_push($dataCSV, $row);
                 $img = null;
                 if($row['PHOTOPATH']) {
                     $img = $row['PHOTOPATH'];
@@ -291,10 +297,15 @@ foreach($rolesList as $line){
             }
         }else {
 
-            $sql = 'SELECT * FROM USER order by NAME ASC';
+            if(isset($assoc)){
+                $sql = 'SELECT * FROM USER WHERE ASSOCIATION_ID = '.$assoc.' Order by Name ASC';
+            }
+            else
+                $sql = 'SELECT * FROM USER order by NAME ASC';
             if(count($sql) > 0) {
 
                 foreach ($pdo->query($sql) as $row) {
+                    array_push($dataCSV, $row);
                     $img = null;
                     if($row['PHOTOPATH']) {
                         $img = $row['PHOTOPATH'];
