@@ -36,7 +36,7 @@
                                              ------------------------------
      -->
 
-    <form id="formArticle" class="form-horizontal" role="form" action="index.php?EX=formCreateArticle" method="POST" enctype="multipart/form-data">
+    <form id="formArticle" class="form-horizontal" role="form" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="articleTitle" class="col-sm-3 control-label">Titre de l'article</label>
             <div class="col-sm-5">
@@ -56,7 +56,7 @@
                 $values = $Themes->getAllThemes();
                 $option = "";
 
-                //Les values des options du select correspondront aux IDs, Les textex aux NAMEs
+                //Les values des options du select correspondront aux IDs, Les textes aux NAMEs
                 for($i = 0 ; $i < count($values) ; ++$i)
                 {
                     $option.= '<option value="'.$values[$i]['ID'].'">'.$values[$i]['NAME'].'</option>';
@@ -76,7 +76,7 @@
         </div>
         
         <!-- control max size of images (10MB max) -->
-        <input type="hidden" name="max_file_size" value="10485760">
+        <input type="hidden" name="max_file_size" value="5485760">
 
         <!-- 
                                      ------------------------------------------------------

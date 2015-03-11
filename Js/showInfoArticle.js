@@ -9,6 +9,9 @@ $(document).ready(function() {
 	});
 
     //When select value change, articles will be filter
+    if('#filterASSOC option:selected') {
+        sortAssocArticle();
+    }
     $('#filterASSOC').on('change', function(event) {
         sortAssocArticle();
     });

@@ -3,8 +3,7 @@ class MDBase extends PDO {
 
 
     private static $engine = 'mysql';
-    //Site FINAL
-
+    //Site LOCAL
 /*
     private static $dbName = 'FNESITE' ;
     private static $dbHost = 'localhost' ;
@@ -14,19 +13,20 @@ class MDBase extends PDO {
 */
 
     //Site DEV
-    /*
+/*
     private static $dbName = 'fnekxazadev' ;
     private static $dbHost = 'mysql51-84.pro' ;
     private static $dbUsername = 'fnekxazadev';
     private static $dbUserPassword = 'natureC13';
     private static $cont  = null;
-    */
+*/
+
     //LOCAL
 
     private static $dbName = 'FNESITE' ;
     private static $dbHost = 'localhost' ;
     private static $dbUsername = 'root';
-    private static $dbUserPassword = 'mysql';
+    private static $dbUserPassword = '';
     private static $cont  = null;
 
 
