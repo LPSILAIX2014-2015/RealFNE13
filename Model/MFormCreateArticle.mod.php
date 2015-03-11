@@ -60,7 +60,7 @@ class MFormCreateArticle
             $elementsChemin = pathinfo($nomOrigine);
             $extensionFichier = $elementsChemin['extension'];
 
-            $extensionsAutorisees = array("jpeg", "jpg","png");
+            $extensionsAutorisees = array("jpeg", "jpg","png", "JPEG", "JPG", "PNG");
             $maxImageSize = $_POST["max_file_size"];
 
             $sanitizeFileName = replace_accents($_FILES["articleImage"]["name"]);

@@ -129,3 +129,43 @@
     border-radius: 10px;
     padding: 1%;
 }
+
+.txtUndln {
+    text-decoration: underline;
+}
+
+.txtIta {
+    font-style: italic;
+}
+
+.tpetit {
+    font-size: 50%;
+}
+
+.petit {
+    font-size: 75%;
+}
+
+.gros {
+    font-size: 150%;
+}
+
+.tgros {
+    font-size: 200%;
+}
+
+.gauche {
+    text-align: left;
+}
+
+.droite {
+    text-align: right;
+}
+
+.centrer {
+    text-align: center;
+}
+
+.justifier {
+    text-align: justify;
+}

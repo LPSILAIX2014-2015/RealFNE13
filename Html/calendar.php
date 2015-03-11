@@ -7,10 +7,20 @@ $cal = $mEventCalendar->getEventCalendar();
 ?>
 <div id="calendar"></div>
 
-
-
 <script type="text/javascript">
     $(document).ready(function() {
+
+
+
+
+
+
+
+
+        
+
+
+
 
         $('#calendar').fullCalendar({
             header: {
@@ -18,7 +28,9 @@ $cal = $mEventCalendar->getEventCalendar();
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
-            contentHeight: 500,
+            eventLimit: true,
+            eventLimitClick: 'popover',
+            contentHeight: 450,
             eventClick: function(calEvent, jsEvent, view) {
                 document.location.href = "index.php?EX=showInfoArticle&id="+calEvent.id;
             },
@@ -27,7 +39,7 @@ $cal = $mEventCalendar->getEventCalendar();
             for($i = 0 ; $i < count($cal) ; ++$i) 
             {
                 //start
-                $date = strtotime($cal[$i]['BEGIN']);
+                $date = strtotime($cal[$i]['DATE_BEGIN']);
                 $year = date('Y', $date);
                 $day = date('d', $date);
                 $month = date('m', $date);
@@ -36,7 +48,7 @@ $cal = $mEventCalendar->getEventCalendar();
                 $interval = $cal[$i]['DURATION'];
 
                 //end
-                $date = new DateTime($cal[$i]['BEGIN']);
+                $date = new DateTime($cal[$i]['DATE_BEGIN']);
                 $date->add(new DateInterval('P'.$interval.'D'));
                 $yearEnd = $date->format('Y');
                 $dayEnd = $date->format('d');
@@ -61,6 +73,10 @@ $cal = $mEventCalendar->getEventCalendar();
 
             ?>
             ]
+        });
+
+        $('.fc-more').on('click', function() {
+            $('.fc-more-popover').attr('style', 'top: 25%; left: -45%;');
         });
 });
 </script>
