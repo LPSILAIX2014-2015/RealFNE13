@@ -30,8 +30,9 @@ class CConnexion {
                 $state->execute();
             }
             else {
-                $customAlert[] = 'Erreur d\'authentification' ;
                 $fail->addAttempt();
+                $customAlert[] = 'Erreur d\'authentification.<br/>'.(($fail->getAttempts() < LOGINFAIL_ATTEMPTS) ? 'Il vous reste '.(LOGINFAIL_ATTEMPTS - $fail->getAttempts()).' essai'.((LOGINFAIL_ATTEMPTS - $fail->getAttempts() > 1) ? 's' : '') : '') ;
+
 
                 if (($fail->getAttempts() == LOGINFAIL_WARNING) && (LOGINFAIL_WARNING != 0)) {
                     $user = new MUser($result['ID']) ;
