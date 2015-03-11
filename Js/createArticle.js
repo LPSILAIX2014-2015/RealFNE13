@@ -1,5 +1,59 @@
 $(document).ready(function() {
 
+        //Create News
+        $('#formArticle').on('submit', function (e) {
+            // On empêche le navigateur de soumettre le formulaire
+            e.preventDefault();
+
+            var $form = $(this);
+            var formdata = (window.FormData) ? new FormData($form[0]) : null;
+            var data = (formdata !== null) ? formdata : $form.serialize();
+
+            console.log($('#articleImage').val());
+
+            console.log($('#articleImage').val().substr(-4,4));
+
+            $.ajax({
+                url: 'Ajax/creationArticleHandler.php',
+                type: $form.attr('method'),
+                contentType: false, // obligatoire pour de l'upload d'image
+                processData: false, // obligatoire pour de l'upload d'image
+                data: data,
+                success: function(response){
+
+                    var result = JSON.parse(response);
+
+                    switch(result.errorType)
+                    {
+                        case 'Err_NoTittle':
+                            alert("Erreur : Vous devez mettre un titre à votre article.");
+                            break;
+                        case 'Err_NotAnImage':
+                            alert("Erreur : une erreur est survenue, pour des raisons de sécurité, seules les images au format jpg, jpeg et png de taille inférieur à 5 MB sont autorisées.")
+                            break;
+                        case 'Err_UserNotLogged':
+                            alert("Erreur : Vous n'êtes pas connecté.");
+                            break;
+                        case 'Err_FileTooFat':
+                            alert("Erreur : Le fichier que vous avez seléctionné est trop volumineux.");
+                            break;
+                        case 'Err_UploadFail':
+                            alert("Erreur : Un problème est survenu lors du chargement de votre image.");
+                            break;
+                        case 'Err_QueryFail':
+                            alert("Erreur : Votre article n'a pas pu être enregistré (Avez-vous les droits?).");
+                            break;
+                        case 'Err_NoText':
+                            alert("Erreur : Pour limiter l'abus de création d'article, veuillez saisir plus de 50 caractères dans le corps de votre article.");
+                            break;
+                        case 'EverythingOK':
+                            alert("Votre article à été envoyé à la validation, vous pouvez contacter la personne en charge de la validation d'article de votre association pour voir son avancement.")
+                            location.reload();
+                            break;
+                    }
+                }
+            });
+        });
 
     /////////////////////////////////////////
     ////////// Gestion des bouttons /////////
