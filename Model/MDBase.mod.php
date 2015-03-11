@@ -67,7 +67,7 @@ class MDBase extends PDO {
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = "SELECT * FROM ASSOCIATION";
+        $query = "SELECT * FROM ASSOCIATION ORDER BY NAME";
         $qq = $pdo->prepare($query);
         $qq->execute();
         $data = $qq->fetchall();

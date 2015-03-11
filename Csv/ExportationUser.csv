@@ -1,37 +1,13 @@
-;SADMIN;Damien;Nicolas;nicolas.damien@truc.fr;"33 Somewhere over the rainbow";13000;Directeur;
-Plantations;ADMIN;Dupond2;Francis2;francis2@truc.fr;"02 Quelque part";29000;"Ing?�nieur Terre";
-;VALIDATOR;Dupont2;Huguette2;huguette2@machin.com;"22 Highway to hell";13002;Secr?�taire;Retrait?�e
-;;fle;fluxtor;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;fle;fl;fl@xl.c;qzsfqsdlfkqsjdf;77778;qsdazdsqdqsd;
-;;flux;Flex;flex@flux.local;sdpfijz;78945;sadMEIFQS;
-;MEMBER;s;fa;fa@s.c;;0;;
-;;truc;machin;machin@truc.loc;DTC;62342;"Glandeur Pro";Chômeur
+"Barrages hydroliques";ADMIN;FrancisA;DupondA;francisA@truc.fr;"01 Quelque part";19000;"Ingénieur Eau";
+Plantations;ADMIN;FrancisB;DupondB;francisB@truc.fr;"02 Quelque part";29000;"Ingénieur Terre";
+;ADMIN;FrancisC;DupondC;francisC@truc.fr;"03 Quelque part";39000;"Ingénieur Air";
+"Super Maître";SADMIN;FRANCK;SADMIN;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurSA;Esclave
+"Super Maître";ADMIN;FRANCK;ADMIN;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurA;Esclave
+"Super Maître";ADMIN;FRANCK;MEMBRE;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
+Infirmerie;MEMBRE;HuguetteA;DupontA;huguetteA@machin.com;"11 Highway to hell";13001;Infirmière;Retraitée
+;MEMBRE;HuguetteB;DupontB;huguetteB@machin.com;"22 Highway to hell";13002;Secrétaire;Retraitée
+;VALIDATOR;HuguetteC;DupontC;huguetteC@machin.com;"33 Highway to hell";13003;Chirurgienne;Retraitée
+;SADMIN;Nicolas;Damien;nicolas.damien@truc.fr;"33 Somewhere over the rainbow";13000;Directeur;
+"Super Maître";SADMIN;VINCENT;SADMIN;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurSA;Esclave
+"Super Maître";ADMIN;VINCENT;ADMIN;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurA;Esclave
+"Super Maître";MEMBER;VINCENT;MEMBRE;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
