@@ -4,6 +4,8 @@
 $(".butt_valid").click(function() {
         $idp = $(this).attr('var');
 
+        console.log($idp);
+
         $.ajax({
             type: "POST",
             url: "./Php/validActionArticle.php",

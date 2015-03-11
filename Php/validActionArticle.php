@@ -7,9 +7,10 @@ try{
     //$article_id=substr(); Id de la div
 
 
-    $sql="UPDATE POST SET STATUS = 1 WHERE ID = " . $_POST["idd"];
+    $sql="UPDATE POST SET STATUS = 1, PDATE = CURDATE() WHERE ID = " . $_POST["idd"];
     $connexionAvecPDO->exec($sql);
 
+    var_dump($connexionAvecPDO);
 
 }
 
