@@ -3,6 +3,7 @@ class MDBase extends PDO {
 
 
     private static $engine = 'mysql';
+
     //Site LOCAL
     private static $dbName = 'FNESITE' ;
     private static $dbHost = 'localhost' ;
@@ -31,6 +32,7 @@ class MDBase extends PDO {
     public function __construct(){
         $dns = self::$engine.':dbname='.self::$dbName.";host=".self::$dbHost;
         parent::__construct( $dns, self::$dbUsername, self::$dbUserPassword );
+        $this->exec("SET CHARACTER SET utf8");
     }
 
     public static function connect()
