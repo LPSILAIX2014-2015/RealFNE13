@@ -161,6 +161,9 @@
                         <span class="glyphicon glyphicon-align-right" aria-hidden="true"></span>
                     </button>
                 </span>
+                <span class="btn-group" style="margin-left:10px">
+                    <button type="button" id="btnHelp">Besoin d'aide?</button>
+                </span>
             </p>
         </div>
 
