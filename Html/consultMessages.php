@@ -33,10 +33,10 @@
 
 
 <div class="divArchiveMessages">
-	<h3 class="panel-title">Messages archivés</h3>
-	<div class="panel-body">
-		<div class="table-responsive">
-			<table class="tableMessages table table-hover">
+	<h3>Messages archivés</h3>
+	<div>
+		<div>
+			<table class="tableMessages">
 				<thead>
 					<tr>
 						<th class="SENDER_MESSAGE">Envoyé par</th>
@@ -54,10 +54,10 @@
 </div>
 
 <div class="divNotif">
-	<h3 class="panel-title">Messages</h3>
-	<div class="panel-body">
-		<div class="table-responsive">
-			<table class="tableMessages table table-hover">
+	<h3>Messages</h3>
+	<div>
+		<div>
+			<table class="tableMessages">
 				<thead>
 					<tr>
 						<th class="SENDER_MESSAGE">Envoyé par</th>
@@ -75,10 +75,10 @@
 </div>
 
 <div class="divMessages">
-	<h3 class="panel-title">Notifications</h3>
-	<div class="panel-body">
-		<div class="table-responsive">
-			<table class="tableNotif table table-hover">
+	<h3>Notifications</h3>
+	<div>
+		<div>
+			<table class="tableNotif">
 				<thead>
 					<tr>
 						<th class="NOTIFICATION_NOTIF">Notification</th>
