@@ -36,17 +36,25 @@ class VShowArticle
 		// AFFICHAGE
 		$state = $connec->prepare(
 			"SELECT P.*, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE,
-			U.NAME, U.SURNAME, U.ASSOCIATION_ID ASSOC_ID
-			FROM   POST P, USER U
-			WHERE  P.WRITER_ID = U.ID
-			  AND  P.PTYPE = 'ARTICLE'
-        AND  P.STATUS > 0
-			ORDER BY id DESC"
+              DATEDIFF(CURDATE(), P.PDATE) AS DUR_EXISTENCE,
+			        U.NAME, U.SURNAME, U.ASSOCIATION_ID ASSOC_ID
+			 FROM   POST P, USER U
+			 WHERE  P.WRITER_ID = U.ID
+			   AND  P.PTYPE = 'ARTICLE'
+         AND  P.STATUS > 0
+         AND  DATEDIFF(CURDATE(), P.PDATE) <= 366
+			 ORDER BY id DESC"
 			);
 		$state->execute();
 		$data_article = $state->fetchAll(PDO::FETCH_ASSOC);
 
-		$data_assoc = $connec->getAllAssocs();
+    $delete_old_article = $connec->prepare(
+      "DELETE FROM POST
+       WHERE DATEDIFF(CURDATE(), PDATE) > 365"
+    );
+    $delete_old_article->execute();
+
+    $data_assoc = $connec->getAllAssocs();
 		$data_theme = $connec->getAllThemes();
 
 		// REMPLISSAGE DU CONTENU
