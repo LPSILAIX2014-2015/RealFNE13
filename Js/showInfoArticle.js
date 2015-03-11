@@ -22,10 +22,15 @@ $(document).ready(function() {
 
     $('#filterVALID').on('change' , function(event) {
         sortValidArticle();
-    })
+    });
+
     if('#filterASSOC option:selected') {
         sortAssocArticle();
     }
+
+    $('#filterASSOC').on('change', function(event) {
+        sortAssocArticle();
+    });
 
     $('#filterTHEME').on('change', function(event) {
         sortThemeArticle();
