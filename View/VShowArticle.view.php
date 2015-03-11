@@ -1,6 +1,7 @@
 <?php
 class VShowArticle
 {
+
 	public function __construct(){}
 	
 	public function __destruct(){}
@@ -18,11 +19,11 @@ class VShowArticle
 		{
 			$state = $connec->prepare(
 				'SELECT U.ID
-				FROM USER U, ASSOCIATION A, POST P
-				WHERE WRITER_ID = U.ID
-				AND A.ID = :idA
-				AND U.ASSOCIATION_ID = A.ID'
-				);
+				 FROM   USER U, ASSOCIATION A, POST P
+				 WHERE  WRITER_ID = U.ID
+           AND  A.ID = :idA
+           AND  U.ASSOCIATION_ID = A.ID'
+	   	);
 			$state->bindValue('idA', htmlspecialchars($_GET['idA']), PDO::PARAM_INT);
 			$state->execute();
 			$data_idUserList = $state->fetchAll(PDO::FETCH_ASSOC);
@@ -32,20 +33,28 @@ class VShowArticle
 			$data_idUserList = false;
 		}
 
-
 		// AFFICHAGE
 		$state = $connec->prepare(
 			"SELECT P.*, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE,
-			U.NAME, U.SURNAME, U.ASSOCIATION_ID ASSOC_ID
-			FROM   POST P, USER U
-			WHERE  P.WRITER_ID = U.ID
-			AND  P.PTYPE = 'ARTICLE'
-			ORDER BY id DESC"
+              DATEDIFF(CURDATE(), P.PDATE) AS DUR_EXISTENCE,
+			        U.NAME, U.SURNAME, U.ASSOCIATION_ID ASSOC_ID
+			 FROM   POST P, USER U
+			 WHERE  P.WRITER_ID = U.ID
+			   AND  P.PTYPE = 'ARTICLE'
+         AND  P.STATUS > 0
+         AND  DATEDIFF(CURDATE(), P.PDATE) <= 366
+			 ORDER BY id DESC"
 			);
 		$state->execute();
 		$data_article = $state->fetchAll(PDO::FETCH_ASSOC);
 
-		$data_assoc = $connec->getAllAssocs();
+    $delete_old_article = $connec->prepare(
+      "DELETE FROM POST
+       WHERE DATEDIFF(CURDATE(), PDATE) > 365"
+    );
+    $delete_old_article->execute();
+
+    $data_assoc = $connec->getAllAssocs();
 		$data_theme = $connec->getAllThemes();
 
 		// REMPLISSAGE DU CONTENU
@@ -54,6 +63,6 @@ class VShowArticle
 		$vhtml->showHtml($_html);
 
 	} // showShowArticle($_html)
-
+  
 } // VHtml
 ?>
