@@ -12,14 +12,6 @@ class MDBase extends PDO {
     private static $cont  = null;
 */
 
-    //Site LOCAL Cathy
-    private static $dbName = 'FNESITE' ;
-    private static $dbHost = 'localhost' ;
-    private static $dbUsername = 'root';
-    private static $dbUserPassword = 'mysql';
-    private static $cont  = null;
-
-
     //Site DEV
 /*
     private static $dbName = 'fnekxazadev' ;
@@ -28,6 +20,14 @@ class MDBase extends PDO {
     private static $dbUserPassword = 'natureC13';
     private static $cont  = null;
 */
+
+    //LOCAL
+
+    private static $dbName = 'FNESITE' ;
+    private static $dbHost = 'localhost' ;
+    private static $dbUsername = 'root';
+    private static $dbUserPassword = 'mysql';
+    private static $cont  = null;
 
 
     public function __construct(){
