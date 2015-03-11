@@ -84,6 +84,17 @@ input, textarea, select {
     font-family: 'Slabo 13px', serif;
     transition:ease 0.5s;
 }
+select {
+    max-width: 95%;
+    font-family:'Titillium Web',Verdana,sans-serif;
+}
+option {
+    padding:0 2px 0 4px ;
+    font-family:'Titillium Web',Verdana,sans-serif;
+}
+option:hover {
+    background-color: #a3cfea;
+}
 input:hover, textarea:hover, select:hover {
     border:2px solid #4bc9e2;
 }
@@ -425,7 +436,10 @@ nav li a:hover {
 }
 .page h1 {
     font-size:15pt;
-    margin:2px;
+    margin:3px 2px 8px 2px;
+}
+p {
+    text-align: justify;
 }
 button, #loginbutton {
     color:#ffffff;
@@ -540,7 +554,7 @@ button, #loginbutton:hover {
     font-size:10pt;
     text-align:left;
     margin:0;
-    padding:1px;
+    padding:4px 1px 4px 1px;
     vertical-align:top;
     border-bottom:1px dashed #0c5091;
 }
