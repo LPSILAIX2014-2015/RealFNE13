@@ -20,9 +20,6 @@ class MEventCalendar
 
         $state->execute();
         $events = $state->fetchAll(PDO::FETCH_ASSOC);
-        echo "<pre>";
-        var_dump($events);
-        echo "</pre>";
 
         return $events;
     }

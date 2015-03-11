@@ -54,7 +54,7 @@ class MConsultMessage {
                 
                 $content_messages .= '<td class="currentTdMessage">'.$data_messages[$i]['SENDER_NAME'].' '.$data_messages[$i]['SENDER_SURNAME'].'</td>';
                 $content_messages .= '<td class="currentTdMessage">'.$data_messages[$i]['TITLE'];       
-                $content_messages .= '<pre class="contentMessage">'.$data_messages[$i]['CONTENT'].'</pre></td>';        
+                $content_messages .= '<div class="contentMessage">'.$data_messages[$i]['CONTENT'].'</div></td>';        
                 $content_messages .= '<td class="currentTdMessage">'.$data_messages[$i]['SENDDATE'].'</td>';
 
 
@@ -93,7 +93,7 @@ public function displayMessagesArchive($data_messages) {
             
             $content_messages_archive .= '<td class="currentTdMessage">'.$data_messages[$i]['SENDER_NAME'].' '.$data_messages[$i]['SENDER_SURNAME'].'</td>';
             $content_messages_archive .= '<td class="currentTdMessage">'.$data_messages[$i]['TITLE'];       
-            $content_messages_archive .= '<pre class="contentMessage">'.$data_messages[$i]['CONTENT'].'</pre></td>';        
+            $content_messages_archive .= '<div class="contentMessage">'.$data_messages[$i]['CONTENT'].'</div></td>';        
             $content_messages_archive .= '<td class="currentTdMessage">'.$data_messages[$i]['SENDDATE'].'</td>';
 
 
