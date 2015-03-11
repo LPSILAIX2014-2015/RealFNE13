@@ -2,12 +2,13 @@ $(document).ready(function() {
     $('.addFile').on('click', function(event) {
         event.preventDefault();
         $('.inputFile').trigger('click');
-        $(this).hide();
+        //$(this).hide();
     });
 
     $('.inputFile').on('change', function(event) {
         $('.sendFile').hide();
         $('.cancelFile').hide();
+        $('.addFile').hide();
         $('.valInput').empty();
         if($(this).val() != '')
         {
@@ -16,6 +17,10 @@ $(document).ready(function() {
             $('.valInput').html(filename);
             $('.sendFile').show();
             $('.cancelFile').show();
+        }
+        else
+        {
+            $('.addFile').show();
         }
     });
 

@@ -16,11 +16,13 @@ class MEventCalendar
 
     public function getEventCalendar(){
 
-        $state = $this->sql->prepare("SELECT ID, TITLE, DATE_BEGIN, DURATION  FROM post WHERE DATE_BEGIN IS NOT null;");
-      
+        $state = $this->sql->prepare("SELECT ID, TITLE, DATE_BEGIN, DURATION  FROM POST WHERE DATE_BEGIN IS NOT null;");
 
         $state->execute();
         $events = $state->fetchAll(PDO::FETCH_ASSOC);
+        echo "<pre>";
+        var_dump($events);
+        echo "</pre>";
 
         return $events;
     }
