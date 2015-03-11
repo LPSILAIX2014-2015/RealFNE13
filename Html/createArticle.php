@@ -75,8 +75,8 @@
             </div>
         </div>
         
-        <!-- control max size of images (3MB max) -->
-        <input type="hidden" name="max_file_size" value="3145728">
+        <!-- control max size of images (10MB max) -->
+        <input type="hidden" name="max_file_size" value="10485760">
 
         <!-- 
                                      ------------------------------------------------------
