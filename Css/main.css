@@ -84,6 +84,17 @@ input, textarea, select {
     font-family: 'Slabo 13px', serif;
     transition:ease 0.5s;
 }
+select {
+    max-width: 95%;
+    font-family:'Titillium Web',Verdana,sans-serif;
+}
+option {
+    padding:0 2px 0 4px ;
+    font-family:'Titillium Web',Verdana,sans-serif;
+}
+option:hover {
+    background-color: #a3cfea;
+}
 input:hover, textarea:hover, select:hover {
     border:2px solid #4bc9e2;
 }
@@ -425,7 +436,10 @@ nav li a:hover {
 }
 .page h1 {
     font-size:15pt;
-    margin:2px;
+    margin:3px 2px 8px 2px;
+}
+p {
+    text-align: justify;
 }
 button, #loginbutton {
     color:#ffffff;
@@ -483,6 +497,8 @@ button, #loginbutton:hover {
     position:fixed;
     width:100%;
     height:100%;
+    top:0;
+    left:0;
     background:linear-gradient(to bottom,rgba(0,0,0,0.5),rgba(0,0,0,0.7));
     z-index:1000;
     margin:0;
@@ -538,17 +554,17 @@ button, #loginbutton:hover {
     font-size:10pt;
     text-align:left;
     margin:0;
-    padding:1px;
+    padding:4px 1px 4px 1px;
     vertical-align:top;
     border-bottom:1px dashed #0c5091;
 }
 .recentarticles .iconesarticle {
     display:table-cell;
-    width:20px;
+    width:30px;
 }
 .recentarticles .iconesarticle img {
-    height:20px;
-    width:20px;
+    height:30px;
+    width:30px;
 }
 .recentarticles .titrearticle {
     display:table-cell;

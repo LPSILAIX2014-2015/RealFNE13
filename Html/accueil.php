@@ -11,8 +11,8 @@
         if($data_association[$i]['IMAGEPATH'] != '')
         {
             ?>
-            <a <?php echo 'href="index.php?EX=showArticle&idA='.$data_association[$i]['ID'].'"'; ?> >
-                <img width="75" height="75" <?php echo 'src="'.$data_association[$i]['IMAGEPATH'].'"'; ?> >
+            <a <?php echo 'href="index.php?EX=showArticle&idA='.$data_association[$i]['ID'].'"'; ?>
+               style="background-image:url('<?php echo $data_association[$i]['IMAGEPATH']; ?>');">
             </a>
             <?php
         }

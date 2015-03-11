@@ -1,3 +1,12 @@
+<?php
+if(!(isset($_SESSION['ROLE'])) || (($_SESSION['ROLE'] == 'MEMBRE')||($_SESSION['ROLE'] == 'VALIDATOR'))){
+    header("Location: ./index.php");
+}
+else if($_SESSION['ROLE']=='ADMIN'){
+    $assoc=(new MUser($_SESSION['ID_USER']))->getAssociation();
+}
+?>
+
 <script type="text/javascript">
     $(document).ready(function(){
         var name = new Array();
@@ -209,6 +218,8 @@ foreach($rolesList as $line){
         </thead>
         <tbody>
         <?php
+        $dataCSV = array();
+        $i=0;
         if ( isset($_POST['NAME'])) {
             $nom = $_POST['NAME'];
             $conditions = array();
@@ -229,7 +240,11 @@ foreach($rolesList as $line){
                 $conditions[] = "PROFESSION = '". $_POST['PROFESSION']. "'";
                 $params[] = $_POST['PROFESSION'];
             }
-            if($_POST['ASSOCIATION']) {
+            if(isset($assoc)) {
+                $conditions[] = "ASSOCIATION_ID = '". $assoc. "'";
+                $params[] = $assoc;
+            }
+            else if($_POST['ASSOCIATION']) {
                 $conditions[] = "ASSOCIATION_ID = '". $_POST['ASSOCIATION']. "'";
                 $params[] = $_POST['ASSOCIATION'];
             }
@@ -246,11 +261,12 @@ foreach($rolesList as $line){
             }
 
             foreach ($pdo->query($sql) as $row) {
+                array_push($dataCSV, $row);
                 $img = null;
                 if($row['PHOTOPATH']) {
                     $img = $row['PHOTOPATH'];
                 }
-                echo '<tr>';
+                echo ($i%2==0)?'<tr class="tr-even">':'<tr>';;
                 echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
                 echo '<td>'. $row['CP'] . '</td>';
                 echo '<td>'. $row['PROFESSION'] . '</td>';
@@ -288,18 +304,24 @@ foreach($rolesList as $line){
                 echo '<a class="btn btn-danger" href="index.php?EX=deleteMember&id='.$row['ID'].'">Supprimer</a>';
                 echo '</td>';
                 echo '</tr>';
+                $i++;
             }
         }else {
 
-            $sql = 'SELECT * FROM USER order by NAME ASC';
+            if(isset($assoc)){
+                $sql = 'SELECT * FROM USER WHERE ASSOCIATION_ID = '.$assoc.' Order by Name ASC';
+            }
+            else
+                $sql = 'SELECT * FROM USER order by NAME ASC';
             if(count($sql) > 0) {
 
                 foreach ($pdo->query($sql) as $row) {
+                    array_push($dataCSV, $row);
                     $img = null;
                     if($row['PHOTOPATH']) {
                         $img = $row['PHOTOPATH'];
                     }
-                    echo '<tr>';
+                    echo ($i%2==0)?'<tr class="tr-even">':'<tr>';;
                     echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
                     echo '<td>'. $row['CP'] . '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
@@ -337,11 +359,38 @@ foreach($rolesList as $line){
                     echo '<a class="btn btn-danger" href="index.php?EX=deleteMember&id='.$row['ID'].'">Supprimer</a>';
                     echo '</td>';
                     echo '</tr>';
+                    $i++;
                 }
             }
         }
         ?>
         </tbody>
     </table>
+    <a target="_blank" href="index.php?EX=downloadCVS"><button class="downloadCVS">Télécharger format CSV</button></a>
+    <?php
+    $dataCSVOk = array();
+    for($i = 0 ; $i < count($dataCSV) ; ++$i)
+    {
+        $current = array();
+        array_push($current, $dataCSV[$i]['THEME_DETAILS']);
+        array_push($current, $dataCSV[$i]['ROLE']);
+        array_push($current, $dataCSV[$i]['NAME']);
+        array_push($current, $dataCSV[$i]['SURNAME']);
+        array_push($current, $dataCSV[$i]['MAIL']);
+        array_push($current, $dataCSV[$i]['ADRESS']);
+        array_push($current, $dataCSV[$i]['CP']);
+        array_push($current, $dataCSV[$i]['PROFESSION']);
+        array_push($current, $dataCSV[$i]['PROFESSION2']);
+        array_push($dataCSVOk, $current);
+    }
+    $fichier_csv = fopen('Csv/ExportationUser.csv', 'w+');
+    for($i = 0 ; $i < count($dataCSVOk) ; ++$i)
+    {
+        fputcsv($fichier_csv, $dataCSVOk[$i], ';');
+    }
+    fclose($fichier_csv);
+    ?>
 </div>
+</div>
+
 </div> <!-- /container -->
