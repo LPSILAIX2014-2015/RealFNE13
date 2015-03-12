@@ -141,7 +141,7 @@ class MGenNewL extends FPDF
 					$this->setX(47);
 					$this->SetFont('Times','',12);
 					$this->setTextColor(101,101,101);
-					$this->MultiCell(0,5,utf8_decode($dataN[$b]['CONTENT']),'LR');
+					$this->MultiCell(0,5,strip_tags(html_entity_decode(utf8_decode($dataN[$b]['CONTENT']))),'LR');
 					# Link
 					$this->setX(47);
 					$this->SetFillColor(163, 207, 234);
