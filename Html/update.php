@@ -149,8 +149,8 @@
 								<label for="themes1" class="col-sm-2 control-label">Nouveau Rôle</label>
 								<div class="controls">
 										<select class="controls" name="ROLE" type="text">
-														<option value ='VALIDATOR'>Validateur</option>
 														<option value ='MEMBER'>Membre</option>
+														<option value ='VALIDATOR'>Validateur</option>
 												?>
 										</select>
 								</div>

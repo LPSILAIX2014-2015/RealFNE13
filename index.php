@@ -228,7 +228,7 @@ function updateAMember()
 function deleteMember()
 {
     global $page;
-    $page['title'] = 'Supression d\'un membre';
+    $page['title'] = 'Suppression d\'un membre';
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/delete.php';
@@ -237,7 +237,7 @@ function deleteMember()
 function deleteAMember()
 {
     global $page;
-    $page['title'] = 'Supression d\'un membre';
+    $page['title'] = 'Suppression d\'un membre';
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
     $page['arg'] = 'Php/delete.php';
@@ -475,7 +475,7 @@ function deleteAMember()
     function deleteAsso()
     {
         global $page;
-        $page['title'] = 'Supression d\'une association';
+        $page['title'] = 'Suppression d\'une association';
         $page['class'] = 'VHtml';
         $page['method'] = 'showHtml';
         $page['arg'] = 'Html/deleteAsso.php';
