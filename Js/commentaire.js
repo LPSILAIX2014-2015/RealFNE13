@@ -32,6 +32,7 @@ function getCommentaire(){
 				$('#'+currentComId).append('<hr class="sepCom">');
 				$('#'+currentComId).append('<div class="contentCom">'+ response.com[i]['CONTENT'] +'</div>');
 				$('#'+currentComId).append('</div>');
+				$('#'+currentComId).append('<button>Supprimer</button>');
 			}
 			$('#divCom').append('</div>');
 			$('#textareaId').val('');
