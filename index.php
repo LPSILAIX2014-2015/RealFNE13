@@ -484,7 +484,7 @@ function deleteAMember()
 function createArticle()
 {
     global $page;
-    $page['title'] = 'écrire un article';
+    $page['title'] = 'Ecrire un article';
     $page['class'] = 'VCreateArticle';
     $page['method'] = 'showCreateArticle';
     $page['css'] = 'Css/createArticle.css';
@@ -496,7 +496,7 @@ function deconnexion()
     unset($_SESSION['ID_USER']);
     unset($GLOBALS['user']);
     session_destroy();
-    $page['title'] = 'Retour après déco';
+    $page['title'] = 'Accueil';
     $page['class'] = 'VHome';
     $page['method'] = 'showHome';
     $page['css'] = 'Css/accueil.css';
