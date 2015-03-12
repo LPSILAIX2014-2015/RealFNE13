@@ -38,12 +38,12 @@
     background-color: #337AB7;
     color: #fff;
     position: absolute;
-    width: 100%;
+    width: 75%;
     z-index: 40;
 }
 
 .nameAP
 {
-    font-size: 20px;
+    font-size: 16px;
     color: #000;
 }

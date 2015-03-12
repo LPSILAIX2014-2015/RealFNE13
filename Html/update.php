@@ -127,7 +127,7 @@
 
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-success">Edit</button>
-                          <a class="btn" href="./index.php?EX=manageMembers">Retour</a>
+							<a href="./index.php?EX=manageMembers"><button type="button" class="btn">Retour</button></a>
 						</div>
 					</form><!--
                     <form class="form-horizontal" id="frmCHIMG" enctype="multipart/form-data" method="post">
@@ -157,7 +157,7 @@
 						</div>
 					<div class="form-actions">
 						<button type="submit" class="btn btn-success">Edit</button>
-												<a class="btn" href="./index.php?EX=manageMembers">Retour</a>
+						<a href="./index.php?EX=manageMembers"><button type="button" class="btn">Retour</button></a>
 					</div>
 				</form>
 				</div>
