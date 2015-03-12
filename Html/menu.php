@@ -40,7 +40,7 @@ global $user ;
             <a href="index.php?EX=manageMembers">Gestion des membres</a>
 
             <?php
-            if (isset($user) && (($user->getRole() == 'VALIDATOR') || $user->getRole() == 'ADMIN')) {
+            if (isset($user) && (($user->getRole() == 'VALIDATOR') || $user->getRole() == 'ADMIN' || $user->getRole() == 'SADMIN')) {
             ?>
 
             <a href="index.php?EX=validArticle">Validations</a>
