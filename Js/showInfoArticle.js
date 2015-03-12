@@ -115,8 +115,7 @@ function sortValidArticle() {
 
 
     $('.lienarticle').hide();
-    $('.butt_suppr').hide();
-    $('.butt_valid').hide();
+
 
     if(idValid == "0") //Si la sélection est a valider
     {
