@@ -230,7 +230,6 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
 
             echo "</div>";
 
-
             echo "<input class='butt_suppr' var='".$data_article[$i]['ID']."' type='submit' value='Suppression'>";
 
         }

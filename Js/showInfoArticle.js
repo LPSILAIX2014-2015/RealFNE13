@@ -113,13 +113,11 @@ function sortValidArticle() {
         'e') == 'undefined') idValid =0;
     else  idValid = $('#filterVALID option:selected').attr('value');
 
-    console.log(idValid);
 
     $('.lienarticle').hide();
 
     if(idValid == "0") //Si la sélection est a valider
     {
-
 
         for(var i = 0 ; i < $('.lienarticle').length ; ++i)
         {
