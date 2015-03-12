@@ -5,7 +5,6 @@
     require '../Model/MFormCreateArticle.mod.php';
     $formCreateArticle = new MFormCreateArticle();
 
-
     // check if the file uploaded corrupt the data
     if(count($_POST) < 1){
         $errorType = "Err_NotAnImage";
@@ -14,7 +13,6 @@
         echo $jsonReturned;
         return false;
     }
-
 
     /**
     

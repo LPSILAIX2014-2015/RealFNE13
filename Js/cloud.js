@@ -1,4 +1,12 @@
 $(document).ready(function() {
+
+    $('.buttonCopyUrl').on('click', function() {
+        var domain = 'http://www.' + document.domain;
+        customAlerts.push(domain + '/Cloud/' + $(this).attr('data-url'));
+        customAlert();
+    });
+
+
     $('.addFile').on('click', function(event) {
         event.preventDefault();
         $('.inputFile').trigger('click');
