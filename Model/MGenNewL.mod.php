@@ -103,7 +103,7 @@ class MGenNewL extends FPDF
 		# Entete 
 		$this->SetFont('Times','B',16);
 		$this->setTextColor(20,79,152);
-		$this->Cell(0,5,utf8_decode("Ceux-ci sont les articles les plus récents dans la plateforme : "),0,1,'L');
+		$this->Cell(0,5,utf8_decode(""),0,1,'L');
 		$this->Ln();
 		for ($a=0; $a < count($unique); $a++) {
 			# Data
