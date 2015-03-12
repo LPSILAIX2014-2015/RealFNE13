@@ -3,7 +3,7 @@ $(document).ready(function() {
 	var mouseX;
 	var mouseY;
 	$('.imgLogo').mousemove( function(e) {
-		mouseX = e.pageX - $('body').offset().left - $('.leftcol').offset().left + 100;
+		mouseX = e.pageX - $('body').offset().left - $('.leftcol').offset().left + 130;
 		mouseY = e.pageY - 225;
 		$('.popUp').css({'top':mouseY,'left':mouseX})
 	});
@@ -13,7 +13,13 @@ $(document).ready(function() {
 		getInfo($(this).attr('data-id'));
 	})
 
-	$('.imgLogo').on('mouseleave', function(event) {
+    $('.popUp').on('mouseenter', function(event){
+        event.preventDefault();
+        hidePopUp();
+    })
+
+
+    $('.imgLogo').on('mouseleave', function(event) {
 		event.preventDefault();
 		hidePopUp();
 	});

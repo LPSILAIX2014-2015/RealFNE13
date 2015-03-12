@@ -90,7 +90,7 @@ function login(){
 function home()
 {
     global $page;
-    $page['title'] = 'Test';
+    $page['title'] = 'Accueil';
     $page['class'] = 'VHome';
     $page['method'] = 'showHome';
     $page['arg'] = 'Html/accueil.php';
