@@ -33,13 +33,21 @@ global $user ;
     </li>
     <?PHP
     }
-    if (isset($user) && (($user->getRole() != 'MEMBRE') && ($user->getRole() != 'VALIDATOR'))) {
+    if (isset($user) && (($user->getRole() != 'MEMBRE'))) {
     ?>
     <li><a>Administration</a>
         <div class="submenu">
             <a href="index.php?EX=manageMembers">Gestion des membres</a>
 
+            <?php
+            if (isset($user) && (($user->getRole() == 'VALIDATOR') || $user->getRole() == 'ADMIN')) {
+            ?>
+
             <a href="index.php?EX=validArticle">Validations</a>
+
+            <?php
+            }
+            ?>
 
             <?php if($user->getRole() == 'SADMIN'){?>
                 <a href="index.php?EX=manageAsso">Gestion assos</a>
