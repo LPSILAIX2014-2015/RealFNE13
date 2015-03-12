@@ -31,6 +31,7 @@ switch($EX)
     case 'maillog'   : maillog();    exit;
     case 'chImg'     : chImg();    exit; // Changer l'image du profil
     case 'recup'     : recuperation(); break; // Presentation de la vue
+    case 'allNews'     : allNews(); break; // All Newsletter
     case 'genNL'     : genNL();    exit; // Newsletter
     case 'deconnexion' :
         if (isset($_POST['login']) && isset($_POST['password']))
@@ -561,5 +562,14 @@ function genNL(){
         $pdf->setDate($_GET);
         $pdf->generate();
     }
+}
+function allNews()
+{
+    global $page;
+    $page['title'] = 'Toutes les Newsletters';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/allNews.php';
+    $page['css'] = 'Css/newsLetter.css';
 }
 ?>
