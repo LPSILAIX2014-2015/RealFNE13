@@ -59,29 +59,31 @@ $(document).ready(function() {
         var help1 =  "Ce traitement de texte fonctionne à l'aide de balise. elles sont représentées par les symboles '<>' et '</>', " +
                      "pour activer les effets de ces différentes balises, vous devez écrire votre texte entre elles.";
 
-        var help2 = "Voici la liste des différentes option possibles :\n" +
-                    "- Mettre le texte en gras -> il faut insérer le texte que vous voulez afficher en gras entre les balises <g> et </g>\n" +
-                    "- Mettre le texte en italique -> il faut insérer le texte que vous voulez afficher en italique entre les balises <i> et </i>\n" +
-                    "- Souligner le texte (underline en anglais) -> il faut insérer le texte que vous voulez souligner entre les balises <u> et </u>\n";
+        var help2 = "Voici la liste des différentes option possibles :\n\n" +
+                    "- Mettre le texte en gras -> il faut insérer le texte que vous voulez afficher en gras entre les balises <g> et </g>\n\n" +
+                    "- Mettre le texte en italique -> il faut insérer le texte que vous voulez afficher en italique entre les balises <i> et </i>\n\n" +
+                    "- Souligner le texte (underline en anglais) -> il faut insérer le texte que vous voulez souligner entre les balises <u> et </u>\n\n";
 
-        var help3 = "- aligner le texte sur la gauche (activé par défaut) -> il faut insérer le texte que vous voulez aligner entre les balises <aligne valeur=\"gauche\"> et </aligne>\n" +
-                    "- aligner le texte sur la droite -> il faut insérer le texte que vous voulez aligner entre les balises <aligne valeur=\"droite\"> et </aligne>\n" +
-                    "- centrer le texte -> il faut insérer le texte que vous voulez aligner entre les balises <aligne valeur=\"centrer\"> et </aligne>\n";
+        var help3 = "- aligner le texte sur la gauche (activé par défaut) -> il faut insérer le texte que vous voulez aligner entre les balises <aligne valeur=\"gauche\"> et </aligne>\n\n" +
+                    "- aligner le texte sur la droite -> il faut insérer le texte que vous voulez aligner entre les balises <aligne valeur=\"droite\"> et </aligne>\n\n" +
+                    "- centrer le texte -> il faut insérer le texte que vous voulez aligner entre les balises <aligne valeur=\"centrer\"> et </aligne>\n\n";
 
-        var help4 = "il y 5 tailles de police d'écriture :\n"+
-                    "- très petite -> il faut insérer le texte entre les balises <taille valeur=\"tpetit\"> et </taille>\n" +
-                    "- petite -> il faut insérer le texte entre les balises <taille valeur=\"petit\"> et </taille>\n" +
-                    "- normal -> c'est la taille par défaut, il n'y a pas besoin de balise\n" +
-                    "- gros -> il faut insérer le texte entre les balises <taille valeur=\"gros\"> et </taille>\n" +
+        var help4 = "il y 5 tailles de police d'écriture :\n\n"+
+                    "- très petite -> il faut insérer le texte entre les balises <taille valeur=\"tpetit\"> et </taille>\n\n" +
+                    "- petite -> il faut insérer le texte entre les balises <taille valeur=\"petit\"> et </taille>\n\n" +
+                    "- normal -> c'est la taille par défaut, il n'y a pas besoin de balise\n\n" +
+                    "- gros -> il faut insérer le texte entre les balises <taille valeur=\"gros\"> et </taille>\n\n" +
                     "- très gros -> il faut insérer le texte entre les balises <taille valeur=\"tgros\"> et </taille>";
 
         var help5 = "il est possible de combiner ces balises pour par exemple avoir un texte écrit en gros, souligner et aligner sur la droite."+
                     "il suffit de placer les balises à l'interieur de balises. vous pouvez mettres les balise de dans n'importe quel ordre sauf pour les balise d'alignement qui doivent être misent en dernières.";
 
         var help6 = "Vous pouvez utiliser les boutons situés au dessus de la zone de saisie pour placer automatiquement les balises. "+
-                    "si vous surligner votre texte et que vous cliquez sur un boutons, les balises vont venir encadrer votre texte surligner pour lui appliquer leur effet.\n"+
-                    "Parmis ces boutons, il y en à 2 spéciaux qui permettent d'insérer des liens pour des pages internet ou des citations, "+
-                    "il vous suffira de lire les instructions affichées à l'écran lors du clique sur ces bouttons.\n\n";
+                    "si vous surligner votre texte et que vous cliquez sur un boutons, les balises vont venir encadrer votre texte surligner pour lui appliquer leur effet.\n\n"+
+                    "Parmis ces boutons, il y en a 2 spéciaux qui permettent d'insérer des liens pour des pages internet ou des citations, "+
+                    "il vous suffira de lire les instructions affichées à l'écran lors du clique sur ces bouttons.\n\n"+
+                    "Il est également possible de coller un fichier existant dans le cloud du site, pour cela rendez-vous"+
+                    "sur la page de partage et copier l'URL du fichier que vous voulez mettre à disposition dans votre article.\n\n";
 
         var help7 = "Pour toutes autre questions, veuillez contacter l'administrateur de votre association.";
 
@@ -250,44 +252,3 @@ var preview = function() {
     $("#textareaDecrypt").prop('value', "<p>"+ field +"</p>");
 
 };
-
-/*
-
-    [a-z0-9._-]+
-
-    //Envoi au serveur
-    field = field.replace(/&/g, '&amp;');
-    field = field.replace(/</g, '<').replace(/>/g, '>');
-    field = field.replace(/\n/g, '<br />').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-
-    field = field.replace(/<gras>([\s\S]*?)<\/gras>/g, '<b>$1</b>');
-    field = field.replace(/<italique>([\s\S]*?)<\/italique>/g, '<i>$1</i>');
-    field = field.replace(/<lien>([\s\S]*?)<\/lien>/g, '<a href="$1">$1</a>');
-    field = field.replace(/<lien url="([\s\S]*?)">([\s\S]*?)<\/lien>/g, '<a href="$1" title="$2">$2</a>');
-    field = field.replace(/<cite nom=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<br /><span class="cite">Cite : $1</span><div class="txtIta">$2</div>');
-    field = field.replace(/<cite lien=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<br /><span class="cite"><a href="$1">Cite</a></span><div class="txtIta">$2</div>');
-    field = field.replace(/<cite nom=\"(.*?)\" lien=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<br /><span class="cite"><a href="$2">Cite : $1</a></span><div class="txtIta">$3</div>');
-    field = field.replace(/<cite lien=\"(.*?)\" nom=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<br /><span class="cite"><a href="$1">Cite : $2</a></span><div class="txtIta">$3</div>');
-    field = field.replace(/<cite>([\s\S]*?)<\/cite>/g, '<br /><span class="cite">Cite</span><div class="txtIta">$1</div>');
-    field = field.replace(/<taille valeur=\"(.*?)\">([\s\S]*?)<\/taille>/g, '<span class="$1">$2</span>');
-
-    field = field.replace(/&/g, '&amp;');
-
-    field = field.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
-    field = field.replace(/\n/g, '<br />').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
-
-    field = field.replace(/&lt;gras&gt;([\s\S]*?)&lt;\/gras&gt;/g, '<strong>$1</strong>');
-    field = field.replace(/&lt;italique&gt;([\s\S]*?)&lt;\/italique&gt;/g, '<em>$1</em>');
-    
-    field = field.replace(/&lt;lien&gt;([\s\S]*?)&lt;\/lien&gt;/g, '<a href="$1">$1</a>');
-    field = field.replace(/&lt;lien url="([\s\S]*?)"&gt;([\s\S]*?)&lt;\/lien&gt;/g, '<a href="$1" title="$2">$2</a>');
-    field = field.replace(/&lt;image&gt;([\s\S]*?)&lt;\/image&gt;/g, '<img src="$1" alt="Image" />');
-    field = field.replace(/&lt;citation nom=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation">Citation : $1</span><div class="citation2">$2</div>');
-    field = field.replace(/&lt;citation lien=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation"><a href="$1">Citation</a></span><div class="citation2">$2</div>');
-    field = field.replace(/&lt;citation nom=\"(.*?)\" lien=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation"><a href="$2">Citation : $1</a></span><div class="citation2">$3</div>');
-    field = field.replace(/&lt;citation lien=\"(.*?)\" nom=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation"><a href="$1">Citation : $2</a></span><div class="citation2">$3</div>');
-    field = field.replace(/&lt;citation&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation">Citation</span><div class="citation2">$1</div>');
-    field = field.replace(/&lt;taille valeur=\"(.*?)\"&gt;([\s\S]*?)&lt;\/taille&gt;/g, '<span class="$1">$2</span>');
-    
-*/
