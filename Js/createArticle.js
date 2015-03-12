@@ -55,6 +55,45 @@ $(document).ready(function() {
             });
         });
 
+    $('#btnHelp').on('click', function(){
+        var help1 =  "Ce traitement de texte fonctionne à l'aide de balise. elles sont représentées par les symboles '<>' et '</>', " +
+                     "pour activer les effets de ces différentes balises, vous devez écrire votre texte entre elles.";
+
+        var help2 = "Voici la liste des différentes option possibles :\n" +
+                    "- Mettre le texte en gras -> il faut insérer le texte que vous voulez afficher en gras entre les balises <g> et </g>\n" +
+                    "- Mettre le texte en italique -> il faut insérer le texte que vous voulez afficher en italique entre les balises <i> et </i>\n" +
+                    "- Souligner le texte (underline en anglais) -> il faut insérer le texte que vous voulez souligner entre les balises <u> et </u>\n";
+
+        var help3 = "- aligner le texte sur la gauche (activé par défaut) -> il faut insérer le texte que vous voulez aligner entre les balises <aligne valeur=\"gauche\"> et </aligne>\n" +
+                    "- aligner le texte sur la droite -> il faut insérer le texte que vous voulez aligner entre les balises <aligne valeur=\"droite\"> et </aligne>\n" +
+                    "- centrer le texte -> il faut insérer le texte que vous voulez aligner entre les balises <aligne valeur=\"centrer\"> et </aligne>\n";
+
+        var help4 = "il y 5 tailles de police d'écriture :\n"+
+                    "- très petite -> il faut insérer le texte entre les balises <taille valeur=\"tpetit\"> et </taille>\n" +
+                    "- petite -> il faut insérer le texte entre les balises <taille valeur=\"petit\"> et </taille>\n" +
+                    "- normal -> c'est la taille par défaut, il n'y a pas besoin de balise\n" +
+                    "- gros -> il faut insérer le texte entre les balises <taille valeur=\"gros\"> et </taille>\n" +
+                    "- très gros -> il faut insérer le texte entre les balises <taille valeur=\"tgros\"> et </taille>";
+
+        var help5 = "il est possible de combiner ces balises pour par exemple avoir un texte écrit en gros, souligner et aligner sur la droite."+
+                    "il suffit de placer les balises à l'interieur de balises. vous pouvez mettres les balise de dans n'importe quel ordre sauf pour les balise d'alignement qui doivent être misent en dernières.";
+
+        var help6 = "Vous pouvez utiliser les boutons situés au dessus de la zone de saisie pour placer automatiquement les balises. "+
+                    "si vous surligner votre texte et que vous cliquez sur un boutons, les balises vont venir encadrer votre texte surligner pour lui appliquer leur effet.\n"+
+                    "Parmis ces boutons, il y en à 2 spéciaux qui permettent d'insérer des liens pour des pages internet ou des citations, "+
+                    "il vous suffira de lire les instructions affichées à l'écran lors du clique sur ces bouttons.\n\n";
+
+        var help7 = "Pour toutes autre questions, veuillez contacter l'administrateur de votre association.";
+
+        alert(help1);
+        alert(help2);
+        alert(help3);
+        alert(help4);
+        alert(help5);
+        alert(help6);
+        alert(help7);
+    })
+
     /////////////////////////////////////////
     ////////// Gestion des bouttons /////////
     /////////////////////////////////////////
@@ -125,17 +164,17 @@ var insertTag = function(startTag, endTag, tagType){
                 if (currentSelection) { // Il y a une sélection
                     if (currentSelection.indexOf("http://") == 0 || currentSelection.indexOf("https://") == 0 || currentSelection.indexOf("ftp://") == 0 || currentSelection.indexOf("www.") == 0) {
                         // La sélection semble être un lien. On demande alors le libellé
-                        var label = prompt("Tapez le libelle du lien ?") || "";
+                        var label = prompt("Tapez le libelle du lien ?\n\nexemple : lien vers google\n\n/!\\ Des balises vont être insérées dans votre traitement de texte /!\\") || "";
                         startTag = "<lien url=\"" + currentSelection + "\">";
                         currentSelection = label;
                     } else {
                         // La sélection n'est pas un lien, donc c'est le libelle. On demande alors l'URL
-                        var URL = prompt("copier l'URL de votre lien ici\n(clique droit - copier sur l'URL voulu\n clique droit - coller sur la zone de texte ci dessous)");
+                        var URL = prompt("copier l'URL de votre lien ici\n(clique droit - copier sur l'URL voulu\n clique droit - coller sur la zone de texte ci dessous)\n\nexemple: http://www.google.fr\n\n/!\\ Des balises vont être insérées dans votre traitement de texte /!\\");
                         startTag = "<lien url=\"" + URL + "\">";
                     }
                 } else { // Pas de sélection, donc on demande l'URL et le libelle
-                    var URL = prompt("copier l'URL de votre lien ici\n(clique droit - copier sur l'URL voulu\n clique droit - coller sur la zone de texte ci dessous)") || "";
-                    var label = prompt("Quel est le libellé du lien ?") || "";
+                    var URL = prompt("copier l'URL de votre lien ici\n(clique droit - copier sur l'URL voulu\n clique droit - coller sur la zone de texte ci dessous)\n\nexemple: http://www.google.fr") || "";
+                    var label = prompt("Quel est le libellé du lien ?\n\nexemple : lien vers google\n\n/!\\ Des balises vont être insérées dans votre traitement de texte /!\\") || "";
                     startTag = "<lien url=\"" + URL + "\">";
                     currentSelection = label;
                 }
@@ -144,8 +183,8 @@ var insertTag = function(startTag, endTag, tagType){
             case "cite":
 
                 endTag = "</cite>";
-                var auteur = prompt("Qui est l'auteur de la citation ? (ne mettez rien s'il n'y en a pas)") || "";
-                var citation = prompt("Quelle est la citation ?") || "";
+                var auteur = prompt("Qui est l'auteur de la citation ? (ne mettez rien s'il n'y en a pas)\n\nexemple : Aristote") || "";
+                var citation = prompt("Quelle est la citation ?\n\nexemple : Le doute est le commencement de la sagesse.\n\n/!\\ Des balises vont être insérées dans votre traitement de texte /!\\") || "";
                 if (auteur == '') {
                     startTag = "<cite>";
                 } else {

@@ -1,11 +1,14 @@
-"Barrages hydroliques";ADMIN;FrancisA;DupondA;francisA@truc.fr;"01 Quelque part";19000;"Ing?®nieur Eau";
-;ADMIN;FrancisC;DupondC;francisC@truc.fr;"03 Quelque part";39000;"Ing?®nieur Air";
-"Super Ma?«tre";SADMIN;FRANCK;SADMIN;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurSA;Esclave
-"Super Ma?«tre";ADMIN;FRANCK;ADMIN;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurA;Esclave
-"Super Ma?«tre";ADMIN;FRANCK;MEMBRE;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
-Infirmerie;MEMBRE;HuguetteA;DupontA;huguetteA@machin.com;"11 Highway to hell";13001;Infirmi?¿re;Retrait?®e
-;VALIDATOR;HuguetteC;DupontC;huguetteC@machin.com;"33 Highway to hell";13003;Chirurgienne;Retrait?®e
+"Barrages hydroliques";ADMIN;FrancisA;DupondA;francisA@truc.fr;"01 Quelque part";19000;"Ingénieur Eau";
+Plantations;ADMIN;FrancisB;DupondB;francisB@truc.fr;"02 Quelque part";29000;"Ingénieur Terre";
+;ADMIN;FrancisC;DupondC;francisC@truc.fr;"03 Quelque part";39000;"Ingénieur Air";
+"Super Maître";SADMIN;FRANCK;SADMIN;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurSA;Esclave
+"Super Maître";ADMIN;FRANCK;ADMIN;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurA;Esclave
+"Super Maître";ADMIN;FRANCK;MEMBRE;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
+Infirmerie;MEMBRE;HuguetteA;DupontA;huguetteA@machin.com;"11 Highway to hell";13001;Infirmière;Retraitée
+;MEMBRE;HuguetteB;DupontB;huguetteB@machin.com;"22 Highway to hell";13002;Secrétaire;Retraitée
+;VALIDATOR;HuguetteC;DupontC;huguetteC@machin.com;"33 Highway to hell";13003;Chirurgienne;Retraitée
 ;SADMIN;Nicolas;Damien;nicolas.damien@truc.fr;"33 Somewhere over the rainbow";13000;Directeur;
-"Super Ma?«tre";SADMIN;VINCENT;SADMIN;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurSA;Esclave
-"Super Ma?«tre";ADMIN;VINCENT;ADMIN;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurA;Esclave
-"Super Ma?«tre";MEMBER;VINCENT;MEMBRE;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
+"Super Maître";SADMIN;VINCENT;SADMIN;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurSA;Esclave
+"Super Maître";ADMIN;VINCENT;ADMIN;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurA;Esclave
+"Super Maître";MEMBER;VINCENT;MEMBRE;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
+

@@ -20,6 +20,7 @@ $(document).ready(function() {
 
     //When select value change, articles will be filter
 
+
     $('#filterVALID').on('change' , function(event) {
         sortValidArticle();
     });
