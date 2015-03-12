@@ -153,6 +153,14 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
     ?>
 
 <div class="container-fluid pvarticle">
+
+    <div class="filter">
+    <select id="filterVALID">
+        <option value="0">- En attente de validation -</option>
+        <option value="1">- Validé</option>
+    </select>
+</div>
+
     <h1>Liste des articles</h1>
     <?php
     for($i = 0 ; $i < count($data_article) ; ++$i)
