@@ -13,7 +13,7 @@ $(document).ready(function() {
 		getInfo($(this).attr('data-id'));
 	})
 
-    $('.popUp').on('mouseenter', function(event){
+    $('.popUp').mousemove(function(event){
         event.preventDefault();
         hidePopUp();
     })
