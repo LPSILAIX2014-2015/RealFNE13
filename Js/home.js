@@ -3,8 +3,8 @@ $(document).ready(function() {
 	var mouseX;
 	var mouseY;
 	$('.imgLogo').mousemove( function(e) {
-		mouseX = e.pageX - $('body').offset().left - $('.leftcol').offset().left + 50;
-		mouseY = e.pageY - $('body').offset().top - $('.leftcol').offset().top + 50;
+		mouseX = e.pageX - $('body').offset().left - $('.leftcol').offset().left + 100;
+		mouseY = e.pageY - 225;
 		$('.popUp').css({'top':mouseY,'left':mouseX})
 	});
 
