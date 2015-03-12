@@ -216,7 +216,7 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
         else if($data_article[$i]['STATUS'] == 1)
         {
             echo "<div id='article" . $data_article[$i]['ID']
-                . "' class='lienarticle'>"
+                . "' class='lienarticle"
                 .      " data-theme='" . $data_article[$i]['THEME_ID'] . "'"
                 .       "data-valid='"  . $data_article[$i]['STATUS']  . "'>";
             echo "<div id='imgplace'>";
@@ -300,7 +300,7 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
             if($data_article[$i]['STATUS'] == 0)
              {
             echo "<div id='article" . $data_article[$i]['ID']
-                . "' class='lienarticle'>"
+                . "' class='lienarticle'"
                 .      " data-theme='" . $data_article[$i]['THEME_ID'] . "'"
                 .       "data-valid='"  . $data_article[$i]['STATUS']  . "'>";
             echo "<div id='imgplace'> ";
@@ -330,7 +330,7 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
         else if($data_article[$i]['STATUS'] == 1)
               {
             echo "<div id='article" . $data_article[$i]['ID']
-                . "' class='lienarticle'>"
+                . "' class='lienarticle'"
                 .      " data-theme='" . $data_article[$i]['THEME_ID'] . "'"
                 .       "data-valid='"  . $data_article[$i]['STATUS']  . "'>";
             echo "<div id='imgplace'>";
