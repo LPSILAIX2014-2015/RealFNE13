@@ -49,7 +49,7 @@ global $user ;
             }
             ?>
 
-            <?php if($user->getRole() == 'SADMIN'){?>
+            <?php if($user->getRole() == 'SADMIN'){ ?>
                 <a href="index.php?EX=manageAsso">Gestion assos</a>
                 <a class="cursor_notice" href="index.php?EX=reportList">Journal</a>
             <?php } ?>
