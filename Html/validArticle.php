@@ -80,11 +80,11 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
                 . "</p>";
             echo "</div>";
 
+
                 echo "</div>";
 
-                echo "<input class='butt_valid linearticle' var='$data_article[$i]['ID']' id='valid_' type='submit' value='Validation'>";
-                echo "<input class='butt_suppr linearticle' var='$data_article[$i]['ID']' id='suppr_' type='submit' value='Suppression'>";
-
+                echo "<input class='butt_valid' var='".$data_article[$i]['ID']."' type='submit' value='Validation'>";
+                echo "<input class='butt_suppr' var='".$data_article[$i]['ID']."' type='submit' value='Suppression'>";
 
             }
         else if($data_article[$i]['STATUS'] == 1)
@@ -113,7 +113,8 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
 
             echo "</div>";
 
-            echo "<input class='butt_suppr linearticle' var='$data_article[$i]['ID']' id='suppr_' type='submit' value='Suppression'>";
+
+            echo "<input class='butt_suppr' var='".$data_article[$i]['ID']."' type='submit' value='Suppression'>";
 
         }
 
@@ -131,7 +132,7 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
 
     //ADMIN//
 
-else if ( (isset($_SESSION)) && ($_SESSION['ROLE'] == 'ADMIN') )
+else if ( (isset($_SESSION)) && ( ($_SESSION['ROLE'] == 'ADMIN') || ($_SESSION['ROLE'] == 'VALIDATOR')) )
 {
 global $data_article;
 global $connec;
@@ -152,6 +153,14 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
     ?>
 
 <div class="container-fluid pvarticle">
+
+    <div class="filter">
+    <select id="filterVALID">
+        <option value="0">- En attente de validation -</option>
+        <option value="1">- Validé</option>
+    </select>
+</div>
+
     <h1>Liste des articles</h1>
     <?php
     for($i = 0 ; $i < count($data_article) ; ++$i)
@@ -198,8 +207,10 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
 
                 echo "</div>";
 
-echo "<input class='butt_valid linearticle' var='$data_article[$i]['ID']' id='valid_' type='submit' value='Validation'>";
-echo "<input class='butt_suppr linearticle' var='$data_article[$i]['ID']' id='suppr_' type='submit' value='Suppression'>";
+
+                echo "<input class='butt_valid' var='".$data_article[$i]['ID']."' type='submit' value='Validation'>";
+                echo "<input class='butt_suppr' var='".$data_article[$i]['ID']."' type='submit' value='Suppression'>";
+
 
             }
         else if($data_article[$i]['STATUS'] == 1)
@@ -227,7 +238,7 @@ echo "<input class='butt_suppr linearticle' var='$data_article[$i]['ID']' id='su
 
             echo "</div>";
 
-            echo "<input class='butt_suppr linearticle' var='$data_article[$i]['ID']' id='suppr_' type='submit' value='Suppression'>";
+            echo "<input class='butt_suppr' var='".$data_article[$i]['ID']."' type='submit' value='Suppression'>";
 
         }
         }
@@ -243,7 +254,7 @@ echo "<input class='butt_suppr linearticle' var='$data_article[$i]['ID']' id='su
 
 
 <?php }
-
+/*
     //VALIDATOR//
 else if ( (isset($_SESSION)) && ($_SESSION['ROLE'] == 'VALIDATOR') )
 {
@@ -292,7 +303,8 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
                 . "' class='lienarticle'>"
                 .      " data-theme='" . $data_article[$i]['THEME_ID'] . "'"
                 .       "data-valid='"  . $data_article[$i]['STATUS']  . "'>";
-            echo "<div id='imgplace'>";
+            echo "<div id='imgplace'> ";
+
             echo "<img src='" . $data_article[$i]['IMAGEPATH']
                 . "' class='img-responsive' />";
             echo "</div>";
@@ -310,10 +322,11 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
             echo "</div>";
 
                  echo "</div>";
-            echo "<input class='butt_valid' id='valid_". $data_article[$i]['ID']."' type='submit' value='Validation'>";
-            echo "<input class='butt_suppr' id='suppr_". $data_article[$i]['ID']."' type='submit' value='Suppression'>";
 
-            }
+                 echo "<input class='butt_valid' var='".$data_article[$i]['ID']."' type='submit' value='Validation'>";
+                 echo "<input class='butt_suppr' var='".$data_article[$i]['ID']."' type='submit' value='Suppression'>";
+
+             }
         else if($data_article[$i]['STATUS'] == 1)
               {
             echo "<div id='article" . $data_article[$i]['ID']
@@ -336,12 +349,11 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
                 . $description
                 . "</p>";
             echo "</div>";
-
+                  echo "</div>";
 
           echo "</div>";
 
-            echo "<input class='butt_valid linearticle' var='$data_article[$i]['ID']' id='valid_' type='submit' value='Validation'>";
-            echo "<input class='butt_suppr linearticle' var='$data_article[$i]['ID']' id='suppr_' type='submit' value='Suppression'>";
+            echo "<input class='butt_suppr' var='".$data_article[$i]['ID']."' type='submit' value='Suppression'>";
 
         }
         }
@@ -357,3 +369,4 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
 
 
 <?php }
+*/

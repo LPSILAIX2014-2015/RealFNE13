@@ -20,12 +20,18 @@ $(document).ready(function() {
 
     //When select value change, articles will be filter
 
+
     $('#filterVALID').on('change' , function(event) {
         sortValidArticle();
-    })
+    });
+
     if('#filterASSOC option:selected') {
         sortAssocArticle();
     }
+
+    $('#filterASSOC').on('change', function(event) {
+        sortAssocArticle();
+    });
 
     $('#filterTHEME').on('change', function(event) {
         sortThemeArticle();
@@ -110,15 +116,16 @@ function sortThemeArticle() {
 
 function sortValidArticle() {
     var idValid;
-    if( $('#filterVALID option:selected').attr('value') == 'undefined') idValid =0;
+    if( $('#filterVALID option:selected').attr('valu' +
+        'e') == 'undefined') idValid =0;
     else  idValid = $('#filterVALID option:selected').attr('value');
 
-    console.log(idValid);
+
     $('.lienarticle').hide();
+
 
     if(idValid == "0") //Si la sélection est a valider
     {
-
 
         for(var i = 0 ; i < $('.lienarticle').length ; ++i)
         {
@@ -127,6 +134,7 @@ function sortValidArticle() {
 
 
                 $('.lienarticle')[i].style.display=""; //Affiche div article
+
 
         }
 
