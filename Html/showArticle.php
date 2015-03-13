@@ -119,23 +119,11 @@ function afficheArticle($indexArticle) {
 
 	<?php
 	
-		if(is_null($_SESSION['ID_USER'])) {
-			for($i = 0 ; $i < $nbArticles ; ++$i)
-			{
-				if($data_article[$i]['STATUS'] > 0)
-				{
-					afficheArticle($i);
-				}
-			}
-		} else {
 			for($i = 0 ; $i < $nbArticles ; ++$i)
 			{ 
 				afficheArticle($i);
 			}
-		}
-	
-
-	
+		
 	?>
 </div>
 <div id='pagination' class='compact-theme simple-pagination'></div>

@@ -60,7 +60,7 @@
 
 	    			<form class="form-horizontal" action="index.php?EX=updateAsso&id=<?php echo $id?>" method="post">
 					  <div class="control-group">
-					    <label class="control-label">Name</label>
+					    <label class="control-label">Nom</label>
 					    <div class="controls">
 					      	<input name="NAME" type="text" pattern="[^'\x22\;\.]+" placeholder="Nom" value="<?php echo !empty($name)?$name:'';?>">
 					      	<span>(Alphabétique)</span>
@@ -83,7 +83,7 @@
 					  </div>
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-success">Modifier l'association</button>
-                          <a class="btn" href="./index.php?EX=manageAsso">Retour</a>
+							<a href="./index.php?EX=manageAsso"><button type="button" class="btn">Retour</button></a>
 						</div>
 					</form>
 				</div>
@@ -101,7 +101,7 @@
     					</select>
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-success">Changer de gérant</button>
-                          <a class="btn" href="./index.php?EX=manageAsso">Retour</a>
+							<a href="./index.php?EX=manageAsso"><button type="button" class="btn">Retour</button></a>
 						</div>
 					</form>
 				</div>

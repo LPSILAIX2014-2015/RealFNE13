@@ -1,9 +1,11 @@
 <?php
 	require '../Model/MDBase.mod.php';
+	require '../Model/MAssoc.mod.php';
 	$id = 0;
 	if ( !empty($_POST)) {
 		// keep track post values
 		$id = $_POST['id'];
+		if((new MAssoc($id))->getName()!='FNE13'){
 
 		// delete data
 		$pdo = new MDBase();
@@ -32,7 +34,7 @@
 		$q = $pdo->prepare($sql);
     $q->bindParam(":id", $id, PDO::PARAM_INT);
 		$q->execute();
-
+		}
 		header("Location: ../index.php?EX=manageAsso");
 
 	}
