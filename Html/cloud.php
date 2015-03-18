@@ -12,10 +12,8 @@
 <button hidden class="cancelFile">Annuler l'ajout</button>
 <p class="valInput"></p>
 <div class="divCloud">
-    <h3 class="panel-title">Partage</h3>
-    <div class="panel-body">
-        <div class="table-responsive">
-            <table class="tableMessages table table-hover">
+    <h3>Partage</h3>
+            <table class="tableCloud table">
                 <thead>
                     <tr>
                         <th class="PERCENT_CLOUD">%</th>
@@ -29,8 +27,6 @@
                     <?= $content_Cloud; ?>
                 </tbody>
             </table>
-        </div>
-    </div>
 </div>
 <div><p >Espace utilisé : <strong class="percent"><?php echo $asso_size; ?></strong> %</p></div>
 
