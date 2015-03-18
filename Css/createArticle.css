@@ -1,0 +1,127 @@
+/***********************
+ **	Buttons placement **
+ ***********************/
+
+.buttonCreate {
+    display: block;
+
+    margin: auto;
+}
+
+#buttonCreateArticle {
+    margin-top: 15%;
+}
+
+#buttonCreateArticleInCalendar {
+    margin-top: 5%;
+}
+
+#buttonCreationArticle {
+    text-align: center;
+}
+
+#btnActionFormDiv {
+	margin: auto;
+    text-align: center;
+}
+
+/***************************
+ **	 Format text Article  **
+ ***************************/
+
+.txtUndln {
+    text-decoration: underline;
+}
+
+.txtIta {
+    font-style: italic;
+}
+
+.tpetit {
+    font-size: 50%;
+}
+
+.petit {
+    font-size: 75%;
+}
+
+.gros {
+    font-size: 150%;
+}
+
+.tgros {
+    font-size: 200%;
+}
+
+.gauche {
+    text-align: left;
+}
+
+.droite {
+    text-align: right;
+}
+
+.centrer {
+    text-align: center;
+}
+
+.justifier {
+    text-align: justify;
+}
+
+/************************
+ **	textArea Placement **
+ ************************/
+
+#textareaId{
+	margin: auto;
+	margin-bottom: 20px;
+    width:95%
+}
+
+/*************************
+ **	Alert Message Error **
+ *************************/
+
+ #errorMsg {
+ 	color: #D00;
+ 	text-align: center;
+ 	border-width: 3px;
+ 	border-style: dashed solid;
+ 	border-color: #D00;
+ }
+/********************************
+** Style boutons mise en forme **
+********************************/
+.btn-group  .btn[value="G"]:after {
+    content:'B';
+    font-weight:bold;
+}
+.btn-group .btn[value="I"]:after {
+    content: 'I';
+    font-style:italic;
+}
+.btn-group .btn[value="S"]:after {
+    content: 'S' ;
+    text-decoration:underline;
+}
+.btn-group .btn[value="Lien"]:after {
+    content: 'Lien' ;
+    font-size:8pt;
+}
+.btn-group .btn[value="Citation"]:after {
+    content: 'Cit.' ;
+    font-size:8pt;
+}
+.glyphicon-align-left:before {
+    content: '[--' ;
+    font-size:8pt;
+}
+.glyphicon-align-center:before {
+    content: '-|-' ;
+    font-size:8pt;
+}
+.glyphicon-align-right:before {
+    content: '--]' ;
+    font-size:8pt;
+}

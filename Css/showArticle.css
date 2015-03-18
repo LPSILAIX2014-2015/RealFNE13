@@ -1,0 +1,179 @@
+.pvarticle {
+    display:block;
+    background-color: #FFF;
+    border-radius:5px;
+    font-size:10pt;
+    padding:5px 10px 20px 10px;
+    margin:3px;
+}
+#imgplace {
+    float: left;
+    width: 150px;
+    height: 80px;
+    text-align: center;
+    margin: auto;
+    line-height: 80px;
+}
+#imgplave img {
+    max-width: 150px;
+    max-height: 80px;
+}
+#imgArticle img{
+    max-width: 100%;
+}
+.transparence {
+    opacity: 0.5;
+}
+.pvarticle img {
+    max-width: 145px;
+    max-height: 80px;
+    display: table-cell;
+    vertical-align: middle;
+}
+#infoarticle {
+    display: table-cell;
+    vertical-align: middle;
+}
+.pvarticle h2 {
+    margin:0;
+    font-size:10pt;
+}
+.pvarticle .auteur {
+    font-style:italic;
+}
+.pvarticle .description {
+    font-size: 12px;
+}
+.lienarticle {
+    display:block;
+    padding-top: 10px;
+    border-radius:5px;
+    background-color: #FFFFFF;
+    color:#0c5091;
+    border:1px solid #0c5091;
+    margin-top: 10px;
+    min-height: 90px;
+}
+.lienarticle:hover {
+    background-color: #A3CFEA;
+    background:linear-gradient(to bottom left,#a3cfea,#FFFFFF 20%,#ffffff 90%,#a3cfea);
+    color:#0A2D5F;
+    border:1px solid #a3cfea;
+}
+.lienarticle img {
+    border:1px solid #0A2D5F;
+    border-radius:5px;
+}
+#pagination ul {
+    list-style-type: none;
+    list-style-position: inside;
+    margin:0;
+    padding:0;
+}
+#pagination a:visited {
+    color:#ffffff;
+}
+#pagination ul li {
+    display:inline-block;
+    color:#ffffff;
+    border:1px solid #ffffff;
+    background-color:#0a2d5f;
+    border-radius:2px;
+    padding:2px 8px 2px 8px;
+    font-weight:bold;
+    transition:ease 0.5s;
+    cursor:url('../Img/cursor8.png'), auto ;
+    font-family:'Cabin',Verdana,sans-serif;
+}
+#pagination ul li:hover {
+    color:#0a2d5f;
+    border:1px solid #0a2d5f;
+    background-color:#a3cfea;
+}
+#pagination ul li:first-child {
+    border-radius: 15px 2px 2px 15px;
+    cursor:url('../Img/cursor2.png'), auto ;
+}
+#pagination ul li:last-child {
+    border-radius: 2px 15px 15px 2px;
+    cursor:url('../Img/cursor4.png'), auto ;
+}
+
+/** COMMENAIRE DES ARTICLES **/
+
+#titleCom
+{
+    text-align: center;
+}
+.com
+{
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 2%;
+    margin: 1% 0;
+    background-color: #337AB7;
+    color: #fff;
+}
+.nameCom
+{
+    float: left;
+}
+.dateCom
+{
+    float: right;
+}
+.sepCom
+{
+    clear: both;
+    margin-bottom: 1%;
+}
+.contentCom
+{
+    color: #000;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1%;
+}
+.page textarea {
+    width:95%;
+    margin: 5px 0 5px 0;
+}
+.txtUndln {
+    text-decoration: underline;
+}
+
+.txtIta {
+    font-style: italic;
+}
+
+.tpetit {
+    font-size: 50%;
+}
+
+.petit {
+    font-size: 75%;
+}
+
+.gros {
+    font-size: 150%;
+}
+
+.tgros {
+    font-size: 200%;
+}
+
+.gauche {
+    text-align: left;
+}
+
+.droite {
+    text-align: right;
+}
+
+.centrer {
+    text-align: center;
+}
+
+.justifier {
+    text-align: justify;
+}

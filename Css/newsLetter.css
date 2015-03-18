@@ -1,0 +1,26 @@
+.allNews{
+	display:block;
+    color:#000;
+    font-size:12pt;
+    overflow:hidden;
+    font-family:'Quicksand',Verdana,sans-serif;
+    background-color:#FFFFFF;
+    border-radius:10px;
+    text-align:center;
+    padding: 10px 0px 10px 0px ;
+    margin:0 auto;
+}
+.titleN {
+    margin:0 0 10px 0;
+    padding:2px 4px 2px 1px;
+    height:20px;
+    width:171px;
+    text-align:center;
+    background-color:#a3cfea;
+    color:#0a2d5f;
+    border-radius: 10px;
+    border:1px solid #0c5091;
+    box-shadow: 2px 2px 2px rgba(10,45,95,0.6);
+    font-family:'Quicksand',Verdana,sans-serif;
+    font-size:12pt;
+}
