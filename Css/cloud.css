@@ -3,35 +3,64 @@
 }
 
 .percent {
-	text-align:right;
+	text-align:center;
 }
 
 .USER_CLOUD {
 	width: 110px;
 	overflow: hidden;
 	max-width: 110px;
+	text-align: center;
+}
+
+.PERCENT_CLOUD {
+	width: 110px;
+	overflow: hidden;
+	max-width: 110px;
+	text-align: center;
 }
 
 .DATE_CLOUD {
 	width: 85px;
 	overflow: hidden;
 	max-width: 85px;
+	text-align: center;
 }
 
 .BUTTON_CLOUD {
-	width: 76px;
+	width: 75px;
 	overflow: hidden;
 	max-width: 76px;
+	text-align: center;
 }
 
 .PATH {
 	width: 237px;
 	overflow: hidden;
 	max-width: 237px;
+	text-align: center;
 }
 
 .PERCENT_CLOUD {
 	width:28px;
 	overflow: hidden;
 	max-width:28px;
+}
+
+table
+{
+	font-size: 12px;
+}
+
+.buttonDeleteCloud, .buttonCopyUrl, .buttonDownloadCloud {
+	font-size: 12px;
+	width: 75px;
+}
+
+tbody tr:nth-child(odd) { 
+	background-color:#eee;
+}
+
+.lineCloud {
+	text-align: center;
 }

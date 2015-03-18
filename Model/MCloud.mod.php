@@ -135,7 +135,7 @@ class MCloud {
             
             $content_Cloud .= '<td class="currentTdMessage">'.$this->getPercent($data_cloud[$i]['SIZE']).'%</td>';
             $content_Cloud .= '<td class="trCenter currentTdMessage">'.$data_cloud[$i]['SURNAME_USER']." ".$data_cloud[$i]['NAME_USER'].'</td>';
-            $content_Cloud .= '<td class="currentTdMessage">'.substr($data_cloud[$i]['PATH_FILE'], -20).'</td>';
+            $content_Cloud .= '<td class="currentTdMessage">'.substr(substr($data_cloud[$i]['PATH_FILE'], -30), 5).'</td>';
             $content_Cloud .= '<td class="currentTdMessage">'.$data_cloud[$i]['CDATE'].'</td>';
 
             $content_Cloud .= '
