@@ -17,18 +17,14 @@ $cat = $_POST['category'];
 $request1 = $pdo -> prepare("SELECT id as id FROM USER WHERE login = ?");
 $request1 -> execute(array($receiver1));
 $req = $request1->fetch();
-if (($nb_message < 100)||($senderId == 1))
+if ($nb_message < 100)
 {
-    if((!$senderId)||(!$req)||($theme == "0")||($cat == "0"))
+    if((!$req)||($theme == "0")||($cat == "0"))
     {
 		if ($cat == "0")
 		{
 			echo "5";
 		}
-		else
-        if (!$senderId){
-            echo "1";
-        }
 		else
         if (!$req){
             echo "0";
@@ -44,7 +40,6 @@ if (($nb_message < 100)||($senderId == 1))
         $receiverId = $req['id'];
         $title = $_POST['title'];
         $content = $_POST['content'];
-        $theme = $_POST['theme'];
         $cat = $_POST['category'];
 		
         $request2 = $pdo->prepare("INSERT INTO MESSAGE(ID,SENDER_ID,RECEIVER_ID,CAT_ID,THEME_ID,ISREAD,ISARCHIVE,SENDDATE,TITLE,CONTENT) VALUES ('',?,?,?,?,0,0,CURRENT_DATE,?,?)");

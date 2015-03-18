@@ -1,4 +1,4 @@
-<h1>Bienvenue sur votre espace FNE13</h1>
+<h1>Bienvenue sur votre espace associatif</h1>
 
 <p>
     Cet espace vous permet de communiquer avec votre association et les autres membres des associations FNE13.
@@ -11,8 +11,8 @@
         if($data_association[$i]['IMAGEPATH'] != '')
         {
             ?>
-            <a <?php echo 'href="index.php?EX=showArticle&idA='.$data_association[$i]['ID'].'"'; ?> >
-                <img width="75" height="58" <?php echo 'src="'.$data_association[$i]['IMAGEPATH'].'"'; ?> >
+            <a <?php echo 'href="index.php?EX=showArticle&idA='.$data_association[$i]['ID'].'"'; ?>
+               style="background-image:url('<?php echo $data_association[$i]['IMAGEPATH']; ?>');">
             </a>
             <?php
         }

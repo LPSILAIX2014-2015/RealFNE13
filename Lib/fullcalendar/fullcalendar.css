@@ -302,7 +302,13 @@ previous button's border...
 }
 
 .fc-bg table {
+	margin : 0;
+	padding : 0;
+	border: 0;
+	border-radius: 0;
 	height: 100%; /* strech bg to bottom edge */
+
+
 }
 
 

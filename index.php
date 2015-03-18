@@ -48,6 +48,7 @@ switch($EX)
     case 'endMessages' : endMessages(); break;
     case 'createArticle':   createArticle(); break;
     case 'calendar'     :   calendar();break;
+    case 'showInfoCalendar': showInfoCalendar(); break;
     case 'showArticle'      : showArticle();     break;
     case 'showInfoArticle'  : showInfoArticle(); break;
     case 'formCreateArticle' : formCreateArticle(); break;
@@ -198,6 +199,16 @@ function showInfoArticle()
     $page['method'] = 'showInfoArticle';
     $page['css'] = 'Css/showArticle.css';
     $page['arg'] = 'Html/infoArticle.php';
+}
+
+function showInfoCalendar()
+{
+    global $page;
+    $page['title'] = 'Détail';
+    $page['class'] = 'VInfoCalendar';
+    $page['method'] = 'showInfoCalendar';
+    $page['css'] = 'Css/showInfoCalendar.css';
+    $page['arg'] = 'Html/showInfoCalendar.php';
 }
 function createMember()
 {
@@ -417,7 +428,8 @@ function deleteAMember()
             $page['title'] = 'Mon profil';
             $page['class'] = 'VHtml';
             $page['method'] = 'showHtml';
-            $page['css'] = 'Css/recupMdp.css';
+            //$page['css'] = 'Css/recupMdp.css';
+            $page['css'] = 'Css/profil.css';
             $page['arg'] = 'Html/profil.php';
         }
 
@@ -507,7 +519,7 @@ function calendar()
     $page['class'] = 'VCalendar';
     $page['method'] = 'showCalendar';
     $page['arg'] = 'Html/calendar.php';
-    $page['css'] = 'Css/calendar.css';
+    $page['css'] = 'Lib/fullcalendar/fullcalendar.css';
 }
 
 function sendMessage()
@@ -553,8 +565,12 @@ function downloadCVS()
 }
 
 function genNL(){
-    $pdf = new MGenNewL();
-    $pdf->setDate($_GET);
-    $pdf->generate();
+    if ($_GET['data']=='') {
+        header('Location: index.php');
+    } else {
+        $pdf = new MGenNewL();
+        $pdf->setDate($_GET);
+        $pdf->generate();
+    }
 }
 ?>

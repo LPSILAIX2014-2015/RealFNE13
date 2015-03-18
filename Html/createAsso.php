@@ -34,7 +34,7 @@ if(isset($_GET['error'])) {
 			<div class="control-group">
 				<label class="control-label">Name</label>
 				<div class="controls">
-					<input name="NAME" type="text" pattern="^[a-zA-Z \.\,\+\-]*$" placeholder="Nom" value="<?php echo !empty($name)?$name:'';?>">
+					<input name="NAME" type="text" pattern="[^'\x22\;\.]+" placeholder="Nom" value="<?php echo !empty($name)?$name:'';?>">
 					<span>(Alphabétique)</span>
 				</div>
 			</div>
@@ -42,7 +42,7 @@ if(isset($_GET['error'])) {
 				<label class="control-label">Territoire</label>
 			</br>
 			<select class="controls" name="TERRITORY" type="text">
-				<?php 
+				<?php
 				foreach ($territories as $key => $territory) {
 					if($territory['ID']!=$territoryID)
 						echo('<option value ='.$territory['ID'].'>'.$territory['NAME'].'</option>');
@@ -57,7 +57,7 @@ if(isset($_GET['error'])) {
 				<label class="control-label">Theme</label>
 			</br>
 			<select class="controls" name="THEME" type="text">
-				<?php 
+				<?php
 				foreach ($themes as $key => $theme) {
 					echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
 				}
