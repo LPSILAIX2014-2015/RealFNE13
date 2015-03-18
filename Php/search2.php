@@ -7,7 +7,7 @@
     $pdo = new MDBase();
     $pdo->exec("set names utf8");
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        $sql = 'SELECT DISTINCT ID, name as asso_name FROM association';
+        $sql = 'SELECT DISTINCT ID, NAME as asso_name FROM ASSOCIATION';
         $q = $pdo->prepare($sql);
         $q->execute();
 
@@ -36,7 +36,7 @@
 
             $params = array("$name", "$surname", $cp, "$mail", "$adress", "$association", "$profession", $id);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "UPDATE user set NAME = ?, SURNAME = ?,CP = ?, MAIL = ?, ADRESS = ?, ASSOCIATION_ID = ?, PROFESSION =? WHERE ID = ?";
+            $sql = "UPDATE USER set NAME = ?, SURNAME = ?,CP = ?, MAIL = ?, ADRESS = ?, ASSOCIATION_ID = ?, PROFESSION =? WHERE ID = ?";
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
@@ -49,7 +49,7 @@
 
             $name = $_POST['name'];
             $params = array("%$name%");
-            $sql = 'SELECT * FROM user u WHERE u.NAME LIKE ? ORDER BY NAME ASC LIMIT 3';
+            $sql = 'SELECT * FROM USER u WHERE u.NAME LIKE ? ORDER BY NAME ASC LIMIT 3';
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
@@ -61,7 +61,7 @@
         } elseif (isset($_POST['surname'])) {
             $surname = $_POST['surname'];
             $params = array("%$surname%");
-            $sql = 'SELECT * FROM user u WHERE SURNAME LIKE ? ORDER BY SURNAME ASC LIMIT 3';
+            $sql = 'SELECT * FROM USER u WHERE SURNAME LIKE ? ORDER BY SURNAME ASC LIMIT 3';
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
@@ -97,7 +97,7 @@
         } elseif (isset($_POST['profession'])) {
             $profession = $_POST['profession'];
             $params = array("%$profession%");
-            $sql = 'SELECT ID, PROFESSION FROM user u WHERE PROFESSION LIKE ? ORDER BY NAME ASC LIMIT 3';
+            $sql = 'SELECT ID, PROFESSION FROM USER u WHERE PROFESSION LIKE ? ORDER BY NAME ASC LIMIT 3';
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
@@ -109,7 +109,7 @@
         } elseif (isset($_POST['association'])) {
             $association = $_POST['association'];
             $params = array("%$association%");
-            $sql = 'SELECT ID, ASSOCIATION FROM user u WHERE ASSOCIATION LIKE ? ORDER BY NAME ASC LIMIT 3';
+            $sql = 'SELECT ID, ASSOCIATION FROM USER u WHERE ASSOCIATION LIKE ? ORDER BY NAME ASC LIMIT 3';
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 

@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
         if ($type == "email") {
 
-            $sql = 'SELECT * FROM user u WHERE MAIL LIKE ? ORDER BY NAME ASC LIMIT 3';
+            $sql = 'SELECT * FROM USER u WHERE MAIL LIKE ? ORDER BY NAME ASC LIMIT 3';
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 
         } elseif ($type == "name") {
-            $sql = 'SELECT * FROM user u WHERE NAME LIKE ? ORDER BY NAME ASC LIMIT 3';
+            $sql = 'SELECT * FROM USER u WHERE NAME LIKE ? ORDER BY NAME ASC LIMIT 3';
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             echo json_encode($userinfo);
 
         } elseif ($type == "surname") {
-            $sql = 'SELECT * FROM user u WHERE SURNAME LIKE ? ORDER BY NAME ASC LIMIT 3';
+            $sql = 'SELECT * FROM USER u WHERE SURNAME LIKE ? ORDER BY NAME ASC LIMIT 3';
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             echo json_encode($userinfo);
 
         } elseif ($type == "cp") {
-            $sql = 'SELECT * FROM user u WHERE CP LIKE ? ORDER BY NAME ASC LIMIT 3';
+            $sql = 'SELECT * FROM USER u WHERE CP LIKE ? ORDER BY NAME ASC LIMIT 3';
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             echo json_encode($userinfo);
 
         } elseif ($type == "prof") {
-            $sql = 'SELECT * FROM user u WHERE PROFESSION LIKE ? ORDER BY NAME ASC LIMIT 3';
+            $sql = 'SELECT * FROM USER u WHERE PROFESSION LIKE ? ORDER BY NAME ASC LIMIT 3';
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             echo json_encode($userinfo);
 
         } elseif ($type == "asso") {
-            $sql = 'SELECT user.* FROM user INNER JOIN ASSOCIATION ON user.association_id = association.id WHERE (association.name  LIKE ? )  LIMIT 3';
+            $sql = 'SELECT user.* FROM USER INNER JOIN ASSOCIATION ON USER.ASSOCIATION_ID = ASSOCIATION.ID WHERE (ASSOCIATION.NAME LIKE ? )  LIMIT 3';
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
@@ -131,18 +131,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $params = array($id);
 
         //For obtain number of members
-        $sql0 ="SELECT count(*) FROM USER WHERE user.ASSOCIATION_ID  = $id";
+        $sql0 ="SELECT count(*) FROM USER WHERE USER.ASSOCIATION_ID  = $id";
         $prep0 = $pdo->prepare($sql0);
         $prep0->execute();
         $rNMB = $prep0->fetchColumn();
 
         //For obtain data from page received
-        $sql = "SELECT user.id as user_id, user.LOGIN, user.NAME as user_name, user.SURNAME, territory.name as t_name, user.MAIL, theme.name as th_name, user.ADRESS , user.CP, user.PROFESSION, association.NAME as asso_name, user.PHOTOPATH
-                FROM user
-                INNER JOIN ASSOCIATION  ON user.ASSOCIATION_ID = association.ID
-                INNER JOIN territory ON association.territory_id = territory.id
-                left join theme on user.THEME_ID = theme.id
-                WHERE (user.ASSOCIATION_ID  = ?) LIMIT $firstRegistry, $resultsParPage";
+        $sql = "SELECT USER.ID as user_id, USER.LOGIN, USER.NAME as user_name, USER.SURNAME, TERRITORY.NAME as t_name, USER.MAIL, THEME.NAME as th_name, USER.ADRESS , USER.CP, USER.PROFESSION, ASSOCIATION.NAME as asso_name, USER.PHOTOPATH
+                FROM USER
+                INNER JOIN ASSOCIATION  ON USER.ASSOCIATION_ID = ASSOCIATION.ID
+                INNER JOIN TERRITORY ON ASSOCIATION.TERRITORY_ID = TERRITORY.ID
+                LEFT JOIN THEME on USER.THEME_ID = THEME.ID
+                WHERE (USER.ASSOCIATION_ID  = ?) LIMIT $firstRegistry, $resultsParPage";
         $prep = $pdo->prepare($sql);
         $prep->execute($params);
         $rows = $prep->fetchAll(PDO::FETCH_ASSOC);
@@ -181,13 +181,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $pdo = new MDBase();
         $pdo->exec("set names utf8");
-        $sql = "SELECT user.id as user_id, user.LOGIN, user.NAME as user_name, user.SURNAME, theme.name as theme_name,
-                  territory.name as t_name, user.MAIL, theme.name as th_name, user.ADRESS , user.CP,
-                  user.PROFESSION, association.NAME as asso_name, user.PHOTOPATH
-                FROM user INNER JOIN ASSOCIATION  ON user.ASSOCIATION_ID = association.ID
-                INNER JOIN territory ON association.territory_id = territory.id
-                left join theme on user.THEME_ID = theme.id
-                ORDER BY asso_name ASC LIMIT $firstRegistry, $resultsParPage";
+        $sql = "SELECT USER.ID AS USER_ID, USER.LOGIN, USER.NAME AS USER_NAME, USER.SURNAME, THEME.NAME AS THEME_NAME,
+                  TERRITORY.NAME AS T_NAME, USER.MAIL, THEME.NAME AS TH_NAME, USER.ADRESS , USER.CP,
+                  USER.PROFESSION, ASSOCIATION.NAME AS ASSO_NAME, USER.PHOTOPATH
+                FROM USER INNER JOIN ASSOCIATION  ON USER.ASSOCIATION_ID = ASSOCIATION.ID
+                INNER JOIN TERRITORY ON ASSOCIATION.TERRITORY_ID = TERRITORY.ID
+                LEFT JOIN THEME ON USER.THEME_ID = THEME.ID
+                ORDER BY ASSO_NAME ASC LIMIT $firstRegistry, $resultsParPage";
 
         $sql0 ="SELECT count(*) FROM USER";
         $prep0 = $pdo->prepare($sql0);
