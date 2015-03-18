@@ -1,4 +1,5 @@
 @import "../Lib/bootstrap.min.css" screen;
+/* Recherche */
 .page{
     display:block;
     position:absolute;
@@ -150,3 +151,9 @@ table {
     width: 30px;
     text-align: center;
 }
+#tableManageMembers {
+    margin-top: 20px;
+    width: auto;
+}
+
+/* End recherche */

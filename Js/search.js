@@ -93,7 +93,6 @@ $(document).ready(function() {
         var idInputName = "#s_prof";
         var divName = "#suggestions_profession";
         var fieldSearch = "profession";
-
         if ($(this).is(":checked")) {
             $('#searh_prof').html(' <input id="s_prof" class="form-control" type="text" placeholder="Profession" value=""/><div id="suggestions_profession"></div>');
             $('#all_mem').attr('checked', false);
@@ -354,7 +353,7 @@ $(document).ready(function() {
 
                         $(value).attr({'value': id})
                         //Hacemos desaparecer el resto de sugerencias
-                        $(divName).fadeOut(800);
+                        $(divName).fadeOut(2000);
                     });
                     setTimeout(function(){
                         $(divName).fadeOut("slow");
