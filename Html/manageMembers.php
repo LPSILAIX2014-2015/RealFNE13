@@ -139,14 +139,14 @@ foreach($rolesList as $line){
     <div class="control-group">
         <label class="control-label">Nom de famille</label>
         <div class="controls">
-            <input name="SURNAME" id="surname" type="text"  placeholder="Nom de famille" pattern="^[a-zA-Z \.\,\+\-]*$" value="">
+            <input name="SURNAME" id="surname" type="text"  placeholder="Nom de famille" pattern="^[a-zA-Z \.\,\+\-]*$" value="<?php echo (!isset($_POST['SURNAME']))?'' :$_POST['SURNAME'] ; ?>">
             <span>(Alphabétique)</span>
         </div>
     </div>
     <div class="control-group">
         <label class="control-label">Pr&eacute;nom</label>
         <div class="controls">
-            <input name="NAME" id="name" type="text"  placeholder="Prenom" value="">
+            <input name="NAME" id="name" type="text"  placeholder="Prenom" value="<?php echo (!isset($_POST['NAME']))?'' :$_POST['NAME'] ; ?>">
 
         </div>
     </div>
@@ -164,15 +164,8 @@ foreach($rolesList as $line){
     <div class="control-group">
         <label class="control-label">Code postal</label>
         <div class="controls">
-            <input name="CP" type="text" id="cp"  placeholder="Code postal" pattern="[0-9]{5}"  value="">
+            <input name="CP" type="text" id="cp"  placeholder="Code postal" pattern="\d+"  value="<?php echo (!isset($_POST['CP']))?'' :$_POST['CP'] ; ?>">
             <span>(5 chiffres)</span>
-        </div>
-    </div>
-    <div class="control-group">
-        <label class="control-label">Profession</label>
-        <div class="controls">
-            <input name="PROFESSION" id="profession" type="text"  placeholder="Profession" value="">
-
         </div>
     </div>
     <?php if(!isset($assoc)){
@@ -181,11 +174,14 @@ foreach($rolesList as $line){
         <label class="control-label">Association</label>
         </br>
         <select class="controls" name="ASSOCIATION" type="text">';
-            echo('<option></option>');
-            foreach ($assocs as $key => $asso) {
-                echo('<option value ='.$asso['ID'].'>'.$asso['NAME'].'</option>');
-            }
-            ?>
+          echo('<option></option>');
+          foreach ($assocsList as $key => $association) {
+            if((isset($_POST['ASSOCIATION']))&&($_POST['ASSOCIATION']==$association['ID']))
+                echo('<option value ='.$association['ID'].' selected>'.$association['NAME'].'</option>');
+            else
+              echo('<option value ='.$association['ID'].'>'.$association['NAME'].'</option>');
+          }
+          ?>
         </select>
     </div>
     <?php } ?>
@@ -193,12 +189,15 @@ foreach($rolesList as $line){
         <label class="control-label">Th&egrave;me</label>
         </br>
         <select class="controls" name="THEME" type="text">
-            <?php
-            echo('<option></option>');
-            foreach ($themes as $key => $theme) {
-                echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
-            }
-            ?>
+          <?php
+              echo('<option></option>');
+              foreach ($themes as $key => $theme) {
+                if((isset($_POST['THEME']))&&($_POST['THEME']==$theme['ID']))
+                  echo('<option value ='.$theme['ID'].' selected>'.$theme['NAME'].'</option>');
+                else
+                  echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
+              }
+          ?>
         </select>
     </div>
     <div class="control-group">
@@ -231,7 +230,7 @@ foreach($rolesList as $line){
         <thead>
         <tr>
             <th>Nom</th>
-            <th>CP</th>
+            <th>Thème</th>
             <th>Profession</th>
             <th>Action
                 <label id="btn1" class="btn">Envoyer</label>
@@ -247,20 +246,16 @@ foreach($rolesList as $line){
             $conditions = array();
             $params = array();
             if($nom) {
-                $conditions[] = "NAME = '". $nom. "'";
+                $conditions[] = "NAME LIKE '%". $nom. "%'";
                 $params[]= $nom;
             }
             if($_POST['SURNAME']) {
-                $conditions[] = "SURNAME = '". $_POST['SURNAME']. "'";
+                $conditions[] = "SURNAME LIKE '%". $_POST['SURNAME']. "%'";
                 $params[] = $_POST['SURNAME'];
             }
             if($_POST['CP']) {
-                $conditions[] = "CP = '". $_POST['CP']. "'";
+                $conditions[] = "CP LIKE '". $_POST['CP']. "%'";
                 $params[] = $_POST['CP'];
-            }
-            if($_POST['PROFESSION']) {
-                $conditions[] = "PROFESSION = '". $_POST['PROFESSION']. "'";
-                $params[] = $_POST['PROFESSION'];
             }
             if(isset($assoc)) {
                 $conditions[] = "ASSOCIATION_ID = '". $assoc. "'";
@@ -277,7 +272,7 @@ foreach($rolesList as $line){
             $where = " WHERE ".implode($conditions,' AND ');
             $surnom = $_POST['SURNAME'];
             if(count($conditions) > 0) {
-              foreach ($pdo->query('SELECT Count(*) As NUM FROM USER'. $where.' order by NAME ASC LIMIT') as $row) {
+              foreach ($pdo->query('SELECT Count(*) As NUM FROM USER'. $where.' order by NAME ASC LIMIT '.$nbLines.' OFFSET '.$offset) as $row) {
                 $rowNumber= $row['NUM'];
               }
               $sql = 'SELECT * FROM USER'. $where .' LIMIT '.$nbLines.' OFFSET '.$offset;
@@ -296,9 +291,9 @@ foreach($rolesList as $line){
                 }
                 echo ($i%2==0)?'<tr class="tr-even">':'<tr>';;
                 echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
-                echo '<td>'. $row['CP'] . '</td>';
+                echo '<td>'. (new MTheme($row['THEME_ID']))->getName() . '</td>';
                 echo '<td>'. $row['PROFESSION'] . '</td>';
-                echo '<td width=250>';
+                echo '<td>';
                 echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
                 echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
 
@@ -358,9 +353,9 @@ foreach($rolesList as $line){
                     }
                     echo ($i%2==0)?'<tr class="tr-even">':'<tr>';;
                     echo '<td>'. $row['NAME'] . ' '.$row['SURNAME'].'</td>';
-                    echo '<td>'. $row['CP'] . '</td>';
+                    echo '<td>'. (new MTheme($row['THEME_ID']))->getName() . '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
-                    echo '<td width=250>';
+                    echo '<td>';
                     echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
                     echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
 
@@ -407,7 +402,7 @@ foreach($rolesList as $line){
           <?php
             $numberPages= ceil($rowNumber/$nbLines);
             for($i=1;$i<=$numberPages;++$i)
-              echo '<button type="submit" class="changePageButton" form="manageMember" formaction="./index.php?EX=manageMembers&PAGE='.$i.'">'.$i.'</button>';
+              echo '<button type="submit" class="changePageButton" form="manageAsso" formaction="./index.php?EX=manageMembers&PAGE='.$i.'">'.$i.'</button>';
           ?>
         </div>
     </div>
