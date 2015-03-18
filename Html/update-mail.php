@@ -1,6 +1,7 @@
 <?php
 $pdo = new MDBase();
 $email = $_GET['email'];
+<<<<<<< HEAD
 $member=$pdo->getUserByEmail($email);
 if(!isset($member[0]))
   header("Location: ./index.php");
@@ -9,6 +10,8 @@ else{
   if(($id==null)||(new MUser($id))->getName()!='')
     header("Location: ./index.php");
 }
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 $i=0;
 $themesList = $pdo ->getAllThemes();
 foreach($themesList as $line){

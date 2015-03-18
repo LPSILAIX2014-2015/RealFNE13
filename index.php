@@ -31,7 +31,10 @@ switch($EX)
     case 'maillog'   : maillog();    exit;
     case 'chImg'     : chImg();    exit; // Changer l'image du profil
     case 'recup'     : recuperation(); break; // Presentation de la vue
+<<<<<<< HEAD
     case 'allNews'     : allNews(); break; // All Newsletter
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
     case 'genNL'     : genNL();    exit; // Newsletter
     case 'deconnexion' :
         if (isset($_POST['login']) && isset($_POST['password']))
@@ -49,6 +52,10 @@ switch($EX)
     case 'endMessages' : endMessages(); break;
     case 'createArticle':   createArticle(); break;
     case 'calendar'     :   calendar();break;
+<<<<<<< HEAD
+=======
+    case 'showInfoCalendar': showInfoCalendar(); break;
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
     case 'showArticle'      : showArticle();     break;
     case 'showInfoArticle'  : showInfoArticle(); break;
     case 'formCreateArticle' : formCreateArticle(); break;
@@ -90,7 +97,11 @@ function login(){
 function home()
 {
     global $page;
+<<<<<<< HEAD
     $page['title'] = 'Accueil';
+=======
+    $page['title'] = 'Test';
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
     $page['class'] = 'VHome';
     $page['method'] = 'showHome';
     $page['arg'] = 'Html/accueil.php';
@@ -200,6 +211,19 @@ function showInfoArticle()
     $page['css'] = 'Css/showArticle.css';
     $page['arg'] = 'Html/infoArticle.php';
 }
+<<<<<<< HEAD
+=======
+
+function showInfoCalendar()
+{
+    global $page;
+    $page['title'] = 'Détail';
+    $page['class'] = 'VInfoCalendar';
+    $page['method'] = 'showInfoCalendar';
+    $page['css'] = 'Css/showInfoCalendar.css';
+    $page['arg'] = 'Html/showInfoCalendar.php';
+}
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 function createMember()
 {
     global $page;
@@ -229,7 +253,11 @@ function updateAMember()
 function deleteMember()
 {
     global $page;
+<<<<<<< HEAD
     $page['title'] = 'Suppression d\'un membre';
+=======
+    $page['title'] = 'Supression d\'un membre';
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/delete.php';
@@ -238,7 +266,11 @@ function deleteMember()
 function deleteAMember()
 {
     global $page;
+<<<<<<< HEAD
     $page['title'] = 'Suppression d\'un membre';
+=======
+    $page['title'] = 'Supression d\'un membre';
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
     $page['arg'] = 'Php/delete.php';
@@ -449,7 +481,11 @@ function deleteAMember()
         $a->setRole('MEMBRE');
         $a = new MUser ($idNext);
         $a->setRole('ADMIN');
+<<<<<<< HEAD
         $page['title'] = 'Accueil';
+=======
+        $page['title'] = 'Test';
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
         $page['class'] = 'VHome';
         $page['method'] = 'showHome';
         $page['arg'] = 'Html/manageAsso.php';
@@ -476,7 +512,11 @@ function deleteAMember()
     function deleteAsso()
     {
         global $page;
+<<<<<<< HEAD
         $page['title'] = 'Suppression d\'une association';
+=======
+        $page['title'] = 'Supression d\'une association';
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
         $page['class'] = 'VHtml';
         $page['method'] = 'showHtml';
         $page['arg'] = 'Html/deleteAsso.php';
@@ -484,7 +524,11 @@ function deleteAMember()
 function createArticle()
 {
     global $page;
+<<<<<<< HEAD
     $page['title'] = 'Ecrire un article';
+=======
+    $page['title'] = 'écrire un article';
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
     $page['class'] = 'VCreateArticle';
     $page['method'] = 'showCreateArticle';
     $page['css'] = 'Css/createArticle.css';
@@ -496,7 +540,11 @@ function deconnexion()
     unset($_SESSION['ID_USER']);
     unset($GLOBALS['user']);
     session_destroy();
+<<<<<<< HEAD
     $page['title'] = 'Accueil';
+=======
+    $page['title'] = 'Retour après déco';
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
     $page['class'] = 'VHome';
     $page['method'] = 'showHome';
     $page['css'] = 'Css/accueil.css';
@@ -563,6 +611,7 @@ function genNL(){
         $pdf->generate();
     }
 }
+<<<<<<< HEAD
 function allNews()
 {
     global $page;
@@ -572,4 +621,6 @@ function allNews()
     $page['arg'] = 'Html/allNews.php';
     $page['css'] = 'Css/newsLetter.css';
 }
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 ?>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "../Lib/bootstrap.min.css" screen;
 .page{
     display:block;
@@ -150,3 +151,13 @@ table {
     width: 30px;
     text-align: center;
 }
+=======
+.table{
+	width: 540px;
+	table-layout: fixed;
+}
+
+.tr-even{
+	background-color: #DBDBDB;
+}
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b

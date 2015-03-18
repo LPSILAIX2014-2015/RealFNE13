@@ -10,6 +10,21 @@ $cal = $mEventCalendar->getEventCalendar();
 <script type="text/javascript">
     $(document).ready(function() {
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+        
+
+
+
+
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
         $('#calendar').fullCalendar({
             header: {
                 left: 'prev,next today',

@@ -100,6 +100,7 @@
 								</div>
 							</div>
     </div>
+<<<<<<< HEAD
 	
 	<br>
 	    <div class="profileChangepass">
@@ -144,6 +145,8 @@
 								</div>
 							</div>
     </div>
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 
     <script src="./Js/changeImage.js"></script>
 

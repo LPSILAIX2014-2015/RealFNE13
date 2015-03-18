@@ -119,11 +119,30 @@ function afficheArticle($indexArticle) {
 
 	<?php
 	
+<<<<<<< HEAD
+=======
+		if(is_null($_SESSION['ID_USER'])) {
+			for($i = 0 ; $i < $nbArticles ; ++$i)
+			{
+				if($data_article[$i]['STATUS'] > 0)
+				{
+					afficheArticle($i);
+				}
+			}
+		} else {
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 			for($i = 0 ; $i < $nbArticles ; ++$i)
 			{ 
 				afficheArticle($i);
 			}
+<<<<<<< HEAD
 		
+=======
+		}
+	
+
+	
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 	?>
 </div>
 <div id='pagination' class='compact-theme simple-pagination'></div>

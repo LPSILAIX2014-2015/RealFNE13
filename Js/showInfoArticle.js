@@ -19,6 +19,7 @@ $(document).ready(function() {
 
 
     //When select value change, articles will be filter
+<<<<<<< HEAD
 
 
     $('#filterVALID').on('change' , function(event) {
@@ -35,6 +36,17 @@ $(document).ready(function() {
 
     $('#filterTHEME').on('change', function(event) {
         sortThemeArticle();
+=======
+    $('#filterVALID').on('change' , function(event) {
+        sortValidArticle();
+    })
+    $('#filterASSOC').on('change', function(event) {
+        sortAssocArticle();
+    });
+    $('#filterTHEME').on('change', function(event) {
+        sortThemeArticle();
+
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
     });
 
 
@@ -116,6 +128,7 @@ function sortThemeArticle() {
 
 function sortValidArticle() {
     var idValid;
+<<<<<<< HEAD
     if( $('#filterVALID option:selected').attr('valu' +
         'e') == 'undefined') idValid =0;
     else  idValid = $('#filterVALID option:selected').attr('value');
@@ -127,6 +140,18 @@ function sortValidArticle() {
     if(idValid == "0") //Si la sélection est a valider
     {
 
+=======
+    if( $('#filterVALID option:selected').attr('value') == 'undefined') idValid =0;
+    else  idValid = $('#filterVALID option:selected').attr('value');
+
+    console.log(idValid);
+    $('.lienarticle').hide();
+
+    if(idValid == "0") //Si la sélection est a valider
+    {
+
+
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
         for(var i = 0 ; i < $('.lienarticle').length ; ++i)
         {
             if ($('.lienarticle').get(i).getAttribute('data-valid')==0)
@@ -135,7 +160,10 @@ function sortValidArticle() {
 
                 $('.lienarticle')[i].style.display=""; //Affiche div article
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
         }
 
     }

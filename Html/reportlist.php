@@ -3,7 +3,11 @@
     if ((isset($user)) && ($user->getRole() == "SADMIN")) {
     $db = new MDBase();
     $stat = new PDOStatement();
+<<<<<<< HEAD
     $stat = $db->prepare("SELECT * FROM REPORT ORDER BY RDATE DESC");
+=======
+    $stat = $db->prepare("SELECT * FROM REPORT");
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
     $stat->execute();
 
 ?>
@@ -42,4 +46,8 @@
 <script type="text/javascript" src="Js/reportList.js"></script>
 <?php } else {  ?>
 <div>Vous n'avez pas les droits nécesaires pour accéder à cette page !</div>
+<<<<<<< HEAD
 <?php }?>
+=======
+<?php }?>
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b

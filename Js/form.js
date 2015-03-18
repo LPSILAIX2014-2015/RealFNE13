@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 ﻿function showMassageError(errorValue){ // Pesentation de fenetre emergente pour les erreurs et succès
     var p = document.createElement('p');
     p.innerHTML='Message : ';
+=======
+function showMassageError(errorValue){ // Pesentation de fenetre emergente pour les erreurs et succès
+    var p = document.createElement('p');
+    p.innerHTML='Vous devez renseigner le champ suivant : ';
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 
     var window = document.getElementById('result');
     window.appendChild(p);

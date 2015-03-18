@@ -42,14 +42,22 @@
 						<div class="control-group">
 				            <label class="control-label">Nom de famille</label>
 				            <div class="controls">
+<<<<<<< HEAD
 				                <input name="SURNAME" id="surname" type="text"  placeholder="Nom" pattern="[^'\x22\;\.]+" value="">
+=======
+				                <input name="SURNAME" id="surname" type="text"  placeholder="Surname" pattern="[^'\x22\;\.]+" value="">
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 				                <span>(Alphabétique)</span>
 				            </div>
 				        </div>
 				        <div class="control-group">
 				            <label class="control-label">Pr&eacute;nom</label>
 				            <div class="controls">
+<<<<<<< HEAD
 				                <input name="NAME" id="name" type="text"  placeholder="Prénom" pattern="[^'\x22\;\.]+" value="">
+=======
+				                <input name="NAME" id="name" type="text"  placeholder="Name" pattern="[^'\x22\;\.]+" value="">
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 
 				            </div>
 				        </div>
@@ -59,6 +67,7 @@
 					      	<input name="MAIL" id="mail" type="text"  placeholder="EMAIL" value="">
 
 					    </div>
+<<<<<<< HEAD
 						</div>
 						<?php
 						if($_SESSION['ROLE']=='SADMIN'){
@@ -87,6 +96,12 @@
 				        	</br></br>
 						  	<button type="submit" class="btn btn-success">Création</button>
                 <a href="./index.php?EX=manageMembers"><button type="button" class="btn">Retour</button></a>
+=======
+				        <div class="form-actions">
+				        	</br></br>
+						  	<button type="submit" class="btn btn-success">Création</button>
+                          	<a href="./index.php?EX=manageMembers"><button type="button" class="btn">Retour</button></a>
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
                       	</div>
 					</form>
 				</div>

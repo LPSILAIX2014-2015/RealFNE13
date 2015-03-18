@@ -3,6 +3,7 @@
     else{
         header("Location: ./index.php");
     }
+<<<<<<< HEAD
     $nbLines=10;
     if(isset($_POST['LINES']))
       $nbLines=$_POST['LINES'];
@@ -10,6 +11,8 @@
     if(isset($_GET['PAGE']))
       $nbPage=$_GET['PAGE'];
     $offset= ($nbPage-1)*$nbLines;
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 ?>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -71,6 +74,7 @@
 
 <div class="container">
 <div class="row">
+<<<<<<< HEAD
     <h3>Les associations membres du réseau FNE13</h3>
 </div>
 
@@ -78,14 +82,26 @@
 <form class="form-horizontal" id="manageAsso" action="./index.php?EX=manageAsso" method="post">
     <div class="control-group">
         <label class="control-label">Nom</label>
+=======
+    <h3>FNESITE</h3>
+</div>
+
+
+<form class="form-horizontal" action="./index.php?EX=manageAsso" method="post">
+    <div class="control-group">
+        <label class="control-label">Name</label>
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
         <div class="controls">
             <select class="controls" name="NAME" type="text">
                 <?php
                     echo('<option></option>');
                     foreach ($associations as $key => $association) {
+<<<<<<< HEAD
                       if((isset($_POST['NAME']))&&($_POST['NAME']==$association['ID']))
                           echo('<option value ='.$association['ID'].' selected>'.$association['NAME'].'</option>');
                       else
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
                         echo('<option value ='.$association['ID'].'>'.$association['NAME'].'</option>');
                     }
                 ?>
@@ -100,9 +116,12 @@
                 <?php
                     echo('<option></option>');
                     foreach ($themes as $key => $theme) {
+<<<<<<< HEAD
                       if((isset($_POST['THEME']))&&($_POST['THEME']==$theme['ID']))
                         echo('<option value ='.$theme['ID'].' selected>'.$theme['NAME'].'</option>');
                       else
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
                         echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
                     }
                 ?>
@@ -118,15 +137,19 @@
                 <?php
                     echo('<option></option>');
                     foreach ($territories as $key => $territory) {
+<<<<<<< HEAD
                       if((isset($_POST['TERRITORY']))&&($_POST['TERRITORY']==$territory['ID']))
                         echo('<option value ='.$territory['ID'].' selected>'.$territory['NAME'].'</option>');
                       else
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
                         echo('<option value ='.$territory['ID'].'>'.$territory['NAME'].'</option>');
                     }
                 ?>
             </select>
         </div>
     </div>
+<<<<<<< HEAD
     <div class="control-group">
         <label class="control-label">Nombre de résultats à afficher</label>
         <div class="controls">
@@ -140,11 +163,18 @@
 
         </div>
     </div>
+=======
+
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
     <div class="form-actions">
         </br>
         </br>
         <button type="submit" class="btn btn-success">Rechercher</button>
         <a href="./index.php?EX=createAsso"><button type="button" class="btn">Création</button></a>
+<<<<<<< HEAD
+=======
+
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
     </div>
 
 </form>
@@ -155,7 +185,11 @@
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
+<<<<<<< HEAD
             <th>Nom</th>
+=======
+            <th>Name</th>
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
             <th>Theme</th>
             <th>Territoire</th>
             <th>Action</th>
@@ -167,6 +201,7 @@
             $conditions = array();
             $params = array();
             if($_POST['NAME']) {
+<<<<<<< HEAD
                 $conditions[] = "ID = '". $_POST['NAME'] . "' ";
                 $params[]= $_POST['NAME'];
             }
@@ -192,6 +227,27 @@
             }
             $data=$pdo->query($sql);
             foreach ($data as $row) {
+=======
+                $conditions[] = "ID = '". $_POST['NAME'] . "'";
+                $params[]= $_POST['NAME'];
+            }
+            if($_POST['THEME']) {
+                $conditions[] = "THEME_ID = '". $_POST['THEME'] . "'";
+                $params[] = $_POST['THEME'];
+            }
+            if($_POST['TERRITORY']) {
+                $conditions[] = "TERRITORY_ID = '". $_POST['TERRITORY'] . "'";
+                $params[] = $_POST['TERRITORY'];
+            }
+            $where = " WHERE ".implode($conditions);
+            if(count($conditions) > 0) {
+                $sql = 'SELECT * FROM ASSOCIATION'. $where;
+            }else {
+                $sql = 'SELECT * FROM ASSOCIATION order by NAME ASC';
+            }
+
+            foreach ($pdo->query($sql) as $row) {
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
                 echo ($i%2==0)?'<tr class="tr-even">':'<tr>';
                 echo '<td>'. $row['NAME'] . '</td>';
                 echo '<td>'.(new MTheme($row['THEME_ID']))->getName().'</td>';
@@ -207,12 +263,20 @@
             }
 
         }else {
+<<<<<<< HEAD
             foreach ($pdo->query('SELECT Count(*) As NUM FROM ASSOCIATION') as $row) {
               $rowNumber= $row['NUM'];
             }
             $sql = 'SELECT * FROM ASSOCIATION order by NAME ASC LIMIT '.$nbLines.' OFFSET '.$offset;
             if(count($sql) > 0) {
               foreach ($pdo->query($sql) as $row) {
+=======
+
+            $sql = 'SELECT * FROM ASSOCIATION order by NAME ASC';
+            if(count($sql) > 0) {
+
+                foreach ($pdo->query($sql) as $row) {
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
                     echo ($i%2==0)?'<tr class="tr-even">':'<tr>';
                     echo '<td>'. $row['NAME'] . '</td>';
                     echo '<td>'.(new MTheme($row['THEME_ID']))->getName().'</td>';
@@ -235,6 +299,7 @@
 
         </tbody>
     </table>
+<<<<<<< HEAD
     <div class="control-group">
         <label class="control-label">Changer de Page</label>
         <div class="controls">
@@ -245,5 +310,7 @@
           ?>
         </div>
     </div>
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 </div>
 </div>

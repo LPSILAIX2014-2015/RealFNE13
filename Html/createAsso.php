@@ -1,6 +1,9 @@
 <?php
+<<<<<<< HEAD
 if(!isset($_SESSION['ROLE'])||($_SESSION['ROLE']!='SADMIN'))
 	header('Location: ./index.php');
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 $i=0;
 $pdo = new MDBase();
 $territoryList = $pdo -> getAllTerritories();
@@ -34,7 +37,11 @@ if(isset($_GET['error'])) {
 
 		<form class="form-horizontal" action="index.php?EX=createAdmin" enctype="multipart/form-data" method="post">
 			<div class="control-group">
+<<<<<<< HEAD
 				<label class="control-label">Nom</label>
+=======
+				<label class="control-label">Name</label>
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 				<div class="controls">
 					<input name="NAME" type="text" pattern="[^'\x22\;\.]+" placeholder="Nom" value="<?php echo !empty($name)?$name:'';?>">
 					<span>(Alphabétique)</span>
@@ -75,7 +82,11 @@ if(isset($_GET['error'])) {
 			</div>
 			<div class="form-actions">
 				<button type="submit" class="btn btn-success">Créer l'association</button>
+<<<<<<< HEAD
 				<a href="./index.php?EX=manageAsso"><button type="button" class="btn">Retour</button></a>
+=======
+				<a class="btn" href="./index.php?EX=manageAsso">Retour</a>
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 			</div>
 		</form>
 	</div>

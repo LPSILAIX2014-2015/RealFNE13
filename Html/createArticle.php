@@ -36,7 +36,11 @@
                                              ------------------------------
      -->
 
+<<<<<<< HEAD
     <form id="formArticle" class="form-horizontal" role="form" method="POST" enctype="multipart/form-data">
+=======
+    <form id="formArticle" class="form-horizontal" role="form" action="index.php?EX=formCreateArticle" method="POST" enctype="multipart/form-data">
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
         <div class="form-group">
             <label for="articleTitle" class="col-sm-3 control-label">Titre de l'article</label>
             <div class="col-sm-5">
@@ -56,7 +60,11 @@
                 $values = $Themes->getAllThemes();
                 $option = "";
 
+<<<<<<< HEAD
                 //Les values des options du select correspondront aux IDs, Les textes aux NAMEs
+=======
+                //Les values des options du select correspondront aux IDs, Les textex aux NAMEs
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
                 for($i = 0 ; $i < count($values) ; ++$i)
                 {
                     $option.= '<option value="'.$values[$i]['ID'].'">'.$values[$i]['NAME'].'</option>';
@@ -75,8 +83,13 @@
             </div>
         </div>
         
+<<<<<<< HEAD
         <!-- control max size of images (10MB max) -->
         <input type="hidden" name="max_file_size" value="5485760">
+=======
+        <!-- control max size of images (3MB max) -->
+        <input type="hidden" name="max_file_size" value="3145728">
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 
         <!-- 
                                      ------------------------------------------------------
@@ -161,9 +174,12 @@
                         <span class="glyphicon glyphicon-align-right" aria-hidden="true"></span>
                     </button>
                 </span>
+<<<<<<< HEAD
                 <span class="btn-group" style="margin-left:10px">
                     <button type="button" id="btnHelp">Besoin d'aide?</button>
                 </span>
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
             </p>
         </div>
 

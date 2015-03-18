@@ -1,4 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
+	session_start();
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 	require_once('../Model/MDBase.mod.php');
 	require_once('../Model/MCommentaire.mod.php');
 

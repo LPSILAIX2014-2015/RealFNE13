@@ -11,6 +11,37 @@ $(document).ready(function() {
 	getCommentaire();	
 });
 
+<<<<<<< HEAD
+=======
+jQuery(function($) {
+    //Change this selector to apply the pagination
+    var items = $(".com");
+    //don't touch this value until you know what you do!
+    var numItems = items.length;
+
+
+    /////////////////////////////////////////////
+    //Set the number of item displayed par page//
+    /////////////////////////////////////////////
+
+    var perPage = 1;
+
+    items.slice(perPage).hide();
+    // now setup pagination
+    $("#pagination").pagination({
+    	items: numItems,
+    	itemsOnPage: perPage,
+        onPageClick: function(pageNumber) { // this is where the magic happens
+        	console.log(pageNumber);
+            // someone changed page, lets hide/show trs appropriately
+            var showFrom = perPage * (pageNumber - 1);
+            var showTo = showFrom + perPage;
+            items.hide() // first hide everything, then show for the new page
+            .slice(showFrom, showTo).show();
+        }
+    });
+});
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 
 function getCommentaire(){
 	var idArticle = $('#divCom').attr('idArticle');
@@ -35,6 +66,7 @@ function getCommentaire(){
 			}
 			$('#divCom').append('</div>');
 			$('#textareaId').val('');
+<<<<<<< HEAD
 
 
 			////////////////////////////////////////////
@@ -70,6 +102,8 @@ function getCommentaire(){
 			        }
 			    });
 			});
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 		}
 	});
 };

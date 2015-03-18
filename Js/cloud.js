@@ -1,4 +1,5 @@
 $(document).ready(function() {
+<<<<<<< HEAD
 
     $('.buttonCopyUrl').on('click', function() {
         var domain = 'http://www.' + document.domain;
@@ -11,12 +12,21 @@ $(document).ready(function() {
         event.preventDefault();
         $('.inputFile').trigger('click');
         //$(this).hide();
+=======
+    $('.addFile').on('click', function(event) {
+        event.preventDefault();
+        $('.inputFile').trigger('click');
+        $(this).hide();
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
     });
 
     $('.inputFile').on('change', function(event) {
         $('.sendFile').hide();
         $('.cancelFile').hide();
+<<<<<<< HEAD
         $('.addFile').hide();
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
         $('.valInput').empty();
         if($(this).val() != '')
         {
@@ -26,10 +36,13 @@ $(document).ready(function() {
             $('.sendFile').show();
             $('.cancelFile').show();
         }
+<<<<<<< HEAD
         else
         {
             $('.addFile').show();
         }
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
     });
 
     $('.sendFile').on('click', function(event) {

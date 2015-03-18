@@ -60,7 +60,11 @@
 
 	    			<form class="form-horizontal" action="index.php?EX=updateAsso&id=<?php echo $id?>" method="post">
 					  <div class="control-group">
+<<<<<<< HEAD
 					    <label class="control-label">Nom</label>
+=======
+					    <label class="control-label">Name</label>
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 					    <div class="controls">
 					      	<input name="NAME" type="text" pattern="[^'\x22\;\.]+" placeholder="Nom" value="<?php echo !empty($name)?$name:'';?>">
 					      	<span>(Alphabétique)</span>
@@ -83,7 +87,11 @@
 					  </div>
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-success">Modifier l'association</button>
+<<<<<<< HEAD
 							<a href="./index.php?EX=manageAsso"><button type="button" class="btn">Retour</button></a>
+=======
+                          <a class="btn" href="./index.php?EX=manageAsso">Retour</a>
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 						</div>
 					</form>
 				</div>
@@ -101,7 +109,11 @@
     					</select>
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-success">Changer de gérant</button>
+<<<<<<< HEAD
 							<a href="./index.php?EX=manageAsso"><button type="button" class="btn">Retour</button></a>
+=======
+                          <a class="btn" href="./index.php?EX=manageAsso">Retour</a>
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 						</div>
 					</form>
 				</div>

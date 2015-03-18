@@ -3,7 +3,11 @@ global $user ;
 ?>
 <ul>
     <li><a href="index.php">Accueil</a></li>
+<<<<<<< HEAD
     <?php if (isset($_SESSION['ROLE'],$user)) { ?>
+=======
+    <?php if (isset($_SESSION['ROLE'])) { ?>
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
         <li><a class="cursor_search" href="index.php?EX=searchMember">Recherche</a></li>
     <?php } ?>
     <li><a class="cursor_time" href ="index.php?EX=calendar">Agenda</a></li>

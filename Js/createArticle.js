@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+<<<<<<< HEAD
         //Create News
         $('#formArticle').on('submit', function (e) {
             // On empêche le navigateur de soumettre le formulaire
@@ -95,6 +96,8 @@ $(document).ready(function() {
         alert(help6);
         alert(help7);
     })
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 
     /////////////////////////////////////////
     ////////// Gestion des bouttons /////////
@@ -166,17 +169,30 @@ var insertTag = function(startTag, endTag, tagType){
                 if (currentSelection) { // Il y a une sélection
                     if (currentSelection.indexOf("http://") == 0 || currentSelection.indexOf("https://") == 0 || currentSelection.indexOf("ftp://") == 0 || currentSelection.indexOf("www.") == 0) {
                         // La sélection semble être un lien. On demande alors le libellé
+<<<<<<< HEAD
                         var label = prompt("Tapez le libelle du lien ?\n\nexemple : lien vers google\n\n/!\\ Des balises vont être insérées dans votre traitement de texte /!\\") || "";
+=======
+                        var label = prompt("Tapez le libelle du lien ?") || "";
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
                         startTag = "<lien url=\"" + currentSelection + "\">";
                         currentSelection = label;
                     } else {
                         // La sélection n'est pas un lien, donc c'est le libelle. On demande alors l'URL
+<<<<<<< HEAD
                         var URL = prompt("copier l'URL de votre lien ici\n(clique droit - copier sur l'URL voulu\n clique droit - coller sur la zone de texte ci dessous)\n\nexemple: http://www.google.fr\n\n/!\\ Des balises vont être insérées dans votre traitement de texte /!\\");
                         startTag = "<lien url=\"" + URL + "\">";
                     }
                 } else { // Pas de sélection, donc on demande l'URL et le libelle
                     var URL = prompt("copier l'URL de votre lien ici\n(clique droit - copier sur l'URL voulu\n clique droit - coller sur la zone de texte ci dessous)\n\nexemple: http://www.google.fr") || "";
                     var label = prompt("Quel est le libellé du lien ?\n\nexemple : lien vers google\n\n/!\\ Des balises vont être insérées dans votre traitement de texte /!\\") || "";
+=======
+                        var URL = prompt("copier l'URL de votre lien ici\n(clique droit - copier sur l'URL voulu\n clique droit - coller sur la zone de texte ci dessous)");
+                        startTag = "<lien url=\"" + URL + "\">";
+                    }
+                } else { // Pas de sélection, donc on demande l'URL et le libelle
+                    var URL = prompt("copier l'URL de votre lien ici\n(clique droit - copier sur l'URL voulu\n clique droit - coller sur la zone de texte ci dessous)") || "";
+                    var label = prompt("Quel est le libellé du lien ?") || "";
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
                     startTag = "<lien url=\"" + URL + "\">";
                     currentSelection = label;
                 }
@@ -185,8 +201,13 @@ var insertTag = function(startTag, endTag, tagType){
             case "cite":
 
                 endTag = "</cite>";
+<<<<<<< HEAD
                 var auteur = prompt("Qui est l'auteur de la citation ? (ne mettez rien s'il n'y en a pas)\n\nexemple : Aristote") || "";
                 var citation = prompt("Quelle est la citation ?\n\nexemple : Le doute est le commencement de la sagesse.\n\n/!\\ Des balises vont être insérées dans votre traitement de texte /!\\") || "";
+=======
+                var auteur = prompt("Qui est l'auteur de la citation ? (ne mettez rien s'il n'y en a pas)") || "";
+                var citation = prompt("Quelle est la citation ?") || "";
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
                 if (auteur == '') {
                     startTag = "<cite>";
                 } else {
@@ -252,3 +273,47 @@ var preview = function() {
     $("#textareaDecrypt").prop('value', "<p>"+ field +"</p>");
 
 };
+<<<<<<< HEAD
+=======
+
+/*
+
+    [a-z0-9._-]+
+
+    //Envoi au serveur
+    field = field.replace(/&/g, '&amp;');
+    field = field.replace(/</g, '<').replace(/>/g, '>');
+    field = field.replace(/\n/g, '<br />').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+
+    field = field.replace(/<gras>([\s\S]*?)<\/gras>/g, '<b>$1</b>');
+    field = field.replace(/<italique>([\s\S]*?)<\/italique>/g, '<i>$1</i>');
+    field = field.replace(/<lien>([\s\S]*?)<\/lien>/g, '<a href="$1">$1</a>');
+    field = field.replace(/<lien url="([\s\S]*?)">([\s\S]*?)<\/lien>/g, '<a href="$1" title="$2">$2</a>');
+    field = field.replace(/<cite nom=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<br /><span class="cite">Cite : $1</span><div class="txtIta">$2</div>');
+    field = field.replace(/<cite lien=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<br /><span class="cite"><a href="$1">Cite</a></span><div class="txtIta">$2</div>');
+    field = field.replace(/<cite nom=\"(.*?)\" lien=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<br /><span class="cite"><a href="$2">Cite : $1</a></span><div class="txtIta">$3</div>');
+    field = field.replace(/<cite lien=\"(.*?)\" nom=\"(.*?)\">([\s\S]*?)<\/cite>/g, '<br /><span class="cite"><a href="$1">Cite : $2</a></span><div class="txtIta">$3</div>');
+    field = field.replace(/<cite>([\s\S]*?)<\/cite>/g, '<br /><span class="cite">Cite</span><div class="txtIta">$1</div>');
+    field = field.replace(/<taille valeur=\"(.*?)\">([\s\S]*?)<\/taille>/g, '<span class="$1">$2</span>');
+
+    field = field.replace(/&/g, '&amp;');
+
+    field = field.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    field = field.replace(/\n/g, '<br />').replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+
+    field = field.replace(/&lt;gras&gt;([\s\S]*?)&lt;\/gras&gt;/g, '<strong>$1</strong>');
+    field = field.replace(/&lt;italique&gt;([\s\S]*?)&lt;\/italique&gt;/g, '<em>$1</em>');
+    
+    field = field.replace(/&lt;lien&gt;([\s\S]*?)&lt;\/lien&gt;/g, '<a href="$1">$1</a>');
+    field = field.replace(/&lt;lien url="([\s\S]*?)"&gt;([\s\S]*?)&lt;\/lien&gt;/g, '<a href="$1" title="$2">$2</a>');
+    field = field.replace(/&lt;image&gt;([\s\S]*?)&lt;\/image&gt;/g, '<img src="$1" alt="Image" />');
+    field = field.replace(/&lt;citation nom=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation">Citation : $1</span><div class="citation2">$2</div>');
+    field = field.replace(/&lt;citation lien=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation"><a href="$1">Citation</a></span><div class="citation2">$2</div>');
+    field = field.replace(/&lt;citation nom=\"(.*?)\" lien=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation"><a href="$2">Citation : $1</a></span><div class="citation2">$3</div>');
+    field = field.replace(/&lt;citation lien=\"(.*?)\" nom=\"(.*?)\"&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation"><a href="$1">Citation : $2</a></span><div class="citation2">$3</div>');
+    field = field.replace(/&lt;citation&gt;([\s\S]*?)&lt;\/citation&gt;/g, '<br /><span class="citation">Citation</span><div class="citation2">$1</div>');
+    field = field.replace(/&lt;taille valeur=\"(.*?)\"&gt;([\s\S]*?)&lt;\/taille&gt;/g, '<span class="$1">$2</span>');
+    
+*/
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b

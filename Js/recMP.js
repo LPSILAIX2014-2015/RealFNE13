@@ -19,9 +19,16 @@ $(document).ready(function(){ // Fonction pour valider la première formulaire
                 success: function(data){
                      if(data==1){
                          $("#res").show();
+<<<<<<< HEAD
                          showMassageError('On a envoyé un mail avec un lien por changer votre mot de passe!');
                          $('#mailR').val('');
                          setTimeout('redirectI()',1500);
+=======
+                         showMassageError('Valide');
+                         $('#mailR').val('');
+                         setTimeout('',1500);
+			             location.replace('index.php');
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
                     }else{
                         $("#res").html(data);
                         $("#res").show();
@@ -31,9 +38,13 @@ $(document).ready(function(){ // Fonction pour valider la première formulaire
         }
     });
 }); // end document.ready
+<<<<<<< HEAD
 function redirectI() {
     location.href='index.php';
  }
+=======
+
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 $(document).ready(function(){ // Fonction pour valider le deuxième formulaire (recuperation)
     $("#result").hide();
     $("#formRMP").validate({
@@ -58,8 +69,14 @@ $(document).ready(function(){ // Fonction pour valider le deuxième formulaire (
                 success: function(data){
                     if(data==1){ // Verification selon les resultats du Modèle
                         $("#res").show();
+<<<<<<< HEAD
                         showMassageError('Changement Valide!');
                         setTimeout('redirectI()',1000);
+=======
+                        showMassageError('Valide');
+                        setTimeout('',1500);
+                        location.replace('index.php');
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
                     }else{
                         $("#res").html(data);
                         $("#res").show();
@@ -115,6 +132,7 @@ $(document).ready(function(){ // Fonction pour valider le deuxième formulaire (
             });
         }
     });
+<<<<<<< HEAD
 
     //formulaire de maj profile
     $("#formprofil").validate({
@@ -151,6 +169,8 @@ $(document).ready(function(){ // Fonction pour valider le deuxième formulaire (
             });
         }
     });
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 }); // end document.ready
 function restartAll () {
     document.getElementById('formCHMP').reset();

@@ -28,10 +28,13 @@ class VCloud
             {
                 array_push($customAlert, "Erreur inconnue");
             }
+<<<<<<< HEAD
             elseif(htmlspecialchars($_GET['state']) == "ERR_UNKNOWN")
             {
                 array_push($customAlert, "Erreur inconnue");
             }
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
         }
 
 

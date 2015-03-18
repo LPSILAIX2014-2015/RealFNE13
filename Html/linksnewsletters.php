@@ -5,7 +5,11 @@
  * @author [Cesar Hernandez] 
  */
 	$sql = new MDBase();
+<<<<<<< HEAD
 	$query = "SELECT DISTINCT SUBSTRING(PDATE,1,7)DATE FROM POST WHERE STATUS=1 ORDER BY(DATE) DESC LIMIT 4";
+=======
+	$query = "SELECT DISTINCT SUBSTRING(PDATE,1,7)DATE FROM POST WHERE STATUS=1 ORDER BY(DATE) DESC";
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 
 	$result = $sql->prepare($query);
 
@@ -36,6 +40,9 @@
     <h5 class="titrecol">Newsletters</h5>
     <ul>
         <?= $realDate;?>
+<<<<<<< HEAD
         <li><a href="index.php?EX=allNews">Toutes les Newsletters</a></li>
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
     </ul>
 </div>

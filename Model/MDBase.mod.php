@@ -3,6 +3,7 @@ class MDBase extends PDO {
 
 
     private static $engine = 'mysql';
+<<<<<<< HEAD
 
     //Site LOCAL
     private static $dbName = 'FNESITE' ;
@@ -13,12 +14,28 @@ class MDBase extends PDO {
 
     //Site DEV
 /*
+=======
+    //Site FINAL
+
+    private static $dbName = 'FNESITE' ;
+    private static $dbHost = 'localhost' ;
+    private static $dbUsername = 'root';
+    private static $dbUserPassword = 'mysql';
+    private static $cont  = null;
+
+    //Site DEV
+    /*
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
     private static $dbName = 'fnekxazadev' ;
     private static $dbHost = 'mysql51-84.pro' ;
     private static $dbUsername = 'fnekxazadev';
     private static $dbUserPassword = 'natureC13';
     private static $cont  = null;
+<<<<<<< HEAD
 */
+=======
+    */
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 
     public function __construct(){
         $dns = self::$engine.':dbname='.self::$dbName.";host=".self::$dbHost;
@@ -58,7 +75,11 @@ class MDBase extends PDO {
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+<<<<<<< HEAD
         $query = "SELECT * FROM ASSOCIATION ORDER BY NAME";
+=======
+        $query = "SELECT * FROM ASSOCIATION";
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
         $qq = $pdo->prepare($query);
         $qq->execute();
         $data = $qq->fetchall();

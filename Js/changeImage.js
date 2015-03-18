@@ -18,14 +18,23 @@ $(document).ready(function(){
         if (isImage(fileExtension)) {
         	var fileSize = file.size;
 	        var fileType = file.type;
+<<<<<<< HEAD
 	        showMessage("<p class='warning'>Fichier à télécharger : "+fileName+", poid total: "+fileSize+" octets.</p>");
+=======
+	        showMessage("<p class='bg-warning'>Fichier à télécharger : "+fileName+", poid total: "+fileSize+" octets.</p>");
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 	        $('#sel_img-error').remove();
         } else{
         	document.getElementById('frmCHIMG').reset();
         	$('#sel_img-error').remove();
+<<<<<<< HEAD
         	message = $("<p class='danger'>Le fichier n'est pas une image!!</p>");
             showMessage(message);
             $('#sel_img-error').remove();
+=======
+        	message = $("<p class='bg-danger'>Le fichier n'est pas une image!!</p>");
+            showMessage(message);
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
         }
     });
  	$('#frmCHIMG').validate({
@@ -51,6 +60,7 @@ $(document).ready(function(){
 	            contentType: false,
 	            processData: false,
 	            beforeSend: function(){
+<<<<<<< HEAD
 	                message = $("<p class='danger'>Transfert en cours, attendez s\'il vous plaît ...</p>");
 	                showMessage(message)
 	            },
@@ -62,6 +72,19 @@ $(document).ready(function(){
 	            },
 	            error: function(){
 	                message = $("<p class='danger'>Une erreur est survenue pendant le téléchargement de l\'image</p>");
+=======
+	                message = $("<p class='bg-danger'>Transfert en cours, attendez s\'il vous plaît ...</p>");
+	                showMessage(message)
+	            },
+	            success: function(data){
+	                message = $("<p class='bg-success'>L\'image a été téléchargé avec succès.</p>");
+	                showMessage(message);
+	                document.getElementById('frmCHIMG').reset();
+	                //setTimeout('redirect()',1100);
+	            },
+	            error: function(){
+	                message = $("<p class='bg-danger'>Une erreur est survenue pendant le téléchargement de l\'image</p>");
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 	                showMessage(message);
 	            }
 	        });

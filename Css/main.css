@@ -58,12 +58,18 @@ nav {
     text-align:center;
     z-index:10;
     box-shadow:0px 2px 2px rgba(0,0,0,50);
+<<<<<<< HEAD
     color:#0c5091;
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 }
 a {
     cursor:url('../Img/cursor4.png'), auto ;
     text-decoration:none;
+<<<<<<< HEAD
     color:#0c5091;
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 }
 a:hover {
     text-decoration:none;
@@ -86,6 +92,7 @@ input, textarea, select {
     font-family: 'Slabo 13px', serif;
     transition:ease 0.5s;
 }
+<<<<<<< HEAD
 select {
     max-width: 95%;
     font-family:'Titillium Web',Verdana,sans-serif;
@@ -98,6 +105,9 @@ option:hover {
     background-color: #a3cfea;
 }
 input:hover, textarea:hover {
+=======
+input:hover, textarea:hover, select:hover {
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
     border:2px solid #4bc9e2;
 }
 input:focus, textarea:focus, select:focus {
@@ -402,9 +412,12 @@ nav li a {
     font-weight:bold;
     text-shadow:none;
 }
+<<<<<<< HEAD
 nav li a:visited {
     color:#0a2d5f;
 }
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 nav li .submenu {
     display:none;
 }
@@ -441,10 +454,14 @@ nav li a:hover {
 }
 .page h1 {
     font-size:15pt;
+<<<<<<< HEAD
     margin:3px 2px 8px 2px;
 }
 p {
     text-align: justify;
+=======
+    margin:2px;
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 }
 button, #loginbutton {
     color:#ffffff;
@@ -559,7 +576,11 @@ button, #loginbutton:hover {
     font-size:10pt;
     text-align:left;
     margin:0;
+<<<<<<< HEAD
     padding:4px 1px 4px 1px;
+=======
+    padding:1px;
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
     vertical-align:top;
     border-bottom:1px dashed #0c5091;
 }

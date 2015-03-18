@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 @import "recupMdp.css" screen;
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 .profilePicBloc {
     display:block;
     position:relative;
@@ -71,6 +74,7 @@
 }
 .profileChangepass h3 {
     cursor:url('../Img/cursor7.png'), auto ;
+<<<<<<< HEAD
 }
 label.valid {
     width: 24px;
@@ -96,4 +100,6 @@ label.error {
 .success{
     background-color: #8FDF8F;
     color: white;
+=======
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 }

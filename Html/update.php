@@ -127,7 +127,11 @@
 
 					  <div class="form-actions">
 						  <button type="submit" class="btn btn-success">Edit</button>
+<<<<<<< HEAD
 							<a href="./index.php?EX=manageMembers"><button type="button" class="btn">Retour</button></a>
+=======
+                          <a class="btn" href="./index.php?EX=manageMembers">Retour</a>
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 						</div>
 					</form><!--
                     <form class="form-horizontal" id="frmCHIMG" enctype="multipart/form-data" method="post">
@@ -149,15 +153,24 @@
 								<label for="themes1" class="col-sm-2 control-label">Nouveau Rôle</label>
 								<div class="controls">
 										<select class="controls" name="ROLE" type="text">
+<<<<<<< HEAD
 														<option value ='MEMBER'>Membre</option>
 														<option value ='VALIDATOR'>Validateur</option>
+=======
+														<option value ='VALIDATOR'>Validateur</option>
+														<option value ='MEMBER'>Membre</option>
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 												?>
 										</select>
 								</div>
 						</div>
 					<div class="form-actions">
 						<button type="submit" class="btn btn-success">Edit</button>
+<<<<<<< HEAD
 						<a href="./index.php?EX=manageMembers"><button type="button" class="btn">Retour</button></a>
+=======
+												<a class="btn" href="./index.php?EX=manageMembers">Retour</a>
+>>>>>>> d8796ecf59917e517f4669fbd39c26d6b1bad59b
 					</div>
 				</form>
 				</div>
