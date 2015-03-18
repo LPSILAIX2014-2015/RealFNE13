@@ -1,6 +1,6 @@
-function showMassageError(errorValue){ // Pesentation de fenetre emergente pour les erreurs et succès
+﻿function showMassageError(errorValue){ // Pesentation de fenetre emergente pour les erreurs et succès
     var p = document.createElement('p');
-    p.innerHTML='Vous devez renseigner le champ suivant : ';
+    p.innerHTML='Message : ';
 
     var window = document.getElementById('result');
     window.appendChild(p);

@@ -1,3 +1,4 @@
+@import "recupMdp.css" screen;
 .profilePicBloc {
     display:block;
     position:relative;
@@ -70,4 +71,29 @@
 }
 .profileChangepass h3 {
     cursor:url('../Img/cursor7.png'), auto ;
+}
+label.valid {
+    width: 24px;
+    height: 24px;
+    background: url(../Img/valid.png) center center no-repeat;
+    display: inline-block;
+    text-indent: -9999px;
+}
+label.error {
+    font-weight: bold;
+    color: red;
+    padding: 1px 3px;
+    margin-top: 2px;
+}
+.danger{
+    background-color: #FF7676;
+    color: white;
+}
+.warning{
+    background-color: #FBAB21;
+    color: white;
+}
+.success{
+    background-color: #8FDF8F;
+    color: white;
 }

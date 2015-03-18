@@ -121,7 +121,7 @@ class MGenNewL extends FPDF
 			for ($b=0; $b < count($dataN); $b++) { 
 				if ($dataN[$b]['IMAGEPATH']=='' || $dataN[$b]['IMAGEPATH']==null) {
 					# Image
-					$this->Image('./Img/logo.png', $this->GetX(), $this->GetY()+3,30,30,'', 'http://dev.laplateformefne13.fr/index.php?EX=showInfoArticle&id='.$dataN[$b]['POST_ID']);
+					$this->Image('./Img/no-image.gif', $this->GetX(), $this->GetY()+3,30,30,'', 'http://dev.laplateformefne13.fr/index.php?EX=showInfoArticle&id='.$dataN[$b]['POST_ID']);
 					# Space
 					$this->setX(47);
 					$this->Cell(0,5,"",'LRT',1,'L');
@@ -142,13 +142,15 @@ class MGenNewL extends FPDF
 					$this->setX(47);
 					$this->SetFont('Times','',12);
 					$this->setTextColor(101,101,101);
-                    $this->MultiCell(0,5,strip_tags(html_entity_decode(utf8_decode($dataN[$b]['CONTENT']))),'LR');
+
+					$this->MultiCell(0,5,strip_tags(html_entity_decode(utf8_decode($dataN[$b]['CONTENT']))),'LR');
+
 					# Link
 					$this->setX(47);
 					$this->SetFillColor(163, 207, 234);
 					$this->SetFont('Times','B',11);
 					$this->setTextColor(12,80,145);
-					$this->Cell(0,5,utf8_decode("Afficher sur le site web ->").$this->Rect($this->GetX(), $this->GetY(), 45, 5, 'F'),'LRB',1,'L',false,'http://dev.laplateformefne13.fr/index.php?EX=showInfoArticle&id='.$dataN[$b]['POST_ID']);
+					$this->Cell(0,5,utf8_decode("Afficher sur le site web ->").$this->Rect($this->GetX(), $this->GetY(), 45, 5, 'F'),'LR',1,'L',false,'http://dev.laplateformefne13.fr/index.php?EX=showInfoArticle&id='.$dataN[$b]['POST_ID']);
 					$this->setX(47);
 					$this->Cell(0,5,"",'LRB',1,'L');
 					# Space Line
