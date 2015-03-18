@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql0 = "SELECT count(*)
                   FROM USER
                   INNER JOIN ASSOCIATION  ON user.ASSOCIATION_ID = association.ID
-                  INNER JOIN territory ON association.territory_id = territory.id
+                  INNER JOIN TERRITORY ON ASSOCIATION.territory_id = TERRITORY.id
                   LEFT JOIN THEME ON USER.THEME_INTEREST_ID = THEME.ID  $where";
         //For obtain number of members
         $prep0 = $pdo->prepare($sql0);

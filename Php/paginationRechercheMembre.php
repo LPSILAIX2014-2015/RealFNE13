@@ -25,7 +25,7 @@ function paginate ($page, $numberPages)
     if ($lastpage > 1) {
         //previous button
         if ($page > 1)
-            $pagination .= "<li><a class='pagi' href='#' value='$prev'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Previous</span></a></li>";
+            $pagination .= "<li><a class='pagi' href='#' value='$prev'><span aria-hidden='true'>&laquo;</span><span class='sr-only'>Précédent</span></a></li>";
         else
             $pagination .= "<li class='disabled'><a href='#'>&laquo</a></li>";
 
@@ -81,9 +81,9 @@ function paginate ($page, $numberPages)
 
         //next button
         if ($page < $counter - 1) {
-            $pagination .= "<li><a class='pagi' href='#' value= '$next'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Next</span></a></li>";
+            $pagination .= "<li><a class='pagi' href='#' value= '$next'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Suivant</span></a></li>";
         } else {
-            $pagination .= "<li class='disabled'><a class='pagi' href='#'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Next</span></a></li>";
+            $pagination .= "<li class='disabled'><a class='pagi' href='#'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Suivant</span></a></li>";
         }
 
     }
