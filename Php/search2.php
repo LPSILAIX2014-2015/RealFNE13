@@ -12,7 +12,15 @@
         $q->execute();
 
         $rows = $q->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($rows);
+        if($rows)
+        {
+            echo json_encode($rows);
+        }
+        else
+        {
+            echo json_encode("Pas d'associations");
+        }
+
     }
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 

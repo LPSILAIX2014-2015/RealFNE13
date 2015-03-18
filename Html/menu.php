@@ -3,7 +3,7 @@ global $user ;
 ?>
 <ul>
     <li><a href="index.php">Accueil</a></li>
-    <?php if (isset($user)) { ?>
+    <?php if (isset($_SESSION['ROLE'],$user)) { ?>
         <li><a class="cursor_search" href="index.php?EX=searchMember">Recherche</a></li>
     <?php } ?>
     <li><a class="cursor_time" href ="index.php?EX=calendar">Agenda</a></li>
@@ -33,23 +33,15 @@ global $user ;
     </li>
     <?PHP
     }
-    if (isset($user) && (($user->getRole() != 'MEMBRE'))) {
+    if (isset($user) && (($user->getRole() != 'MEMBRE') && ($user->getRole() != 'VALIDATOR'))) {
     ?>
     <li><a>Administration</a>
         <div class="submenu">
             <a href="index.php?EX=manageMembers">Gestion des membres</a>
 
-            <?php
-            if (isset($user) && (($user->getRole() == 'VALIDATOR') || $user->getRole() == 'ADMIN' || $user->getRole() == 'SADMIN')) {
-            ?>
-
             <a href="index.php?EX=validArticle">Validations</a>
 
-            <?php
-            }
-            ?>
-
-            <?php if($user->getRole() == 'SADMIN'){ ?>
+            <?php if($user->getRole() == 'SADMIN'){?>
                 <a href="index.php?EX=manageAsso">Gestion assos</a>
                 <a class="cursor_notice" href="index.php?EX=reportList">Journal</a>
             <?php } ?>

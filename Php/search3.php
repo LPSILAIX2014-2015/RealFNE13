@@ -88,10 +88,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <td><a href="./index.php?EX=writeMessages&dest='.$row['LOGIN'].'" data="' . $row['LOGIN']. '" class="btn btn-sm" role="button">Msg</a></td>
                       </tr>';
             }
+            $dataPagination = paginate($pageActual, $numberPages);
         } else {
             $data.= "<tr><td colspan='7' class='cent'><b class='red'>Pas de resultats</b></td></tr>";
+            $dataPagination = "";
         }
-        $dataPagination = paginate($pageActual, $numberPages);
+
         $miarray = array('resultado' => $data, 'pag'=> $dataPagination);
         echo json_encode($miarray);
 
