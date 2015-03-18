@@ -115,6 +115,42 @@ $(document).ready(function(){ // Fonction pour valider le deuxième formulaire (
             });
         }
     });
+
+    //formulaire de maj profile
+    $("#formprofil").validate({
+        rules:{
+            profession:{required:true},
+            profession2:{required:true},
+            presentation:{required:true},
+            theme:{required:true}
+        },
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('success').addClass('error');
+        },
+        success: function(element) {
+            element.text('OK!').addClass('valid').closest('.control-group').removeClass('error').addClass('success');
+        },
+        submitHandler: function(form){
+            var dataString = 'profession='+$('#profession').val()+'&profession2='+$('#profession2').val()+'&presentation='+$('#presentation').val()+'&theme='+$('#theme').val()+'&id='+$('#user_id').val();
+            $.ajax({
+                type: "POST", // Mèthode AJAX pour envoyer les données
+                url:"Php/updateMember.php",
+                data: dataString,
+                success: function(data){
+                    if(data==1){ // Verification selon les resultats du Modèle
+                        $("#chP1").show();
+                        restartAll();
+                        showMassageError('Mot de passe changé');
+                        $("#ch1").hide();
+                        $("#chP1").hide();
+                    }else{
+                        $("#chP1").html(data);
+                        $("#chP1").show();
+                    }
+                }
+            });
+        }
+    });
 }); // end document.ready
 function restartAll () {
     document.getElementById('formCHMP').reset();
