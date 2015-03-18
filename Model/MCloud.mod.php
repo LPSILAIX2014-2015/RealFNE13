@@ -142,6 +142,7 @@ class MCloud {
             <td>
                 <a target="_blank" href="index.php?EX=downloadCloud&id='.$data_cloud[$i]['ID'].'"><button title="Télécharger" class="buttonDownloadCloud">Télécharger</button></a>
                 <button title="Supprimer" class="buttonDeleteCloud">Supprimer</button>
+                <button data-url="'.$data_cloud[$i]['PATH_FILE'].'" title="Copier l\'URL" class="buttonCopyUrl">Copier l\'URL</button>
             </div>';
             $content_Cloud .= '</td>';       
 

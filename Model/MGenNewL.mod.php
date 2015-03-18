@@ -103,29 +103,50 @@ class MGenNewL extends FPDF
 		# Entete 
 		$this->SetFont('Times','B',16);
 		$this->setTextColor(20,79,152);
-		$this->Cell(0,5,utf8_decode("Ceux-ci sont les articles les plus récents dans la plateforme : "),0,1,'L');
+		$this->Cell(0,5,utf8_decode(""),0,1,'L');
 		$this->Ln();
 		for ($a=0; $a < count($unique); $a++) {
 			# Data
 			$dataN = $this->searchInfo($unique[$arrayID[$a]]);
+			
 			for ($b=0; $b < count($dataN); $b++) { 
-				# Title
-				$this->SetFont('Times','B',16);
-				$this->setTextColor(178,54,112);
-				$this->Cell(0,7,utf8_decode($dataN[$b]['TITLE']),0,1,'C');
-				$this->Ln();
-				# Image
-				$this->Image($dataN[$b]['IMAGEPATH'], 90, null, 30, 30);
-			    # Author et Asso
-				$this->SetFont('Times','I',9);
-				$this->setTextColor(130,120,225);
-				$this->Cell(0,5,utf8_decode("Écrit par : ".$dataN[$b]['USER_NAME']." - ".$dataN[$b]['ASSO_NAME']." le ".$dataN[$b]['PDATE']),0,1,'C');
-				$this->Ln();
-				# Content
-				$this->SetFont('Times','',12);
-				$this->setTextColor(101,101,101);
-				$this->MultiCell(0,5,$dataN[$b]['CONTENT']);
-				$this->Ln();
+				if ($dataN[$b]['IMAGEPATH']=='' || $dataN[$b]['IMAGEPATH']==null) {
+					# Title
+					$this->SetFont('Times','B',16);
+					$this->setTextColor(178,54,112);
+					$this->Cell(0,7,utf8_decode($dataN[$b]['TITLE']),0,1,'C');
+					$this->Ln();
+					# Image
+						$this->Image('./Img/logo.png', 90, null, 30, 30);
+				    # Author et Asso
+					$this->SetFont('Times','I',9);
+					$this->setTextColor(130,120,225);
+					$this->Cell(0,5,utf8_decode("Écrit par : ".$dataN[$b]['USER_NAME']." - ".$dataN[$b]['ASSO_NAME']." le ".date("d-m-Y",strtotime($dataN[$b]['PDATE']))),0,1,'C');
+					$this->Ln();
+					# Content
+					$this->SetFont('Times','',12);
+					$this->setTextColor(101,101,101);
+					$this->MultiCell(0,5,$dataN[$b]['CONTENT']);
+					$this->Ln();
+				} else {
+					# Title
+					$this->SetFont('Times','B',16);
+					$this->setTextColor(178,54,112);
+					$this->Cell(0,7,utf8_decode($dataN[$b]['TITLE']),0,1,'C');
+					$this->Ln();
+					# Image
+					$this->Image($dataN[$b]['IMAGEPATH'], 90, null, 30, 30);	
+				    # Author et Asso
+					$this->SetFont('Times','I',9);
+					$this->setTextColor(130,120,225);
+					$this->Cell(0,5,utf8_decode("Écrit par : ".$dataN[$b]['USER_NAME']." - ".$dataN[$b]['ASSO_NAME']." le ".date("d-m-Y",strtotime($dataN[$b]['PDATE']))),0,1,'C');
+					$this->Ln();
+					# Content
+					$this->SetFont('Times','',12);
+					$this->setTextColor(101,101,101);
+					$this->MultiCell(0,5,$dataN[$b]['CONTENT']);
+					$this->Ln();
+				}
 			}
 		}			
 		$this->Output("Newsletter-".$this->month." ".$this->mYear[0].".pdf",'D');

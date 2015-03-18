@@ -3,7 +3,7 @@
     if ((isset($user)) && ($user->getRole() == "SADMIN")) {
     $db = new MDBase();
     $stat = new PDOStatement();
-    $stat = $db->prepare("SELECT * FROM REPORT");
+    $stat = $db->prepare("SELECT * FROM REPORT ORDER BY RDATE DESC");
     $stat->execute();
 
 ?>

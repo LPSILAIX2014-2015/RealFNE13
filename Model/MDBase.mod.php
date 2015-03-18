@@ -3,14 +3,13 @@ class MDBase extends PDO {
 
 
     private static $engine = 'mysql';
+
     //Site LOCAL
-/*
     private static $dbName = 'FNESITE' ;
     private static $dbHost = 'localhost' ;
     private static $dbUsername = 'root';
-    private static $dbUserPassword = '';
+    private static $dbUserPassword = 'mysql';
     private static $cont  = null;
-*/
 
     //Site DEV
 /*
@@ -21,18 +20,10 @@ class MDBase extends PDO {
     private static $cont  = null;
 */
 
-    //LOCAL
-
-    private static $dbName = 'FNESITE' ;
-    private static $dbHost = 'localhost' ;
-    private static $dbUsername = 'root';
-    private static $dbUserPassword = 'mysql';
-    private static $cont  = null;
-
-
     public function __construct(){
         $dns = self::$engine.':dbname='.self::$dbName.";host=".self::$dbHost;
         parent::__construct( $dns, self::$dbUsername, self::$dbUserPassword );
+        $this->exec("SET CHARACTER SET utf8");
     }
 
     public static function connect()
@@ -67,7 +58,7 @@ class MDBase extends PDO {
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = "SELECT * FROM ASSOCIATION";
+        $query = "SELECT * FROM ASSOCIATION ORDER BY NAME";
         $qq = $pdo->prepare($query);
         $qq->execute();
         $data = $qq->fetchall();

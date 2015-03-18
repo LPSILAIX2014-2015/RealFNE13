@@ -55,9 +55,14 @@
     min-height: 90px;
 }
 .lienarticle:hover {
-    background-color: #0c5091;
-    color:#FFF;
+    background-color: #A3CFEA;
+    background:linear-gradient(to bottom left,#a3cfea,#FFFFFF 20%,#ffffff 90%,#a3cfea);
+    color:#0A2D5F;
     border:1px solid #a3cfea;
+}
+.lienarticle img {
+    border:1px solid #0A2D5F;
+    border-radius:5px;
 }
 #pagination ul {
     list-style-type: none;
@@ -129,7 +134,10 @@
     border-radius: 10px;
     padding: 1%;
 }
-
+.page textarea {
+    width:95%;
+    margin: 5px 0 5px 0;
+}
 .txtUndln {
     text-decoration: underline;
 }

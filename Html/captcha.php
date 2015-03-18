@@ -8,7 +8,7 @@
 	// creation d'une image avec php...
 	$newImage = imagecreatefromgif( "../Img/bgcaptcha.gif" ); 
 
-	// la fonction imagecolorallocate ( $imagen , rojo , verde , azul ) génère une couleur 
+	// la fonction imagecolorallocate ( $image , rouge , vert , bleu ) génère une couleur
 	$txtColor = imagecolorallocate($newImage, 0, 0, 200); 
 
 	// bool imagestring ( resource $image , int $font , int $x , int $y , string $string , int $color )

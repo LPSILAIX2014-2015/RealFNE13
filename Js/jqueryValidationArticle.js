@@ -2,7 +2,9 @@
  * Created by a11721385 on 27/11/14.
  */
 $(".butt_valid").click(function() {
-        $idp = $(this).attr('id').slice(6);
+        $idp = $(this).attr('var');
+
+        console.log($idp);
 
         $.ajax({
             type: "POST",
@@ -16,7 +18,7 @@ $(".butt_valid").click(function() {
 );
 
 $(".butt_suppr").click(function() {
-        $idp = $(this).attr('id').slice(6);
+        $idp = $(this).attr('var');
 
         $.ajax({
                 type: "POST",

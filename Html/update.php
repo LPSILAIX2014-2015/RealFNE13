@@ -44,7 +44,7 @@
 		    			<h3>Modifier un utilisateur</h3>
 		    		</div>
 
-	    			<form class="form-horizontal" id="updateMemberForm" method="post">
+	    			<form class="form-horizontal" id="updateMemberForm" action="index.php?EX=updateAMember&id=<?php echo $id?>" method="post">
 					  <div class="control-group">
 					    <label class="control-label">Nom</label>
 					    <div class="controls">
@@ -124,18 +124,24 @@
                                 <textarea name="PRESENTATION" id="presentation" type="text" rows="10" cols="90" placeholder="Présentation" value="<?php echo !empty($presentation)?$presentation:'';?>"></textarea>
                             </div>
                         </div>
+
+					  <div class="form-actions">
+						  <button type="submit" class="btn btn-success">Edit</button>
+							<a href="./index.php?EX=manageMembers"><button type="button" class="btn">Retour</button></a>
+						</div>
+					</form><!--
+                    <form class="form-horizontal" id="frmCHIMG" enctype="multipart/form-data" method="post">
                         <div class="control-group">
                             <label class="control-label">Photo</label>
                             <div class="controls">
-                                <input type="file" id="newphoto" name="PHOTO" class="form-control" required="required">
+                                <input type="file"  id="sel_img" name="PHOTO" class="form-control" required="required">
                             </div>
                         </div>
-                        <div id="chI"></div><!-- id="error"--><br>
-					  <div class="form-actions">
-						  <button type="submit" class="btn btn-success">Edit</button>
-                          <a class="btn" href="./index.php?EX=manageMembers">Retour</a>
-						</div>
-					</form>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-success">Edit</button>
+                        </div>
+                        <div id="chI"></div><br>
+                    </form> -->
 
 					<form class="form-horizontal" action="index.php?EX=updateRole&id=<?php echo $id?>" method="post">
 						<div class="control-group">
@@ -151,7 +157,7 @@
 						</div>
 					<div class="form-actions">
 						<button type="submit" class="btn btn-success">Edit</button>
-												<a class="btn" href="./index.php?EX=manageMembers">Retour</a>
+						<a href="./index.php?EX=manageMembers"><button type="button" class="btn">Retour</button></a>
 					</div>
 				</form>
 				</div>

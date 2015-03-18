@@ -104,13 +104,16 @@
                             alert("Le destinataire n'est pas inscrit.");
                             document.location.href = "./index.php?EX=searchMember";
                         }
-                        else if (msg == "1") {
-                            alert("Vous n'êtes pas connecté.");
-                        }
                         else if (msg == "2") {
                             alert("Vous avez dépassé le nombre de messages autorisés par association.");
                             document.location.href = "./index.php";
                         }
+						else if (msg == "4") {
+							alert("Vous n'avez pas sélectionné de thème.");
+						}
+						else if (msg == "5") {
+							alert("Vous n'avez pas sélectionné de catégorie.");
+						}
 						else
                         {
                             alert("Le message a été envoyé.");

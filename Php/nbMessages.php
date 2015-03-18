@@ -9,6 +9,7 @@ $pdo = new MDBase();
 
 $senderId = $_SESSION['ID_USER'];
 
+
 $requete7 = $pdo->prepare("SELECT ROLE as role from USER WHERE ID = ?");
 $requete7 -> execute(array($senderId));
 $reqt7 = $requete7->fetch();

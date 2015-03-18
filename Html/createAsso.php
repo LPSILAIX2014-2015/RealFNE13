@@ -1,4 +1,6 @@
 <?php
+if(!isset($_SESSION['ROLE'])||($_SESSION['ROLE']!='SADMIN'))
+	header('Location: ./index.php');
 $i=0;
 $pdo = new MDBase();
 $territoryList = $pdo -> getAllTerritories();
@@ -32,9 +34,9 @@ if(isset($_GET['error'])) {
 
 		<form class="form-horizontal" action="index.php?EX=createAdmin" enctype="multipart/form-data" method="post">
 			<div class="control-group">
-				<label class="control-label">Name</label>
+				<label class="control-label">Nom</label>
 				<div class="controls">
-					<input name="NAME" type="text" pattern="^[a-zA-Z \.\,\+\-]*$" placeholder="Nom" value="<?php echo !empty($name)?$name:'';?>">
+					<input name="NAME" type="text" pattern="[^'\x22\;\.]+" placeholder="Nom" value="<?php echo !empty($name)?$name:'';?>">
 					<span>(Alphabétique)</span>
 				</div>
 			</div>
@@ -42,7 +44,7 @@ if(isset($_GET['error'])) {
 				<label class="control-label">Territoire</label>
 			</br>
 			<select class="controls" name="TERRITORY" type="text">
-				<?php 
+				<?php
 				foreach ($territories as $key => $territory) {
 					if($territory['ID']!=$territoryID)
 						echo('<option value ='.$territory['ID'].'>'.$territory['NAME'].'</option>');
@@ -57,7 +59,7 @@ if(isset($_GET['error'])) {
 				<label class="control-label">Theme</label>
 			</br>
 			<select class="controls" name="THEME" type="text">
-				<?php 
+				<?php
 				foreach ($themes as $key => $theme) {
 					echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
 				}
@@ -73,7 +75,7 @@ if(isset($_GET['error'])) {
 			</div>
 			<div class="form-actions">
 				<button type="submit" class="btn btn-success">Créer l'association</button>
-				<a class="btn" href="./index.php?EX=manageAsso">Retour</a>
+				<a href="./index.php?EX=manageAsso"><button type="button" class="btn">Retour</button></a>
 			</div>
 		</form>
 	</div>

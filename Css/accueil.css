@@ -11,17 +11,15 @@
     display:inline-block;
     width:75px;
     height:75px;
-    vertical-align:top;
+    vertical-align:middle;
     margin:3px;
     padding:3px;
-    border:1px dashed #0c5091;
+    outline:1px dashed #0c5091;
+    border:5px solid #FFFFFF;
     line-height: 75px;
-}
-.logosassos img {
-    vertical-align: middle;
-    border:0;
-    margin:0;
-    padding:0;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center center;
 }
 
 .noLogo span
@@ -30,4 +28,22 @@
     font-size: 11px;
     line-height: 12px;
     display: inline-block;
+}
+
+.popUp
+{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #337AB7;
+    color: #fff;
+    position: absolute;
+    width: 75%;
+    z-index: 40;
+}
+
+.nameAP
+{
+    font-size: 16px;
+    color: #000;
 }
