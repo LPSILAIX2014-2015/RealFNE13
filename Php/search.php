@@ -93,7 +93,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             echo json_encode($userinfo);
 
         } elseif ($type == "asso") {
+
             $sql = 'SELECT USER.* FROM USER INNER JOIN ASSOCIATION ON USER.ASSOCIATION_ID = ASSOCIATION.ID WHERE (ASSOCIATION.NAME  LIKE ? )  LIMIT 3';
+
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
@@ -181,6 +183,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $pdo = new MDBase();
         $pdo->exec("set names utf8");
+
         $sql = "SELECT USER.ID as user_id, USER.LOGIN, USER.NAME as user_name, USER.SURNAME, THEME.NAME as theme_name,
                   TERRITORY.NAME as t_name, USER.MAIL, THEME.NAME as th_name, USER.ADRESS , USER.CP,
                   USER.PROFESSION, ASSOCIATION.NAME as asso_name, USER.PHOTOPATH
@@ -188,6 +191,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 INNER JOIN TERRITORY ON ASSOCIATION.TERRITORY_ID = TERRITORY.ID
                 left join THEME on USER.THEME_ID = THEME.ID
                 ORDER BY asso_name ASC LIMIT $firstRegistry, $resultsParPage";
+
 
         $sql0 ="SELECT COUNT(*) FROM USER";
         $prep0 = $pdo->prepare($sql0);

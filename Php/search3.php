@@ -129,8 +129,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
 
                 echo ' <span class="button b-close"><span>X</span></span><p><h3>Profil de ' . $row['user_name'] . '</h3></p><table class="table table-striped t-profil">
-                    <tr><th>Name:</th><td>' . $row['user_name'] . '</td><td rowspan="5" class="image-profil-background"><img src="' . $row['PHOTOPATH'] . '" width="150px"></td></tr>
-                    <tr><th>Surname: </th><td>' . $row['SURNAME'] . '</td></tr>
+                    <tr><th>Prenom:</th><td>' . $row['user_name'] . '</td><td rowspan="5" class="image-profil-background"><img src="' . $row['PHOTOPATH'] . '" width="150px"></td></tr>
+                    <tr><th>Nom: </th><td>' . $row['SURNAME'] . '</td></tr>
                     <tr><th>CP</th><td>' . $row['CP'] . '</td></tr>
                     <tr><th>Profession:</th><td>' . $row['PROFESSION'] . '</td></tr>
                     <tr><th>Role:</th><td>' . $row['ROLE'] . '</td></tr>
