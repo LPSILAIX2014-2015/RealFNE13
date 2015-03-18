@@ -17,7 +17,7 @@ if(!(isset($_SESSION['ROLE']))){
                 <div id="searh_name"></div>
                 <input id="surname" class="search_individuel" name="surname" type="checkbox" value="surname">Par nom<br/>
                 <div id="searh_surname"></div>
-                <input id="email" class="search_individuel" name="email" type="checkbox" value="email">Psr email<br/>
+                <input id="email" class="search_individuel" name="email" type="checkbox" value="email">Par email<br/>
                 <div id="searh_email"></div>
                 <input id="terr" class="search_individuel" name="terr" type="checkbox" value="terr">Par territoire<br/>
                 <div id="searh_terr"></div>
@@ -39,4 +39,3 @@ if(!(isset($_SESSION['ROLE']))){
         </div>
     </div> <!-- end div row -->
 </div> <!-- end div main -->
-

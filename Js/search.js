@@ -247,7 +247,9 @@ $(document).ready(function() {
                 type: "POST",
                 url: "Php/search3.php",
                 data: {idDetailUser : id},
+                beforeSend :  function(){$('#detailUser').html("<tr class='trwait'><td colspan='6' style='text-align: center'><img src='Img/wait.gif' class='wait' alt=''/></td></tr>");},
                 success: function (data) {
+                    $('.trwait').remove();
                     $('#detailUser').html(data);
                 }
             });
@@ -441,6 +443,7 @@ $(document).ready(function() {
      */
     function allUsers(nmbPage, div, typeOfSearch, valueTypeSearch)
     {
+
         var typeS ;
         var valueS ;
         var dataObject = {};
@@ -480,7 +483,9 @@ $(document).ready(function() {
             type: "POST",
             url: "Php/search.php",
             data: dataObject,
+            beforeSend: function(){$(div).append("<tr class='trwait'><td colspan='6' style='text-align: center'><img src='Img/wait.gif' class='wait' alt=''/></td></tr>");},
             success: function (data) {
+                $('.trwait').remove();
                 var data = $.parseJSON(data);
                 //$(div).html('');
                 $('.pagination').html('');
