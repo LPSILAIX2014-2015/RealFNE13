@@ -19,10 +19,9 @@ $(document).ready(function(){ // Fonction pour valider la première formulaire
                 success: function(data){
                      if(data==1){
                          $("#res").show();
-                         showMassageError('Valide');
+                         showMassageError('On a envoyé un mail avec un lien por changer votre mot de passe!');
                          $('#mailR').val('');
-                         setTimeout('',1500);
-			             location.replace('index.php');
+                         setTimeout('redirectI()',1500);
                     }else{
                         $("#res").html(data);
                         $("#res").show();
@@ -32,7 +31,9 @@ $(document).ready(function(){ // Fonction pour valider la première formulaire
         }
     });
 }); // end document.ready
-
+function redirectI() {
+    location.href='index.php';
+ }
 $(document).ready(function(){ // Fonction pour valider le deuxième formulaire (recuperation)
     $("#result").hide();
     $("#formRMP").validate({
@@ -57,9 +58,8 @@ $(document).ready(function(){ // Fonction pour valider le deuxième formulaire (
                 success: function(data){
                     if(data==1){ // Verification selon les resultats du Modèle
                         $("#res").show();
-                        showMassageError('Valide');
-                        setTimeout('',1500);
-                        location.replace('index.php');
+                        showMassageError('Changement Valide!');
+                        setTimeout('redirectI()',1000);
                     }else{
                         $("#res").html(data);
                         $("#res").show();
