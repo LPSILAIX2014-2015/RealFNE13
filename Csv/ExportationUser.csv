@@ -1,30 +1,22 @@
-<<<<<<< HEAD
-"Barrages hydroliques";ADMIN;FrancisA;DupondA;francisA@truc.fr;"01 Quelque part";19000;"Ingénieur Eau";
-Plantations;ADMIN;FrancisB;DupondB;francisB@truc.fr;"02 Quelque part";29000;"Ingénieur Terre";
-;ADMIN;FrancisC;DupondC;francisC@truc.fr;"03 Quelque part";39000;"Ingénieur Air";
+;MEMBRE;ARNAUD;SADMIN;sm@bondage.Com;;69666;"videur de ballons gonflables";"marchand de vent"
+"Super Maître";SADMIN;ARNAUD;SADMIN;arnaud.chiffe@gmail.com;SOMEWHERE;13000;TesteurSA;Esclave
+"Super Maître";ADMIN;ARNAUD;ADMIN;arnaud.chiffe@gmail.com;SOMEWHERE;13000;TesteurA;Esclave
+"Super Maître";MEMBRE;ARNAUD;MEMBRE;arnaud.chiffe@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
+;VALIDATOR;ARNAUDi;VALIDATORi;arnaud.chiffe@gmail.com;SOMEWHERE;30650;TesteurV;"Distributeur de sourires"
+;VALIDATOR;Charly;Henry;giordano.pascal@live.fr;;0;;
+;MEMBER;denver;barnabe;enjoy@chiale.com;;69666;"congeleur d""enfants ";"mangeur d'enfant"
+;MEMBRE;dilan;bob;tag@ueuk.woodstock.com;;0;;
+;MEMBRE;dupond;dupond;dupont@dupond;;0;;
+;MEMBRE;dupond;dupond;dupond@dupond.fre;;0;;
 "Super Maître";SADMIN;FRANCK;SADMIN;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurSA;Esclave
 "Super Maître";ADMIN;FRANCK;ADMIN;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurA;Esclave
-"Super Maître";ADMIN;FRANCK;MEMBRE;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
-Infirmerie;MEMBRE;HuguetteA;DupontA;huguetteA@machin.com;"11 Highway to hell";13001;Infirmière;Retraitée
-;MEMBRE;HuguetteB;DupontB;huguetteB@machin.com;"22 Highway to hell";13002;Secrétaire;Retraitée
-;VALIDATOR;HuguetteC;DupontC;huguetteC@machin.com;"33 Highway to hell";13003;Chirurgienne;Retraitée
+"Super Maître";MEMBRE;FRANCK;MEMBRE;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
+"Super Maître";VALIDATOR;FRANCK;VALIDATOR;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurV;Esclave
+;ADMIN;FRANCK;AMOFA;franck.amofa@gmail.com;;84000;Directeur;
+;ADMIN;"lhomme a abattre";terminator;vins.fisch@gmail.com;;0;;
 ;SADMIN;Nicolas;Damien;nicolas.damien@truc.fr;"33 Somewhere over the rainbow";13000;Directeur;
+;MEMBRE;test15;test15;f549524@trbvm.com;"rue du test";13150;Testeur;
 "Super Maître";SADMIN;VINCENT;SADMIN;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurSA;Esclave
 "Super Maître";ADMIN;VINCENT;ADMIN;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurA;Esclave
-"Super Maître";MEMBER;VINCENT;MEMBRE;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
-=======
-"Barrages hydroliques";ADMIN;FrancisA;DupondA;francisA@truc.fr;"01 Quelque part";19000;"IngÃ©nieur Eau";
-Plantations;ADMIN;FrancisB;DupondB;francisB@truc.fr;"02 Quelque part";29000;"IngÃ©nieur Terre";
-;ADMIN;FrancisC;DupondC;francisC@truc.fr;"03 Quelque part";39000;"IngÃ©nieur Air";
-"Super MaÃ®tre";SADMIN;FRANCK;SADMIN;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurSA;Esclave
-"Super MaÃ®tre";ADMIN;FRANCK;ADMIN;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurA;Esclave
-"Super MaÃ®tre";ADMIN;FRANCK;MEMBRE;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
-Infirmerie;MEMBRE;HuguetteA;DupontA;huguetteA@machin.com;"11 Highway to hell";13001;InfirmiÃ¨re;RetraitÃ©e
-;MEMBRE;HuguetteB;DupontB;huguetteB@machin.com;"22 Highway to hell";13002;SecrÃ©taire;RetraitÃ©e
-;VALIDATOR;HuguetteC;DupontC;huguetteC@machin.com;"33 Highway to hell";13003;Chirurgienne;RetraitÃ©e
-;SADMIN;Nicolas;Damien;nicolas.damien@truc.fr;"33 Somewhere over the rainbow";13000;Directeur;
-"Super MaÃ®tre";SADMIN;VINCENT;SADMIN;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurSA;Esclave
-"Super MaÃ®tre";ADMIN;VINCENT;ADMIN;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurA;Esclave
-"Super MaÃ®tre";MEMBER;VINCENT;MEMBRE;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
-
->>>>>>> 6a1eb8949889be824868556238a31dfe5e0f2b65
+"Super Maître";MEMBRE;VINCENT;MEMBRE;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
+"Super Maître";VALIDATOR;VINCENT;VALIDATOR;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurV;Esclave

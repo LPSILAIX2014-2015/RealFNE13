@@ -11,7 +11,7 @@ class VConsultMessages
 
   	$mConsultMessage = new MConsultMessage();
     $data_messages = $mConsultMessage->getAllMessagesByIdUser($idUser);
-
+    
 
     global $content_messages;
     $content_messages = $mConsultMessage->displayMessages($data_messages);

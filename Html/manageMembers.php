@@ -372,15 +372,15 @@ foreach($rolesList as $line){
     for($i = 0 ; $i < count($dataCSV) ; ++$i)
     {
         $current = array();
-        array_push($current, $dataCSV[$i]['THEME_DETAILS']);
-        array_push($current, $dataCSV[$i]['ROLE']);
-        array_push($current, $dataCSV[$i]['NAME']);
-        array_push($current, $dataCSV[$i]['SURNAME']);
-        array_push($current, $dataCSV[$i]['MAIL']);
-        array_push($current, $dataCSV[$i]['ADRESS']);
-        array_push($current, $dataCSV[$i]['CP']);
-        array_push($current, $dataCSV[$i]['PROFESSION']);
-        array_push($current, $dataCSV[$i]['PROFESSION2']);
+        array_push($current, utf8_decode($dataCSV[$i]['THEME_DETAILS']));
+        array_push($current, utf8_decode($dataCSV[$i]['ROLE']));
+        array_push($current, utf8_decode($dataCSV[$i]['NAME']));
+        array_push($current, utf8_decode($dataCSV[$i]['SURNAME']));
+        array_push($current, utf8_decode($dataCSV[$i]['MAIL']));
+        array_push($current, utf8_decode($dataCSV[$i]['ADRESS']));
+        array_push($current, utf8_decode($dataCSV[$i]['CP']));
+        array_push($current, utf8_decode($dataCSV[$i]['PROFESSION']));
+        array_push($current, utf8_decode($dataCSV[$i]['PROFESSION2']));
         array_push($dataCSVOk, $current);
     }
     $fichier_csv = fopen('Csv/ExportationUser.csv', 'w+');
