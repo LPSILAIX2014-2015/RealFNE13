@@ -9,7 +9,7 @@ if ((isset($_SESSION)) && ($_SESSION['ROLE'] == 'SADMIN'))
 
 
 
-// AFFICHAGE
+// Préparation de la requête sql de sélection des articles
 
 $state = $connec->prepare(
     "SELECT P.*, P.PTYPE, U.NAME, U.ASSOCIATION_ID, U.SURNAME, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE
@@ -22,21 +22,28 @@ $state->execute();
 $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des articles
 ?>
 
-    <div class="container-fluid pvarticle">
+    <!-- INSTALLATION DE LA MISE EN PAGE -->
 
+    <div class="container-fluid pvarticle">
         <div class="filter">
+
             <select id="filterVALID">
                 <option value="0">- En attente de validation -</option>
                 <option value="1">- Validé</option>
             </select>
+
         </div>
 
         <h1>Liste des articles</h1>
-    <?php
 
+        <?php
+
+   //Affichage des articles
 
     for($i = 0 ; $i < count($data_article) ; ++$i)
     {
+
+        //Remplacement des balises dans l'article par du texte
 
         if(strlen($data_article[$i]['CONTENT']) > 250) {
             $contenuDecode = html_entity_decode($data_article[$i]['CONTENT']);
@@ -46,16 +53,15 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
             $contenuTrunc = substr(strip_tags($contenuDecode), 0, 250);
             $contenuFormate = str_replace('[SLaaa]', '<br />', $contenuTrunc);
 
-
             $description = $contenuFormate;
         } else {
             $description = html_entity_decode($data_article[$i]['CONTENT']);
         }
 
+        //Si l'article n'est pas encore validé
+
             if($data_article[$i]['STATUS'] == 0)
             {
-                if(strlen($data_article[$i]['CONTENT']) > 250)
-                    $description = substr($data_article[$i]['CONTENT'], 0, 250);
 
                 echo "<div id='article" . $data_article[$i]['ID']
                     . "' class='lienarticle '"
@@ -87,6 +93,9 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
                 echo "<input class='butt_suppr' var='".$data_article[$i]['ID']."' type='submit' value='Suppression'>";
 
             }
+
+            //Artcile validé
+
         else if($data_article[$i]['STATUS'] == 1)
         {
             echo "<div id='article" . $data_article[$i]['ID']
@@ -130,15 +139,15 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
 
 <?php }
 
-    //ADMIN//
+    //ADMIN OU VALIDATOR
 
 else if ( (isset($_SESSION)) && ( ($_SESSION['ROLE'] == 'ADMIN') || ($_SESSION['ROLE'] == 'VALIDATOR')) )
 {
-global $data_article;
-global $connec;
+    global $data_assoc;
+    global $data_article;
+    global $connec;
 
-
-// AFFICHAGE
+// // Préparation de la requête sql de sélection des articles
 
 $state = $connec->prepare(
     "SELECT P.*, P.PTYPE, U.NAME, U.ASSOCIATION_ID, U.SURNAME, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE
@@ -148,9 +157,10 @@ $state = $connec->prepare(
 );
 $state->execute();
 $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des articles
+?>
 
 
-    ?>
+    <!-- Préparation de l'affichage -->
 
 <div class="container-fluid pvarticle">
 
@@ -163,8 +173,12 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
 
     <h1>Liste des articles</h1>
     <?php
+
+
+
     for($i = 0 ; $i < count($data_article) ; ++$i)
     {
+        //Remplacement des balises dans l'article par du texte
 
         if(strlen($data_article[$i]['CONTENT']) > 250) {
             $contenuDecode = html_entity_decode($data_article[$i]['CONTENT']);
@@ -179,8 +193,13 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
         } else {
             $description = html_entity_decode($data_article[$i]['CONTENT']);
         }
+
+        //Si les associations concordent
+
         if($data_article[$i]['ASSOCIATION_ID'] == $_SESSION['ASSOCIATION_ID'])
         {
+            //Si l'article n'est pas validé
+
             if($data_article[$i]['STATUS'] == 0)
             {
                 echo "<div id='article" . $data_article[$i]['ID']
@@ -213,6 +232,9 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
 
 
             }
+
+            //Si l'article a déjà été validé
+
         else if($data_article[$i]['STATUS'] == 1)
         {
             echo "<div id='article" . $data_article[$i]['ID']
@@ -254,6 +276,8 @@ $data_article = $state->fetchAll(PDO::FETCH_ASSOC); //Récupération des article
 
 
 <?php }
+
+
 /*
     //VALIDATOR//
 else if ( (isset($_SESSION)) && ($_SESSION['ROLE'] == 'VALIDATOR') )
