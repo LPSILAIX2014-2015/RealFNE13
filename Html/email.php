@@ -1,4 +1,4 @@
-<?php 
+<?php
 $id = 1;
 $emails = null;
 if(isset($_GET['id'])) {
@@ -17,15 +17,15 @@ if(isset($_GET['id'])) {
 </head>
 
 <body>
-    <div class="container">
-    
+    <div class="">
+
     			<div class="span10 offset1">
     				<div class="row">
 		    			<h3>Envoi Email</h3>
 		    		</div>
-    		
+
 	    			<form class="form-horizontal" action="../Php/email.php" method="post">
-					 
+
                                           <div class="control-group">
                                              <label class="control-label">De</label>
                                             <div class="controls">
@@ -46,11 +46,11 @@ if(isset($_GET['id'])) {
 					   <div class="form-actions">
 						  <button type="submit" class="btn btn-success">Envoyer</button>
                                                   <a href="./data.php"><button type="button" class="btn">Retour</button></a>
-						  
+
                                             </div>
 					</form>
 				</div>
-				
+
     </div> <!-- /container -->
   </body>
 </html>

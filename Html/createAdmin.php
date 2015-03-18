@@ -67,7 +67,7 @@
 		else
 				header("Location: ./index.php?EX=createAsso")
     ?>
-    <div class="container">
+    <div>
 
     			<div class="span10 offset1">
     				<div class="row">

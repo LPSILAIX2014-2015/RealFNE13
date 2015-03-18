@@ -5,6 +5,13 @@ if(!(isset($_SESSION['ROLE'])) || (($_SESSION['ROLE'] == 'MEMBRE')||($_SESSION['
 else if($_SESSION['ROLE']=='ADMIN'){
     $assoc=(new MUser($_SESSION['ID_USER']))->getAssociation();
 }
+$nbLines=10;
+if(isset($_POST['LINES']))
+  $nbLines=$_POST['LINES'];
+$nbPage=1;
+if(isset($_GET['PAGE']))
+  $nbPage=$_GET['PAGE'];
+$offset= ($nbPage-1)*$nbLines;
 ?>
 
 <script type="text/javascript">
@@ -122,13 +129,13 @@ foreach($rolesList as $line){
 }*/ //Mettre une fonction pour récupérer les roles des membres
 ?>
 
-<div class="container">
+<div class="">
 <div class="row">
     <h3>FNESITE</h3>
 </div>
 
 
-<form class="form-horizontal" action="./index.php?EX=manageMembers" method="post">
+<form class="form-horizontal" action="./index.php?EX=manageMembers" id="manageMember" method="post">
     <div class="control-group">
         <label class="control-label">Nom de famille</label>
         <div class="controls">
@@ -168,11 +175,12 @@ foreach($rolesList as $line){
 
         </div>
     </div>
+    <?php if(!isset($assoc)){
+      echo'
     <div class="control-group">
         <label class="control-label">Association</label>
         </br>
-        <select class="controls" name="ASSOCIATION" type="text">
-            <?php
+        <select class="controls" name="ASSOCIATION" type="text">';
             echo('<option></option>');
             foreach ($assocs as $key => $asso) {
                 echo('<option value ='.$asso['ID'].'>'.$asso['NAME'].'</option>');
@@ -180,6 +188,7 @@ foreach($rolesList as $line){
             ?>
         </select>
     </div>
+    <?php } ?>
     <div class="control-group">
         <label class="control-label">Th&egrave;me</label>
         </br>
@@ -191,6 +200,19 @@ foreach($rolesList as $line){
             }
             ?>
         </select>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Nombre de résultats à afficher</label>
+        <div class="controls">
+            <select class="controls" name="LINES" type="text">
+                  <option value ='5' <?php if($nbLines == '5'){echo("selected");}?>>5</option>
+                  <option value ='10'<?php if($nbLines == '10'){echo("selected");}?>>10</option>
+                  <option value ='20'<?php if($nbLines == '20'){echo("selected");}?>>20</option>
+                  <option value ='30'<?php if($nbLines == '30'){echo("selected");}?>>30</option>
+                  <option value ='50'<?php if($nbLines == '50'){echo("selected");}?>>50</option>
+            </select>
+
+        </div>
     </div>
     <div class="form-actions">
         </br>
@@ -255,9 +277,15 @@ foreach($rolesList as $line){
             $where = " WHERE ".implode($conditions,' AND ');
             $surnom = $_POST['SURNAME'];
             if(count($conditions) > 0) {
-                $sql = 'SELECT * FROM USER'. $where;
+              foreach ($pdo->query('SELECT Count(*) As NUM FROM USER'. $where.' order by NAME ASC LIMIT') as $row) {
+                $rowNumber= $row['NUM'];
+              }
+              $sql = 'SELECT * FROM USER'. $where .' LIMIT '.$nbLines.' OFFSET '.$offset;
             }else {
-                $sql = 'SELECT * FROM USER order by NAME ASC';
+              foreach ($pdo->query('SELECT Count(*) As NUM FROM USER') as $row) {
+                $rowNumber= $row['NUM'];
+              }
+                $sql = 'SELECT * FROM USER order by NAME ASC LIMIT '.$nbLines.' OFFSET '.$offset;
             }
 
             foreach ($pdo->query($sql) as $row) {
@@ -273,14 +301,14 @@ foreach($rolesList as $line){
                 echo '<td width=250>';
                 echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
                 echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
-            
-            <div class="active" style="display: block;"> 
+
+            <div class="active" style="display: block;">
                     <!-- About section -->
                     <div class="about">
                         <input type="hidden" value="'.$img.'">
                     </div>
                     <!-- /About section -->
-                     
+
                     <!-- Personal info section -->
                     <ul class="personal-info">
             <li><label>Name</label><span>'.$row['NAME'].'</span></li>
@@ -292,11 +320,11 @@ foreach($rolesList as $line){
                         <li><label>Thème</label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
                         <li><label>Thème Interest</label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
                         <li><label>Profession</label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
-                        
+
                     </ul>
                     <!-- /Personal info section -->
                 </div>
-            
+
         </div>';
                 echo '&nbsp;';
                 echo '<a class="btn btn-success" href="index.php?EX=updateMember&id='.$row['ID'].'">Edit</a>';
@@ -309,10 +337,17 @@ foreach($rolesList as $line){
         }else {
 
             if(isset($assoc)){
-                $sql = 'SELECT * FROM USER WHERE ASSOCIATION_ID = '.$assoc.' Order by Name ASC';
+              foreach ($pdo->query('SELECT Count(*) As NUM FROM USER WHERE ASSOCIATION_ID = '.$assoc) as $row) {
+                $rowNumber= $row['NUM'];
+              }
+                $sql = 'SELECT * FROM USER WHERE ASSOCIATION_ID = '.$assoc.' Order by Name ASC   LIMIT '.$nbLines.' OFFSET '.$offset;
             }
-            else
-                $sql = 'SELECT * FROM USER order by NAME ASC';
+            else{
+              foreach ($pdo->query('SELECT Count(*) As NUM FROM USER') as $row) {
+                $rowNumber= $row['NUM'];
+              }
+                $sql = 'SELECT * FROM USER order by NAME ASC LIMIT '.$nbLines.' OFFSET '.$offset;
+              }
             if(count($sql) > 0) {
 
                 foreach ($pdo->query($sql) as $row) {
@@ -328,14 +363,14 @@ foreach($rolesList as $line){
                     echo '<td width=250>';
                     echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
                     echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
-            
-            <div id="profile" class="active" style="display: block;"> 
+
+            <div id="profile" class="active" style="display: block;">
                     <!-- About section -->
                     <div class="about">
                         <input type="hidden" value="'.$img.'">
                     </div>
                     <!-- /About section -->
-                     
+
                     <!-- Personal info section -->
                     <ul class="personal-info">
             <li><label>Name</label><span>'.$row['NAME'].'</span></li>
@@ -347,11 +382,11 @@ foreach($rolesList as $line){
                         <li><label>Thème</label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
                         <li><label>Thème Interest</label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
                         <li><label>Profession</label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
-                        
+
                     </ul>
                     <!-- /Personal info section -->
                 </div>
-            
+
         </div>';
                     echo '&nbsp;';
                     echo '<a class="btn btn-success" href="index.php?EX=updateMember&id='.$row['ID'].'">Edit</a>';
@@ -366,6 +401,16 @@ foreach($rolesList as $line){
         ?>
         </tbody>
     </table>
+    <div class="control-group">
+        <label class="control-label">Changer de Page</label>
+        <div class="controls">
+          <?php
+            $numberPages= ceil($rowNumber/$nbLines);
+            for($i=1;$i<=$numberPages;++$i)
+              echo '<button type="submit" class="changePageButton" form="manageMember" formaction="./index.php?EX=manageMembers&PAGE='.$i.'">'.$i.'</button>';
+          ?>
+        </div>
+    </div>
     <a target="_blank" href="index.php?EX=downloadCVS"><button class="downloadCVS">Télécharger format CSV</button></a>
     <?php
     $dataCSVOk = array();
