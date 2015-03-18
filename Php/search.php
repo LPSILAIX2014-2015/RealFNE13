@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             echo json_encode($userinfo);
 
         } elseif ($type == "asso") {
-            $sql = 'SELECT USER.* FROM USER INNER JOIN ASSOCIATION ON USER.association_id = ASSOCIATION.id WHERE (ASSOCIATION.name  LIKE ? )  LIMIT 3';
+            $sql = 'SELECT USER.* FROM USER INNER JOIN ASSOCIATION ON USER.ASSOCIATION_ID = ASSOCIATION.ID WHERE (ASSOCIATION.NAME  LIKE ? )  LIMIT 3';
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
@@ -137,11 +137,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $rNMB = $prep0->fetchColumn();
 
         //For obtain data from page received
-        $sql = "SELECT USER.id as user_id, USER.LOGIN, USER.NAME as user_name, USER.SURNAME, TERRITORY.name as t_name, USER.MAIL, THEME.name as th_name, USER.ADRESS , USER.CP, USER.PROFESSION, ASSOCIATION.NAME as asso_name, USER.PHOTOPATH
+        $sql = "SELECT USER.ID as user_id, USER.LOGIN, USER.NAME as user_name, USER.SURNAME, TERRITORY.NAME as t_name, USER.MAIL, THEME.NAME as th_name, USER.ADRESS , USER.CP, USER.PROFESSION, ASSOCIATION.NAME as asso_name, USER.PHOTOPATH
                 FROM USER
                 INNER JOIN ASSOCIATION  ON USER.ASSOCIATION_ID = ASSOCIATION.ID
-                INNER JOIN TERRITORY ON ASSOCIATION.territory_id = TERRITORY.id
-                left join THEME on USER.THEME_ID = THEME.id
+                INNER JOIN TERRITORY ON ASSOCIATION.TERRITORY_ID = TERRITORY.ID
+                left join THEME on USER.THEME_ID = THEME.ID
                 WHERE (USER.ASSOCIATION_ID  = ?) LIMIT $firstRegistry, $resultsParPage";
         $prep = $pdo->prepare($sql);
         $prep->execute($params);
@@ -181,12 +181,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $pdo = new MDBase();
         $pdo->exec("set names utf8");
-        $sql = "SELECT USER.id as user_id, USER.LOGIN, USER.NAME as user_name, USER.SURNAME, THEME.name as theme_name,
-                  TERRITORY.name as t_name, USER.MAIL, THEME.name as th_name, USER.ADRESS , USER.CP,
+        $sql = "SELECT USER.ID as user_id, USER.LOGIN, USER.NAME as user_name, USER.SURNAME, THEME.NAME as theme_name,
+                  TERRITORY.NAME as t_name, USER.MAIL, THEME.NAME as th_name, USER.ADRESS , USER.CP,
                   USER.PROFESSION, ASSOCIATION.NAME as asso_name, USER.PHOTOPATH
                 FROM USER INNER JOIN ASSOCIATION  ON USER.ASSOCIATION_ID = ASSOCIATION.ID
-                INNER JOIN TERRITORY ON ASSOCIATION.territory_id = TERRITORY.id
-                left join THEME on USER.THEME_ID = THEME.id
+                INNER JOIN TERRITORY ON ASSOCIATION.TERRITORY_ID = TERRITORY.ID
+                left join THEME on USER.THEME_ID = THEME.ID
                 ORDER BY asso_name ASC LIMIT $firstRegistry, $resultsParPage";
 
         $sql0 ="SELECT COUNT(*) FROM USER";

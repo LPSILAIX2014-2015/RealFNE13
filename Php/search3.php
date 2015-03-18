@@ -54,18 +54,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $where = " WHERE " . implode($conditions, ' AND ');
         $sql0 = "SELECT count(*)
                   FROM USER
-                  INNER JOIN ASSOCIATION  ON user.ASSOCIATION_ID = association.ID
-                  INNER JOIN TERRITORY ON ASSOCIATION.territory_id = TERRITORY.id
+                  INNER JOIN ASSOCIATION  ON USER.ASSOCIATION_ID = ASSOCIATION.ID
+                  INNER JOIN TERRITORY ON ASSOCIATION.TERRITORY_ID = TERRITORY.ID
                   LEFT JOIN THEME ON USER.THEME_INTEREST_ID = THEME.ID  $where";
         //For obtain number of members
         $prep0 = $pdo->prepare($sql0);
         $prep0->execute();
         $rNMB = $prep0->fetchColumn();
         //results
-        $sql = "SELECT USER.ID AS U_ID, USER.LOGIN, USER.NAME AS U_NAME, SURNAME, MAIL, ADRESS, territory.name as t_name, theme.name as t_interest, PROFESSION, ASSOCIATION.NAME as asso_name
+        $sql = "SELECT USER.ID AS U_ID, USER.LOGIN, USER.NAME AS U_NAME, SURNAME, MAIL, ADRESS, TERRITORY.NAME as t_name, THEME.NAME as t_interest, PROFESSION, ASSOCIATION.NAME as asso_name
                   FROM USER
-                  INNER JOIN ASSOCIATION  ON user.ASSOCIATION_ID = association.ID
-                  INNER JOIN territory ON association.territory_id = territory.id
+                  INNER JOIN ASSOCIATION  ON USER.ASSOCIATION_ID = ASSOCIATION.ID
+                  INNER JOIN TERRITORY ON ASSOCIATION.TERRITORY_ID = TERRITORY.ID
                   LEFT JOIN THEME ON USER.THEME_INTEREST_ID = THEME.ID  $where  LIMIT $firstRegistry, $resultsParPage";
         $q = $pdo->prepare($sql);
         $q->execute();
@@ -105,14 +105,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $pdo->exec("set names utf8");
         $params = array($id);
 
-        $sql = 'SELECT user.id as user_id, user.NAME as user_name, user.SURNAME, user.MAIL, th1.name as theme_name1, th2.name as theme_name2,
-                  user.ADRESS , user.CP, user.PROFESSION, association.NAME as asso_name, user.PHOTOPATH,
-                  user.ROLE, user.PRESENTATION
-                  FROM user
-                  INNER JOIN ASSOCIATION  ON user.ASSOCIATION_ID = association.ID
-                  LEFT JOIN theme th1 on  th1.id = user.THEME_ID
-                  LEFT JOIN theme th2 on  th2.id = user.THEME_INTEREST_ID
-                  WHERE (user.ID  = ?)';
+        $sql = 'SELECT USER.ID as user_id, USER.NAME as user_name, USER.SURNAME, USER.MAIL, th1.NAME as theme_name1, th2.NAME as theme_name2,
+                  USER.ADRESS , USER.CP, USER.PROFESSION, ASSOCIATION.NAME as asso_name, USER.PHOTOPATH,
+                  USER.ROLE, USER.PRESENTATION
+                  FROM USER
+                  INNER JOIN ASSOCIATION  ON USER.ASSOCIATION_ID = ASSOCIATION.ID
+                  LEFT JOIN THEME th1 on  th1.ID = USER.THEME_ID
+                  LEFT JOIN THEME th2 on  th2.ID = USER.THEME_INTEREST_ID
+                  WHERE (USER.ID  = ?)';
         $prep = $pdo->prepare($sql);
         $prep->execute($params);
 
