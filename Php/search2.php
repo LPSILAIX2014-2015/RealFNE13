@@ -7,7 +7,11 @@
     $pdo = new MDBase();
     $pdo->exec("set names utf8");
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        $sql = 'SELECT DISTINCT ID, NAME as asso_name FROM ASSOCIATION';
+        $sql = "SELECT DISTINCT ASSOCIATION.ID, ASSOCIATION.NAME as asso_name
+                FROM ASSOCIATION
+                INNER JOIN USER
+                ON ASSOCIATION.ID = USER.ASSOCIATION_ID
+                WHERE (USER.LOGIN IS NULL OR USER.LOGIN !='')";
         $q = $pdo->prepare($sql);
         $q->execute();
 
@@ -49,7 +53,11 @@
 
             $name = $_POST['name'];
             $params = array("%$name%");
-            $sql = 'SELECT * FROM USER u WHERE u.NAME LIKE ? ORDER BY NAME ASC LIMIT 3';
+            $sql = "SELECT DISTINCT u.NAME, u.ID
+                    FROM USER u
+                    WHERE u.NAME
+                    LIKE ?
+                    AND (u.LOGIN IS NULL OR u.LOGIN!='') ORDER BY u.NAME ASC LIMIT 3";
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
@@ -61,7 +69,12 @@
         } elseif (isset($_POST['surname'])) {
             $surname = $_POST['surname'];
             $params = array("%$surname%");
-            $sql = 'SELECT * FROM USER u WHERE SURNAME LIKE ? ORDER BY SURNAME ASC LIMIT 3';
+            $sql = "SELECT DISTINCT u.ID,u.SURNAME
+                    FROM USER u
+                    WHERE u.SURNAME
+                    LIKE ?
+                    AND (u.LOGIN IS NULL OR  u.LOGIN!='')
+                     ORDER BY u.SURNAME ASC LIMIT 3";
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
@@ -73,7 +86,13 @@
         } elseif (isset($_POST['email'])) {
             $email = $_POST['email'];
             $params = array("%$email%");
-            $sql = 'SELECT ID, MAIL FROM USER u WHERE MAIL LIKE ? ORDER BY NAME ASC LIMIT 3';
+
+            $sql = "SELECT DISTINCT u.ID, u.MAIL
+                    FROM user u
+                    WHERE u.MAIL
+                    LIKE ?
+                    AND (u.LOGIN IS NULL OR  u.LOGIN!='')
+                     ORDER BY NAME ASC LIMIT 3";
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
@@ -85,7 +104,12 @@
         } elseif (isset($_POST['terr'])) {
             $terr = $_POST['terr'];
             $params = array("%$terr%");
-            $sql = 'SELECT ID, T.NAME AS territory_name FROM TERRITORY T WHERE NAME LIKE ? ORDER BY NAME ASC LIMIT 3';
+            $sql = "SELECT DISTINCT T.ID , T.NAME AS territory_name
+                  FROM TERRITORY T
+                  INNER JOIN ASSOCIATION ON T.ID = ASSOCIATION.TERRITORY_ID
+                  INNER JOIN USER ON ASSOCIATION.TERRITORY_ID = USER.ASSOCIATION_ID
+                  WHERE T.NAME LIKE ?
+                  AND (USER.LOGIN IS NULL OR USER.LOGIN!='') ORDER BY T.NAME ASC LIMIT 3";
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
@@ -97,7 +121,12 @@
         } elseif (isset($_POST['profession'])) {
             $profession = $_POST['profession'];
             $params = array("%$profession%");
-            $sql = 'SELECT ID, PROFESSION FROM USER u WHERE PROFESSION LIKE ? ORDER BY NAME ASC LIMIT 3';
+            $sql = "SELECT DISTINCT u.ID, u.PROFESSION
+                    FROM USER u
+                    WHERE PROFESSION
+                    LIKE ?
+                    AND (u.LOGIN IS NULL OR  u.LOGIN!='')
+                     ORDER BY NAME ASC LIMIT 3";
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
@@ -109,14 +138,19 @@
         } elseif (isset($_POST['association'])) {
             $association = $_POST['association'];
             $params = array("%$association%");
-            $sql = 'SELECT ID, ASSOCIATION FROM USER u WHERE ASSOCIATION LIKE ? ORDER BY NAME ASC LIMIT 3';
+            $sql = "SELECT DISTINCT u.ID, u.ASSOCIATION
+                    FROM USER u
+                    WHERE ASSOCIATION
+                    LIKE '%n'
+                    AND (u.LOGIN IS NULL OR  u.LOGIN!='')
+                    ORDER BY u.NAME ASC LIMIT 3";
             $prep = $pdo->prepare($sql);
             $prep->execute($params);
 
             $rows = $prep->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($rows as $row) {
-                echo '<a class="list-group-item" data="' . $row['ASSOCIATION'] . '" id="' . $row['ID'] . '">' . $row['ASSOCIATION'] . '</a>';
+                echo 'ctm';
             }
         }
     }
