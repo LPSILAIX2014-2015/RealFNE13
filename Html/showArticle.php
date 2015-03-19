@@ -1,3 +1,4 @@
+
 <?php
 global $data_article;
 global $data_assoc;

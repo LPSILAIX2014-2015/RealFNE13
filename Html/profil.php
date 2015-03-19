@@ -14,17 +14,12 @@
                 <label>Theme</label>
                 <?= $GLOBALS['user']->getThemeDetails();?>
             </div><?PHP } ?>
-            <div>
-                <label>Rôle</label>
-                <?= $GLOBALS['user']->getRole();?>
-
-            </div>
 			<div>
                 <label>E-mail</label>
                 <?= $GLOBALS['user']->getMail(); ?>
 			</div>
             <div>
-                <label>Addresse</label>
+                <label>Adresse</label>
                 <?PHP echo nl2br($GLOBALS['user']->getAddress()).', '.$GLOBALS['user']->getCp();?>
             </div>
 			<div>
@@ -36,7 +31,7 @@
 				<?= $GLOBALS['user']->getProfession2(); ?>
 			</div><?PHP } ?>
 			<?PHP if ($GLOBALS['user']->getPresentation()) { ?><div class="profilePresentation">
-				<label>Presentation</label>
+				<label>Présentation</label>
 				<?PHP nl2br($GLOBALS['user']->getPresentation());?>
 			</div><?PHP } ?>
     </div>
@@ -49,7 +44,7 @@
 							<div class="panel-body" align="center">
 								<form role="form" class="form-vertical" id="frmCHIMG" enctype="multipart/form-data">
 									<div class="form-group" align="center">
-										<label for="sel_img" class="control-label">Selectionnez une image</label>
+										<label for="sel_img" class="control-label">Sélectionnez une image</label>
 										<div class="controls">
 											<input type="file" id="sel_img" name="sel_img" class="form-control btn-info">
 										</div>
@@ -124,9 +119,9 @@
                                             </div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">Spatialisation</label>
+                                            <label class="control-label">Spécialisation</label>
                                             <div class="controls">
-                                                <input name="profession2" id="profession2" type="text"  placeholder="spatialisation" value="<?= $GLOBALS['user']->getProfession2(); ?>">
+                                                <input name="profession2" id="profession2" type="text"  placeholder="spécialisation" value="<?= $GLOBALS['user']->getProfession2(); ?>">
 
                                             </div>
                                         </div>
