@@ -1,7 +1,7 @@
 <form method="POST" id="formulaire" name="MAIL" action="">
     <fieldset>
 
-        <p><label for="count">Messages envoyés :</label>
+        <p><label for="count">Messages envoyés :</label></br>
             <p id="compteur"></p>
         </p>
 
@@ -20,34 +20,34 @@
 			?>
 			<a href="index.php?EX=searchMember"><input type="button" value="Rechercher un membre" /></a>
 		</p>
-		
         <p>
-            <label for="category">Catégorie :</label>
+            <label for="subject">Sujet :</label></br>
+            <?php
+            if (isset($_SESSION['title']))
+            {
+                $titre = htmlspecialchars($_SESSION['title'],ENT_QUOTES);
+                echo "<input type='text' id='sujet' name='TITLE' size='30' value='".$titre."' maxlength='300' required='required'/><br><br>";
+            }
+            else
+            {
+                echo "<input type='text' id='sujet' name='TITLE' size='30' maxlength='300' required='required'/>";
+            }
+            ?>
+        </p>
+
+        <p>
+            <label for="category">Catégorie :</label></br>
                 <p id="list_categories"></p>
         </p>
 
-        <p>
-            <label for="subject">Sujet :</label>
-			<?php
-			if (isset($_SESSION['title']))
-			{
-				$titre = htmlspecialchars($_SESSION['title'],ENT_QUOTES);
-				echo "<input type='text' id='sujet' name='TITLE' size='30' value='".$titre."' maxlength='300' required='required'/><br><br>";
-			}
-			else
-			{
-				echo "<input type='text' id='sujet' name='TITLE' size='30' maxlength='300' required='required'/>";
-			}
-			?>
-        </p>
 
         <p>
-            <label for="theme">Thématique :</label>
+            <label for="theme">Thématique :</label></br>
                 <p id="list_themes"></p><br><br>
         </p>
 
         <p>
-            <label for="message">Message :</label>
+            <label for="message">Message :</label></br>
 			<?php
 			if (isset($_SESSION['content']))
 			{
