@@ -19,7 +19,7 @@ $(document).ready(function(){ // Fonction pour valider la première formulaire
                 success: function(data){
                      if(data==1){
                          $("#res").show();
-                         showMassageError('On a envoyé un mail avec un lien por changer votre mot de passe!');
+                         showMassageError('On a envoyé un mail avec un lien pour changer votre mot de passe!');
                          $('#mailR').val('');
                          setTimeout('redirectI()',1500);
                     }else{

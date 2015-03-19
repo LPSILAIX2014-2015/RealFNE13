@@ -30,29 +30,23 @@
 
             //Check if the file is an image
             if (in_array($extensionFichier, $extensionsAutorisees)) {
-                echo "Ce fichier à la bon format";
 
                 //Check if the size of the image is correct
                 if($_FILES["articleImage"]["size"] < $maxImageSize){
-                    echo "Ce fichier à la bonne taille";
 
                     //Check if the file is correctly moved
                     if (move_uploaded_file($_FILES["articleImage"]["tmp_name"],$pathImage)) {
-                        echo "Ce fichier à bien été placé";
 
                     }else{
-                        $errorType = "Err_UploadFail";
-                        return $errorType;
+                        echo "L'image n'a pas été bien placé à cause d'une erreur";
                     }
 
                 }else{
-                    $errorType = "Err_FileTooFat";
-                    return $errorType;
+                    echo "L'image n'a pas été inséré à cause de son importante taille";
                 }
 
             } else{
-                $errorType = "Err_NotAnImage";
-                return $errorType;
+                echo "L'image n'a pas été inséré car elle n'est pas du bon format";
             }
         }
 
@@ -67,7 +61,7 @@
 		else
 				header("Location: ./index.php?EX=createAsso")
     ?>
-    <div class="container">
+    <div>
 
     			<div class="span10 offset1">
     				<div class="row">

@@ -23,7 +23,7 @@
     <div class="col-md-8 col-md-offset-2" id="buttonCreationArticle">
 
         <button id="buttonCreateArticle" type="button" class="btn btn-primary buttonCreate">Créer un Article</button>
-        <button id="buttonCreateArticleInCalendar" type="button" class="btn btn-primary buttonCreate">Créer un Article lié à un évènements</button>
+        <button id="buttonCreateArticleInCalendar" type="button" class="btn btn-primary buttonCreate">Créer un Article lié à un évènement</button>
  
     </div>
 </div>

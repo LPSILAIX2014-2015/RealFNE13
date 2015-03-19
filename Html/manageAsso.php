@@ -69,7 +69,7 @@
 
 ?>
 
-<div class="container">
+<div class="">
 <div class="row">
     <h3>Les associations membres du réseau FNE13</h3>
 </div>

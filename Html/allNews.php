@@ -32,7 +32,7 @@
 ?>
 <div class="allNews">
 	<h1 id="titleN">Toutes les Newsletters</h1>
-	<h5 id="titleN">Clic sur le lien pour télécharger la newsletter</h5>
+	<h5 id="titleN">Cliquez sur le lien pour télécharger la newsletter</h5>
 	<ul>
 		<?= $realDate;?>
 	</ul>

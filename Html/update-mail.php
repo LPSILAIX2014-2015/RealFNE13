@@ -5,8 +5,8 @@ $member=$pdo->getUserByEmail($email);
 if(!isset($member[0]))
   header("Location: ./index.php");
 else{
-  $id=[0]['ID'];
-  if(($id==null)||(new MUser($id))->getName()!='')
+  $id=$member[0]['ID'];
+  if(($id==null)||(new MUser($id))->getLogin()!='')
     header("Location: ./index.php");
 }
 $i=0;
@@ -17,7 +17,7 @@ foreach($themesList as $line){
     $i++;
 }
 ?>
-<div class="container">
+<div class="">
 
     <div class="span10 offset1">
         <div class="row">
