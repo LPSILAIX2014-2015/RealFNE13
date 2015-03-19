@@ -11,7 +11,7 @@
 				<?= $GLOBALS['user']->getAssoName(); ?>
             </div>
 			<?PHP if ($GLOBALS['user']->getThemeDetails()) { ?><div>
-                <label>Theme</label>
+                <label>Thème</label>
                 <?= $GLOBALS['user']->getThemeDetails();?>
             </div><?PHP } ?>
 			<div>
