@@ -131,7 +131,7 @@ foreach($rolesList as $line){
 
 <div class="">
 <div class="row">
-    <h3>FNESITE</h3>
+    <h3>Gestion des membres</h3>
 </div>
 
 
@@ -169,11 +169,10 @@ foreach($rolesList as $line){
         </div>
     </div>
     <?php if(!isset($assoc)){
-      echo'
-    <div class="control-group">
-        <label class="control-label">Association</label>
-        </br>
-        <select class="controls" name="ASSOCIATION" type="text">';
+      echo "<div class='control-group'>"
+            ."<label class='control-label'>Association</label>"
+            ."</br>"
+            ."<select class='controls' name='ASSOCIATION' type='text'>";
           echo('<option></option>');
           foreach ($assocsList as $key => $association) {
             if((isset($_POST['ASSOCIATION']))&&($_POST['ASSOCIATION']==$association['ID']))
