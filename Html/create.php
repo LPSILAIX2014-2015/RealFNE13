@@ -50,29 +50,28 @@
 				            <label class="control-label">Pr&eacute;nom</label>
 				            <div class="controls">
 				                <input name="NAME" id="name" type="text"  placeholder="Prénom" pattern="[^'\x22\;\.]+" value="">
-
-				            </div>
+                            </div>
 				        </div>
 				        <div class="control-group">
 					    	<label class="control-label">Email</label>
 					    	<div class="controls">
-					      	<input name="MAIL" id="mail" type="text"  placeholder="EMAIL" value="">
-
-					    </div>
+					      	    <input name="MAIL" id="mail" type="text"  placeholder="EMAIL" value="">
+					        </div>
 						</div>
-						<?php
+						                <?php
 						if($_SESSION['ROLE']=='SADMIN'){
-							echo '
-						<div class="control-group">
-		            <label class="control-label">Association</label>
-		            </br>
-		            <select class="controls" name="ASSOCIATION" type="text">';
-		                        foreach ($assocs as $asso) {
-		                            echo('<option value ='.$asso['ID'].'>'.$asso['NAME'].'</option>');
-		                        }
-		                    ?>
-		            </select>
-		        </div>
+							            ?>
+						        <div class="control-group">
+                                    <label class="control-label">Association</label>
+                                    </br>
+                                    <select class="controls" name="ASSOCIATION" type="text">';
+                                        <?php
+                                        foreach ($assocs as $asso) {
+                                            echo('<option value ='.$asso['ID'].'>'.$asso['NAME'].'</option>');
+                                        }
+                                        ?>
+                                    </select>
+		                        </div>
 						<div class="control-group">
 		            <label class="control-label">R&ocirc;le</label>
 		            </br>
