@@ -87,7 +87,7 @@ input, textarea, select {
     transition:ease 0.5s;
 }
 select {
-    max-width: 95%;
+    max-width: 450px;
     font-family:'Titillium Web',Verdana,sans-serif;
 }
 option {

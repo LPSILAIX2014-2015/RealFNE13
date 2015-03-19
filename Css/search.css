@@ -1,4 +1,5 @@
-/* @import "../Lib/bootstrap.min.css" screen; */
+@import "../Lib/bootstrap.min.css" screen;
+/* Recherche */
 .page{
     display:block;
     position:absolute;
@@ -80,7 +81,7 @@ p {
 #detailUser, .bMulti {
     background-color: #FFF;
     border-radius: 10px 10px 10px 10px;
-    box-shadow: 0 0 25px 5px rgba(75,201,226,1);
+    box-shadow: 0 0 25px 5px #0a2d5f;
     color: #111;
     display: none;
     min-width: 450px;
@@ -150,6 +151,15 @@ table {
     width: 30px;
     text-align: center;
 }
+<<<<<<< HEAD
 .table {
     width:95%;
 }
+=======
+#tableManageMembers {
+    margin-top: 20px;
+    width: auto;
+}
+
+/* End recherche */
+>>>>>>> 3c3b0428f7d878db60240123498212d4accd31d3

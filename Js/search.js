@@ -19,7 +19,7 @@ $(document).ready(function() {
         var divName = "#suggestions_name";
         var fieldSearch = "name";
         if ($(this).is(":checked")) {
-            $('#searh_name').html('<input id="s_name" class="form-control" type="text" placeholder="Name" value=""/><div id="suggestions_name"></div>');
+            $('#searh_name').html('<input id="s_name" class="form-control" type="text" placeholder="Prenom" value=""/><div id="suggestions_name"></div>');
             $('#all_mem').attr('checked', false);
             $('.modif').html('');
             focusInputs(idInputName, divName);
@@ -39,7 +39,7 @@ $(document).ready(function() {
         var fieldSearch = "surname";
 
         if ($(this).is(":checked")) {
-            $('#searh_surname').html(' <input id="s_surname" class="form-control" type="text" placeholder="Surname" value=""/><div id="suggestions_surname"></div>');
+            $('#searh_surname').html(' <input id="s_surname" class="form-control" type="text" placeholder="Nom" value=""/><div id="suggestions_surname"></div>');
             $('#all_mem').attr('checked', false);
             $('.modif').html('');
             focusInputs(idInputName, divName);
@@ -76,7 +76,7 @@ $(document).ready(function() {
         var divName = "#suggestions_terr";
         var fieldSearch = "terr";
         if ($(this).is(":checked")) {
-            $('#searh_terr').html(' <input id="s_terr" class="form-control" type="text" placeholder="territoire" value=""/><div id="suggestions_terr"></div>');
+            $('#searh_terr').html(' <input id="s_terr" class="form-control" type="text" placeholder="Territoire" value=""/><div id="suggestions_terr"></div>');
             $('#all_mem').attr('checked', false);
             $('.modif').html('');
             focusInputs(idInputName, divName);
@@ -93,7 +93,6 @@ $(document).ready(function() {
         var idInputName = "#s_prof";
         var divName = "#suggestions_profession";
         var fieldSearch = "profession";
-
         if ($(this).is(":checked")) {
             $('#searh_prof').html(' <input id="s_prof" class="form-control" type="text" placeholder="Profession" value=""/><div id="suggestions_profession"></div>');
             $('#all_mem').attr('checked', false);
@@ -172,7 +171,7 @@ $(document).ready(function() {
 
         });
         if (selected == '') {
-            alert('Vous devez cliquer sur un parameter de recherche');
+            alert('Vous devez cliquer sur un paramètre de recherche');
             return false;
         }
         else {
@@ -185,7 +184,7 @@ $(document).ready(function() {
             if ($.inArray('name', selected) > -1) {
                 if($('#s_name').val() == '')
                 {
-                    alert('Vous devez ecrire le name');
+                    alert('Vous devez écrire le prénom');
                     return false;
                 }
                 else name = $('#s_name').val();
@@ -193,7 +192,7 @@ $(document).ready(function() {
             if ($.inArray('surname', selected) > -1) {
                 if($('#s_surname').val() == '')
                 {
-                    alert('Vous devez ecrire le surname');
+                    alert('Vous devez écrire le nom');
                     return false;
                 }
                 else surname = $('#s_surname').val();
@@ -201,7 +200,7 @@ $(document).ready(function() {
             if ($.inArray('email', selected) > -1) {
                 if($('#s_email').val() == '')
                 {
-                    alert('Vous devez ecrire l\'email');
+                    alert('Vous devez écrire l\'email');
                     return false;
                 }
                 else email = $('#s_email').val();
@@ -209,7 +208,7 @@ $(document).ready(function() {
             if ($.inArray('terr', selected) > -1) {
                 if($('#s_terr').val() == '')
                 {
-                    alert('Vous devez ecrire le territoire');
+                    alert('Vous devez écrire le territoire');
                     return false;
                 }
                 else terr = $('#s_terr').val();
@@ -217,7 +216,7 @@ $(document).ready(function() {
             if ($.inArray('prof', selected) > -1) {
                 if($('#s_prof').val() == '')
                 {
-                    alert('Vous devez ecrire la proffession');
+                    alert('Vous devez écrire la profession');
                     return false;
                 }
                 else prof = $('#s_prof').val();
@@ -354,7 +353,7 @@ $(document).ready(function() {
 
                         $(value).attr({'value': id})
                         //Hacemos desaparecer el resto de sugerencias
-                        $(divName).fadeOut(800);
+                        $(divName).fadeOut(2000);
                     });
                     setTimeout(function(){
                         $(divName).fadeOut("slow");
@@ -371,7 +370,7 @@ $(document).ready(function() {
      **/
     function getResultsSearch(name, surname, email, terr, prof, asso, page) {
         $('.dataRecherche').html('<div class="table-responsive"><table class="table table-striped table-responsive" id="tableDetailSearch"><tr>' +
-        '<th>Nom</th><th>Thème</th><th>Association</th><th>Territorire</th><th>Profil</th><th>Message</th>' +
+        '<th>Nom</th><th>Thème</th><th>Association</th><th>Territoire</th><th>Profil</th><th>Message</th>' +
         '</tr>' +
         '</table></div>');
         if(page == null)
@@ -449,7 +448,7 @@ $(document).ready(function() {
         var dataObject = {};
 
         $('#allUsers').html('<div class="table-responsive"><table class="table table-striped" id="tableAllMembers"><tr>' +
-        '<th>Nom</th><th>Thème</th><th>Association</th><th>Territorire</th><th>Profil</th><th>Message</th>' +
+        '<th>Nom</th><th>Thème</th><th>Association</th><th>Territoire </th><th>Profil</th><th>Message</th>' +
         '</tr>' +
         '</table></div>');
         if (div == null) {
@@ -464,7 +463,7 @@ $(document).ready(function() {
         if (div == '#tableAllMembersAsso > tbody')
         {
             $('.dataRecherche').html('<div class="table-responsive"><table class="table table-striped table-responsive" id="tableAllMembersAsso"><tr>' +
-            '<th>Nom</th><th>Thème</th><th>Association</th><th>Territorire</th><th>Profil</th><th>Message</th>' +
+            '<th>Nom</th><th>Thème</th><th>Association</th><th>Territoire </th><th>Profil</th><th>Message</th>' +
             '</tr>' +
             '</table></div>');
         }
