@@ -1,10 +1,14 @@
 $(document).ready(function() {
 
+    $("#filterVALID").on('change', function(){
+        location.href='./index.php?EX=validArticle&FILTER='+$("#filterVALID").val();
+    });
+
     //Foutre les valeurs par défauts des consultations d'articles
     //PROBLEMU
-    sortAssocArticle();
-    sortThemeArticle();
-    sortValidArticle();
+  //  sortAssocArticle();
+   // sortThemeArticle();
+  //sortValidArticle();
     //$('.lienarticle').hide();
 
 
@@ -106,12 +110,12 @@ function sortThemeArticle() {
         }
     }
 }
-
+/*
 function sortValidArticle() {
     var idValid;
-    if( $('#filterVALID option:selected').attr('valu' +
-        'e') == 'undefined') idValid =0;
+    if( $('#filterVALID option:selected').attr('value') == 'undefined') idValid =0;
     else  idValid = $('#filterVALID option:selected').attr('value');
+
 
 
     $('.lienarticle').hide();
@@ -148,3 +152,7 @@ function sortValidArticle() {
 
 
 }
+*/
+
+
+
