@@ -17,8 +17,6 @@ if (( (isset($_SESSION)) && ($_SESSION['ROLE'] == 'SADMIN')) )
                 AND P.WRITER_ID = U.ID
                 AND P.PTYPE='ARTICLE' ";
 
-
-
 }
 
 else if ( (isset($_SESSION)) && ( ($_SESSION['ROLE'] == 'ADMIN') || ($_SESSION['ROLE'] == 'VALIDATOR')) ) {
@@ -310,10 +308,6 @@ if($fil==0) {
 else{
     echo "<input class='butt_suppr' var='".$data_article[$i]['ID']."' type='submit' value='Suppression'>";
 }
-
-
-
-
 
 
     }
