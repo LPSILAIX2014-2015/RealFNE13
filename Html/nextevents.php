@@ -3,7 +3,7 @@
  * @author <loubna EL MARNAOUIi>
  */
 $sql = new MDBase();
-$query = "SELECT DISTINCT ID, TITLE, PDATE FROM POST WHERE STATUS=1 AND DATE_BEGIN >= Now() ORDER BY(PDATE) DESC";
+$query = "SELECT DISTINCT ID, TITLE, DATE_BEGIN FROM POST WHERE STATUS=1 AND DATE_BEGIN >= Now() ORDER BY(PDATE) DESC";
 
 $resultatultquery = $sql->prepare($query);
 
@@ -12,7 +12,7 @@ $resultatultquery->execute();
 $resultat = $resultatultquery->fetchAll(PDO::FETCH_ASSOC);
 $dateArticle = "";
 for ($i=0; $i < count($resultat); $i++) {
-    $date = explode("-", $resultat[$i]['PDATE']);
+    $date = explode("-", $resultat[$i]['DATE_BEGIN']);
     switch ($date[1]) {
         case '1': case '01': $month = 'Jan'; break;
         case '2': case '02': $month = 'Fév'; break;
