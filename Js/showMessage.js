@@ -30,8 +30,8 @@ $(document).ready(function() {
 	$('.buttonDeleteMessages').on('click', function() {
 		if(confirm("Êtes vous sur de vouloir supprimer le message ?"))
 		{
-			$(this).parent().parent().parent().remove();
-			td = $(this).parent().parent().parent();
+			$(this).parent().parent().remove();
+			td = $(this).parent().parent();
 			var id = td.attr('id');
 			id = id.replace('message', '');
 			$.getJSON('Ajax/deleteMessage.php', { id : id }).done(function() {
@@ -47,6 +47,7 @@ $(document).ready(function() {
 			td = $(this).parent().parent();
 			var id = td.attr('id');
 			id = id.replace('notif', '');
+			
 			$.getJSON('Ajax/deleteNotif.php', { id : id }).done(function() {
 
 			});
@@ -56,7 +57,7 @@ $(document).ready(function() {
 	$('.buttonArchivateMessages').on('click', function() {
 		if(confirm("Êtes vous sur de vouloir archiver le message ?"))
 		{
-			td = $(this).parent().parent().parent();
+			td = $(this).parent().parent();
 			var id = td.attr('id');
 			id = id.replace('message', '');
 			$.getJSON('Ajax/setMessageArchive.php', { id : id }).done(function () {
@@ -68,7 +69,7 @@ $(document).ready(function() {
 	$('.buttonUnArchivateMessages').on('click', function() {
 		if(confirm("Êtes vous sur de vouloir rétablir le messsage ?"))
 		{
-			td = $(this).parent().parent().parent();
+			td = $(this).parent().parent();
 			var id = td.attr('id');
 			id = id.replace('message', '');
 			$.getJSON('Ajax/setUnMessageArchive.php', { id : id }).done(function () {
@@ -78,49 +79,44 @@ $(document).ready(function() {
 		}
 	});
 
+	$('.currentTdMessage').on('click', function() {
 
-	$('.buttonShowMessages').on('click', function() {
-		if($(this).attr('data-bool') != "1")
+		if($(this).parent().attr('data-bool') != "1")
 		{
-			hideMessages($(this));
+			console.log("hide");
+			hideMessages($(this).parent());
 		}
 		else
 		{
+			console.log("show");
 			hideAll();
-			showMessages($(this));
+			showMessages($(this).parent());
 		}
-	});
-
-	$('.currentTdMessage').on('click', function(e) {
-		var button = $(this).parent().children('td:last-child').children('.buttonShowMessages').trigger('click');
 	});
 
 });
 
 function hideAll() {
 	$('.contentMessage').hide();
-	$('.buttonShowMessages').attr('class', 'buttonShowMessages');
-	$('.btnOptions').hide();
 }
 
 function hideMessages(arg) {
-	arg.parent().parent().children('td').children('pre').hide();
+	arg.children('td').children('div').hide();
 	arg.attr('data-bool', '1');
-	arg.siblings('.btnOptions').hide();
 }
 
 function showMessages(arg) {
-	td = arg.parent().parent();
-	if(td.attr('class') == "lineMessage notReaded")
+	tr = arg;
+
+	if(tr.attr('class') == "lineMessage notReaded")
 	{
-		var id = td.attr('id');
+		var id = tr.attr('id');
 		id = id.replace('message', '');
-		td.attr('class' , '');
+		tr.attr('class' , '');
 		$.getJSON('Ajax/setMessageReaded.php', { id : id });
 	}
-	arg.parent().parent().children('td').children('pre').show();
+	arg.children('td').children('div').show();
 	arg.attr('data-bool', '0');
-	arg.siblings('.btnOptions').show();
 }
 
 
