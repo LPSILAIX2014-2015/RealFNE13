@@ -169,16 +169,20 @@ foreach($rolesList as $line){
         </div>
     </div>
     <?php if(!isset($assoc)){
-      echo "<div class='control-group'>"
-            ."<label class='control-label'>Association</label>"
-            ."</br>"
-            ."<select class='controls' name='ASSOCIATION' type='text'>";
+    ?>
+    <div class="control-group">
+        <label class="control-label">Association</label>
+        </br>
+        <select class="controls" name="ASSOCIATION" type="text">;
           echo('<option></option>');
+          <?php
           foreach ($assocsList as $key => $association) {
+
             if((isset($_POST['ASSOCIATION']))&&($_POST['ASSOCIATION']==$association['ID']))
                 echo('<option value ='.$association['ID'].' selected>'.$association['NAME'].'</option>');
             else
               echo('<option value ='.$association['ID'].'>'.$association['NAME'].'</option>');
+
           }
           ?>
         </select>
