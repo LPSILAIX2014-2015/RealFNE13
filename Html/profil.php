@@ -2,6 +2,20 @@
     <div class="profileInfos">
 			<h3><?= $GLOBALS['user']->getName().' '.$GLOBALS['user']->getSurname(); ?></h3>
 
+            <?php
+
+
+            $pdo = new MDBase();
+            $i=0;
+            $themesList = $pdo -> getAllThemes();
+            foreach($themesList as $line){
+                $themes[$i]['ID']=$line['ID'];
+                $themes[$i]['NAME']=$line['NAME'];
+                $i++;
+            }
+
+            ?>
+
 			<div class="profilePicBloc">
 				<img src="<?= $GLOBALS['user']->getPhotopath(); ?>" alt="Image" class="img-thumbnail center-block" width="140px" height="140px">
 				<input type="button" value="Changer mon image" onclick="view('cmi')">
@@ -131,6 +145,40 @@
                                             <div class="controls">
                                                 <input name="theme" if="theme" type="text"  placeholder="thème" value="<?= $GLOBALS['user']->getThemeDetails(); ?>">
 
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+
+                                            <label for="themes1" class="col-sm-2 control-label">Th&eacute;matique d'expertise</label>
+                                            <div class="controls">
+                                                <select class="controls" name="THEME" type="text">
+                                                    <?php
+                                                    $theme1 = $GLOBALS['user']->getTheme();
+                                                    foreach ($themes as $key => $theme) {
+                                                        if($theme['ID']==$theme1)
+                                                            echo('<option value ='.$theme['ID'].' selected>'.$theme['NAME'].'</option>');
+                                                        else
+                                                            echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+
+                                            <label for="themes2" class="col-sm-2 control-label">Th&eacute;matique d'implication</label>
+                                            <div class="controls">
+                                                <select class="controls" name="THEME2" type="text">
+                                                    <?php
+                                                    $theme2 = $GLOBALS['user']->getThemeInterest();
+                                                    foreach ($themes as $key => $theme) {
+                                                        if($theme['ID']==$theme2)
+                                                            echo('<option value ='.$theme['ID'].' selected>'.$theme['NAME'].'</option>');
+                                                        else
+                                                            echo('<option value ='.$theme['ID'].'>'.$theme['NAME'].'</option>');
+                                                    }
+                                                    ?>
+                                                </select>
                                             </div>
                                         </div>
                                         <input type="hidden" id="user_id" value="<?= $GLOBALS['user']->getId(); ?>">
