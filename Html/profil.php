@@ -100,6 +100,50 @@
 								</div>
 							</div>
     </div>
+	
+	<br>
+	    <div class="profileChangepass">
+                            <a href="#" onclick="view('ch1')" id="btn_changer1"><h3 class="panel-title">Modification de profil</h3></a>
+
+							<div class="panel-body" align="center">
+								<div id="ch1" style="display: none;">
+									<br>
+									<form role="form" class="form-vertical" id="formprofil">
+                                        <div class="control-group">
+                                            <label class="control-label">Profession</label>
+                                            <div class="controls">
+                                                <input name="profession" id="profession" type="text"  placeholder="Profession" value="<?= $GLOBALS['user']->getProfession(); ?>">
+
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">Présentation</label>
+                                            <div class="controls">
+                                                <input name="presentation" id="presentation" type="text"  placeholder="Présentation" value="<?= $GLOBALS['user']->getPresentation(); ?>">
+
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">Spatialisation</label>
+                                            <div class="controls">
+                                                <input name="profession2" id="profession2" type="text"  placeholder="spatialisation" value="<?= $GLOBALS['user']->getProfession2(); ?>">
+
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">Thème</label>
+                                            <div class="controls">
+                                                <input name="theme" if="theme" type="text"  placeholder="thème" value="<?= $GLOBALS['user']->getThemeDetails(); ?>">
+
+                                            </div>
+                                        </div>
+                                        <input type="hidden" id="user_id" value="<?= $GLOBALS['user']->getId(); ?>">
+										<input type="submit" name="btnConf1" class="btn btn-info center-block">
+										<div id="chP1"></div><!-- id="error"--><br>
+									</form>
+								</div>
+							</div>
+    </div>
 
     <script src="./Js/changeImage.js"></script>
 

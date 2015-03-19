@@ -87,7 +87,7 @@ input, textarea, select {
     transition:ease 0.5s;
 }
 select {
-    max-width: 95%;
+    max-width: 450px;
     font-family:'Titillium Web',Verdana,sans-serif;
 }
 option {
@@ -106,6 +106,10 @@ input:focus, textarea:focus, select:focus {
 textarea {
     cursor:url('../Img/cursor17.png'), auto ;
     width:95%;
+}
+input[type="checkbox"] {
+    box-shadow: 2px 2px 1px #0A2D5F;
+    margin:2px;
 }
 h1 {
     font-family:'Quicksand',Verdana,sans-serif;

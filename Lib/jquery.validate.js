@@ -758,6 +758,7 @@ $.extend( $.validator, {
 				error.html( message );
 			} else {
 				// create error element
+				
 				error = $( "<" + this.settings.errorElement + ">" )
 					.attr( "id", elementID + "-error" )
 					.addClass( this.settings.errorClass )
@@ -781,6 +782,7 @@ $.extend( $.validator, {
 				// Link error back to the element
 				if ( error.is( "label" ) ) {
 					// If the error is a label, then associate using 'for'
+					$("<br>").insertBefore(error);
 					error.attr( "for", elementID );
 				} else if ( error.parents( "label[for='" + elementID + "']" ).length === 0 ) {
 					// If the element is not a child of an associated label, then it's necessary

@@ -29,3 +29,21 @@
     line-height: 12px;
     display: inline-block;
 }
+
+.popUp
+{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #337AB7;
+    color: #fff;
+    position: absolute;
+    width: 75%;
+    z-index: 40;
+}
+
+.nameAP
+{
+    font-size: 16px;
+    color: #000;
+}

@@ -11,19 +11,22 @@
         if($data_association[$i]['IMAGEPATH'] != '')
         {
             ?>
-            <a <?php echo 'href="index.php?EX=showArticle&idA='.$data_association[$i]['ID'].'"'; ?>
-               style="background-image:url('<?php echo $data_association[$i]['IMAGEPATH']; ?>');">
+            <a class="imgLogo" <?php echo 'data-id="'.$data_association[$i]['ID'].'" href="index.php?EX=showArticle&idA='.$data_association[$i]['ID'].'"'; ?>
+                style="background-image:url('<?php echo $data_association[$i]['IMAGEPATH']; ?>');">
             </a>
             <?php
         }
         else
         {
             ?>
-            <a class="noLogo" <?php echo 'href="index.php?EX=showArticle&idA='.$data_association[$i]['ID'].'"'; ?> >
+            <a class="imgLogo noLogo" <?php echo 'data-id="'.$data_association[$i]['ID'].'" href="index.php?EX=showArticle&idA='.$data_association[$i]['ID'].'"'; ?> >
                 <?php echo '<span>'.$data_association[$i]['NAME'].'</span>'; ?>
             </a>
             <?php
         }
     }
     ?>
+    <div hidden class="popUp"></div>
 </p>
+
+<script src="Js/home.js"></script>
