@@ -37,7 +37,7 @@ if(isset($_GET['error'])) {
 				<label class="control-label">Nom</label>
 				<div class="controls">
 					<input name="NAME" type="text" pattern="[^'\x22\;\.]+" placeholder="Nom" value="<?php echo !empty($name)?$name:'';?>">
-					<span>(Alphabétique)</span>
+					<span>(Format Alphabétique)</span>
 				</div>
 			</div>
 			<div class="control-group">
