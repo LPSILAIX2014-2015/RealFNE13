@@ -140,13 +140,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="control-group">
-                                            <label class="control-label">Thème</label>
-                                            <div class="controls">
-                                                <input name="theme" if="theme" type="text"  placeholder="thème" value="<?= $GLOBALS['user']->getThemeDetails(); ?>">
 
-                                            </div>
-                                        </div>
                                         <div class="control-group">
 
                                             <label for="themes1" class="col-sm-2 control-label">Th&eacute;matique d'expertise</label>
