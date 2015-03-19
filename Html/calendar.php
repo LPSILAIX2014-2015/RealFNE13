@@ -64,7 +64,7 @@ $cal = $mEventCalendar->getEventCalendar();
         });
 
         $('.fc-more').on('click', function() {
-            $('.fc-more-popover').attr('style', 'top: 50%; left: -45%;');
+            $('.fc-more-popover').attr('style', 'top: 25%; left: -45%;');
         });
 });
 </script>
