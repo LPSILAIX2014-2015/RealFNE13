@@ -71,6 +71,7 @@ if(isset($_GET['error'])) {
 				<div class="col-sm-5">
 					<input type="file" id="articleImage" name="articleImage">
 				</div>
+                <p>Le fichier image doit être du format JPEG, JPG ou PNG, et ne doit pas dépasser 3Mo. </p>
 				<input type="hidden" name="max_file_size" value="3145728">
 			</div>
 			<div class="form-actions">
