@@ -93,7 +93,7 @@
         <div class="inputOnlyCalendar form-group" hidden>
             <label for="startDate" class="col-sm-3 control-label">Date et heure de début de l'évènement</label>
             <div class="col-sm-5">
-                <input type="datetime-local" name="startDate" class="form-control" id="startDate" placeholder="jj/mm/aaaa hh/mm">
+                <input type="datetime-local" name="startDate" class="form-control" id="startDate" placeholder="aaaa-mm-jj hh:mm">
             </div>
         </div>
         <div class="inputOnlyCalendar form-group" hidden>
