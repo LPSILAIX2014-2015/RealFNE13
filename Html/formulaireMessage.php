@@ -1,9 +1,9 @@
 <form method="POST" id="formulaire" name="MAIL" action="">
     <fieldset>
 
-        <p><label for="count">Messages envoyés :</label></br>
+        <div><label for="count">Messages envoyés :</label></br>
             <p id="compteur"></p>
-        </p>
+        </div>
 
 		<p>
             <label for="receiver">Destinataire :</label></br>
@@ -35,16 +35,16 @@
             ?>
         </p>
 
-        <p>
+        <div>
             <label for="category">Catégorie :</label></br>
                 <p id="list_categories"></p>
-        </p>
+        </div>
 
 
-        <p>
+        <div>
             <label for="theme">Thématique :</label></br>
                 <p id="list_themes"></p><br><br>
-        </p>
+        </div>
 
         <p>
             <label for="message">Message :</label></br>
