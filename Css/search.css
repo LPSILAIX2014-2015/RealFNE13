@@ -1,4 +1,4 @@
-@import "../Lib/bootstrap.min.css" screen;
+/* @import "../Lib/bootstrap.min.css" screen; */
 .page{
     display:block;
     position:absolute;
@@ -149,4 +149,7 @@ table {
 .search {
     width: 30px;
     text-align: center;
+}
+.table {
+    width:95%;
 }

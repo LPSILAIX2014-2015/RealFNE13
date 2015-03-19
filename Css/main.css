@@ -107,6 +107,10 @@ textarea {
     cursor:url('../Img/cursor17.png'), auto ;
     width:95%;
 }
+input[type="checkbox"] {
+    box-shadow: 2px 2px 1px #0A2D5F;
+    margin:2px;
+}
 h1 {
     font-family:'Quicksand',Verdana,sans-serif;
     font-size:15pt;
