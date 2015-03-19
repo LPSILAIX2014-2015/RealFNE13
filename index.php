@@ -45,6 +45,7 @@ switch($EX)
         break;
     case 'writeMessages' : writeMessages(); break;
     case 'consultMessages' : consultMessages(); break;
+    case 'consultNotices' : consultNotices(); break;
 	case 'sendMessage' : sendMessage(); break;
     case 'endMessages' : endMessages(); break;
     case 'createArticle':   createArticle(); break;
@@ -363,6 +364,15 @@ function deleteAMember()
         }
     }
     function consultMessages()
+    {
+        global $page;
+        $page['title'] = 'Liste des messages';
+        $page['class'] = 'VConsultMessages';
+        $page['method'] = 'showConsultMessages';
+        $page['css'] = 'Css/tableMessages.css';
+        $page['arg'] = 'Html/consultMessages.php';
+    }
+    function consultNotices()
     {
         global $page;
         $page['title'] = 'Liste des messages';

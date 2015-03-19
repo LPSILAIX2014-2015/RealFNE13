@@ -2,7 +2,7 @@
 $vnav = new VNav();
 $vUserInfo = new VUserInfo();
 $vpage = new $page['class']();
-global $connec, $customAlert;
+global $connec, $customAlert,$user;
 $connec = new MDBase();
 $vHtml = new VHtml();
 ?>
