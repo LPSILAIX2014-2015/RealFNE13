@@ -169,7 +169,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($rows) {
             foreach ($rows as $row) {
                 if(!$row['th_name']){
-                    $row['th_name']="<b class='red'>Pas de theme d'intéret</b>";
+                    $row['th_name']="<b class='red'>Pas de theme d'intérêt</b>";
                 }
                 $data.=  '<tr>
                             <td>' . $row['user_name'] .' '. $row['SURNAME'] . '</td>
@@ -239,7 +239,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         else {
 
-            $data.= "<tr><td colspan='7' class='cent'><b class='red'>Pas de resultats</b></td></tr>";
+            $data.= "<tr><td colspan='7' class='cent'><b class='red'>Pas de résultats</b></td></tr>";
             $dataPagination = "";
         }
 
