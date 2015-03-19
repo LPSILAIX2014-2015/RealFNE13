@@ -25,7 +25,7 @@ if(isset($_GET['error'])) {
 }
 
 ?>
-<div class="container">
+<div>
 
 	<div class="span10 offset1">
 		<div class="row">

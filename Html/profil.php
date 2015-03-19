@@ -95,7 +95,7 @@
 								</div>
 							</div>
     </div>
-	
+
 	<br>
 	    <div class="profileChangepass">
                             <a href="#" onclick="view('ch1')" id="btn_changer1"><h3 class="panel-title">Modification de profil</h3></a>
@@ -119,9 +119,10 @@
                                             </div>
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label">Spécialisation</label>
+
+                                            <label class="control-label">Deuxième profession</label>
                                             <div class="controls">
-                                                <input name="profession2" id="profession2" type="text"  placeholder="spécialisation" value="<?= $GLOBALS['user']->getProfession2(); ?>">
+                                                <input name="profession2" id="profession2" type="text"  placeholder="Deuxième profession" value="<?= $GLOBALS['user']->getProfession2(); ?>">
 
                                             </div>
                                         </div>
@@ -141,4 +142,3 @@
     </div>
 
     <script src="./Js/changeImage.js"></script>
-

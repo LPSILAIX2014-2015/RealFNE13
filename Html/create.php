@@ -29,7 +29,7 @@
         header("./index.php?EX=createUser&id=".$id);
     }
 ?>
-    <div class="container">
+    <div>
 
     			<div class="span10 offset1">
     				<div class="row">
