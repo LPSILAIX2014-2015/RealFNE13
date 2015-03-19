@@ -30,6 +30,8 @@ $vHtml = new VHtml();
     <script src="./Js/recMP.js"></script>
     <script src='./Lib/moments.js'></script>
     <script src='./Lib/fullcalendar/fullcalendar.js'></script>
+    <link rel="stylesheet" href="./Lib/fullcalendar/fullcalendar.css">
+
     <script src='./Lib/fullcalendar/lang/fr.js'></script>
 </head>
 <body>

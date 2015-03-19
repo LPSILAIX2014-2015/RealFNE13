@@ -509,7 +509,7 @@ function calendar()
     $page['class'] = 'VCalendar';
     $page['method'] = 'showCalendar';
     $page['arg'] = 'Html/calendar.php';
-    $page['css'] = 'Lib/fullcalendar/fullcalendar.css';
+    $page['css'] = 'Css/calendar.css';
 }
 
 function sendMessage()
