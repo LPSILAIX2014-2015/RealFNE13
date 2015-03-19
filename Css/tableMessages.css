@@ -1,3 +1,17 @@
+table {
+	font-size: 12px;
+	width:540px;
+}
+
+tbody tr:nth-child(odd) { 
+	background-color:#eee;
+}
+
+.lineMessage {
+	text-align: center;
+}
+
+
 .contentMessage {
 	display: none;
 	max-width: 320px;
@@ -7,10 +21,12 @@
 	font-weight: bold;
 }
 .SENDER_MESSAGE {
-	width: 140px;
+	width: 100px;
+	text-align: center;
 }
 .DATE_MESSAGE {
-	width: 85px;
+	width: 65px;
+	text-align: center;
 }
 .DATE_NOTIF {
 	width: 85px;
@@ -18,25 +34,18 @@
 .BUTTON_MESSAGE {
 	width: 45px;
 }
-.CATEGORY_MESSAGE {
-	width: 100px;
-}
-.THEME_MESSAGE {
-	width: 100px;
-}
-.btnOptions {
-	display: none;
-	margin-top: 5px;
-}
-.btnOptions button {
-	margin: 5px 0;
+
+td button {
+	font-size: 12px;
+	width: 65px;
 }
 .divArchiveMessages {
 	display: none;
 }
 
 .TITLE_MESSAGE {
-	width: 250px;
+	width: 220px;
+	text-align: center;
 }
 
 .NOTIFICATION_NOTIF {

@@ -1,14 +1,22 @@
-"Barrages hydroliques";ADMIN;FrancisA;DupondA;francisA@truc.fr;"01 Quelque part";19000;"Ing√©nieur Eau";
-Plantations;ADMIN;FrancisB;DupondB;francisB@truc.fr;"02 Quelque part";29000;"Ing√©nieur Terre";
-;ADMIN;FrancisC;DupondC;francisC@truc.fr;"03 Quelque part";39000;"Ing√©nieur Air";
-"Super Ma√Ætre";SADMIN;FRANCK;SADMIN;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurSA;Esclave
-"Super Ma√Ætre";ADMIN;FRANCK;ADMIN;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurA;Esclave
-"Super Ma√Ætre";ADMIN;FRANCK;MEMBRE;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
-Infirmerie;MEMBRE;HuguetteA;DupontA;huguetteA@machin.com;"11 Highway to hell";13001;Infirmi√®re;Retrait√©e
-;MEMBRE;HuguetteB;DupontB;huguetteB@machin.com;"22 Highway to hell";13002;Secr√©taire;Retrait√©e
-;VALIDATOR;HuguetteC;DupontC;huguetteC@machin.com;"33 Highway to hell";13003;Chirurgienne;Retrait√©e
+;MEMBRE;ARNAUD;SADMIN;sm@bondage.Com;;69666;"videur de ballons gonflables";"marchand de vent"
+"Super MaÓtre";SADMIN;ARNAUD;SADMIN;arnaud.chiffe@gmail.com;SOMEWHERE;13000;TesteurSA;Esclave
+"Super MaÓtre";ADMIN;ARNAUD;ADMIN;arnaud.chiffe@gmail.com;SOMEWHERE;13000;TesteurA;Esclave
+"Super MaÓtre";MEMBRE;ARNAUD;MEMBRE;arnaud.chiffe@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
+;VALIDATOR;ARNAUDi;VALIDATORi;arnaud.chiffe@gmail.com;SOMEWHERE;30650;TesteurV;"Distributeur de sourires"
+;VALIDATOR;Charly;Henry;giordano.pascal@live.fr;;0;;
+;MEMBER;denver;barnabe;enjoy@chiale.com;;69666;"congeleur d""enfants ";"mangeur d'enfant"
+;MEMBRE;dilan;bob;tag@ueuk.woodstock.com;;0;;
+;MEMBRE;dupond;dupond;dupont@dupond;;0;;
+;MEMBRE;dupond;dupond;dupond@dupond.fre;;0;;
+"Super MaÓtre";SADMIN;FRANCK;SADMIN;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurSA;Esclave
+"Super MaÓtre";ADMIN;FRANCK;ADMIN;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurA;Esclave
+"Super MaÓtre";MEMBRE;FRANCK;MEMBRE;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
+"Super MaÓtre";VALIDATOR;FRANCK;VALIDATOR;franck.amofa@gmail.com;SOMEWHERE;13000;TesteurV;Esclave
+;ADMIN;FRANCK;AMOFA;franck.amofa@gmail.com;;84000;Directeur;
+;ADMIN;"lhomme a abattre";terminator;vins.fisch@gmail.com;;0;;
 ;SADMIN;Nicolas;Damien;nicolas.damien@truc.fr;"33 Somewhere over the rainbow";13000;Directeur;
-"Super Ma√Ætre";SADMIN;VINCENT;SADMIN;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurSA;Esclave
-"Super Ma√Ætre";ADMIN;VINCENT;ADMIN;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurA;Esclave
-"Super Ma√Ætre";MEMBER;VINCENT;MEMBRE;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
-
+;MEMBRE;test15;test15;f549524@trbvm.com;"rue du test";13150;Testeur;
+"Super MaÓtre";SADMIN;VINCENT;SADMIN;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurSA;Esclave
+"Super MaÓtre";ADMIN;VINCENT;ADMIN;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurA;Esclave
+"Super MaÓtre";MEMBRE;VINCENT;MEMBRE;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurM;Esclave
+"Super MaÓtre";VALIDATOR;VINCENT;VALIDATOR;vins.fisch@gmail.com;SOMEWHERE;13000;TesteurV;Esclave
