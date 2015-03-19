@@ -6,7 +6,7 @@
         </p>
 
 		<p>
-            <label for="receiver">Destinataire :</label>
+            <label for="receiver">Destinataire :</label></br>
 			<?php
 			//Il faut qu'en utilisant la recherche de membre, en cliquant sur "envoyer un message à un membre", le pseudo du membre soit transmis au formulaire et écrit automatiquement dans "Destinataire"
 			if (isset($_GET['dest']))
