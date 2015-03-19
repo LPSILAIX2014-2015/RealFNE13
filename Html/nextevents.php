@@ -3,7 +3,7 @@
  * @author <loubna EL MARNAOUIi>
  */
 $sql = new MDBase();
-$query = "SELECT DISTINCT ID, TITLE, PDATE FROM POST WHERE STATUS=1 AND DATE_BEGIN IS NOT NULL ORDER BY(PDATE) DESC";
+$query = "SELECT DISTINCT ID, TITLE, PDATE FROM POST WHERE STATUS=1 AND DATE_BEGIN >= Now() ORDER BY(PDATE) DESC";
 
 $resultatultquery = $sql->prepare($query);
 
