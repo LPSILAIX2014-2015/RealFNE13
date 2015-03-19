@@ -4,6 +4,7 @@ $db=new MDBase();
 
 //Préparation des requêtes SQL
 $fil = 0;
+
 if (( (isset($_SESSION)) && ($_SESSION['ROLE'] == 'SADMIN')) )
 {
         if (isset($_GET["FILTER"]) && $_GET["FILTER"] == '1') { $fil = 1; }
@@ -13,6 +14,7 @@ if (( (isset($_SESSION)) && ($_SESSION['ROLE'] == 'SADMIN')) )
         $str1= "SELECT P.*, P.PTYPE, U.NAME, U.ASSOCIATION_ID, U.SURNAME, DATE_FORMAT(P.PDATE, '%d/%m/%Y') AS PDATE
                 FROM POST P, USER U
                 WHERE P.STATUS=".$fil."
+                AND P.WRITER_ID = U.ID
                 AND P.PTYPE='ARTICLE' ";
 
 
@@ -83,6 +85,7 @@ if ((isset($_SESSION)) && ($_SESSION['ROLE'] == 'SADMIN'))
     $sttt = $db->prepare($str1);
     $sttt->execute();
     $data_article = $sttt->fetchAll(PDO::FETCH_ASSOC); //Récupération des articles
+
 ?>
 
     <!-- INSTALLATION DE LA MISE EN PAGE -->
@@ -108,8 +111,11 @@ if ((isset($_SESSION)) && ($_SESSION['ROLE'] == 'SADMIN'))
         <?php
    //Affichage des articles
 
+
+
     for($i = 0 ; $i < count($data_article) ; ++$i)
     {
+
         //Remplacement des balises dans l'article par du texte
 
         if(strlen($data_article[$i]['CONTENT']) > 250) {
@@ -307,7 +313,7 @@ else{
 
 }
 
-            }
+
 
 
 
@@ -323,6 +329,7 @@ else{
 
 
 <?php
+}
 
 
 /*
