@@ -224,7 +224,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             foreach ($rows as $row) {
                 if(!$row['theme_name'])
                 {
-                    $row['theme_name']= "<b class='red'>Pas de theme d'interest</b>";
+                    $row['theme_name']= "<b class='red'>Pas de theme d'intérêt</b>";
                 }
                 $data.= '<tr>
                             <td>' . $row['user_name'] . ' ' . $row['SURNAME'] . '</td>
