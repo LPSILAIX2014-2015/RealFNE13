@@ -107,9 +107,9 @@
 
             $state->execute();
 
+            //$temp return the ID of the last row inserted
             $temp = $sql->lastInsertId();
 
-            //$temp return the ID of the last row inserted
             $sql->commit();
         
             return $temp; 

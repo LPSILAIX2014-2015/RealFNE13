@@ -23,17 +23,40 @@ class MCommentaire {
             $date = $results[$i]["COM_DATE"];
             $dateFormat = new DateTime($date);
             $results[$i]["COM_DATE"] = $dateFormat->format('d/m/Y H:i:s');
+
+            $lastEdit = $results[$i]["LAST_EDITION"];
+            $lastEditFormat = new DateTime($lastEdit);
+            $results[$i]["LAST_EDITION"] = $lastEditFormat->format('d/m/Y H:i:s');
         }
 
         return $results;
     }
 
     public function addCommentairePost($idPost, $content) {
-        $state = $this->sql->prepare("INSERT INTO COMMENTAIRE(WRITER_ID,POST_ID,CONTENT) VALUES (:ID,:ID_POST,:CONTENT)");
+        $state = $this->sql->prepare("INSERT INTO COMMENTAIRE(WRITER_ID,POST_ID,CONTENT) VALUES (:WRITER_ID,:ID_POST,:CONTENT)");
 
-        $state->bindValue('ID', $_SESSION['ID_USER'], PDO::PARAM_INT);
+        $state->bindValue('WRITER_ID', $_SESSION['ID_USER'], PDO::PARAM_INT);
         $state->bindValue('ID_POST', $idPost, PDO::PARAM_INT);
         $state->bindValue('CONTENT', $content, PDO::PARAM_STR);
+        return $state->execute();
+    }
+
+    public function deleteCommentaire($idcom) {
+        $state = $this->sql->prepare("DELETE FROM COMMENTAIRE WHERE ID = :ID");
+
+        $state->bindValue('ID', $idcom, PDO::PARAM_INT);
+        return $state->execute();
+    }
+
+    public function updateCommentaire($idcom, $content) {
+        $state = $this->sql->prepare("UPDATE COMMENTAIRE 
+                                      SET CONTENT = :CONTENT,
+                                          LAST_EDITION = :LAST_EDITION
+                                      WHERE ID = :ID ");
+
+        $state->bindValue('ID',      $idcom, PDO::PARAM_INT);
+        $state->bindValue('CONTENT', $content, PDO::PARAM_STR);
+        $state->bindValue('LAST_EDITION', date("Y-m-d H:i:s"), PDO::PARAM_STR);
         return $state->execute();
     }
 }
