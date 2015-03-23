@@ -362,11 +362,13 @@ else if ( (isset($_SESSION)) && ( ($_SESSION['ROLE'] == 'ADMIN') || ($_SESSION['
 
 if($fil==0) {
     echo "<input class='butt_valid' var='".$data_article[$i]['ID']."' type='submit' value='Validation'>";
+
     echo "<input class='butt_suppr' var='".$data_article[$i]['ID']."' type='submit' value='Suppression'>";
 
 }
 else{
     echo "<input class='butt_suppr' var='".$data_article[$i]['ID']."' type='submit' value='Suppression'>";
+
 }
 
 

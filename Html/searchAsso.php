@@ -55,7 +55,7 @@
 
 ?>
 
-<div class="container">
+<div class="">
     <div class="row">
         <h3>FNESITE</h3>
     </div>
@@ -126,7 +126,7 @@
                 </tr>
             </thead>
             <tbody>
-                
+
                 <?php
                 if ( isset($_POST['NAME'])) {
                     $conditions = array();
@@ -159,7 +159,7 @@
                         echo '</td>';
                         echo '</tr>';
                     }
-                    
+
                 }else {
 
                     $sql = 'SELECT * FROM ASSOCIATION order by NAME ASC';

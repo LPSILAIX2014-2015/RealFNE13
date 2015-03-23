@@ -9,13 +9,15 @@ class MGenNewL extends FPDF
 	 */
 	function Header()
 	{
-		$this->Image('./Img/logo.png',20,16);
+		$this->SetFillColor(75, 201, 226);
+		$this->Rect(0, 0, 210, 30, 'F');
+		$this->Image('./Img/headerbg.png',150,0,60,30);
+		//$this->Image('./Img/logo.png',12,7);
 		$this->SetFont('Arial','B',20);
-		$this->setTextColor(0,0,0);
-		$this->Cell(35);
-		$this->Cell(100,10, utf8_decode('Newsletter de '.$this->month." ".$this->mYear[0]),0,1,'C');
+		$this->setTextColor(244,244,244);
+		$this->Cell(0,-10, utf8_decode('Newsletter de '.$this->month." ".$this->mYear[0]),0,1,'C');
 		$this->SetFont('Arial','B',15);
-		$this->Cell(0,10, utf8_decode('La Plateforme FNE13'),0,1,'C');
+		$this->Cell(0,20, utf8_decode('La Plateforme FNE13'),0,1,'C');
 		$this->Ln(4);
 	}
 	/**
@@ -23,10 +25,12 @@ class MGenNewL extends FPDF
 	 */
 	function Footer()
 	{
+		$this->SetFillColor(51, 122, 183);
+		$this->Rect(0, 287, 210, 10, 'F');
 		$this->SetY(-15);
 		$this->SetFont('Arial','I',8);
-		$this->setTextColor(0,0,0);
-		$this->Cell(0,10,'Page '.$this->PageNo().' de {nb}',0,0,'C');
+		$this->setTextColor(255,255,255);
+		$this->Cell(0,20,'Page '.$this->PageNo().' sur {nb}',0,0,'C');
 	}
 	/**
 	 * [searchInfo Mèthode pour obtenir l'information par le newsletter]
@@ -35,10 +39,11 @@ class MGenNewL extends FPDF
 	 */
 	function searchInfo($assoN){
 		$sql = new MDBase();
-	    $query = "SELECT POST.ID POST_ID,TITLE,PDATE,CONTENT,POST.IMAGEPATH, USER.NAME USER_NAME, ASSOCIATION.NAME ASSO_NAME
+	    $query = "SELECT POST.ID POST_ID,TITLE,PDATE,CONTENT,POST.IMAGEPATH, USER.NAME USER_NAME, ASSOCIATION.NAME ASSO_NAME, THEME.NAME TNAME
 	    	FROM POST INNER JOIN USER ON POST.WRITER_ID=USER.ID INNER JOIN ASSOCIATION ON USER.ASSOCIATION_ID=ASSOCIATION.ID 
+	    	INNER JOIN THEME ON POST.THEME_ID=THEME.ID
 	    	WHERE SUBSTRING(PDATE,1,7)='".$this->get['data']."' 
-	    	AND STATUS=1 AND PTYPE='ARTICLE' AND ASSOCIATION.NAME='$assoN' ORDER BY ASSOCIATION.NAME, PDATE DESC LIMIT 2";
+	    	AND STATUS=1 AND PTYPE='ARTICLE' AND ASSOCIATION.NAME='$assoN' ORDER BY ASSOCIATION.NAME, PDATE DESC LIMIT 3";
 
 	    $result = $sql->prepare($query);
 
@@ -94,57 +99,97 @@ class MGenNewL extends FPDF
 		$unique = array_unique($asso);
 		$arrayID = array_keys($unique);
 		# Nous etablisons les margins (haut, gauche et droite)
-		$this->SetMargins(25, 20 , 25); 
+		$this->SetMargins(15, 20 , 15); 
 
 		# Nous etablisons le margin en bas
 		$this->SetAutoPageBreak(true,20);
 		$this->AliasNbPages();
 		$this->AddPage();
 		# Entete 
-		$this->SetFont('Times','B',16);
+		$this->SetFont('Times','B',14);
 		$this->setTextColor(20,79,152);
-		$this->Cell(0,5,utf8_decode("Ceux-ci sont les articles les plus récents dans la plateforme : "),0,1,'L');
+
+		$this->Cell(0,5,utf8_decode("Ceux-ci sont les articles les plus récents dans la plateforme : "),0,1,'C');
 		$this->Ln();
 		for ($a=0; $a < count($unique); $a++) {
 			# Data
 			$dataN = $this->searchInfo($unique[$arrayID[$a]]);
-			
-			for ($b=0; $b < count($dataN); $b++) { 
-				if ($dataN[$b]['IMAGEPATH']=='' || $dataN[$b]['IMAGEPATH']==null) {
+			$this->SetFont('Times','B',16);
+			$this->setTextColor(20,79,255);
+			$this->Cell(0,5,utf8_decode("Association : ".$unique[$arrayID[$a]]),0,1,'C');
+			$this->Ln();
+			for ($b=0; $b < count($dataN); $b++) {
+                if ($dataN[$b]['IMAGEPATH']=='' || $dataN[$b]['IMAGEPATH']==null || (!file_exists($dataN[$b]['IMPAGEPATH']))) {
+					# Image
+					$this->Image('./Img/no-image.gif', $this->GetX(), $this->GetY()+3,30,30,'', 'http://dev.laplateformefne13.fr/index.php?EX=showInfoArticle&id='.$dataN[$b]['POST_ID']);
+					# Space
+					$this->setX(47);
+					$this->Cell(0,5,"",'LRT',1,'L');
 					# Title
+					$this->setX(47);
 					$this->SetFont('Times','B',16);
 					$this->setTextColor(178,54,112);
-					$this->Cell(0,7,utf8_decode($dataN[$b]['TITLE']),0,1,'C');
-					$this->Ln();
-					# Image
-						$this->Image('./Img/logo.png', 90, null, 30, 30);
+					$this->Cell(0,5,utf8_decode($dataN[$b]['TITLE']),'LR',2,'L',false, 'http://dev.laplateformefne13.fr/index.php?EX=showInfoArticle&id='.$dataN[$b]['POST_ID']);
 				    # Author et Asso
-					$this->SetFont('Times','I',9);
+				    $this->setX(47);
+					$this->SetFont('Times','I',10);
 					$this->setTextColor(130,120,225);
-					$this->Cell(0,5,utf8_decode("Écrit par : ".$dataN[$b]['USER_NAME']." - ".$dataN[$b]['ASSO_NAME']." le ".date("d-m-Y",strtotime($dataN[$b]['PDATE']))),0,1,'C');
-					$this->Ln();
+					$this->Cell(0,5,utf8_decode("Écrit par : ".$dataN[$b]['USER_NAME']." - ".$dataN[$b]['ASSO_NAME']." le ".date("d-m-Y",strtotime($dataN[$b]['PDATE']))),'LR',2,'L');
+					# Theme
+					$this->setX(47);
+					$this->Cell(0,5,utf8_decode("Thematique: ".$dataN[$b]['TNAME']),'LR',1,'L');
 					# Content
+					$this->setX(47);
 					$this->SetFont('Times','',12);
 					$this->setTextColor(101,101,101);
-					$this->MultiCell(0,5,$dataN[$b]['CONTENT']);
+
+					$this->MultiCell(0,5,strip_tags(html_entity_decode(utf8_decode($dataN[$b]['CONTENT']))),'LR');
+
+					# Link
+					$this->setX(47);
+					$this->SetFillColor(163, 207, 234);
+					$this->SetFont('Times','B',11);
+					$this->setTextColor(12,80,145);
+					$this->Cell(0,5,utf8_decode("Afficher sur le site web ->").$this->Rect($this->GetX(), $this->GetY(), 45, 5, 'F'),'LR',1,'L',false,'http://dev.laplateformefne13.fr/index.php?EX=showInfoArticle&id='.$dataN[$b]['POST_ID']);
+					$this->setX(47);
+					$this->Cell(0,5,"",'LRB',1,'L');
+					# Space Line
+					$this->Image('./Img/separator.png', 36, null,150);
 					$this->Ln();
 				} else {
+					# Image
+					$this->Image($dataN[$b]['IMAGEPATH'], $this->GetX(), $this->GetY()+3,30,30,'', 'http://dev.laplateformefne13.fr/index.php?EX=showInfoArticle&id='.$dataN[$b]['POST_ID']);
+					# Space
+					$this->setX(47);
+					$this->Cell(0,5,"",'LRT',1,'L');
 					# Title
+					$this->setX(47);
 					$this->SetFont('Times','B',16);
 					$this->setTextColor(178,54,112);
-					$this->Cell(0,7,utf8_decode($dataN[$b]['TITLE']),0,1,'C');
-					$this->Ln();
-					# Image
-					$this->Image($dataN[$b]['IMAGEPATH'], 90, null, 30, 30);	
+					$this->Cell(0,5,utf8_decode($dataN[$b]['TITLE']),'LR',2,'L',false, 'http://dev.laplateformefne13.fr/index.php?EX=showInfoArticle&id='.$dataN[$b]['POST_ID']);
 				    # Author et Asso
-					$this->SetFont('Times','I',9);
+				    $this->setX(47);
+					$this->SetFont('Times','I',10);
 					$this->setTextColor(130,120,225);
-					$this->Cell(0,5,utf8_decode("Écrit par : ".$dataN[$b]['USER_NAME']." - ".$dataN[$b]['ASSO_NAME']." le ".date("d-m-Y",strtotime($dataN[$b]['PDATE']))),0,1,'C');
-					$this->Ln();
+					$this->Cell(0,5,utf8_decode("Écrit par : ".$dataN[$b]['USER_NAME']." - ".$dataN[$b]['ASSO_NAME']." le ".date("d-m-Y",strtotime($dataN[$b]['PDATE']))),'LR',2,'L');
+					# Theme
+					$this->setX(47);
+					$this->Cell(0,5,utf8_decode("Thematique: ".$dataN[$b]['TNAME']),'LR',1,'L');
 					# Content
+					$this->setX(47);
 					$this->SetFont('Times','',12);
 					$this->setTextColor(101,101,101);
-					$this->MultiCell(0,5,$dataN[$b]['CONTENT']);
+					$this->MultiCell(0,5,strip_tags(html_entity_decode(utf8_decode($dataN[$b]['CONTENT']))),'LR');
+					# Link
+					$this->setX(47);
+					$this->SetFillColor(163, 207, 234);
+					$this->SetFont('Times','B',11);
+					$this->setTextColor(12,80,145);
+					$this->Cell(0,5,utf8_decode("Afficher sur le site web ->").$this->Rect($this->GetX(), $this->GetY(), 45, 5, 'F'),'LR',1,'L',false,'http://dev.laplateformefne13.fr/index.php?EX=showInfoArticle&id='.$dataN[$b]['POST_ID']);
+					$this->setX(47);
+					$this->Cell(0,5,"",'LRB',1,'L');
+					# Space Line
+					$this->Image('./Img/separator.png', 36, null,150);
 					$this->Ln();
 				}
 			}

@@ -11,7 +11,7 @@
 	$member = new MUser($id);
 
 ?>
-    <div class="container">
+    <div class="">
 
     			<div class="span10 offset1">
     				<div class="row">

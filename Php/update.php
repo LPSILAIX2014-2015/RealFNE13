@@ -26,5 +26,12 @@
         $sql = "UPDATE USER  set NAME = ?, SURNAME = ?, CP = ?, PROFESSION =?, PROFESSION2 = ?, THEME_ID = ?, THEME_INTEREST_ID = ?, THEME_DETAILS = ?, PRESENTATION = ?, PHOTOPATH = ? WHERE ID = ?";
         $q = $pdo->prepare($sql);
         $q->execute(array($name, $surname, $cp, $profession, $profession2, $theme, $theme2, $themedetails, $presentation, $photo_dir, $id));
+				$mNotification = new MNotification();
+
+				// $receiver_id ==> id de l'User
+				// $content ==> contenu de la notification
+				$content= 'Vos informations ont été modifiées par votre administrateur. En cas de problème, veuillez le contacter';
+				$mNotification->sendNotificationToUser($id, $content);
+
         header("Location: ./index.php?EX=manageMembers");
     }

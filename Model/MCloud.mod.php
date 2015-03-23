@@ -135,13 +135,14 @@ class MCloud {
             
             $content_Cloud .= '<td class="currentTdMessage">'.$this->getPercent($data_cloud[$i]['SIZE']).'%</td>';
             $content_Cloud .= '<td class="trCenter currentTdMessage">'.$data_cloud[$i]['SURNAME_USER']." ".$data_cloud[$i]['NAME_USER'].'</td>';
-            $content_Cloud .= '<td class="currentTdMessage">'.$data_cloud[$i]['PATH_FILE'].'</td>';
+            $content_Cloud .= '<td class="currentTdMessage">'.substr(substr($data_cloud[$i]['PATH_FILE'], -30), 5).'</td>';
             $content_Cloud .= '<td class="currentTdMessage">'.$data_cloud[$i]['CDATE'].'</td>';
 
             $content_Cloud .= '
             <td>
                 <a target="_blank" href="index.php?EX=downloadCloud&id='.$data_cloud[$i]['ID'].'"><button title="Télécharger" class="buttonDownloadCloud">Télécharger</button></a>
                 <button title="Supprimer" class="buttonDeleteCloud">Supprimer</button>
+                <button data-url="'.$data_cloud[$i]['PATH_FILE'].'" title="Copier l\'URL" class="buttonCopyUrl">Copier l\'URL</button>
             </div>';
             $content_Cloud .= '</td>';       
 

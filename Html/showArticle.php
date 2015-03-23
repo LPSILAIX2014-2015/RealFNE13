@@ -1,3 +1,4 @@
+
 <?php
 global $data_article;
 global $data_assoc;
@@ -55,7 +56,7 @@ function afficheArticle($indexArticle) {
 }
 ?>
 
-<div class="container-fluid pvarticle">
+<div class="pvarticle">
 
 	<div class="filter">
 		<select id="filterASSOC">
@@ -118,13 +119,14 @@ function afficheArticle($indexArticle) {
 	<h1>Liste des articles</h1>
 
 	<?php
-	
+
 			for($i = 0 ; $i < $nbArticles ; ++$i)
-			{ 
+			{
 				afficheArticle($i);
 			}
-		
+
 	?>
 </div>
 <div id='pagination' class='compact-theme simple-pagination'></div>
 <script type="text/javascript" src="Js/showInfoArticle.js"></script>
+

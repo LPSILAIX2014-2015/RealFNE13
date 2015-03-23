@@ -5,11 +5,10 @@ class MDBase extends PDO {
     private static $engine = 'mysql';
 
     //Site LOCAL
-
     private static $dbName = 'FNESITE' ;
     private static $dbHost = 'localhost' ;
     private static $dbUsername = 'root';
-    private static $dbUserPassword = 'mysql';
+    private static $dbUserPassword = '';
     private static $cont  = null;
 
     //Site DEV
@@ -59,7 +58,7 @@ class MDBase extends PDO {
     {
         $pdo = self::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = "SELECT * FROM ASSOCIATION";
+        $query = "SELECT * FROM ASSOCIATION ORDER BY NAME";
         $qq = $pdo->prepare($query);
         $qq->execute();
         $data = $qq->fetchall();

@@ -23,7 +23,7 @@
     <div class="col-md-8 col-md-offset-2" id="buttonCreationArticle">
 
         <button id="buttonCreateArticle" type="button" class="btn btn-primary buttonCreate">Créer un Article</button>
-        <button id="buttonCreateArticleInCalendar" type="button" class="btn btn-primary buttonCreate">Créer un Article lié à un évènements</button>
+        <button id="buttonCreateArticleInCalendar" type="button" class="btn btn-primary buttonCreate">Créer un Article lié à un évènement</button>
  
     </div>
 </div>
@@ -36,7 +36,7 @@
                                              ------------------------------
      -->
 
-    <form id="formArticle" class="form-horizontal" role="form" action="index.php?EX=formCreateArticle" method="POST" enctype="multipart/form-data">
+    <form id="formArticle" class="form-horizontal" role="form" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="articleTitle" class="col-sm-3 control-label">Titre de l'article</label>
             <div class="col-sm-5">
@@ -56,7 +56,7 @@
                 $values = $Themes->getAllThemes();
                 $option = "";
 
-                //Les values des options du select correspondront aux IDs, Les textex aux NAMEs
+                //Les values des options du select correspondront aux IDs, Les textes aux NAMEs
                 for($i = 0 ; $i < count($values) ; ++$i)
                 {
                     $option.= '<option value="'.$values[$i]['ID'].'">'.$values[$i]['NAME'].'</option>';
@@ -76,7 +76,7 @@
         </div>
         
         <!-- control max size of images (10MB max) -->
-        <input type="hidden" name="max_file_size" value="10485760">
+        <input type="hidden" name="max_file_size" value="5485760">
 
         <!-- 
                                      ------------------------------------------------------
@@ -93,7 +93,7 @@
         <div class="inputOnlyCalendar form-group" hidden>
             <label for="startDate" class="col-sm-3 control-label">Date et heure de début de l'évènement</label>
             <div class="col-sm-5">
-                <input type="datetime-local" name="startDate" class="form-control" id="startDate" placeholder="jj/mm/aaaa hh/mm">
+                <input type="datetime-local" name="startDate" class="form-control" id="startDate" placeholder="aaaa-mm-jj hh:mm">
             </div>
         </div>
         <div class="inputOnlyCalendar form-group" hidden>
@@ -160,6 +160,9 @@
                     <button class ="btn btn-default" type="button" onclick="insertTag('<aligne valeur=&quot;droite&quot;>', '</aligne>');">
                         <span class="glyphicon glyphicon-align-right" aria-hidden="true"></span>
                     </button>
+                </span>
+                <span class="btn-group" style="margin-left:10px">
+                    <button type="button" id="btnHelp">Besoin d'aide?</button>
                 </span>
             </p>
         </div>

@@ -37,12 +37,11 @@ class MConsultMessage {
 
         $content_messages = "";
 
-
         for($i = 0 ; $i < count($data_messages) ; ++$i)
         {
             if($data_messages[$i]['ISARCHIVE'] == "0")
             {
-                $content_messages .= '<tr  class="lineMessage'; 
+                $content_messages .= '<tr data-bool="1" class="lineMessage'; 
                 if($data_messages[$i]['ISREAD'] == "0")
                 {
                     $content_messages .= ' notReaded';
@@ -54,16 +53,14 @@ class MConsultMessage {
                 
                 $content_messages .= '<td class="currentTdMessage">'.$data_messages[$i]['SENDER_NAME'].' '.$data_messages[$i]['SENDER_SURNAME'].'</td>';
                 $content_messages .= '<td class="currentTdMessage">'.$data_messages[$i]['TITLE'];       
-                $content_messages .= '<pre class="contentMessage">'.$data_messages[$i]['CONTENT'].'</pre></td>';        
+                $content_messages .= '<div class="contentMessage">'.$data_messages[$i]['CONTENT'].'</div></td>';        
                 $content_messages .= '<td class="currentTdMessage">'.$data_messages[$i]['SENDDATE'].'</td>';
 
 
                 $content_messages .= '<td>
-                <button title="Détail" data-bool="1" class="buttonShowMessages">Détail</button>
-                <div class="btnOptions">
+                    <button data-bool="1" hidden title="Détail"  class="buttonShowMessages">Détail</button>
                     <button title="Supprimer" class="buttonDeleteMessages">Supprimer</button>
                     <button title="Archiver" class="buttonArchivateMessages">Archiver</button>
-                </div>
             </td>';       
 
 
@@ -81,7 +78,7 @@ public function displayMessagesArchive($data_messages) {
     {
         if($data_messages[$i]['ISARCHIVE'] == "1")
         {
-            $content_messages_archive .= '<tr  class="lineMessage'; 
+            $content_messages_archive .= '<tr data-bool="1" class="lineMessage'; 
             if($data_messages[$i]['ISREAD'] == "0")
             {
                 $content_messages_archive .= ' notReaded ';
@@ -93,17 +90,15 @@ public function displayMessagesArchive($data_messages) {
             
             $content_messages_archive .= '<td class="currentTdMessage">'.$data_messages[$i]['SENDER_NAME'].' '.$data_messages[$i]['SENDER_SURNAME'].'</td>';
             $content_messages_archive .= '<td class="currentTdMessage">'.$data_messages[$i]['TITLE'];       
-            $content_messages_archive .= '<pre class="contentMessage">'.$data_messages[$i]['CONTENT'].'</pre></td>';        
+            $content_messages_archive .= '<div class="contentMessage">'.$data_messages[$i]['CONTENT'].'</div></td>';        
             $content_messages_archive .= '<td class="currentTdMessage">'.$data_messages[$i]['SENDDATE'].'</td>';
 
 
             $content_messages_archive .= '
             <td>
-                <button title="Détail" data-bool="1" class="buttonShowMessages">Détail</button>
-                <div class="btnOptions">
+                    <button data-bool="1" hidden title="Détail"  class="buttonShowMessages">Détail</button>
                     <button title="Supprimer" class="buttonDeleteMessages">Supprimer</button>
                     <button title="Annuler l\'archive" class="buttonUnArchivateMessages">Rétablir</button>
-                </div>
             </td>';       
 
 

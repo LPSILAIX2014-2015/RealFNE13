@@ -1,6 +1,6 @@
-function showMassageError(errorValue){ // Pesentation de fenetre emergente pour les erreurs et succès
+﻿function showMassageError(errorValue){ // Pesentation de fenetre emergente pour les erreurs et succès
     var p = document.createElement('p');
-    p.innerHTML='Vous devez renseigner le champ suivant : ';
+    p.innerHTML='Message : ';
 
     var window = document.getElementById('result');
     window.appendChild(p);
@@ -69,7 +69,7 @@ function insertCH () {
     });
 }
 function errorCH () {
-    document.getElementById("chP").innerHTML='Le mot de passe ingresé ne correspond pas a votre profile!!';
+    document.getElementById("chP").innerHTML='Le mot de passe saisi ne correspond pas a votre profil !';
     document.getElementById('act_pass').focus();
     $(document).ready(function(){
         $('#act_pass').addClass('norequired');
@@ -85,10 +85,10 @@ function mailErr(){
         $('#mailR').attr('aria-invalid','true');
         $('#mailR-error').remove();
     });
-    showMassageError('Il n\'y a pas un account liée à cette mail !!!');
+    showMassageError('Il n\'y a pas de compte lié à cet e-mail !');
     document.getElementById('mailR').focus();
 }
 function mailMod(){
-    showMassageError('Il n\'y a pas un account liée à cette mail!!!');
+    showMassageError('Il n\'y a pas de compte lié à cet e-mail !');
     document.getElementById('mail').focus();
 }
