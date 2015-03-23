@@ -128,5 +128,5 @@ function afficheArticle($indexArticle) {
 	?>
 </div>
 <div id='pagination' class='compact-theme simple-pagination'></div>
-
 <script type="text/javascript" src="Js/showInfoArticle.js"></script>
+

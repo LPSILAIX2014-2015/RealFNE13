@@ -17,8 +17,6 @@ if (( (isset($_SESSION)) && ($_SESSION['ROLE'] == 'SADMIN')) )
                 AND P.WRITER_ID = U.ID
                 AND P.PTYPE='ARTICLE' ";
 
-
-
 }
 
 else if ( (isset($_SESSION)) && ( ($_SESSION['ROLE'] == 'ADMIN') || ($_SESSION['ROLE'] == 'VALIDATOR')) ) {
@@ -51,6 +49,8 @@ $rez = $ret_stat->fetch(PDO::FETCH_ASSOC);
 
 $nombreDePages=ceil($rez["TOT"]/10);
 
+
+
 if(isset($_GET['page'])) // Si la variable $_GET['page'] existe...
 {
     $pageActuelle=intval($_GET['page']);
@@ -82,7 +82,7 @@ if ((isset($_SESSION)) && ($_SESSION['ROLE'] == 'SADMIN'))
     global $data_assoc;
 
     // La requête sql pour récupérer les messages de la page actuelle.
-    $sttt = $db->prepare($str1);
+    $sttt = $db->prepare($sql);
     $sttt->execute();
     $data_article = $sttt->fetchAll(PDO::FETCH_ASSOC); //Récupération des articles
 
@@ -203,12 +203,70 @@ else{
 
 */
     }
+
     ?>
 
 </div>
-<div id='pagination' class='compact-theme simple-pagination'></div>
 
-<script type="text/javascript" src="Js/showInfoArticle.js"></script>
+    <ul class="pagination">
+<?php
+
+if($nombreDePages < 10) {
+    for($i=1; $i<=$nombreDePages; $i++) //On fait notre boucle
+    {
+
+    //On va faire notre condition
+    if($i==$pageActuelle) //Si il s'agit de la page actuelle...
+    {
+    echo ' <li> '.$i.' </li> ';
+    }
+
+    else //Sinon...
+    {
+    echo ' <li>
+     <a href="index.php?EX=validArticle&page='.$i.'">'.$i.'</a> </li>';
+
+
+    }
+
+    }
+}
+
+else {
+    for($i=1; $i<=$pageActuelle+5; $i++) //On fait notre boucle
+    {
+        //On va faire notre condition
+        if($i==$pageActuelle) //Si il s'agit de la page actuelle...
+        {
+            echo ' <li> '.$i.'  </li>';
+        }
+
+        else //Sinon...
+        {
+            echo '<li> <a href="index.php?EX=validArticle&page='.$i.'">'.$i.'</a> </li>';
+        }
+
+    }
+echo '...';
+
+    for($i=$nombreDePages-5; $i<=$nombreDePages; $i++) //On fait notre boucle
+    {
+        //On va faire notre condition
+        if($i==$pageActuelle) //Si il s'agit de la page actuelle...
+        {
+            echo '  '.$i.'  ';
+        }
+
+        else //Sinon...
+        {
+            echo ' <li><a  href="index.php?EX=validArticle&page='.$i.'">'.$i.'</a> </li>';
+        }
+
+    }
+}
+?>
+</ul>
+<script type="text/javascript" src="Js/validArticle.js"></script>
 <script type="text/javascript" src="Js/jqueryValidationArticle.js"></script>
 
 <?php }
@@ -314,17 +372,12 @@ else{
 }
 
 
-
-
-
-
     }
     ?>
 
 </div>
-<div id='pagination' class='compact-theme simple-pagination'></div>
 
-<script type="text/javascript" src="Js/showInfoArticle.js"></script>
+<script type="text/javascript" src="Js/validArticle.js"></script>
 <script type="text/javascript" src="Js/jqueryValidationArticle.js"></script>
 
 
