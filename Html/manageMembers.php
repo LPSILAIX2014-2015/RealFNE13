@@ -405,7 +405,7 @@ foreach($rolesList as $line){
           <?php
             $numberPages= ceil($rowNumber/$nbLines);
             for($i=1;$i<=$numberPages;++$i)
-              echo '<button type="submit" class="changePageButton" form="manageAsso" formaction="./index.php?EX=manageMembers&PAGE='.$i.'">'.$i.'</button>';
+              echo '<button type="submit" class="changePageButton" form="manageMember" formaction="./index.php?EX=manageMembers&PAGE='.$i.'">'.$i.'</button>';
           ?>
         </div>
     </div>
