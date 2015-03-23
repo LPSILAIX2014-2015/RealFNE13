@@ -133,7 +133,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <tr><th>Nom: </th><td>' . $row['SURNAME'] . '</td></tr>
                     <tr><th>Code Postal</th><td>' . $row['CP'] . '</td></tr>
                     <tr><th>Profession:</th><td>' . $row['PROFESSION'] . '</td></tr>
-                    <tr><th>Rôle:</th><td>' . $row['ROLE'] . '</td></tr>
                     <tr><th>Association:</th><td colspan="2">' . $row['asso_name'] . '</td></tr>
                     <tr><th>Thème d\'intérêt principal:</th><td colspan="2">' . $row['theme_name1'] . '</td></tr>
                     <tr><th>Thème d\'intérêt secondaire:</th><td colspan="2">' . $row['theme_name2'] . '</td></tr>

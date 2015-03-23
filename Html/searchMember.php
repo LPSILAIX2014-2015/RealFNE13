@@ -17,8 +17,6 @@ if(!(isset($_SESSION['ROLE']))){
                 <div id="searh_name"></div>
                 <input id="surname" class="search_individuel" name="surname" type="checkbox" value="surname"> Par Nom<br/>
                 <div id="searh_surname"></div>
-                <input id="email" class="search_individuel" name="email" type="checkbox" value="email"> Par Email<br/>
-                <div id="searh_email"></div>
                 <input id="terr" class="search_individuel" name="terr" type="checkbox" value="terr"> Par Territoire<br/>
                 <div id="searh_terr"></div>
                 <input id="prof" class="search_individuel" name="prof" type="checkbox" value="prof"> Par Profession<br/>
