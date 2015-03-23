@@ -60,20 +60,20 @@ $(document).ready(function() {
                      "pour activer les effets de ces différentes balises, vous devez écrire votre texte entre elles.";
 
         var help2 = "Voici la liste des différentes option possibles :\n\n" +
-                    "- Mettre le texte en gras -> il faut insérer le texte que vous voulez afficher en gras entre les balises <g> et </g>\n\n" +
-                    "- Mettre le texte en italique -> il faut insérer le texte que vous voulez afficher en italique entre les balises <i> et </i>\n\n" +
-                    "- Souligner le texte (underline en anglais) -> il faut insérer le texte que vous voulez souligner entre les balises <u> et </u>\n\n";
+                    "- Mettre le texte en gras -> il faut insérer le texte que vous voulez afficher en gras entre les balises <g> et </g>\n" +
+                    "- Mettre le texte en italique -> il faut insérer le texte que vous voulez afficher en italique entre les balises <i> et </i>\n" +
+                    "- Souligner le texte (underline en anglais) -> il faut insérer le texte que vous voulez souligner entre les balises <u> et </u>\n";
 
-        var help3 = "- aligner le texte sur la gauche (activé par défaut) -> il faut insérer le texte que vous voulez aligner entre les balises <aligne valeur=\"gauche\"> et </aligne>\n\n" +
-                    "- aligner le texte sur la droite -> il faut insérer le texte que vous voulez aligner entre les balises <aligne valeur=\"droite\"> et </aligne>\n\n" +
-                    "- centrer le texte -> il faut insérer le texte que vous voulez aligner entre les balises <aligne valeur=\"centrer\"> et </aligne>\n\n";
+        var help3 = "- aligner le texte sur la gauche (activé par défaut) -> il faut insérer le texte que vous voulez aligner entre les balises \n<aligne valeur=\"gauche\"> et </aligne>\n" +
+                    "- aligner le texte sur la droite -> il faut insérer le texte que vous voulez aligner entre les balises \n<aligne valeur=\"droite\"> et </aligne>\n" +
+                    "- centrer le texte -> il faut insérer le texte que vous voulez aligner entre les balises \n<aligne valeur=\"centrer\"> et </aligne>\n";
 
         var help4 = "il y 5 tailles de police d'écriture :\n\n"+
-                    "- très petite -> il faut insérer le texte entre les balises <taille valeur=\"tpetit\"> et </taille>\n\n" +
-                    "- petite -> il faut insérer le texte entre les balises <taille valeur=\"petit\"> et </taille>\n\n" +
-                    "- normal -> c'est la taille par défaut, il n'y a pas besoin de balise\n\n" +
-                    "- gros -> il faut insérer le texte entre les balises <taille valeur=\"gros\"> et </taille>\n\n" +
-                    "- très gros -> il faut insérer le texte entre les balises <taille valeur=\"tgros\"> et </taille>";
+                    "- très petite -> il faut insérer le texte entre les balises \n<taille valeur=\"tpetit\"> et </taille>\n" +
+                    "- petite -> il faut insérer le texte entre les balises \n<taille valeur=\"petit\"> et </taille>\n" +
+                    "- normal -> c'est la taille par défaut, il n'y a pas besoin de balise\n" +
+                    "- gros -> il faut insérer le texte entre les balises \n<taille valeur=\"gros\"> et </taille>\n" +
+                    "- très gros -> il faut insérer le texte entre les balises \n<taille valeur=\"tgros\"> et </taille>";
 
         var help5 = "il est possible de combiner ces balises pour par exemple avoir un texte écrit en gros, souligner et aligner sur la droite."+
                     "il suffit de placer les balises à l'interieur de balises. vous pouvez mettres les balise de dans n'importe quel ordre sauf pour les balise d'alignement qui doivent être misent en dernières.";
@@ -81,9 +81,9 @@ $(document).ready(function() {
         var help6 = "Vous pouvez utiliser les boutons situés au dessus de la zone de saisie pour placer automatiquement les balises. "+
                     "si vous surligner votre texte et que vous cliquez sur un boutons, les balises vont venir encadrer votre texte surligner pour lui appliquer leur effet.\n\n"+
                     "Parmis ces boutons, il y en a 2 spéciaux qui permettent d'insérer des liens pour des pages internet ou des citations, "+
-                    "il vous suffira de lire les instructions affichées à l'écran lors du clique sur ces bouttons.\n\n"+
+                    "il vous suffira de lire les instructions affichées à l'écran lors du clique sur ces bouttons.\n"+
                     "Il est également possible de coller un fichier existant dans le cloud du site, pour cela rendez-vous"+
-                    "sur la page de partage et copier l'URL du fichier que vous voulez mettre à disposition dans votre article.\n\n";
+                    "sur la page de partage et copier l'URL du fichier que vous voulez mettre à disposition dans votre article.\n";
 
         var help7 = "Pour toutes autre questions, veuillez contacter l'administrateur de votre association.";
 
