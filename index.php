@@ -459,10 +459,7 @@ function deleteAMember()
         $a->setRole('MEMBRE');
         $a = new MUser ($idNext);
         $a->setRole('ADMIN');
-        $page['title'] = 'Accueil';
-        $page['class'] = 'VHome';
-        $page['method'] = 'showHome';
-        $page['arg'] = 'Html/manageAsso.php';
+        header("Location: ./index.php?EX=manageMembers");
     }
 
     function updateRole()

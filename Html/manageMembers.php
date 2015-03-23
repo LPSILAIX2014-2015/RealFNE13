@@ -297,7 +297,7 @@ foreach($rolesList as $line){
                 echo '<td>'. (new MTheme($row['THEME_ID']))->getName() . '</td>';
                 echo '<td>'. $row['PROFESSION'] . '</td>';
                 echo '<td>';
-                echo '<a class="btn fenprof" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
+                echo '<a class="btn fenprof" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Profil</a>';
                 echo '<div id="popin-data'.$row['ID'] .'"  style="left: 424.5px; position: absolute; top: 807.5px; z-index: 9999; opacity: 1; display: none;">
 
             <div class="active" style="display: block;">
@@ -309,15 +309,15 @@ foreach($rolesList as $line){
 
                     <!-- Personal info section -->
                     <ul class="personal-info">
-            <li><label>Name</label><span>'.$row['NAME'].'</span></li>
-                        <li><label>SurName</label><span>'.$row['SURNAME'].'</span></li>
-                        <li><label>Adresse</label><span>'.$row['ADRESS'].'</span></li>
-                        <li><label>CP</label><span>'.$row['CP'].'</span></li>
-                        <li><label>Email</label><span>'.$row['MAIL'].'</span></li>
-                            <li><label>Association</label><span>'.(new MAssoc($row['ASSOCIATION_ID']))->getName().'</span></li>
-                        <li><label>Thème</label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
-                        <li><label>Thème Interest</label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
-                        <li><label>Profession</label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
+            <li><label>Prénom: </label><span>'.$row['NAME'].'</span></li>
+                        <li><label>Nom: </label><span>'.$row['SURNAME'].'</span></li>
+                        <li><label>Adresse: </label><span>'.$row['ADRESS'].'</span></li>
+                        <li><label>Code Postal: </label><span>'.$row['CP'].'</span></li>
+                        <li><label>Email: </label><span>'.$row['MAIL'].'</span></li>
+                            <li><label>Association: </label><span>'.(new MAssoc($row['ASSOCIATION_ID']))->getName().'</span></li>
+                        <li><label>Thème: </label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
+                        <li><label>Thème d\'intérêt: </label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
+                        <li><label>Profession: </label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
 
                     </ul>
                     <!-- /Personal info section -->
@@ -359,7 +359,7 @@ foreach($rolesList as $line){
                     echo '<td>'. (new MTheme($row['THEME_ID']))->getName() . '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
                     echo '<td>';
-                    echo '<a class="btn fenprof" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
+                    echo '<a class="btn fenprof" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Profil</a>';
                     echo '<div id="popin-data'.$row['ID'] .'"  style="left: 424.5px; position: absolute; top: 807.5px; z-index: 9999; opacity: 1; display: none;">
 
             <div id="profile" class="active" style="display: block;">
@@ -371,15 +371,15 @@ foreach($rolesList as $line){
 
                     <!-- Personal info section -->
                     <ul class="personal-info">
-            <li><label>Name</label><span>'.$row['NAME'].'</span></li>
-                        <li><label>SurName</label><span>'.$row['SURNAME'].'</span></li>
-                        <li><label>Adresse</label><span>'.$row['ADRESS'].'</span></li>
-                        <li><label>CP</label><span>'.$row['CP'].'</span></li>
-                        <li><label>Email</label><span>'.$row['MAIL'].'</span></li>
-                        <li><label>Association</label><span>'.(new MAssoc($row['ASSOCIATION_ID']))->getName().'</span></li>
-                        <li><label>Thème</label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
-                        <li><label>Thème Interest</label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
-                        <li><label>Profession</label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
+            <li><label>Prénom: </label><span>'.$row['NAME'].'</span></li>
+                        <li><label>Nom: </label><span>'.$row['SURNAME'].'</span></li>
+                        <li><label>Adresse: </label><span>'.$row['ADRESS'].'</span></li>
+                        <li><label>Code Postal: </label><span>'.$row['CP'].'</span></li>
+                        <li><label>Email: </label><span>'.$row['MAIL'].'</span></li>
+                        <li><label>Association: </label><span>'.(new MAssoc($row['ASSOCIATION_ID']))->getName().'</span></li>
+                        <li><label>Thème: </label><span>'.(new MTheme($row['THEME_ID']))->getName().'</span></li>
+                        <li><label>Thème d\'intérêt: </label><span>'.(new MTheme($row['THEME_INTEREST_ID']))->getName().'</span></li>
+                        <li><label>Profession: </label><span>'.$row['PROFESSION'].'<br> '.$row['PROFESSION2'].'</span></li>
 
                     </ul>
                     <!-- /Personal info section -->
