@@ -235,9 +235,7 @@ foreach($rolesList as $line){
             <th>Nom</th>
             <th>Thème</th>
             <th>Profession</th>
-            <th>Action
-                <label id="btn1" class="btn">Envoyer</label>
-            </th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>

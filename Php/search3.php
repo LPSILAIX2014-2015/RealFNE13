@@ -129,13 +129,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
 
                 echo ' <span class="button b-close"><span>X</span></span><p><h3>Profil de ' . $row['user_name'] . '</h3></p><table class="table table-striped t-profil">
-                    <tr><th>Prénom:</th><td>' . $row['user_name'] . '</td><td rowspan="5" class="image-profil-background"><img src="' . $row['PHOTOPATH'] . '" width="150px"></td></tr>
-                    <tr><th>Nom: </th><td>' . $row['SURNAME'] . '</td></tr>
-                    <tr><th>Code Postal</th><td>' . $row['CP'] . '</td></tr>
-                    <tr><th>Profession:</th><td>' . $row['PROFESSION'] . '</td></tr>
-                    <tr><th>Association:</th><td colspan="2">' . $row['asso_name'] . '</td></tr>
-                    <tr><th>Thème d\'intérêt principal:</th><td colspan="2">' . $row['theme_name1'] . '</td></tr>
-                    <tr><th>Thème d\'intérêt secondaire:</th><td colspan="2">' . $row['theme_name2'] . '</td></tr>
+                    <tr><th>Prénom :</th><td>' . $row['user_name'] . '</td><td rowspan="5" class="image-profil-background"><img src="' . $row['PHOTOPATH'] . '" width="150px"></td></tr>
+                    <tr><th>Nom : </th><td>' . $row['SURNAME'] . '</td></tr>
+                    <tr><th>Code Postal :</th><td>' . $row['CP'] . '</td></tr>
+                    <tr><th>Profession :</th><td>' . $row['PROFESSION'] . '</td></tr>
+                    <tr><th>Association :</th><td colspan="2">' . $row['asso_name'] . '</td></tr>
+                    <tr><th>Thème d\'expertise:</th><td colspan="2">' . $row['theme_name1'] . '</td></tr>
+                    <tr><th>Thème d\'intérêt :</th><td colspan="2">' . $row['theme_name2'] . '</td></tr>
                     <tr><th>Présentation:</th><td colspan="2">' . $row['PRESENTATION'] . '</td></tr>
                 </table>';
             }
