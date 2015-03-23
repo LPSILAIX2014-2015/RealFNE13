@@ -14,6 +14,7 @@ if(isset($_GET['PAGE']))
 $offset= ($nbPage-1)*$nbLines;
 ?>
 
+<script src="Js/jquery.bpopup.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         var name = new Array();
@@ -63,7 +64,7 @@ $offset= ($nbPage-1)*$nbLines;
         var i = 0;
 
 
-
+/*
         $('html').click(function() {
             if(i == 1){
                 console.log(i);
@@ -75,26 +76,25 @@ $offset= ($nbPage-1)*$nbLines;
                 });
             }
         });
-
-        $('a.popin').click(function (){
-            i=1;
-            console.log(i);
-            $('a.popin').fancybox({
-                afterClose: function() {
-                    parent.location.reload(true);
-                }
-            });
-            var image = $(this).next().children().children().children().val();
-            $(this).next().children().children().remove('.photo-inner img');
-            var html = $(this).next().children().children().children();
-            $('#profile ul').hide();
-            $('#profile .photo-inner').hide();
-            if(!html.hasClass('photo-inner')) {
-
-                $(this).next().children().children().first().append('<div class="photo-inner"><img src="'+image+'" height="186" width="153"></div>');
-            }
-        });
+*/
+$('a.fenprof').click(function (){
+    //$('a.fenprof').fancybox();
+    var ids = $(this).attr('href');
+    console.log(ids);
+    $(''+ids).bPopup({
+        easing: 'easeOutBack', //uses jQuery easing plugin
+        speed: 450,
+        transition: 'slideDown',
+        modalColor: 'white'
     });
+    var image = $(this).next().children().children().children().val();
+    var html = $(this).next().children().children().children();
+    //if(!html.hasClass('photo-inner')) {
+
+       // $(this).next().children().children().first().append('<div class="photo-inner"><img src="'+image+'" height="186" width="153"></div>');
+   // }
+});
+});
 
 </script>
 <?php
@@ -297,8 +297,8 @@ foreach($rolesList as $line){
                 echo '<td>'. (new MTheme($row['THEME_ID']))->getName() . '</td>';
                 echo '<td>'. $row['PROFESSION'] . '</td>';
                 echo '<td>';
-                echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
-                echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
+                echo '<a class="btn fenprof" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
+                echo '<div id="popin-data'.$row['ID'] .'"  style="left: 424.5px; position: absolute; top: 807.5px; z-index: 9999; opacity: 1; display: none;">
 
             <div class="active" style="display: block;">
                     <!-- About section -->
@@ -359,8 +359,8 @@ foreach($rolesList as $line){
                     echo '<td>'. (new MTheme($row['THEME_ID']))->getName() . '</td>';
                     echo '<td>'. $row['PROFESSION'] . '</td>';
                     echo '<td>';
-                    echo '<a class="btn popin" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
-                    echo '<div id="popin-data'.$row['ID'] .'" style="display: none;">
+                    echo '<a class="btn fenprof" id="popin-'.$row['ID'] .'" href="#popin-data'.$row['ID'] .'">Image</a>';
+                    echo '<div id="popin-data'.$row['ID'] .'"  style="left: 424.5px; position: absolute; top: 807.5px; z-index: 9999; opacity: 1; display: none;">
 
             <div id="profile" class="active" style="display: block;">
                     <!-- About section -->
