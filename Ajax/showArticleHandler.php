@@ -11,7 +11,7 @@
 
     	case "consultArticle":
     		$total = $connect->countArticle($_POST['assoc'], $_POST['theme']); 					    // Nombre total de résultat
-    		$perPage = 2;                   						// Nombre de resultat par page
+    		$perPage = 10;                   						// Nombre de resultat par page
     		$nbPage = ceil($total[0]['NB_ARTICLE'] / $perPage); 	// Nombre de page total (ceil permet d'arrondir au nombre supérieur)
 
     		if(isset($_GET['p']) AND $_GET['p'] > 0 AND $_GET['p'] <= $nbPage)
