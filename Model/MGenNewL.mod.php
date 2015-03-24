@@ -120,7 +120,7 @@ class MGenNewL extends FPDF
 			$this->Ln();
 
 			for ($b=0; $b < count($dataN); $b++) { 
-				if ($dataN[$b]['IMAGEPATH']=='' || $dataN[$b]['IMAGEPATH']==null || (!file_exists($dataN[$b]['IMAGEPATH']))) {
+				if ($dataN[$b]['IMAGEPATH']=='' || $dataN[$b]['IMAGEPATH']==null) {
 					# Image
 					$this->Image('./Img/no-image.gif', $this->GetX(), $this->GetY()+3,30,30,'', 'http://laplateformefne13.fr/index.php?EX=showInfoArticle&id='.$dataN[$b]['POST_ID']);
 					# Space
