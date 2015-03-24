@@ -136,6 +136,5 @@ function updateCommentaire(id){
 		success: function(response) {
 			getCommentaire();
 		}
-	}).done(function(response){
 	});
 }
