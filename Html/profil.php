@@ -54,7 +54,7 @@
 			</div><?PHP } ?>
 			<?PHP if ($GLOBALS['user']->getPresentation()) { ?><div class="profilePresentation">
 				<label>Présentation</label>
-				<?PHP nl2br($GLOBALS['user']->getPresentation());?>
+				<?PHP echo nl2br($GLOBALS['user']->getPresentation());?>
 			</div><?PHP } ?>
     </div>
 				<div class="profileChangeImage" id="cmi" style="display: none;">

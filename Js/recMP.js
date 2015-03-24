@@ -117,7 +117,7 @@ $(document).ready(function(){ // Fonction pour valider le deuxième formulaire (
     });
 
     //formulaire de maj profile
-    $("#formprofil").validate({
+    /*$("#formprofil").validate({
         rules:{
             profession:{required:true},
             profession2:{required:true},
@@ -152,7 +152,7 @@ $(document).ready(function(){ // Fonction pour valider le deuxième formulaire (
                 }
             });
         }
-    });
+    });*/
 }); // end document.ready
 function restartAll () {
     document.getElementById('formCHMP').reset();
