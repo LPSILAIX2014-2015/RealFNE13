@@ -137,7 +137,5 @@ function updateCommentaire(id){
 			getCommentaire();
 		}
 	}).done(function(response){
-		console.log(response);
-		console.log(response.session);
 	});
 }
