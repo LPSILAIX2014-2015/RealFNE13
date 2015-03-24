@@ -1,11 +1,11 @@
 <?php
 require_once('../Model/MDBase.mod.php');
 if ( !empty($_POST)) {
-    $profession = $_POST['profession'];
-    $profession2 = $_POST['profession2'];
-    $theme = $_POST['theme'];
-    $presentation = $_POST['presentation'];
-    $id = $_POST['id'];
+    $profession = $_POST['PROFESSION'];
+    $profession2 = $_POST['PROFESSION2'];
+    $theme = $_POST['THEME'];
+    $presentation = $_POST['PRESENTATION'];
+    $id = $_POST['ID'];
 
     // update data
     $pdo = new MDBase();
