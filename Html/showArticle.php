@@ -1,8 +1,9 @@
+
 <?php
 	
 ?>
 
-<div class="container-fluid pvarticle">
+<div class="pvarticle">
 
 	<div class="filter">
 		<select id="filterASSOC">
@@ -47,9 +48,8 @@
 
 	<h1>Liste des articles</h1>
 	<div id="divArticle"></div>
-
 	
 </div>
 <ul id='pagination' class='pagination'></ul>
-
 <script type="text/javascript" src="Js/showInfoArticle.js"></script>
+

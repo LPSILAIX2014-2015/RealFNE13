@@ -1,11 +1,9 @@
 <?php
 /**
- * @author <Julien Bénard>
- * 
  * @author [Cesar Hernandez] 
  */
 	$sql = new MDBase();
-	$query = "SELECT DISTINCT SUBSTRING(PDATE,1,7)DATE FROM POST WHERE STATUS=1 ORDER BY(DATE) DESC LIMIT 4";
+	$query = "SELECT DISTINCT SUBSTRING(PDATE,1,7)DATE FROM POST WHERE STATUS=1 ORDER BY(DATE) DESC";
 
 	$result = $sql->prepare($query);
 
@@ -32,10 +30,10 @@
 		$realDate.="<li><a href='index.php?EX=genNL&data=".$res[$i]['DATE']."'>".$month." ".$date[0]."</a></li>";
 	}
 ?>
-<div class="linksnewsletters">
-    <h5 class="titrecol">Newsletters</h5>
-    <ul>
-        <?= $realDate;?>
-        <li><a href="index.php?EX=allNews">Toutes les Newsletters</a></li>
-    </ul>
+<div class="allNews">
+	<h1 id="titleN">Toutes les Newsletters</h1>
+	<h5 id="titleN">Cliquez sur le lien pour télécharger la newsletter</h5>
+	<ul>
+		<?= $realDate;?>
+	</ul>
 </div>

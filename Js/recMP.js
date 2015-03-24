@@ -19,10 +19,9 @@ $(document).ready(function(){ // Fonction pour valider la première formulaire
                 success: function(data){
                      if(data==1){
                          $("#res").show();
-                         showMassageError('Valide');
+                         showMassageError('On a envoyé un mail avec un lien pour changer votre mot de passe!');
                          $('#mailR').val('');
-                         setTimeout('',1500);
-			             location.replace('index.php');
+                         setTimeout('redirectI()',1500);
                     }else{
                         $("#res").html(data);
                         $("#res").show();
@@ -32,7 +31,9 @@ $(document).ready(function(){ // Fonction pour valider la première formulaire
         }
     });
 }); // end document.ready
-
+function redirectI() {
+    location.href='index.php';
+ }
 $(document).ready(function(){ // Fonction pour valider le deuxième formulaire (recuperation)
     $("#result").hide();
     $("#formRMP").validate({
@@ -57,9 +58,8 @@ $(document).ready(function(){ // Fonction pour valider le deuxième formulaire (
                 success: function(data){
                     if(data==1){ // Verification selon les resultats du Modèle
                         $("#res").show();
-                        showMassageError('Valide');
-                        setTimeout('',1500);
-                        location.replace('index.php');
+                        showMassageError('Changement Valide!');
+                        setTimeout('redirectI()',1000);
                     }else{
                         $("#res").html(data);
                         $("#res").show();
@@ -115,6 +115,44 @@ $(document).ready(function(){ // Fonction pour valider le deuxième formulaire (
             });
         }
     });
+
+    //formulaire de maj profile
+    /*$("#formprofil").validate({
+        rules:{
+            profession:{required:true},
+            profession2:{required:true},
+            presentation:{required:true},
+            theme:{required:true},
+            themedetails:{required:true},
+            theme2:{required:true}
+        },
+        highlight: function(element) {
+            $(element).closest('.control-group').removeClass('success').addClass('error');
+        },
+        success: function(element) {
+            element.text('OK!').addClass('valid').closest('.control-group').removeClass('error').addClass('success');
+        },
+        submitHandler: function(form){
+            var dataString = 'profession='+$('#profession').val()+'&profession2='+$('#profession2').val()+'&presentation='+$('#presentation').val()+'&theme='+$('#themes1').val()+'&themedetails='+$('#themedetails').val()+'&theme2='+$('#themes2').val()+'&id='+$('#user_id').val();
+            $.ajax({
+                type: "POST", // Mèthode AJAX pour envoyer les données
+                url:"Php/updateMember.php",
+                data: dataString,
+                success: function(data){
+                    if(data==1){ // Verification selon les resultats du Modèle
+                        $("#chP1").show();
+                        restartAll();
+                        showMassageError('Mot de passe changé');
+                        $("#ch1").hide();
+                        $("#chP1").hide();
+                    }else{
+                        $("#chP1").html(data);
+                        $("#chP1").show();
+                    }
+                }
+            });
+        }
+    });*/
 }); // end document.ready
 function restartAll () {
     document.getElementById('formCHMP').reset();

@@ -31,6 +31,7 @@ switch($EX)
     case 'maillog'   : maillog();    exit;
     case 'chImg'     : chImg();    exit; // Changer l'image du profil
     case 'recup'     : recuperation(); break; // Presentation de la vue
+    case 'allNews'     : allNews(); break; // All Newsletter
     case 'genNL'     : genNL();    exit; // Newsletter
     case 'deconnexion' :
         if (isset($_POST['login']) && isset($_POST['password']))
@@ -44,6 +45,7 @@ switch($EX)
         break;
     case 'writeMessages' : writeMessages(); break;
     case 'consultMessages' : consultMessages(); break;
+    case 'consultNotices' : consultNotices(); break;
 	case 'sendMessage' : sendMessage(); break;
     case 'endMessages' : endMessages(); break;
     case 'createArticle':   createArticle(); break;
@@ -89,7 +91,7 @@ function login(){
 function home()
 {
     global $page;
-    $page['title'] = 'Test';
+    $page['title'] = 'Accueil';
     $page['class'] = 'VHome';
     $page['method'] = 'showHome';
     $page['arg'] = 'Html/accueil.php';
@@ -227,7 +229,7 @@ function updateAMember()
 function deleteMember()
 {
     global $page;
-    $page['title'] = 'Supression d\'un membre';
+    $page['title'] = 'Suppression d\'un membre';
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
     $page['arg'] = 'Html/delete.php';
@@ -236,7 +238,7 @@ function deleteMember()
 function deleteAMember()
 {
     global $page;
-    $page['title'] = 'Supression d\'un membre';
+    $page['title'] = 'Suppression d\'un membre';
     $page['class'] = 'VHtml';
     $page['method'] = 'showHtml';
     $page['arg'] = 'Php/delete.php';
@@ -369,6 +371,15 @@ function deleteAMember()
         $page['css'] = 'Css/tableMessages.css';
         $page['arg'] = 'Html/consultMessages.php';
     }
+    function consultNotices()
+    {
+        global $page;
+        $page['title'] = 'Liste des messages';
+        $page['class'] = 'VConsultMessages';
+        $page['method'] = 'showConsultMessages';
+        $page['css'] = 'Css/tableMessages.css';
+        $page['arg'] = 'Html/consultMessages.php';
+    }
     function writeMessages()
     {
         global $page;
@@ -447,10 +458,7 @@ function deleteAMember()
         $a->setRole('MEMBRE');
         $a = new MUser ($idNext);
         $a->setRole('ADMIN');
-        $page['title'] = 'Test';
-        $page['class'] = 'VHome';
-        $page['method'] = 'showHome';
-        $page['arg'] = 'Html/manageAsso.php';
+        header("Location: ./index.php?EX=manageMembers");
     }
 
     function updateRole()
@@ -474,7 +482,7 @@ function deleteAMember()
     function deleteAsso()
     {
         global $page;
-        $page['title'] = 'Supression d\'une association';
+        $page['title'] = 'Suppression d\'une association';
         $page['class'] = 'VHtml';
         $page['method'] = 'showHtml';
         $page['arg'] = 'Html/deleteAsso.php';
@@ -482,7 +490,7 @@ function deleteAMember()
 function createArticle()
 {
     global $page;
-    $page['title'] = 'écrire un article';
+    $page['title'] = 'Ecrire un article';
     $page['class'] = 'VCreateArticle';
     $page['method'] = 'showCreateArticle';
     $page['css'] = 'Css/createArticle.css';
@@ -494,7 +502,7 @@ function deconnexion()
     unset($_SESSION['ID_USER']);
     unset($GLOBALS['user']);
     session_destroy();
-    $page['title'] = 'Retour après déco';
+    $page['title'] = 'Accueil';
     $page['class'] = 'VHome';
     $page['method'] = 'showHome';
     $page['css'] = 'Css/accueil.css';
@@ -507,7 +515,7 @@ function calendar()
     $page['class'] = 'VCalendar';
     $page['method'] = 'showCalendar';
     $page['arg'] = 'Html/calendar.php';
-    $page['css'] = 'Lib/fullcalendar/fullcalendar.css';
+    $page['css'] = 'Css/calendar.css';
 }
 
 function sendMessage()
@@ -560,5 +568,14 @@ function genNL(){
         $pdf->setDate($_GET);
         $pdf->generate();
     }
+}
+function allNews()
+{
+    global $page;
+    $page['title'] = 'Toutes les Newsletters';
+    $page['class'] = 'VHtml';
+    $page['method'] = 'showHtml';
+    $page['arg'] = 'Html/allNews.php';
+    $page['css'] = 'Css/newsLetter.css';
 }
 ?>

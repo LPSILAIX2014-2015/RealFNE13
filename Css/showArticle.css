@@ -64,16 +64,23 @@
     border:1px solid #0A2D5F;
     border-radius:5px;
 }
-#pagination ul {
+#pagination ul, .pagination {
     list-style-type: none;
     list-style-position: inside;
     margin:0;
     padding:0;
 }
-#pagination a:visited {
+#pagination a:visited, .pagination a:visited {
     color:#ffffff;
 }
-#pagination ul li {
+
+#pagination a, .pagination a{
+    display: inline-block;
+    background-color: #0a2d5f;
+
+}
+
+#pagination ul li, .pagination li {
     display:inline-block;
     color:#ffffff;
     border:1px solid #ffffff;
@@ -85,7 +92,7 @@
     cursor:url('../Img/cursor8.png'), auto ;
     font-family:'Cabin',Verdana,sans-serif;
 }
-#pagination ul li:hover {
+#pagination ul li:hover, .pagination li:hover {
     color:#0a2d5f;
     border:1px solid #0a2d5f;
     background-color:#a3cfea;

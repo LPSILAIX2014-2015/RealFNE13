@@ -23,7 +23,7 @@
     <div class="col-md-8 col-md-offset-2" id="buttonCreationArticle">
 
         <button id="buttonCreateArticle" type="button" class="btn btn-primary buttonCreate">Créer un Article</button>
-        <button id="buttonCreateArticleInCalendar" type="button" class="btn btn-primary buttonCreate">Créer un Article lié à un évènements</button>
+        <button id="buttonCreateArticleInCalendar" type="button" class="btn btn-primary buttonCreate">Créer un Article lié à un évènement</button>
  
     </div>
 </div>
@@ -93,7 +93,7 @@
         <div class="inputOnlyCalendar form-group" hidden>
             <label for="startDate" class="col-sm-3 control-label">Date et heure de début de l'évènement</label>
             <div class="col-sm-5">
-                <input type="datetime-local" name="startDate" class="form-control" id="startDate" placeholder="aaaa/mm/jj hh:mm">
+                <input type="datetime-local" name="startDate" class="form-control" id="startDate" placeholder="aaaa-mm-jj hh:mm">
             </div>
         </div>
         <div class="inputOnlyCalendar form-group" hidden>

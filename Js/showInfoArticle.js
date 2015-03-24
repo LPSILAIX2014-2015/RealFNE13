@@ -1,10 +1,22 @@
 $(document).ready(function() {
 
+<<<<<<< HEAD
     fillShowArticlePage(0);
 
     //Foutre les valeurs par défauts des consultations d'articles
     //PROBLEMU
     sortValidArticle();
+=======
+    $("#filterVALID").on('change', function () {
+        location.href = './index.php?EX=validArticle&FILTER=' + $("#filterVALID").val();
+    });
+
+    //Foutre les valeurs par défauts des consultations d'articles
+    //PROBLEMU
+  //  sortAssocArticle();
+   // sortThemeArticle();
+  //sortValidArticle();
+>>>>>>> 60abd7d9ee09b6110e2b44c610e4426c85a841a4
     //$('.lienarticle').hide();
 
 
@@ -175,6 +187,7 @@ function pagination(nbPage, page, method){
                 }
             }
     }
+<<<<<<< HEAD
 
     $('#pagination').append('<li id="nextArrow" onclick="'+method+'('+nextPage+')">'+
                                 '<a href="#" aria-label="Next">'+
@@ -188,14 +201,17 @@ function pagination(nbPage, page, method){
     }       
 };
 
+/*
+>>>>>>> 60abd7d9ee09b6110e2b44c610e4426c85a841a4
 function sortValidArticle() {
     var idValid;
-    if( $('#filterVALID option:selected').attr('valu' +
-        'e') == 'undefined') idValid =0;
+    if( $('#filterVALID option:selected').attr('value') == 'undefined') idValid =0;
     else  idValid = $('#filterVALID option:selected').attr('value');
 
 
+
     $('.lienarticle').hide();
+
 
     if(idValid == "0") //Si la sélection est a valider
     {
@@ -207,6 +223,7 @@ function sortValidArticle() {
 
 
                 $('.lienarticle')[i].style.display=""; //Affiche div article
+
 
         }
 
@@ -227,3 +244,7 @@ function sortValidArticle() {
 
 
 }
+*/
+
+
+

@@ -1,12 +1,12 @@
 <form method="POST" id="formulaire" name="MAIL" action="">
     <fieldset>
 
-        <p><label for="count">Messages envoyés :</label>
+        <div><label for="count">Messages envoyés :</label></br>
             <p id="compteur"></p>
-        </p>
+        </div>
 
 		<p>
-            <label for="receiver">Destinataire :</label>
+            <label for="receiver">Destinataire :</label></br>
 			<?php
 			//Il faut qu'en utilisant la recherche de membre, en cliquant sur "envoyer un message à un membre", le pseudo du membre soit transmis au formulaire et écrit automatiquement dans "Destinataire"
 			if (isset($_GET['dest']))
@@ -20,34 +20,34 @@
 			?>
 			<a href="index.php?EX=searchMember"><input type="button" value="Rechercher un membre" /></a>
 		</p>
-		
         <p>
-            <label for="category">Catégorie :</label>
+            <label for="subject">Sujet :</label></br>
+            <?php
+            if (isset($_SESSION['title']))
+            {
+                $titre = htmlspecialchars($_SESSION['title'],ENT_QUOTES);
+                echo "<input type='text' id='sujet' name='TITLE' size='30' value='".$titre."' maxlength='300' required='required'/><br><br>";
+            }
+            else
+            {
+                echo "<input type='text' id='sujet' name='TITLE' size='30' maxlength='300' required='required'/>";
+            }
+            ?>
+        </p>
+
+        <div>
+            <label for="category">Catégorie :</label></br>
                 <p id="list_categories"></p>
-        </p>
+        </div>
 
-        <p>
-            <label for="subject">Sujet :</label>
-			<?php
-			if (isset($_SESSION['title']))
-			{
-				$titre = htmlspecialchars($_SESSION['title'],ENT_QUOTES);
-				echo "<input type='text' id='sujet' name='TITLE' size='30' value='".$titre."' maxlength='300' required='required'/><br><br>";
-			}
-			else
-			{
-				echo "<input type='text' id='sujet' name='TITLE' size='30' maxlength='300' required='required'/>";
-			}
-			?>
-        </p>
 
-        <p>
-            <label for="theme">Thématique :</label>
+        <div>
+            <label for="theme">Thématique :</label></br>
                 <p id="list_themes"></p><br><br>
-        </p>
+        </div>
 
         <p>
-            <label for="message">Message :</label>
+            <label for="message">Message :</label></br>
 			<?php
 			if (isset($_SESSION['content']))
 			{

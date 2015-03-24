@@ -1,8 +1,7 @@
 <?php
-	session_start();
-
 	require_once('../Model/MDBase.mod.php');
 	require_once('../Model/MCommentaire.mod.php');
+    session_start();
 
 	$mcom = new MCommentaire();
 	switch($_POST['role'])

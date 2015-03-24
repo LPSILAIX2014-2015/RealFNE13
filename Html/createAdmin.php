@@ -30,29 +30,23 @@
 
             //Check if the file is an image
             if (in_array($extensionFichier, $extensionsAutorisees)) {
-                echo "Ce fichier à la bon format";
 
                 //Check if the size of the image is correct
                 if($_FILES["articleImage"]["size"] < $maxImageSize){
-                    echo "Ce fichier à la bonne taille";
 
                     //Check if the file is correctly moved
                     if (move_uploaded_file($_FILES["articleImage"]["tmp_name"],$pathImage)) {
-                        echo "Ce fichier à bien été placé";
 
                     }else{
-                        $errorType = "Err_UploadFail";
-                        return $errorType;
+                        echo "L'image n'a pas été bien placé à cause d'une erreur";
                     }
 
                 }else{
-                    $errorType = "Err_FileTooFat";
-                    return $errorType;
+                    echo "L'image n'a pas été inséré à cause de son importante taille";
                 }
 
             } else{
-                $errorType = "Err_NotAnImage";
-                return $errorType;
+                echo "L'image n'a pas été inséré car elle n'est pas du bon format";
             }
         }
 
@@ -67,29 +61,29 @@
 		else
 				header("Location: ./index.php?EX=createAsso")
     ?>
-    <div class="container">
+    <div>
 
     			<div class="span10 offset1">
     				<div class="row">
 		    			<h2>Création d'un administrateur</h2>
                                         <?php if(!empty($erreur)) { ?>
-                                        <div class="isa_error">Utilisateur existe!</div>
+                                        <div class="isa_error">L'utilisateur existe !</div>
                                         <?php } ?>
 		    		</div>
 
 	    			<form class="form-horizontal" action="index.php?EX=creationAdmin" method="post">
 	    			<input type="hidden" name="ID" value="<?php echo $id;?>"/>
 					  <div class="control-group">
-					    <label class="control-label">Name</label>
+					    <label class="control-label"> Prénom</label>
 					    <div class="controls">
-					      	<input name="NAME" id="name" type="text" pattern="[^'\x22\;\.]+" placeholder="Name" value="" required>
+					      	<input name="NAME" id="name" type="text" pattern="[^'\x22\;\.]+" placeholder="Prénom" value="" required>
 					      	<span>(Alphabétique)</span>
 					    </div>
 					  </div>
                       <div class="control-group">
-					    <label class="control-label">SurName</label>
+					    <label class="control-label"> Nom</label>
 					    <div class="controls">
-					      	<input name="SURNAME" id="surname" type="text"  pattern="[^'\x22\;\.]+" placeholder="SurName" value="" required>
+					      	<input name="SURNAME" id="surname" type="text"  pattern="[^'\x22\;\.]+" placeholder="Nom" value="" required>
 
 					    </div>
 					  </div>

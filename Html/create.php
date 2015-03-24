@@ -29,7 +29,7 @@
         header("./index.php?EX=createUser&id=".$id);
     }
 ?>
-    <div class="container">
+    <div>
 
     			<div class="span10 offset1">
     				<div class="row">
@@ -50,15 +50,38 @@
 				            <label class="control-label">Pr&eacute;nom</label>
 				            <div class="controls">
 				                <input name="NAME" id="name" type="text"  placeholder="Prénom" pattern="[^'\x22\;\.]+" value="">
-
-				            </div>
+                            </div>
 				        </div>
 				        <div class="control-group">
 					    	<label class="control-label">Email</label>
 					    	<div class="controls">
-					      	<input name="MAIL" id="mail" type="text"  placeholder="EMAIL" value="">
-
-					    </div>
+					      	    <input name="MAIL" id="mail" type="text"  placeholder="EMAIL" value="">
+					        </div>
+						</div>
+						                <?php
+						if($_SESSION['ROLE']=='SADMIN'){
+							            ?>
+						        <div class="control-group">
+                                    <label class="control-label">Association</label>
+                                    </br>
+                                    <select class="controls" name="ASSOCIATION" type="text">';
+                                        <?php
+                                        foreach ($assocs as $asso) {
+                                            echo('<option value ='.$asso['ID'].'>'.$asso['NAME'].'</option>');
+                                        }
+                                        ?>
+                                    </select>
+		                        </div>
+						<div class="control-group">
+		            <label class="control-label">R&ocirc;le</label>
+		            </br>
+		            <select class="controls" name="ROLE" type="text">
+		                <option value ='MEMBRE' selected>Membre</option>
+		                <option value ='VALIDATOR'>Mod&eacute;rateur</option>
+		                <option value ='ADMIN'>Administrateur</option>
+		            </select>
+		        </div>
+						<?php } ?>
 				        <div class="form-actions">
 				        	</br></br>
 						  	<button type="submit" class="btn btn-success">Création</button>
