@@ -28,6 +28,8 @@ $sql2='SELECT TITLE FROM POST WHERE ID='.$_POST["idd"];
     $stmt->bindParam(':date',date('Y-m-d') ,PDO::PARAM_STR);
     $stmt->bindParam(':type', $val, PDO::PARAM_STR);
     $stmt->bindParam(':content', $content, PDO::PARAM_STR);
+    
+    $stmt->execute();
 
 
 
