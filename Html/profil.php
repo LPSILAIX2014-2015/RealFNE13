@@ -24,8 +24,16 @@
                 <label>Association</label>
 				<?= $GLOBALS['user']->getAssoName(); ?>
             </div>
-			<?PHP if ($GLOBALS['user']->getThemeDetails()) { ?><div>
-                <label>Thème</label>
+			<?PHP if ($GLOBALS['user']->getTheme()) { ?><div>
+                <label>Thème d'expertise</label>
+                <?= (new MTheme($GLOBALS['user']->getTheme()))->getName();?>
+            </div><?PHP } ?>
+            <?PHP if ($GLOBALS['user']->getThemeInterest()) { ?><div>
+                <label>Thème d'intérêt</label>
+                <?= (new MTheme($GLOBALS['user']->getThemeInterest()))->getName();?>
+            </div><?PHP } ?>
+            <?PHP if ($GLOBALS['user']->getThemeDetails()) { ?><div>
+                <label>Thème détails</label>
                 <?= $GLOBALS['user']->getThemeDetails();?>
             </div><?PHP } ?>
 			<div>
@@ -41,12 +49,12 @@
 				<?= $GLOBALS['user']->getProfession();?>
 			</div>
             <?PHP if ($GLOBALS['user']->getProfession2()) { ?><div>
-				<label>Profession 2</label>
+				<label>Profession secondaire</label>
 				<?= $GLOBALS['user']->getProfession2(); ?>
 			</div><?PHP } ?>
 			<?PHP if ($GLOBALS['user']->getPresentation()) { ?><div class="profilePresentation">
 				<label>Présentation</label>
-				<?PHP nl2br($GLOBALS['user']->getPresentation());?>
+				<?PHP echo nl2br($GLOBALS['user']->getPresentation());?>
 			</div><?PHP } ?>
     </div>
 				<div class="profileChangeImage" id="cmi" style="display: none;">
@@ -117,18 +125,18 @@
 							<div class="panel-body" align="center">
 								<div id="ch1" style="display: none;">
 									<br>
-									<form role="form" class="form-vertical" id="formprofil">
+									<form role="form" class="form-vertical" id="formprofil" action="Php/updateMember.php" method="post">
                                         <div class="control-group">
                                             <label class="control-label">Profession</label>
                                             <div class="controls">
-                                                <input name="profession" id="profession" type="text"  placeholder="Profession" value="<?= $GLOBALS['user']->getProfession(); ?>">
+                                                <input name="PROFESSION" id="profession" type="text"  placeholder="Profession" value="<?= $GLOBALS['user']->getProfession(); ?>">
 
                                             </div>
                                         </div>
                                         <div class="control-group">
                                             <label class="control-label">Présentation</label>
                                             <div class="controls">
-                                                <input name="presentation" id="presentation" type="text"  placeholder="Présentation" value="<?= $GLOBALS['user']->getPresentation(); ?>">
+                                                <input name="PRESENTATION" id="presentation" type="text"  placeholder="Présentation" value="<?= $GLOBALS['user']->getPresentation(); ?>">
 
                                             </div>
                                         </div>
@@ -136,16 +144,16 @@
 
                                             <label class="control-label">Deuxième profession</label>
                                             <div class="controls">
-                                                <input name="profession2" id="profession2" type="text"  placeholder="Deuxième profession" value="<?= $GLOBALS['user']->getProfession2(); ?>">
+                                                <input name="PROFESSION2" id="profession2" type="text"  placeholder="Deuxième profession" value="<?= $GLOBALS['user']->getProfession2(); ?>">
 
                                             </div>
                                         </div>
 
                                         <div class="control-group">
 
-                                            <label for="themes1" class="col-sm-2 control-label">Th&eacute;matique d'expertise</label>
+                                            <label for="themes1" class="control-label">Th&eacute;matique d'expertise</label>
                                             <div class="controls">
-                                                <select class="controls" name="THEME" type="text">
+                                                <select class="controls" name="THEME" type="text" id="themes1">
                                                     <?php
                                                     $theme1 = $GLOBALS['user']->getTheme();
                                                     foreach ($themes as $key => $theme) {
@@ -158,11 +166,22 @@
                                                 </select>
                                             </div>
                                         </div>
+
                                         <div class="control-group">
 
-                                            <label for="themes2" class="col-sm-2 control-label">Th&eacute;matique d'implication</label>
+                                            <label class="control-label">Thème détails</label>
                                             <div class="controls">
-                                                <select class="controls" name="THEME2" type="text">
+                                                <input name="THEMEDETAILS" id="themedetails" type="text"  placeholder="Thème détails" value="<?= $GLOBALS['user']->getThemeDetails(); ?>">
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="control-group">
+
+                                            <label for="themes2" class="control-label">Th&eacute;matique d'implication</label>
+                                            <div class="controls">
+                                                <select class="controls" name="THEME2" type="text" id="themes2">
                                                     <?php
                                                     $theme2 = $GLOBALS['user']->getThemeInterest();
                                                     foreach ($themes as $key => $theme) {
@@ -175,7 +194,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <input type="hidden" id="user_id" value="<?= $GLOBALS['user']->getId(); ?>">
+                                        <input type="hidden" id="user_id" name="ID" value="<?= $GLOBALS['user']->getId(); ?>">
 										<input type="submit" name="btnConf1" class="btn btn-info center-block">
 										<div id="chP1"></div><!-- id="error"--><br>
 									</form>

@@ -67,23 +67,23 @@
     				<div class="row">
 		    			<h2>Création d'un administrateur</h2>
                                         <?php if(!empty($erreur)) { ?>
-                                        <div class="isa_error">Utilisateur existe!</div>
+                                        <div class="isa_error">L'utilisateur existe !</div>
                                         <?php } ?>
 		    		</div>
 
 	    			<form class="form-horizontal" action="index.php?EX=creationAdmin" method="post">
 	    			<input type="hidden" name="ID" value="<?php echo $id;?>"/>
 					  <div class="control-group">
-					    <label class="control-label">Name</label>
+					    <label class="control-label"> Prénom</label>
 					    <div class="controls">
-					      	<input name="NAME" id="name" type="text" pattern="[^'\x22\;\.]+" placeholder="Name" value="" required>
+					      	<input name="NAME" id="name" type="text" pattern="[^'\x22\;\.]+" placeholder="Prénom" value="" required>
 					      	<span>(Alphabétique)</span>
 					    </div>
 					  </div>
                       <div class="control-group">
-					    <label class="control-label">SurName</label>
+					    <label class="control-label"> Nom</label>
 					    <div class="controls">
-					      	<input name="SURNAME" id="surname" type="text"  pattern="[^'\x22\;\.]+" placeholder="SurName" value="" required>
+					      	<input name="SURNAME" id="surname" type="text"  pattern="[^'\x22\;\.]+" placeholder="Nom" value="" required>
 
 					    </div>
 					  </div>
