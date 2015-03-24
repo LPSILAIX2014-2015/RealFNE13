@@ -11,7 +11,7 @@ class VInfoArticle
 	  global $connec;
   	global $article;
 
-
+/*
     // AFFICHAGE
     $id = $_GET['id'];
     $state = $connec->prepare(
@@ -24,7 +24,7 @@ class VInfoArticle
     $state->bindValue('id', $id, PDO::PARAM_INT);
     $state->execute();
     $article = $state->fetchAll(PDO::FETCH_ASSOC);
-
+*/
 
     // REMPLISSAGE DU CONTENU
 

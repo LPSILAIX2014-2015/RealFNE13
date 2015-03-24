@@ -153,7 +153,6 @@ function formCreateArticle()
 {
     $formCreateArticle = new MFormCreateArticle();
     $nextId = $formCreateArticle->insertDB($_POST);
-    var_dump($nextId);
     $jsonDecoded = json_decode($nextId,true);
     if($jsonDecoded["lastID"] == 0){  //S'il y a une erreur
         $url = 'Location: index.php?EX=createArticle&state='.$jsonDecoded["error"];

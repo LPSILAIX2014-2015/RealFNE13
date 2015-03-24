@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
+    fillShowArticlePage(0);
+
     //Foutre les valeurs par défauts des consultations d'articles
     //PROBLEMU
-    sortAssocArticle();
-    sortThemeArticle();
     sortValidArticle();
     //$('.lienarticle').hide();
 
@@ -16,103 +16,177 @@ $(document).ready(function() {
 		document.location.href = 'index.php?EX=showInfoArticle&id='+id;
 	});
 
-
-
     //When select value change, articles will be filter
-
 
     $('#filterVALID').on('change' , function(event) {
         sortValidArticle();
     });
 
     if('#filterASSOC option:selected') {
-        sortAssocArticle();
+        fillShowArticlePage(0);
     }
 
     $('#filterASSOC').on('change', function(event) {
-        sortAssocArticle();
+        fillShowArticlePage(0);
     });
 
     $('#filterTHEME').on('change', function(event) {
-        sortThemeArticle();
+        fillShowArticlePage(0);
     });
 
 
 });
 
-jQuery(function($) {
-    //Change this selector to apply the pagination
-    var items = $(".lienarticle");
-    //don't touch this value until you know what you do!
-    var numItems = items.length;
 
 
-    /////////////////////////////////////////////
-    //Set the number of item displayed par page//
-    /////////////////////////////////////////////
+function fillShowArticlePage(page){
 
-    var perPage = 15;
+    var url = "";
+    if (page != 0){
+        url = "?p=" + page;
+    }
 
+    var assocFilter = $('#filterASSOC option:selected').attr('value');
+    var themeFilter = $('#filterTHEME option:selected').attr('value');
 
-    items.slice(perPage).hide();
-    // now setup pagination
-    $("#pagination").pagination({
-        items: numItems,
-        itemsOnPage: perPage,
-        onPageClick: function(pageNumber) { // this is where the magic happens
-            // someone changed page, lets hide/show trs appropriately
-            var showFrom = perPage * (pageNumber - 1);
-            var showTo = showFrom + perPage;
-            items.hide() // first hide everything, then show for the new page
-            .slice(showFrom, showTo).show();
+    $.ajax({
+        type: "POST", //Sending method
+        url:"Ajax/showArticleHandler.php"+url,
+        data: {'role': "consultArticle", 'assoc': assocFilter, 'theme': themeFilter},
+        dataType: 'json',
+        success: function(response){
+
+            $('#divArticle').empty();
+            //On boucle sur news pour remplir la page
+            for(i in response.article){
+
+                if(response.article[i]['IMAGEPATH'] != null) {
+                    imgArticle = "<img src='" + response.article[i]['IMAGEPATH'] + "'"
+                               +     " class='img-responsive' />";
+                } else {
+                    imgArticle = "<img src='Img/logo.png'"
+                               +     " class='img-responsive transparence' />";
+                }
+
+                $('#divArticle').append(
+                      "<div id='article" + response.article[i]['ID'] + "'"
+                    +     " class='lienarticle'"
+                    +     " data-assoc='" + response.article[i]['ASSOC_ID'] + "'"
+                    +     " data-theme='" + response.article[i]['THEME_ID'] + "'>"
+                    +   "<div id='imgplace'>"
+                    +     imgArticle
+                    +   "</div>"
+
+                    +   "<div id='infoarticle'>"
+                    +     "<h2>" + response.article[i]['TITLE'] + "</h2>"
+                    +     "<p class='auteur'>"
+                    +        response.article[i]['NAME']
+                    +        " " + response.article[i]['SURNAME']
+                    +        ", le " + response.article[i]['PDATE']
+                    +     "</p>"
+                    +     "<p class='description'>"
+                    +        response.article[i]['CONTENT']
+                    +     "</p>"
+                    +   "</div>"
+                    + "</div>"
+                );
+
+            }
         }
+    }).done(function(response){
+        // On active la pagination
+        pagination(response.nbPage, response.page, 'fillShowArticlePage'); 
     });
-});
+};
 
-//Sort function for Category and theme
-function sortAssocArticle() {
-    var idAssoc;
-    if( $('#filterASSOC option:selected').attr('value') == 'undefined') idAssoc =0;
-    else  idAssoc = $('#filterASSOC option:selected').attr('value');
 
-    $('.lienarticle').hide();
-    if(idAssoc == "0")
-    {
-        $('.lienarticle').show();
+// Pagination
+function pagination(nbPage, page, method){
+    endPagin2 = nbPage - 4;
+    endPagin1 = nbPage - 3;
+
+    var previousPage = parseInt(page - 1);
+    var nextPage = parseInt(page) + 1;
+
+    $('#pagination').empty();
+    $('#pagination').append('<li id="previousArrow" onclick="'+method+'('+ previousPage +')">'+
+                                '<a href="#" aria-label="Previous">'+
+                                    '<span aria-hidden="true">&laquo;</span>'+
+                                '</a>'+
+                            '</li>');
+
+    if (previousPage == 0){
+        $('#previousArrow').attr('class', 'disabled');
+        $('#previousArrow').removeAttr('onclick');
     }
-    else
-    {
-        for(var i = 0 ; i < $('.lienarticle').length ; ++i)
-        {
-            if(idAssoc == $('.lienarticle').get(i).getAttribute('data-assoc'))
-            {
-                $('.lienarticle')[i].style.display = "";
+    
+    //Si le nombre de page est limité, 12 pages reste très correct, on affiche simplement la pagination
+    if(nbPage <= 12){
+        for (var i = 1; i <= nbPage; i++) {
+            $('#pagination').append('<li id="page'+i+'"><a href="#" onclick="'+method+'('+i+')">'+i+'</a></li>');
+            if (i == page) {
+                $('#page'+i).attr('class', 'active');
             }
         }
-    }
-}
+    //Sinon on coupe la pagination au milieu et on fait une navigation dynamique.
+    } else{
 
-function sortThemeArticle() {
-
-    var idTheme;
-    if( $('#filterTHEME option:selected').attr('value') == 'undefined') idTheme =0;
-                    else  idTheme = $('#filterTHEME option:selected').attr('value');
-    $('.lienarticle').hide();
-    if(idTheme == "0")
-    {
-        $('.lienarticle').show();
-    }
-    else
-    {
-        for(var i = 0 ; i < $('.lienarticle').length ; ++i)
-        {
-            if(idTheme == $('.lienarticle').get(i).getAttribute('data-theme'))
-            {
-                $('.lienarticle')[i].style.display = "";
+        //On affiche les 3 premiers liens normalement
+        for (var i = 1; i < 4; i++) {
+            $('#pagination').append('<li id="page'+i+'"><a href="#" onclick="'+method+'('+i+')">'+i+'</a></li>');
+            if (i == page) {
+                $('#page'+i).attr('class', 'active');
             }
         }
+
+        //Si la page active est soit dans les 3 premiers, soit dans les 3 derniers, on coupe au milieu et on affiche '...'
+        if(page < 3 || page > (nbPage-2)){
+            $('#pagination').append('<li class="disabled"><a href="#">...</a></li>');
+
+        } else if(page == 3){
+            $('#pagination').append('<li id="page'+4+'"><a href="#" onclick="'+method+'('+4+')">'+4+'</a></li>');
+            $('#pagination').append('<li class="disabled"><a href="#">...</a></li>');
+        } else if(page == 4){
+            $('#pagination').append('<li id="page'+4+'"><a href="#" onclick="'+method+'('+4+')">'+4+'</a></li>');
+            $('#pagination').append('<li id="page'+5+'"><a href="#" onclick="'+method+'('+5+')">'+5+'</a></li>');
+            $('#pagination').append('<li class="disabled"><a href="#">...</a></li>');
+            $('#page'+page).attr('class', 'active');
+        } else if(page > 4 && page < nbPage - 3){
+            $('#pagination').append('<li class="disabled"><a href="#">...</a></li>');
+            $('#pagination').append('<li id="page'+previousPage+'"><a href="#" onclick="'+method+'('+previousPage+')">'+previousPage+'</a></li>');
+            $('#pagination').append('<li id="page'+page+'"><a href="#" onclick="'+method+'('+page+')">'+page+'</a></li>');
+            $('#pagination').append('<li id="page'+nextPage+'"><a href="#" onclick="'+method+'('+nextPage+')">'+nextPage+'</a></li>');
+            $('#pagination').append('<li class="disabled"><a href="#">...</a></li>');
+            $('#page'+page).attr('class', 'active');
+        } else if(page == nbPage - 3){
+            $('#pagination').append('<li class="disabled"><a href="#">...</a></li>');
+            $('#pagination').append('<li id="page'+endPagin2+'"><a href="#" onclick="'+method+'('+endPagin2+')">'+endPagin2+'</a></li>');
+            $('#pagination').append('<li id="page'+endPagin1+'"><a href="#" onclick="'+method+'('+endPagin1+')">'+endPagin1+'</a></li>');
+            $('#page'+page).attr('class', 'active');
+        } else if(page == nbPage - 2){
+            $('#pagination').append('<li class="disabled"><a href="#">...</a></li>');
+            $('#pagination').append('<li id="page'+endPagin1+'"><a href="#" onclick="'+method+'('+endPagin1+')">'+endPagin1+'</a></li>');
+        }
+
+        for (var i = nbPage - 2; i <= nbPage; ++i) {
+                $('#pagination').append('<li id="page'+i+'"><a href="#" onclick="'+method+'('+i+')">'+i+'</a></li>');
+                if (i == page) {
+                    $('#page'+i).attr('class', 'active');
+                }
+            }
     }
-}
+
+    $('#pagination').append('<li id="nextArrow" onclick="'+method+'('+nextPage+')">'+
+                                '<a href="#" aria-label="Next">'+
+                                    '<span aria-hidden="true">&raquo;</span>'+
+                                '</a>'+
+                            '</li>');
+
+    if (nextPage > nbPage){
+        $('#nextArrow').attr('class', 'disabled');
+        $('#nextArrow').removeAttr('onclick');
+    }       
+};
 
 function sortValidArticle() {
     var idValid;
