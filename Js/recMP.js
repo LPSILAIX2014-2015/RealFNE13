@@ -122,7 +122,9 @@ $(document).ready(function(){ // Fonction pour valider le deuxième formulaire (
             profession:{required:true},
             profession2:{required:true},
             presentation:{required:true},
-            theme:{required:true}
+            theme:{required:true},
+            themedetails:{required:true},
+            theme2:{required:true}
         },
         highlight: function(element) {
             $(element).closest('.control-group').removeClass('success').addClass('error');
@@ -131,7 +133,7 @@ $(document).ready(function(){ // Fonction pour valider le deuxième formulaire (
             element.text('OK!').addClass('valid').closest('.control-group').removeClass('error').addClass('success');
         },
         submitHandler: function(form){
-            var dataString = 'profession='+$('#profession').val()+'&profession2='+$('#profession2').val()+'&presentation='+$('#presentation').val()+'&theme='+$('#theme').val()+'&id='+$('#user_id').val();
+            var dataString = 'profession='+$('#profession').val()+'&profession2='+$('#profession2').val()+'&presentation='+$('#presentation').val()+'&theme='+$('#themes1').val()+'&themedetails='+$('#themedetails').val()+'&theme2='+$('#themes2').val()+'&id='+$('#user_id').val();
             $.ajax({
                 type: "POST", // Mèthode AJAX pour envoyer les données
                 url:"Php/updateMember.php",
