@@ -4,6 +4,7 @@
 		$id = $_REQUEST['id'];
 	}
 	if ( !empty($_POST)) {
+		$user= new MUser($_SESSION['ID_USER']);
         $name = $_POST['NAME'];
         $surname = $_POST['SURNAME'];
         $theme = $_POST['THEME'];
@@ -17,6 +18,11 @@
 
         // update data
         $pdo = new MDBase();
+				$msg = $user->getName().' '.$user->getSurname().' a modifié l\'utilisateur: '.$name.' '.$surname.'.';
+				$query = 'INSERT INTO REPORT VALUES (NULL, CURDATE(), "PROFIL", "'.$msg.'");';
+				$state = $pdo->prepare($query);
+				$state->execute();
+
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "UPDATE USER  set NAME = ?, SURNAME = ?, CP = ?, PROFESSION =?, PROFESSION2 = ?, THEME_ID = ?, THEME_INTEREST_ID = ?, THEME_DETAILS = ?, PRESENTATION = ? WHERE ID = ?";
         $q = $pdo->prepare($sql);

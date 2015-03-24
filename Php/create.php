@@ -22,6 +22,11 @@
 			$q = $pdo->prepare($sql);
 			$q->execute(array($name, $surname, $email,$assoc,$role));
 
+
+											$msg = $user->getName().' '.$user->getSurname().' a crée le nouvel utilisateur: '.$name.' '.$surname.'.';
+											$query = 'INSERT INTO REPORT VALUES (NULL, CURDATE(), "PROFIL", "'.$msg.'");';
+											$state = $pdo->prepare($query);
+											$state->execute();
                 $headers = "From: webmaster@domain.com \r\n";
                 $headers .= "MIME-Version: 1.0\r\n";
                 $headers .= "Content-type: text/html\r\n";
