@@ -26,11 +26,11 @@
             </div>
 			<?PHP if ($GLOBALS['user']->getTheme()) { ?><div>
                 <label>Thème d'expertise</label>
-                <?= $GLOBALS['user']->getTheme();?>
+                <?= (new MTheme($GLOBALS['user']->getTheme()))->getName();?>
             </div><?PHP } ?>
             <?PHP if ($GLOBALS['user']->getThemeInterest()) { ?><div>
                 <label>Thème d'intérêt</label>
-                <?= $GLOBALS['user']->getThemeInterest();?>
+                <?= (new MTheme($GLOBALS['user']->getThemeInterest()))->getName();?>
             </div><?PHP } ?>
             <?PHP if ($GLOBALS['user']->getThemeDetails()) { ?><div>
                 <label>Thème détails</label>
@@ -119,13 +119,13 @@
     </div>
 
 	<br>
-	    <div class="profileModif">
+	    <div class="profileChangepass">
                             <a href="#" onclick="view('ch1')" id="btn_changer1"><h3 class="panel-title">Modification de profil</h3></a>
 
 							<div class="panel-body" align="center">
 								<div id="ch1" style="display: none;">
 									<br>
-									<form role="form" class="form-vertical" id="formprofil">
+									<form role="form" class="form-vertical" id="formprofil" action="Php/updateMember.php">
                                         <div class="control-group">
                                             <label class="control-label">Profession</label>
                                             <div class="controls">
