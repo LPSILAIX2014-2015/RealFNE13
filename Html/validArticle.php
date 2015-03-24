@@ -3,7 +3,12 @@
 $db=new MDBase();
 
 //Préparation des requêtes SQL
-$fil = 0;
+if(isset($_GET['FILTER'])) {
+    $fil=$_GET['FILTER'];
+}
+else{
+    $fil=0;
+}
 
 if (( (isset($_SESSION)) && ($_SESSION['ROLE'] == 'SADMIN')) )
 {
@@ -223,8 +228,15 @@ if($nombreDePages < 10) {
 
     else //Sinon...
     {
-    echo ' <li>
-     <a href="index.php?EX=validArticle&page='.$i.'">'.$i.'</a> </li>';
+    echo '
+ <a href="index.php?EX=validArticle&page='.$i.'?FILTER='.$fil.'">
+
+ <li>
+
+ '.$i.'
+     </li>
+        </a>';
+
 
 
     }
@@ -243,7 +255,14 @@ else {
 
         else //Sinon...
         {
-            echo '<li> <a href="index.php?EX=validArticle&page='.$i.'">'.$i.'</a> </li>';
+            echo '
+ <a href="index.php?EX=validArticle&page='.$i.'?FILTER='.$fil.'">
+
+ <li>
+
+ '.$i.'
+     </li>
+        </a>';
         }
 
     }
@@ -259,14 +278,21 @@ echo '...';
 
         else //Sinon...
         {
-            echo ' <li><a  href="index.php?EX=validArticle&page='.$i.'">'.$i.'</a> </li>';
+            echo '
+ <a href="index.php?EX=validArticle&page='.$i.'?FILTER='.$fil.'">
+
+ <li>
+
+ '.$i.'
+     </li>
+        </a>';
         }
 
     }
 }
 ?>
 </ul>
-<script type="text/javascript" src="Js/validArticle.js"></script>
+<script type="text/javascript" src="Js/showInfoArticle.js"></script>
 <script type="text/javascript" src="Js/jqueryValidationArticle.js"></script>
 
 <?php }
@@ -377,7 +403,7 @@ else{
 
 </div>
 
-<script type="text/javascript" src="Js/validArticle.js"></script>
+<script type="text/javascript" src="Js/showInfoArticle.js"></script>
 <script type="text/javascript" src="Js/jqueryValidationArticle.js"></script>
 
 

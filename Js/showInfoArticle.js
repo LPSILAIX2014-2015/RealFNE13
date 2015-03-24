@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
-
+    $("#filterVALID").on('change', function () {
+        location.href = './index.php?EX=validArticle&FILTER=' + $("#filterVALID").val();
+    });
 
     //Foutre les valeurs par défauts des consultations d'articles
     //PROBLEMU
