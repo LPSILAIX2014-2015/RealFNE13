@@ -77,7 +77,7 @@
 		            </br>
 		            <select class="controls" name="ROLE" type="text">
 		                <option value ='MEMBRE' selected>Membre</option>
-		                <option value ='VALIDATOR'>Mod&eacute;rateur</option>
+		                <option value ='VALIDATOR'>Validateur</option>
 		                <option value ='ADMIN'>Administrateur</option>
 		            </select>
 		        </div>
