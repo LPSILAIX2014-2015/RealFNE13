@@ -2,10 +2,11 @@
 /* Recherche */
 .page{
     display:block;
-    position:absolute;
-    padding:10px 10px 30px 10px;
-    margin:0 0 40px -280px;
+    position:relative;
+    padding:10px 10px 40px 40px;
+    margin:0 0 180px -280px;
     left:50%;
+    width: 562px;
 }
 .list-group {
     padding-left: 0;
@@ -151,15 +152,16 @@ table {
     width: 30px;
     text-align: center;
 }
-<<<<<<< HEAD
 .table {
-    width:95%;
+    width:100%;
+    margin-top: 10px;
 }
-=======
+.row{
+  margin: 0 auto;
+}
 #tableManageMembers {
     margin-top: 20px;
     width: auto;
 }
 
 /* End recherche */
->>>>>>> 3c3b0428f7d878db60240123498212d4accd31d3
