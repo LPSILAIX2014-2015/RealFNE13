@@ -25,8 +25,9 @@
                 $headers = "From: webmaster@domain.com \r\n";
                 $headers .= "MIME-Version: 1.0\r\n";
                 $headers .= "Content-type: text/html\r\n";
-                $message = 'http://dev.laplateformeFNE13.fr/index.php?EX=updateMail&email='.$email;
-                $subject = 'compléter votre profil';
+                $message = '<pre>Un compte a été crée pour vous sur la plateforme d\'échange de FNE13.
+								Pour finaliser votre inscription, veuillez cliquer sur le lien suivant: <a href="http://dev.laplateformeFNE13.fr/index.php?EX=updateMail&email='.$email.'">Compléter votre profil</a></pre>';
+                $subject = 'Création de votre profil';
                  mail ($email,$subject,$message,$headers);
 
             header("Location: ./index.php?EX=manageMembers");
