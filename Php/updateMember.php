@@ -1,8 +1,8 @@
 <?php
 require_once('../Model/MDBase.mod.php');
 $id = null;
-if ( !empty($_GET['id'])) {
-    $id = $_REQUEST['id'];
+if ( !empty($_POST['ID'])) {
+    $id = $_POST['ID'];
 }
 if ( !empty($_POST)) {
     $profession = $_POST['PROFESSION'];

@@ -125,7 +125,7 @@
 							<div class="panel-body" align="center">
 								<div id="ch1" style="display: none;">
 									<br>
-									<form role="form" class="form-vertical" id="formprofil" action="Php/updateMember.php">
+									<form role="form" class="form-vertical" id="formprofil" action="Php/updateMember.php" method="post">
                                         <div class="control-group">
                                             <label class="control-label">Profession</label>
                                             <div class="controls">
