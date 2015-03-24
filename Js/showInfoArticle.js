@@ -1,32 +1,21 @@
 $(document).ready(function() {
 
-<<<<<<< HEAD
-    fillShowArticlePage(0);
-
     //Foutre les valeurs par défauts des consultations d'articles
     //PROBLEMU
-    sortValidArticle();
-=======
+    //sortValidArticle();
+    fillShowArticlePage(0);
+
     $("#filterVALID").on('change', function () {
         location.href = './index.php?EX=validArticle&FILTER=' + $("#filterVALID").val();
     });
 
-    //Foutre les valeurs par défauts des consultations d'articles
-    //PROBLEMU
-  //  sortAssocArticle();
-   // sortThemeArticle();
-  //sortValidArticle();
->>>>>>> 60abd7d9ee09b6110e2b44c610e4426c85a841a4
-    //$('.lienarticle').hide();
+    //When an article is clicked, redirect to showArticle
+    $('.lienarticle').on('click', function() {
 
-
-	//When an article is clicked, redirect to showArticle
-	$('.lienarticle').on('click', function() {
-
-		var id = $(this).attr('id');
-		id = id.replace(/article/, '');
-		document.location.href = 'index.php?EX=showInfoArticle&id='+id;
-	});
+        var id = $(this).attr('id');
+        id = id.replace(/article/, '');
+        document.location.href = 'index.php?EX=showInfoArticle&id='+id;
+    });
 
     //When select value change, articles will be filter
 
@@ -187,7 +176,6 @@ function pagination(nbPage, page, method){
                 }
             }
     }
-<<<<<<< HEAD
 
     $('#pagination').append('<li id="nextArrow" onclick="'+method+'('+nextPage+')">'+
                                 '<a href="#" aria-label="Next">'+
@@ -202,7 +190,6 @@ function pagination(nbPage, page, method){
 };
 
 /*
->>>>>>> 60abd7d9ee09b6110e2b44c610e4426c85a841a4
 function sortValidArticle() {
     var idValid;
     if( $('#filterVALID option:selected').attr('value') == 'undefined') idValid =0;
