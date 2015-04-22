@@ -76,7 +76,9 @@ $(document).ready(function() {
         var divName = "#suggestions_terr";
         var fieldSearch = "terr";
         if ($(this).is(":checked")) {
-            $('#searh_terr').html(' <input id="s_terr" class="form-control" type="text" placeholder="Territoire" value=""/><div id="suggestions_terr"></div>');
+
+            //<input id="s_terr" class="form-control" type="text" placeholder="Territoire" value=""/><div id="suggestions_terr"></div>
+            $('#searh_terr').html('<select class="form-control" name="territoire_mod" id="territoire_get"></select>');
             $('#all_mem').attr('checked', false);
             $('.modif').html('');
             focusInputs(idInputName, divName);
@@ -86,7 +88,9 @@ $(document).ready(function() {
         }
         $('#searh_terr').val("");
         $('#searh_terr').trigger('change');
-        getNames(idInputName, divName, fieldSearch);
+        //getNames(idInputName, divName, fieldSearch);
+        var value = 'territoire_get';
+        allTerritoires(value);
     });
     $("#prof").click(function () {
         cleanDivs();
@@ -206,12 +210,8 @@ $(document).ready(function() {
                 else email = $('#s_email').val();
             }
             if ($.inArray('terr', selected) > -1) {
-                if($('#s_terr').val() == '')
-                {
-                    alert('Vous devez écrire le territoire');
-                    return false;
-                }
-                else terr = $('#s_terr').val();
+                alert($('#territoire_get option:selected').val());
+                terr = $('#territoire_get option:selected').val();
             }
             if ($.inArray('prof', selected) > -1) {
                 if($('#s_prof').val() == '')
@@ -321,7 +321,16 @@ $(document).ready(function() {
         });
 
     }
+    function allTerritoires(value) {
+        var associations = "";
+        $.getJSON("Php/search3.php", function (data) {
+            $.each(data, function (index, item) {
+                associations += "<option value='" + item.ID + "'>" + item.TERR_NAME + "</option>";
+            });
+                $('#territoire_get').html(associations);
+        });
 
+    }
 
 
     /**

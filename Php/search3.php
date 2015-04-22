@@ -10,7 +10,23 @@ include('paginationRechercheMembre.php');
 $pdo = new MDBase();
 $pdo->exec("set names utf8");
 
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $sql = "SELECT DISTINCT TERRITORY.ID, TERRITORY.NAME as TERR_NAME
+                FROM TERRITORY";
+    $q = $pdo->prepare($sql);
+    $q->execute();
 
+    $rows = $q->fetchAll(PDO::FETCH_ASSOC);
+    if($rows)
+    {
+        echo json_encode($rows);
+    }
+    else
+    {
+        echo json_encode("Pas de communes");
+    }
+
+}
 //To show the profil
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['searchInputs']))
@@ -40,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $params[] = $_POST['email'];
         }
         if ($_POST['terr']) {
-            $conditions[] = "TERRITORY.NAME LIKE '%" . $_POST['terr'] ."%'" ;
+            $conditions[] = "TERRITORY.ID LIKE '%" . $_POST['terr'] ."%'" ;
             $params[] = $_POST['terr'];
         }
         if ($_POST['prof']) {
@@ -77,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($rows) {
             foreach ($rows as $row) {
                 if(!$row['t_interest']){
-                    $row['t_interest']="<b class='red'>Pas de theme d'interest</b>";
+                    $row['t_interest']="<b class='red'>Pas de thème d'intérêt</b>";
                 }
                 $data.= '<tr>
                         <td>' . $row['U_NAME'] .' '. $row['SURNAME'] . '</td>
@@ -90,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
             $dataPagination = paginate($pageActual, $numberPages);
         } else {
-            $data.= "<tr><td colspan='7' class='cent'><b class='red'>Pas de resultats</b></td></tr>";
+            $data.= "<tr><td colspan='7' class='cent'><b class='red'>Pas de résultats</b></td></tr>";
             $dataPagination = "";
         }
 
@@ -122,22 +138,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($rows) {
             foreach ($rows as $row) {
                 if(!$row['theme_name1']){
-                    $row['theme_name1']="<b class='red'>Pas de theme d'interest</b>";
+                    $row['theme_name1']="<b class='red'>Pas de thème d'intérêt</b>";
                 }
                 if(!$row['theme_name2']){
-                    $row['theme_name2']="<b class='red'>Pas de theme d'interest</b>";
+                    $row['theme_name2']="<b class='red'>Pas de thème d'intérêt</b>";
                 }
 
                 echo ' <span class="button b-close"><span>X</span></span><p><h3>Profil de ' . $row['user_name'] . '</h3></p><table class="table table-striped t-profil">
-                    <tr><th>Prenom:</th><td>' . $row['user_name'] . '</td><td rowspan="5" class="image-profil-background"><img src="' . $row['PHOTOPATH'] . '" width="150px"></td></tr>
+                    <tr><th>Prénom:</th><td>' . $row['user_name'] . '</td><td rowspan="5" class="image-profil-background"><img src="' . $row['PHOTOPATH'] . '" width="150px"></td></tr>
                     <tr><th>Nom: </th><td>' . $row['SURNAME'] . '</td></tr>
-                    <tr><th>CP</th><td>' . $row['CP'] . '</td></tr>
+                    <tr><th>Code Postal</th><td>' . $row['CP'] . '</td></tr>
                     <tr><th>Profession:</th><td>' . $row['PROFESSION'] . '</td></tr>
-                    <tr><th>Role:</th><td>' . $row['ROLE'] . '</td></tr>
+                    <tr><th>Rôle:</th><td>' . $row['ROLE'] . '</td></tr>
                     <tr><th>Association:</th><td colspan="2">' . $row['asso_name'] . '</td></tr>
-                    <tr><th>Theme interest principalle:</th><td colspan="2">' . $row['theme_name1'] . '</td></tr>
-                    <tr><th>Theme interest secondaire:</th><td colspan="2">' . $row['theme_name2'] . '</td></tr>
-                    <tr><th>Presentation:</th><td colspan="2">' . $row['PRESENTATION'] . '</td></tr>
+                    <tr><th>Thème d\'intérêt principale: </th><td colspan="2">' . $row['theme_name1'] . '</td></tr>
+                    <tr><th>Thème d\'intérêt secondaire:</th><td colspan="2">' . $row['theme_name2'] . '</td></tr>
+                    <tr><th>Présentation:</th><td colspan="2">' . $row['PRESENTATION'] . '</td></tr>
                 </table>';
             }
         } else {

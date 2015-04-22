@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $numberPages = '';
     $numberRegistries = '';
-    $resultsParPage = 7; //# of results for page
+    $resultsParPage = 10; //# of results for page
 
     if (isset($_POST['asso'])) {
         //Pagination variables
@@ -165,7 +165,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($rows) {
             foreach ($rows as $row) {
                 if(!$row['th_name']){
-                    $row['th_name']="<b class='red'>Pas de theme d'interest</b>";
+                    $row['th_name']="<b class='red'>Pas de thème d'intérêt</b>";
                 }
                 $data.=  '<tr>
                             <td>' . $row['user_name'] .' '. $row['SURNAME'] . '</td>
@@ -178,7 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
         else {
-            $data.= "<tr><td colspan='7' class='cent'><b class='red'>Pas de resultats</b></td></tr>";
+            $data.= "<tr><td colspan='7' class='cent'><b class='red'>Pas de résultats</b></td></tr>";
         }
         $dataPagination = paginate($pageActual, $numberPages);
         $miarray = array('resultado' => $data, 'pag'=> $dataPagination );
@@ -219,7 +219,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             foreach ($rows as $row) {
                 if(!$row['theme_name'])
                 {
-                    $row['theme_name']= "<b class='red'>Pas de theme d'interest</b>";
+                    $row['theme_name']= "<b class='red'>Pas de thème d'intérêt</b>";
                 }
                 $data.= '<tr>
                             <td>' . $row['user_name'] . ' ' . $row['SURNAME'] . '</td>
@@ -233,13 +233,105 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $dataPagination = paginate($pageActual, $numberPages);
         }
         else {
-            $data.= "<tr><td colspan='7' class='cent'><b class='red'>Pas de resultats</b></td></tr>";
+            $data.= "<tr><td colspan='7' class='cent'><b class='red'>Pas de résultats</b></td></tr>";
             $dataPagination = "";
         }
 
 
         $miarray = array('resultado' => str_replace(PHP_EOL, '', $data), 'pag'=> $dataPagination );
         echo json_encode($miarray);
+    }
+    if (isset($_POST['allGestion'])) {
+        //Pagination variables
+        $pageActual = $_POST['page'];
+        //End pagination variables
+        $firstRegistry = ($pageActual - 1) * $resultsParPage;
+
+        $pdo = new MDBase();
+        $pdo->exec("set names utf8");
+        $sql = "SELECT USER.ID AS user_id, USER.LOGIN, USER.NAME AS user_name, USER.SURNAME, THEME.NAME AS theme_name,
+                  TERRITORY.NAME AS t_name, USER.MAIL, THEME.NAME AS th_name, USER.ADRESS , USER.CP,
+                  USER.PROFESSION, ASSOCIATION.NAME AS asso_name, USER.PHOTOPATH
+                FROM USER
+                INNER JOIN ASSOCIATION  ON USER.ASSOCIATION_ID = ASSOCIATION.ID
+                INNER JOIN TERRITORY ON ASSOCIATION.TERRITORY_ID = TERRITORY.ID
+                LEFT JOIN THEME ON USER.THEME_ID = THEME.ID
+               WHERE (USER.LOGIN IS NULL OR  USER.LOGIN!='')
+                ORDER BY asso_name ASC LIMIT $firstRegistry, $resultsParPage";
+
+        $sql0 ="SELECT count(*) FROM USER WHERE (USER.LOGIN IS NULL OR  USER.LOGIN!='')";
+        $prep0 = $pdo->prepare($sql0);
+        $prep0->execute();
+        $rNMB = $prep0->fetchColumn();
+
+        $prep = $pdo->prepare($sql);
+        $prep->execute();
+        $rows = $prep->fetchAll(PDO::FETCH_ASSOC);
+
+        $numberRegistries = count($rows);
+        $numberPages =ceil($rNMB / $resultsParPage);
+        $data = '';
+        if ($rows) {
+            foreach ($rows as $row) {
+                if(!$row['theme_name'])
+                {
+                    $row['theme_name']= "<b class='red'>Pas de thème d'intérêt</b>";
+                }
+                $data.= "<tr>
+                            <td>". $row['user_name'].' '. $row['SURNAME']. "</td>
+                            <td>". $row['asso_name'] ."</td>
+                            <td>". $row['t_name'] ."</td>
+                            <td><a href='#' data= " . $row['user_id'] ." class='afficher btn btn-sm btn-table' role='button'>Voir</a></td>
+                            <td><a href='index.php?EX=writeMessages&dest=".$row['LOGIN']."' data='".$row['LOGIN']."' class='btn btn-sm btn-table' role='button'>Edit &raquo;</a></td>
+                            <td><input class='checkbox-supp' name='supprimer' type='checkbox' value='".$row['user_id']."'></td></tr>
+                            ";
+            }
+            $data.="<tr><td colspan='4'><a href='#' id='dropSelection' class='drop btn btn-sm btn-table' role='button'>Supprimer sélectionnées</a></td>
+                    <td colspan='6'>Check all<input class='checkbox-all' name='supprimer' type='checkbox' value='".$row['user_id']."'></td></tr>";
+            $dataPagination = paginate($pageActual, $numberPages);
+        }
+        else {
+            $data.= "<tr><td colspan='7' class='cent'><b class='red'>Pas de résultats</b></td></tr>";
+            $dataPagination = "";
+        }
+
+
+        $miarray = array('resultado' => str_replace(PHP_EOL, '', $data), 'pag'=> $dataPagination );
+        echo json_encode($miarray);
+    }
+    if (isset($_POST['numberUsers'])){
+        session_start();
+        $idUserLogin = $_SESSION['ID_USER'];
+        $userLogin = new MUser($idUserLogin);
+        $fullName = $userLogin->getName().' '.$userLogin->getSurname();
+        $idsToDelete = $_POST['idToDelete'];
+        $pdo = new MDBase();
+        $pdo->exec("set names utf8");
+        $sql0 = "DELETE FROM USER WHERE ID = ?";
+        $sql1 = "UPDATE POST SET WRITER_ID = 0 WHERE WRITER_ID = ?";
+        $msg = "";
+        $data = '';
+        foreach($idsToDelete as $id)
+        {
+            if($id)
+            {
+                //$user = new MUser($id);
+                $params = array($id);
+                $prep = $pdo->prepare($sql1);
+                $prep->execute($params);
+                $prep = $pdo->prepare($sql);
+                $prep->execute($params);
+                //$data .= $user->getName();
+            }
+        }
+        if($_POST['numberUsers'] == "all"){
+            $msg = "Tous les membres sélectionnés ont été supprimées";
+        }
+        elseif($_POST['numberUsers'] == "one"){
+            $msg = "Le membre a été suprimée";
+        }
+
+        echo json_encode(['success'=>true, 'data'=>$fullName]);
     }
 }
 
