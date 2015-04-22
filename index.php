@@ -245,7 +245,7 @@ function deleteAMember()
     $page['arg'] = 'Php/delete.php';
 }
 
-    function recuperation() // Presentation du formilaire principal pour envoyer le mail
+    function recuperation() // Presentation du formulaire principal pour envoyer le mail
 
     {
         global $page, $user;
@@ -315,23 +315,16 @@ function deleteAMember()
         if (!isset($user)) { // Validation pour l'envoi du mail
             echo "<script>location.href='index.php';</script>";
         } else {
-            //  Nous vérifions la requete AJAX
-            if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
-            {
-                $file = $_FILES['sel_img']['name']; // Nous obtenons le name du fichier
-                if(!is_dir("Photos/")){ // Si le dossier n'existe pas, nous créons le dossier
-                    mkdir("Photos/", 0777);
-                }
-                if ($file && move_uploaded_file($_FILES['sel_img']['tmp_name'],"Photos/".$file)) // Verification de téléchargement correcte
-                {
-                   sleep(3);//retrasamos la petición 3 segundos
-                   unlink($GLOBALS['user']->getPhotopath());
-                   $dbchI = new MUser($GLOBALS['user']->getId());
-                   $dbchI->setPhotopath("Photos/".$file);
-                }
-            }else{
-                throw new Exception("Error Processing Request", 1);
+            if(!is_dir("Photos/")){ // Si le dossier n'existe pas, nous créons le dossier
+                mkdir("Photos/", 0777);
             }
+            $image_new = resizeImage($_FILES['sel_img']['tmp_name']); // On redimensionne l'image à 300px / 300px
+            $file = 'Photos/'.$_FILES['sel_img']['name'];
+            imagepng($image_new, $file, 0); // On ajoute l'image dans le serveur (N'oubliez pas d'attribuer des droits d'écriture dans le dossier "Photos")
+            usleep(1500000); // Retarde l'exécution 1.5s 
+            unlink($GLOBALS['user']->getPhotopath()); // On efface l'image de profil antérieure
+            $dbchI = new MUser($GLOBALS['user']->getId());
+            $dbchI->setPhotopath($file);
         }
     }
 
